@@ -1274,6 +1274,12 @@ følger «korteste sanne dekning er én dag»-regelen fra <code dir="auto">platf
 innsettings-bare rader, nyeste per nøkkel): i dag ikonstilen i
 portalmenyen, <strong>låst globalt</strong> av systemadmin og servert alle via det
 åpne <code dir="auto">/portal-config</code>. Verdien valideres mot stilene portalen kan.</li>
+<li><code dir="auto">GET /platform/plans</code>, <code dir="auto">PUT /platform/plans/{slug}</code>,
+<code dir="auto">POST /platform/plans/{slug}/prices</code> — pakker, tilleggstjenester og
+priser (migrasjon 0093, docs/abonnement.md §7). Støtte leser, <strong>bare
+systemadmin endrer</strong>; en pris kan aldri datert bakover og aldri
+redigeres, bare erstattes av en ny rad. Det åpne <code dir="auto">GET /pricing</code>
+serverer det som er listet.</li>
 </ul>
 <p>Identitetsdata (navn/e-post) eies av IdP-en og speiles hit ved
 innlogging — regnmed redigerer dem aldri (neste innlogging ville
