@@ -1,0 +1,1154 @@
+<!DOCTYPE html><html lang="nb" dir="ltr" data-theme="dark" data-has-toc data-has-sidebar data-astro-cid-g5ptsecz><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Lønn — første del | regnmed docs</title><link rel="canonical" href="https://docs.regnmed.no/teknisk/lonn/"/><link rel="alternate" hreflang="nb" href="https://docs.regnmed.no/teknisk/lonn/"/><link rel="alternate" hreflang="en" href="https://docs.regnmed.no/en/teknisk/lonn/"/><link rel="alternate" hreflang="x-default" href="https://docs.regnmed.no/teknisk/lonn/"/><link rel="sitemap" href="/sitemap-index.xml"/><link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml"/><meta name="generator" content="Astro v7.4.13"/><meta name="generator" content="Starlight v0.43.1"/><meta property="og:title" content="Lønn — første del"/><meta property="og:type" content="article"/><meta property="og:url" content="https://docs.regnmed.no/teknisk/lonn/"/><meta property="og:locale" content="nb"/><meta property="og:description" content="Brukerveiledning, utviklerdokumentasjon og teknisk dokumentasjon for regnmed, regnskapssystemet du kan etterprøve."/><meta property="og:site_name" content="regnmed docs"/><meta name="twitter:card" content="summary_large_image"/><meta name="description" content="Brukerveiledning, utviklerdokumentasjon og teknisk dokumentasjon for regnmed, regnskapssystemet du kan etterprøve."/><script>
+	(() => {
+		const storedTheme =
+			typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme');
+		const theme =
+			storedTheme ||
+			(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+		document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+	})();
+</script><link rel="stylesheet" href="/_astro/print.C9eyqPGL.css" media="print"><link rel="stylesheet" href="/_astro/common.LP9BDTc3.css"><script type="module" src="/_astro/page.cNngjUgL.js"></script></head><body data-astro-cid-g5ptsecz><a class="sl-skip-link" href="#_top" data-astro-cid-qb7clj6f>Gå til innholdet</a><div class="page sl-flex" data-astro-cid-yntsjkba><header class="header" data-astro-cid-yntsjkba><div class="header" data-astro-cid-by6fddyj><div class="title-wrapper sl-flex" data-astro-cid-by6fddyj><a href="/" class="site-title sl-flex" data-astro-cid-6rvad3va><img alt="regnmed" src="/_astro/logo.BykUI3mu.svg" width="160" height="160" data-astro-cid-6rvad3va><span translate="no" data-astro-cid-6rvad3va>regnmed docs</span></a></div><div class="sl-flex print:hidden" data-astro-cid-by6fddyj><site-search data-translations="{&quot;placeholder&quot;:&quot;Søk&quot;}" data-astro-cid-b5kgnn7o="true"><button data-open-modal disabled aria-label="Søk" aria-keyshortcuts="Control+K" data-astro-cid-b5kgnn7o><svg data-astro-cid-b5kgnn7o="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z"/></svg><span class="sl-hidden md:sl-block" aria-hidden="true" data-astro-cid-b5kgnn7o>Søk</span><kbd class="sl-hidden md:sl-flex" style="display: none" data-astro-cid-b5kgnn7o><kbd data-astro-cid-b5kgnn7o>Ctrl</kbd><kbd data-astro-cid-b5kgnn7o>K</kbd></kbd></button><dialog style="padding: 0" aria-label="Søk" data-astro-cid-b5kgnn7o><div class="dialog-frame sl-flex" data-astro-cid-b5kgnn7o><button data-close-modal class="sl-flex md:sl-hidden" data-astro-cid-b5kgnn7o>Avbryt</button><div class="search-container" data-astro-cid-b5kgnn7o><div id="starlight__search" data-astro-cid-b5kgnn7o></div></div></div></dialog></site-search><script>
+	(() => {
+		const openBtn = document.querySelector('button[data-open-modal]');
+		const shortcut = openBtn?.querySelector('kbd');
+		if (!openBtn || !(shortcut instanceof HTMLElement)) return;
+		const platformKey = shortcut.querySelector('kbd');
+		if (platformKey && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+			platformKey.textContent = '⌘';
+			openBtn.setAttribute('aria-keyshortcuts', 'Meta+K');
+		}
+		shortcut.style.display = '';
+	})();
+</script><script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.CibB10mu.js"></script></div><div class="sl-hidden md:sl-flex print:hidden right-group" data-astro-cid-by6fddyj><div class="sl-flex social-icons" data-astro-cid-by6fddyj><a href="https://github.com/BogenTech/regnmed" rel="me" class="sl-flex" data-astro-cid-n2mnl6yq><span class="sr-only" data-astro-cid-n2mnl6yq>GitHub</span><svg data-astro-cid-n2mnl6yq="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select data-astro-cid-smhvfpqh="true"><label style="--sl-select-width: 6.25em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg tema</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg class="sl-theme-icon-dark" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg class="sl-theme-icon-light" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg class="sl-theme-icon-auto" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="dark" data-astro-cid-2z5xp7gb>Mørk</option><option value="light" data-astro-cid-2z5xp7gb>Lys</option><option value="auto" selected data-astro-cid-2z5xp7gb>Auto</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>(() => {
+		const theme = (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme'));
+		if (theme) document.querySelectorAll('starlight-theme-select select').forEach((s) => { s.value = theme; });
+	})();</script><script type="module">var e=`starlight-theme`,t=e=>e===`auto`||e===`dark`||e===`light`?e:`auto`,n=()=>t(typeof localStorage<`u`&&localStorage.getItem(e));function r(t){typeof localStorage<`u`&&localStorage.setItem(e,t===`light`||t===`dark`?t:``)}var i=()=>matchMedia(`(prefers-color-scheme: light)`).matches?`light`:`dark`;function a(e){document.querySelectorAll(`starlight-theme-select select`).forEach(t=>{t.value=e}),document.documentElement.dataset.theme=e===`auto`?i():e,r(e)}matchMedia(`(prefers-color-scheme: light)`).addEventListener(`change`,()=>{n()===`auto`&&a(`auto`)});var o=class extends HTMLElement{constructor(){super(),a(n()),this.querySelector(`select`)?.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&a(t(e.currentTarget.value))})}};customElements.define(`starlight-theme-select`,o);</script><starlight-lang-select><label style="--sl-select-width: 7em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg språk</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="/teknisk/lonn/" data-astro-cid-2z5xp7gb>Norsk</option><option value="/en/teknisk/lonn/" data-astro-cid-2z5xp7gb>English</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-lang-select><script type="module">var e=class extends HTMLElement{constructor(){super();let e=this.querySelector(`select`);e&&(e.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&(window.location.pathname=e.currentTarget.value)}),window.addEventListener(`pageshow`,t=>{if(!t.persisted)return;let n=e.querySelector(`option[selected]`)?.index;n!==e.selectedIndex&&(e.selectedIndex=n??0)}))}};customElements.define(`starlight-lang-select`,e);</script></div></div></header><nav class="sidebar print:hidden" aria-label="Hovednavigasjon" data-astro-cid-yntsjkba><button popovertarget="starlight__sidebar" class="sl-menu-button sl-flex md:sl-hidden print:hidden" data-astro-cid-r2osgdlg><svg class="open-menu" data-astro-cid-r2osgdlg="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M3 8h18a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2Zm18 8H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Zm0-5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></svg><svg class="close-menu" data-astro-cid-r2osgdlg="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="m13.41 12 6.3-6.29a1.004 1.004 0 1 0-1.42-1.42L12 10.59l-6.29-6.3a1.004 1.004 0 0 0-1.42 1.42l6.3 6.29-6.3 6.29a1 1 0 0 0 0 1.42.998.998 0 0 0 1.42 0l6.29-6.3 6.29 6.3a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.42L13.41 12Z"/></svg><span class="sr-only" data-astro-cid-r2osgdlg>Meny</span></button><script type="module">var e=class extends HTMLElement{constructor(){super();let e=matchMedia(`(min-width: 50em)`),t=()=>{this.popover=e.matches?null:`auto`};t(),e.addEventListener(`change`,()=>t()),this.addEventListener(`toggle`,({newState:e})=>this.trapFocus(e===`open`))}trapFocus(e){document.querySelectorAll(`.main-frame, .sl-skip-link`).forEach(t=>{t.toggleAttribute(`inert`,e)})}};customElements.define(`sl-sidebar-pane`,e);</script><sl-sidebar-pane popover id="starlight__sidebar" class="sidebar-pane" data-astro-cid-yntsjkba="true"><div class="sidebar-content sl-flex" data-astro-cid-yntsjkba><sl-sidebar-state-persist data-hash="0vzjo46" data-astro-cid-ipdry5cl="true"><script aria-hidden="true">
+		(() => {
+			try {
+				if (!matchMedia('(min-width: 50em)').matches) return;
+				/** @type {HTMLElement | null} */
+				const target = document.querySelector('sl-sidebar-state-persist');
+				const state = JSON.parse(sessionStorage.getItem('sl-sidebar-state') || '0');
+				if (!target || !state || target.dataset.hash !== state.hash) return;
+				window._starlightScrollRestore = state.scroll;
+				customElements.define(
+					'sl-sidebar-restore',
+					class SidebarRestore extends HTMLElement {
+						connectedCallback() {
+							try {
+								const idx = parseInt(this.dataset.index || '');
+								const details = this.closest('details');
+								if (details && typeof state.open[idx] === 'boolean') details.open = state.open[idx];
+							} catch {}
+						}
+					}
+				);
+			} catch {}
+		})();
+	</script><ul class="top-level" data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>Brukerveiledning</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="0"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Velkommen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/kom-i-gang/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kom i gang</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/forste-faktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Første faktura</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/fakturering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Fakturering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/purring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Purring og betalingsoppfølging</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/bilag-og-innboks/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilag og innboks</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/hovedbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Hovedbok og kontoplan</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/mva/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>MVA</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/lonn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn og a-melding</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/timer-og-prosjekter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Timer og prosjekter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/utlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utlegg og kjøregodtgjørelse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/anlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Anleggsregister og avskrivninger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/valuta/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Valuta</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/produkter-og-varelager/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Produkter og varelager</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/periodisering-og-budsjett/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodisering og budsjett</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/rapporter-og-arsavslutning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Rapporter og årsavslutning</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/aksjeeierbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og aksjonærregisteroppgaven</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/tilgang-og-roller/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang og roller</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/for-regnskapsforere/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>For regnskapsførere og byråer</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/for-revisorer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>For revisorer</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/migrering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Migrering fra et annet system</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/abonnement-og-priser/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Abonnement og priser</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/ai-agent/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Ta med din egen AI-agent</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/verifiser-regnskapet/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Verifiser regnskapet ditt</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/vanlige-sporsmal/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Vanlige spørsmål</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>For utviklere</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="1"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>api</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="2"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/developers/api/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>API-referanse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/identity/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Identitet og tilgang</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/ledger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Selskap og hovedbok</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/sales/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Salg og reskontro</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/reports/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Regnskap og rapporter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank og betaling</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/payroll/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn, timer og utlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/inbox/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Innboks, import og jobber</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/shares/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og anlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/agents/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Integrasjoner, agenter og meldinger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/verification/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Forankring og verifisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/platform/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Plattform (leverandørens konsoll)</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><a href="/developers/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Introduksjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/getting-started/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kom i gang for integrasjoner</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/authentication/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Autentisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/access-and-roles/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang og roller for integrasjoner</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/conventions/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Konvensjoner</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/examples/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Eksempler</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/mcp-and-agents/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>MCP og agenter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/verify-it-yourself/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Verifiser selv</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/self-hosting/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Selvhosting</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/contributing/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bidra</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>Teknisk dokumentasjon</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="3"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/teknisk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Teknisk dokumentasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/abonnement/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Abonnement: regnmeds egen kasse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/agent/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Ta med din egen agent</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/aksjonaer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og aksjonærregisteroppgave (RF-1086)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/anchoring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>External anchoring of chain heads</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/anlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Anleggsregister og avskrivninger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/api/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>API-referanse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/arsavslutning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Årsavslutning</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/attestering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Attestering: godkjenningsflyt før bokføring og betaling</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/auth/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang: hvem kan gjøre hva</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/balansedokumentasjon/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Balansedokumentasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank reconciliation</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/betaling/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Betalingsliste og remittering (pain.001)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/bilagsinnboks/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilagsinnboks</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/bilagstolkning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilagstolkning: forslag fra dokumentets egen tekst</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/blob-store/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Dokumenter i objektlagring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/budsjett/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Budsjett og avviksrapport</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/deploy/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Deployment</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/dimensjoner/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Dimensjoner: avdeling og prosjekt</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/efaktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>E-faktura ut fra 1. januar 2027 — forslag</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/ehf/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>EHF: elektronisk faktura ut og inn</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/epost-inn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>E-post-inn til bilagsinnboksen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/faktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utgående faktura</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/frugality/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The frugality budget</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/gov/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The government rail: Maskinporten and Skatteetaten&#39;s APIs</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/hovedbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Hovedbok: kontoplan og manuell bilagsføring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/integrations/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Maskin-tilgang til API-et</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/jobs/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bakgrunnsjobber</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/kontantsalg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kontantsalg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/ledger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The ledger: append-only, hash-chained, independently verifiable</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/lonn/" aria-current="page" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn — første del</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/marketplace/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Marketplace: onboarding from the official registries</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/meldinger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Meldinger — samtaler mellom folk som jobber sammen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/migration/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Migration: SAF-T import</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/mva/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Merverdiavgift: codes, rates, spesifikasjon, melding</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/perioder/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodelåsing og bilagsvedlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/periodisering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/portal/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The portal</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/produkter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Produktregister og enkelt varelager</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/purring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Betalingsoppfølging (purring)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/rapporter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lovpålagte spesifikasjoner og rapporter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/regelverk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Regelverk som data</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/reskontro/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Reskontro: kunde- og leverandørspesifikasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/revisjon/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Revisorrollen og verifikasjonsrapporten</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/skattemelding/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Skattemelding og næringsspesifikasjon (#11) — kartlagt, ikke bygget</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/timer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Timeføring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/utlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utlegg og kjøregodtgjørelse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/valuta/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Flervaluta</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/vilkar-teknisk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kundevilkårene i koden</span></a></li></ul></details></li></ul><script aria-hidden="true">
+		(() => {
+			const scroller = document.getElementById('starlight__sidebar');
+			if (!window._starlightScrollRestore || !scroller) return;
+			scroller.scrollTop = window._starlightScrollRestore;
+			delete window._starlightScrollRestore;
+		})();
+	</script></sl-sidebar-state-persist><div class="md:sl-hidden"><div class="mobile-preferences sl-flex" data-astro-cid-p4azlveh><div class="social-icons" data-astro-cid-p4azlveh><a href="https://github.com/BogenTech/regnmed" rel="me" class="sl-flex" data-astro-cid-n2mnl6yq><span class="sr-only" data-astro-cid-n2mnl6yq>GitHub</span><svg data-astro-cid-n2mnl6yq="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select data-astro-cid-smhvfpqh="true"><label style="--sl-select-width: 6.25em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg tema</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg class="sl-theme-icon-dark" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg class="sl-theme-icon-light" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg class="sl-theme-icon-auto" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="dark" data-astro-cid-2z5xp7gb>Mørk</option><option value="light" data-astro-cid-2z5xp7gb>Lys</option><option value="auto" selected data-astro-cid-2z5xp7gb>Auto</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>(() => {
+		const theme = (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme'));
+		if (theme) document.querySelectorAll('starlight-theme-select select').forEach((s) => { s.value = theme; });
+	})();</script><starlight-lang-select><label style="--sl-select-width: 7em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg språk</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="/teknisk/lonn/" data-astro-cid-2z5xp7gb>Norsk</option><option value="/en/teknisk/lonn/" data-astro-cid-2z5xp7gb>English</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-lang-select></div></div></div></sl-sidebar-pane></nav><div class="main-frame" data-astro-cid-yntsjkba><script type="module">var e=document.getElementById(`starlight__sidebar`),t=e?.querySelector(`sl-sidebar-state-persist`),n=`sl-sidebar-state`,r=()=>{let r=[],i=t?.dataset.hash||``;try{let e=sessionStorage.getItem(n),t=JSON.parse(e||`{}`);Array.isArray(t.open)&&t.hash===i&&(r=t.open)}catch{}return{hash:i,open:r,scroll:e?.scrollTop||0}},i=e=>{try{sessionStorage.setItem(n,JSON.stringify(e))}catch{}},a=()=>i(r()),o=(e,t)=>{let n=r();n.open[t]=e,i(n)};t?.addEventListener(`click`,e=>{if(!(e.target instanceof Element))return;let t=e.target.closest(`summary`)?.closest(`details`);if(!t)return;let n=t.querySelector(`sl-sidebar-restore`),r=parseInt(n?.dataset.index||``);isNaN(r)||o(!t.open,r)}),addEventListener(`visibilitychange`,()=>{document.visibilityState===`hidden`&&a()});</script><div class="lg:sl-flex" data-astro-cid-lrzkfocr><aside class="right-sidebar-container print:hidden" data-astro-cid-lrzkfocr><div class="right-sidebar" data-astro-cid-lrzkfocr><div class="lg:sl-hidden" data-astro-cid-qok35upx><mobile-starlight-toc data-min-h="2" data-max-h="3" data-astro-cid-66cqc7ze="true"><nav aria-labelledby="starlight__on-this-page--mobile" data-astro-cid-66cqc7ze><details id="starlight__mobile-toc" data-astro-cid-66cqc7ze><summary id="starlight__on-this-page--mobile" class="sl-flex" data-astro-cid-66cqc7ze><span class="toggle sl-flex" data-astro-cid-66cqc7ze>På denne siden<svg class="caret" data-astro-cid-66cqc7ze="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></span><span class="display-current" data-astro-cid-66cqc7ze></span></summary><div class="dropdown" data-astro-cid-66cqc7ze><ul class="isMobile" style="--depth: 0;" data-astro-cid-jugkfwgx><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#_top" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Oversikt</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#en-lønnskjøring-er-ett-bilag" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>En lønnskjøring er ett bilag</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#avgiften-på-feriepenger-man-ennå-ikke-har-betalt" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Avgiften på feriepenger man ennå ikke har betalt</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#den-ærlige-begrensningen" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Den ærlige begrensningen</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#forskuddstrekk-to-regler-som-ser-ut-som-gaver" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Forskuddstrekk: to regler som ser ut som gaver</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#satsene-er-data-ikke-kode" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Satsene er data, ikke kode</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#tabelltrekk" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Tabelltrekk</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#det-vi-fortsatt-nekter-å-gjøre" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Det vi fortsatt nekter å gjøre</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#sone-ia" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Sone Ia</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#skattekort-fra-skatteetaten-migration-0078" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Skattekort fra Skatteetaten (migration 0078)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#12-måneder-og-frikort-migration-0080" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>12 måneder og frikort (migration 0080)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#personvern" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Personvern</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#endepunkter" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Endepunkter</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#a-meldingen" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>A-meldingen</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#xsd-en-er-det-minste-ikke-det-hele" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>XSD-en er det minste, ikke det hele</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hva-modellen-allerede-har" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hva modellen allerede har</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#arbeidsforholdet-migration-0073" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Arbeidsforholdet (migration 0073)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hva-modellen-fortsatt-ikke-har--og-renderen-nekter-for" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hva modellen fortsatt IKKE har — og renderen nekter for</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#arbeidsforhold-uten-lønn-i-måneden-f108" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Arbeidsforhold uten lønn i måneden (F108)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#måned-uten-lønnskjøring" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Måned uten lønnskjøring</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#fra-lagret-kjøring" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Fra lagret kjøring</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#formatet-på-vei-inn" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Formatet på vei inn</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#innsendingssporet-migration-0074" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Innsendingssporet (migration 0074)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#tilbakemelding-som-hendelse-migration-0075" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Tilbakemelding som hendelse (migration 0075)</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#hva-som-ikke-er-bygget" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Hva som IKKE er bygget</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#timelønn-fra-timeføringen" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Timelønn fra timeføringen</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#måneden-må-være-låst" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Måneden må være låst</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#ansatt-og-portalbruker-er-to-ting" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Ansatt og portalbruker er to ting</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hvordan-koblingen-settes-migration-0050" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hvordan koblingen settes (migration 0050)</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#lønnsslipp" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Lønnsslipp</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#portal" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Portal</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#testet" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Testet</span></a></li></ul></div></details></nav></mobile-starlight-toc><script type="module" src="/_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.C3fM4Kra.js"></script></div><div class="right-sidebar-panel sl-hidden lg:sl-block" data-astro-cid-qok35upx><div class="sl-container" data-astro-cid-qok35upx><starlight-toc data-min-h="2" data-max-h="3"><nav aria-labelledby="starlight__on-this-page"><h2 id="starlight__on-this-page">På denne siden</h2><ul style="--depth: 0;" data-astro-cid-jugkfwgx><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#_top" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Oversikt</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#en-lønnskjøring-er-ett-bilag" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>En lønnskjøring er ett bilag</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#avgiften-på-feriepenger-man-ennå-ikke-har-betalt" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Avgiften på feriepenger man ennå ikke har betalt</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#den-ærlige-begrensningen" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Den ærlige begrensningen</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#forskuddstrekk-to-regler-som-ser-ut-som-gaver" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Forskuddstrekk: to regler som ser ut som gaver</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#satsene-er-data-ikke-kode" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Satsene er data, ikke kode</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#tabelltrekk" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Tabelltrekk</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#det-vi-fortsatt-nekter-å-gjøre" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Det vi fortsatt nekter å gjøre</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#sone-ia" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Sone Ia</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#skattekort-fra-skatteetaten-migration-0078" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Skattekort fra Skatteetaten (migration 0078)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#12-måneder-og-frikort-migration-0080" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>12 måneder og frikort (migration 0080)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#personvern" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Personvern</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#endepunkter" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Endepunkter</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#a-meldingen" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>A-meldingen</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#xsd-en-er-det-minste-ikke-det-hele" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>XSD-en er det minste, ikke det hele</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hva-modellen-allerede-har" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hva modellen allerede har</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#arbeidsforholdet-migration-0073" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Arbeidsforholdet (migration 0073)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hva-modellen-fortsatt-ikke-har--og-renderen-nekter-for" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hva modellen fortsatt IKKE har — og renderen nekter for</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#arbeidsforhold-uten-lønn-i-måneden-f108" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Arbeidsforhold uten lønn i måneden (F108)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#måned-uten-lønnskjøring" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Måned uten lønnskjøring</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#fra-lagret-kjøring" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Fra lagret kjøring</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#formatet-på-vei-inn" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Formatet på vei inn</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#innsendingssporet-migration-0074" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Innsendingssporet (migration 0074)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#tilbakemelding-som-hendelse-migration-0075" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Tilbakemelding som hendelse (migration 0075)</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#hva-som-ikke-er-bygget" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Hva som IKKE er bygget</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#timelønn-fra-timeføringen" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Timelønn fra timeføringen</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#måneden-må-være-låst" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Måneden må være låst</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#ansatt-og-portalbruker-er-to-ting" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Ansatt og portalbruker er to ting</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hvordan-koblingen-settes-migration-0050" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hvordan koblingen settes (migration 0050)</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#lønnsslipp" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Lønnsslipp</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#portal" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Portal</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#testet" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Testet</span></a></li></ul></nav></starlight-toc><script type="module" src="/_astro/TableOfContents.astro_astro_type_script_index_0_lang.BpJaGz7G.js"></script></div></div></div></aside><div class="main-pane" data-astro-cid-lrzkfocr><main data-pagefind-body lang="nb" dir="ltr" data-astro-cid-g5ptsecz><div class="content-panel" data-astro-cid-a7po4psb><div class="sl-container" data-astro-cid-a7po4psb><h1 id="_top" data-astro-cid-bebwqqxs>Lønn — første del</h1></div></div><div class="content-panel" data-astro-cid-a7po4psb><div class="sl-container" data-astro-cid-a7po4psb><div class="sl-markdown-content"><p><strong>Dette er ikke en komplett lønnsmodul, og skal ikke brukes som om det
+var det.</strong> #46 er den største bevisst utsatte delen av ROADMAP, og denne
+leveransen tar bare det som kan gjøres riktig i dag. Hva som mangler står
+lenger ned, uten pynt.</p>
+<p>Det som virker: fastlønn, timelønn fra timeføringen, prosenttrekk fra
+skattekortet, arbeidsgiveravgift per sone, feriepengeavsetning med
+avgiften på den, og lønnsslipp — bokført som ett ordinært bilag i én
+transaksjon.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="en-lønnskjøring-er-ett-bilag">En lønnskjøring er ett bilag</h2><a class="sl-anchor-link" href="#en-lønnskjøring-er-ett-bilag"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “En lønnskjøring er ett bilag”</span></a></div>
+<p>Ingen parallell sannhet: linjene lagres for lønnsslipp og senere
+a-melding, men tallene i hovedboken <em>er</em> bilaget.</p>
+<table>
+<thead>
+<tr>
+<th>Konto</th>
+<th></th>
+<th>Beløp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5000 Lønn til ansatte</td>
+<td>debet</td>
+<td>ordinær bruttolønn</td>
+</tr>
+<tr>
+<td>2600 Forskuddstrekk</td>
+<td>kredit</td>
+<td>forskuddstrekk</td>
+</tr>
+<tr>
+<td>2930 Skyldig lønn</td>
+<td>kredit</td>
+<td>netto til utbetaling</td>
+</tr>
+<tr>
+<td>2940 Skyldige feriepenger</td>
+<td>debet</td>
+<td>feriepenger utbetalt denne måneden</td>
+</tr>
+<tr>
+<td>5090 Feriepenger</td>
+<td>debet</td>
+<td>månedens avsetning</td>
+</tr>
+<tr>
+<td>2940 Skyldige feriepenger</td>
+<td>kredit</td>
+<td>månedens avsetning</td>
+</tr>
+<tr>
+<td>5400 Arbeidsgiveravgift</td>
+<td>debet</td>
+<td>aga</td>
+</tr>
+<tr>
+<td>2770 Skyldig arbeidsgiveravgift</td>
+<td>kredit</td>
+<td>aga</td>
+</tr>
+<tr>
+<td>5405 Aga av påløpne feriepenger</td>
+<td>debet</td>
+<td>endring i avsetningen</td>
+</tr>
+<tr>
+<td>2780 Påløpt aga av feriepenger</td>
+<td>kredit</td>
+<td>endring i avsetningen</td>
+</tr>
+</tbody>
+</table>
+<p>Hver linje utelates når den er null. En måned med bare ferieavvikling —
+feriepenger utbetales, ingen ordinær lønn — har verken lønnskostnad
+eller forskuddstrekk, og bilagsvalideringen avviser nullinjer. Uten
+utelatelsen kunne den måneden ikke kjøres i det hele tatt.</p>
+<p>Netto går til <strong>2930</strong>, ikke til bank: selve utbetalingen er
+betalingslistens jobb (docs/betaling.md), så lønnskjøring og utbetaling
+er to atskilte, sporbare handlinger.</p>
+<p><strong>Kontoene finnes fra første dag.</strong> Startkontoplanen et selskap får ved
+onboarding (<code dir="auto">regnmed-db::marketplace</code>, <code dir="auto">STARTER_ACCOUNTS</code>) har de sju
+kontoene over med navnene i tabellen — 5090, 2930 og 2940 står ikke i
+Skatteetatens standardkatalog, så brukeren skulle ellers måttet finne på
+navn selv. 5405/2780 opprettes av kjøringen første gang de trengs.
+<strong>Selskaper onboardet før 2026-11-11 er ikke migrert</strong>: mangler en
+konto, nekter kjøringen FØR noe bokføres og navngir hver konto som
+mangler («Legg dem til under Hovedbok → Kontoplan»), i stedet for
+hovedbokens engelske feilmelding for den første den snubler i.</p>
+<p><strong>Utbetalte feriepenger er ikke en ny kostnad.</strong> De trekker ned gjelden
+som ble avsatt i opptjeningsåret. Bommer man på dette, kostnadsføres
+feriepenger to ganger og resultatet blir systematisk for lavt — derfor
+har det sin egen test.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="avgiften-på-feriepenger-man-ennå-ikke-har-betalt">Avgiften på feriepenger man ennå ikke har betalt</h2><a class="sl-anchor-link" href="#avgiften-på-feriepenger-man-ennå-ikke-har-betalt"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Avgiften på feriepenger man ennå ikke har betalt”</span></a></div>
+<p>Feriepenger opptjent i år utbetales neste år, og arbeidsgiveravgiften på
+dem forfaller da. Men <em>forpliktelsen</em> oppstår med opptjeningen, så
+kostnaden hører hjemme i året den ble opptjent.</p>
+<p>Avsetningen er modellert som et <strong>mål, ikke en strøm av tillegg</strong>: etter
+enhver kjøring skal påløpt aga være satsen av det som faktisk skyldes, og
+kjøringen bokfører differansen. Det er hele forskjellen mellom en
+avsetning som holder seg og en som driver:</p>
+<ul>
+<li><strong>Utbetaling</strong> trekker avsetningen ned av seg selv — gjelden synker, og
+avgiften på det utbetalte ligger allerede i den ordinære aga-linjen.</li>
+<li><strong>Satsendring</strong> mellom opptjening og utbetaling korrigeres ved neste
+kjøring i stedet for å bli liggende som en uforklarlig rest. Satsen som
+brukes er den gjeldende, med vilje: avgiften skal betales med satsen
+som gjelder når feriepengene utbetales.</li>
+<li><strong>Gjeld uten avsetning</strong> — opptjent før denne funksjonen fantes, eller
+i en sone uten avgift — tas igjen ved første kjøring, i stedet for å
+bli stående udekket for alltid.</li>
+</ul>
+<p>Både skyldige feriepenger og allerede avsatt avgift <strong>utledes per
+ansatt</strong> av de innsettings-bare lønnslinjene. Ingenting lagres som en
+egen sannhet, så de kan ikke komme i utakt med det som er bokført.</p>
+<p><strong>Negativ gjeld gir ingen avsetning.</strong> Betales det ut mer enn
+lønnshistorikken har avsatt, stammer gjelden et annet sted fra; negativ
+arbeidsgiveravgift finnes ikke, og å bokføre den ville gjort et hull i
+regnskapet om til en inntekt.</p>
+<p><strong>Kontonumrene er valgt, ikke funnet.</strong> Skatteetatens kodeliste navngir
+5400 og 2770; nærmeste-nabo-oppslaget i SAF-T-eksporten legger 5405 på
+5400 (Arbeidsgiveravgift) og 2780 på 2770 (Skyldig arbeidsgiveravgift).
+2785 ville havnet på 2790 «Andre offentlige avgifter» i stedet — derfor
+2780.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="den-ærlige-begrensningen">Den ærlige begrensningen</h3><a class="sl-anchor-link" href="#den-ærlige-begrensningen"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Den ærlige begrensningen”</span></a></div>
+<p>Feriepengegjeld som <strong>ikke</strong> stammer fra lønnskjøringene — en
+åpningsbalanse, en SAF-T-import, et manuelt bilag — kan ikke knyttes til
+noen ansatt, og får derfor ingen avgiftsavsetning. Kjøringen sammenligner
+saldoen på 2940 med det lønnshistorikken forklarer og <strong>sier fra med
+beløpet</strong> når de spriker, i stedet for å tie eller å finne på en
+fordeling. Den delen må i så fall avsettes manuelt.</p>
+<p>Kjøringer og ansattregister er innsettings-bare (trigger + kolonne-
+rettigheter). Samme måned kan ikke kjøres to ganger; en korreksjon er et
+reverserende bilag og en ny kjøring, som ellers i hovedboken.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="forskuddstrekk-to-regler-som-ser-ut-som-gaver">Forskuddstrekk: to regler som ser ut som gaver</h2><a class="sl-anchor-link" href="#forskuddstrekk-to-regler-som-ser-ut-som-gaver"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Forskuddstrekk: to regler som ser ut som gaver”</span></a></div>
+<p>Begge er bare tidfesting. Skattekortprosenten er beregnet over 10,5
+måneder nettopp for at de skal gå opp, så det er <em>riktig</em> å anvende dem
+— ikke dobbelttelling.</p>
+<ul>
+<li><strong>Feriepenger er trekkfrie</strong> i utbetalingsåret.</li>
+<li><strong>Halv skatt i desember</strong> (skattebetalingsloven). Siden 2016 kan
+arbeidsgiver i stedet ta det i annen halvdel av november; regnmed
+gjør desember, det vanlige valget, og sier det her.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="satsene-er-data-ikke-kode">Satsene er data, ikke kode</h2><a class="sl-anchor-link" href="#satsene-er-data-ikke-kode"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Satsene er data, ikke kode”</span></a></div>
+<p>Alt ligger i satsregisteret (docs/regelverk.md) med kilde per rad.</p>
+<table>
+<thead>
+<tr>
+<th>Domene</th>
+<th>Verdi</th>
+<th>Kilde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">aga_sone_i</code></td>
+<td>14,1 %</td>
+<td>Skattedirektoratets melding, aga til folketrygden for 2026</td>
+</tr>
+<tr>
+<td><code dir="auto">aga_sone_ii</code></td>
+<td>10,6 %</td>
+<td>↑</td>
+</tr>
+<tr>
+<td><code dir="auto">aga_sone_iii</code></td>
+<td>6,4 %</td>
+<td>↑</td>
+</tr>
+<tr>
+<td><code dir="auto">aga_sone_iv</code></td>
+<td>5,1 %</td>
+<td>↑</td>
+</tr>
+<tr>
+<td><code dir="auto">aga_sone_iva</code></td>
+<td>7,9 %</td>
+<td>↑</td>
+</tr>
+<tr>
+<td><code dir="auto">aga_sone_v</code></td>
+<td>0 %</td>
+<td>↑ — nullsats er en sats, ikke en manglende verdi</td>
+</tr>
+<tr>
+<td><code dir="auto">feriepenger_lovens_minimum</code></td>
+<td>10,2 %</td>
+<td>ferieloven §10 nr. 2</td>
+</tr>
+<tr>
+<td><code dir="auto">feriepenger_over_60</code></td>
+<td>12,5 %</td>
+<td>ferieloven §10 nr. 3 (+2,3 prosentpoeng)</td>
+</tr>
+</tbody>
+</table>
+<p>Meldingen sier selv at verken soneinndeling eller satser er endret fra
+2025 til 2026, så periodene starter 2025-01-01 — den tidligste
+<strong>verifiserte</strong> datoen, ikke gjettet historikk.</p>
+<p>Feriepengesatsen ligger per ansatt, fordi den er et faktum om
+arbeidsforholdet (alder, tariff), ikke en systeminnstilling.</p>
+<p><strong>Den ekstra arbeidsgiveravgiften på 5 % over 750 000 kroner ble fjernet
+fra 2025.</strong> Den finnes ikke i registeret fordi den ikke finnes.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="tabelltrekk">Tabelltrekk</h2><a class="sl-anchor-link" href="#tabelltrekk"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Tabelltrekk”</span></a></div>
+<p>Tabelltrekket regnes ikke ut av en tabell vi har tastet inn, men av
+<strong>Skatteetatens egen trekkrutine</strong>: <code dir="auto">github.com/Skatteetaten/trekktabell</code>
+(Java, <code dir="auto">trekkrutine2026</code>) er det programmet Skatteetaten selv lager den
+publiserte tabellfila med. <code dir="auto">regnmed-core::withholding_table</code> er en port
+av den, og den er <strong>sjekket mot hele den publiserte fila for 2026</strong>
+(«trekktabeller i tekstformat», <code dir="auto">alleTabelleneIEnFilTilSkatteetatenNo.txt</code>,
+1 063 799 rader, alle tabellnumre og alle sju perioder): hver rad gir
+nøyaktig samme trekk. Et deterministisk utvalg (hver 211. rad, 5 043
+rader) ligger i <code dir="auto">docs/lonn/trekktabell-2026-utvalg.txt</code> og kjøres i CI;
+hele fila kan kjøres lokalt med <code dir="auto">TREKKTABELL_FILE=…</code>.</p>
+<p><strong>Rutinen regner med flyttall, med vilje.</strong> regnmed bruker aldri
+flyttall for penger, men her er myndighetens rutine definert i
+IEEE-doubles, og den eneste måten å lande på Skatteetatens kroner er å
+gjøre de samme operasjonene i samme rekkefølge og runde likt (Javas
+<code dir="auto">Math.round</code>). Inn og ut går hele kroner; ingen flyttall når hovedboken.</p>
+<p>I lønnskjøringen: månedstabellen, trekkgrunnlaget i hele kroner (øre
+under en krone flytter aldri trekket over neste 100-kronerstrinn), og
+<strong>halvt tabelltrekk i desember</strong> — som for prosenttrekk, fordi
+10,5-månederstabellene er regnet for det. Feriepenger er trekkfrie som
+før.</p>
+<p><strong>Tabellene over 12 måneder</strong> (7350, 7500, 7700, 6350, 6500, 6700,
+0100, 0101, 7150, 7160) regnes også: rutinen kjenner dem selv, og
+kjøringen trekker da fullt i desember og også i feriepengene (se «12
+måneder og frikort» under).</p>
+<p>Det kjøringen fortsatt <strong>nekter</strong>, med begrunnelse:</p>
+<ul>
+<li><strong>Et år uten konstanter.</strong> Satsene i trekkrutinen endres hvert år
+(trinnskatt, personfradrag, trygdeavgift); et år som ikke er lagt inn
+stopper kjøringen i stedet for å bruke fjorårets. Nytt år = ny
+<code dir="auto">Constants</code> i <code dir="auto">withholding_table</code> + nytt utvalg fra Skatteetatens fil,
+og det hører til den årlige regelverksrevisjonen.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="det-vi-fortsatt-nekter-å-gjøre">Det vi fortsatt nekter å gjøre</h2><a class="sl-anchor-link" href="#det-vi-fortsatt-nekter-å-gjøre"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Det vi fortsatt nekter å gjøre”</span></a></div>
+<p>Samme doktrine som RF-1086-kodene (docs/aksjonaer.md): der vi ikke kan
+regne riktig, sier vi fra i stedet for å tilnærme.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="sone-ia">Sone Ia</h3><a class="sl-anchor-link" href="#sone-ia"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Sone Ia”</span></a></div>
+<p>Den reduserte satsen på 10,6 % gjelder bare til <strong>fribeløpet</strong> er brukt
+opp — 850 000 kroner i avgiftsbesparelse per år, altså rundt 24,3
+millioner i lønn. Fribeløpet er bagatellmessig støtte og forbrukes også
+av ting regnmed ikke ser. Å regne 10,6 % flatt ville underrapportert
+avgift til Skatteetaten, så sone Ia avvises — <strong>før</strong> satsoppslaget, slik
+at feilmeldingen ikke sier «legg inn satsen», som er stikk motsatt av
+riktig råd.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="skattekort-fra-skatteetaten-migration-0078">Skattekort fra Skatteetaten (migration 0078)</h2><a class="sl-anchor-link" href="#skattekort-fra-skatteetaten-migration-0078"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Skattekort fra Skatteetaten (migration 0078)”</span></a></div>
+<p>Trekket på den ansatte kommer fra skattekortet, og skattekortet hentes
+nå fra Skatteetatens API «Skattekort til arbeidsgiver» i stedet for å
+tastes inn (<code dir="auto">skatteetaten:skattekorttilarbeidsgiver</code>, systembruker for
+selskapet, samme skinne som a-meldingen — docs/gov.md). En bestilling
+(<code dir="auto">bestillSkattekort</code>, <code dir="auto">HENT_ALLE_OPPGITTE</code>) gjelder alle med
+fødselsnummer som er ansatt en eller annen gang i inntektsåret; svaret
+hentes med referansen (<code dir="auto">BR…</code>). I testmiljøet var svaret klart ved første
+forespørsel, tre sekunder etter bestillingen, så portalen venter noen
+sekunder og har ellers en «Hent svaret»-knapp.</p>
+<p><strong>Bare for inneværende år.</strong> Den ansatte har ett trekk, og hver
+lønnskjøring leser det; et kort for neste år ville blitt brukt på årets
+lønn (i desember ville desemberlønnen gått på neste års kort). Neste års
+kort hentes derfor i januar, før årets første kjøring, og serveren nekter
+et annet år — også når svaret på en eldre bestilling hentes senere.
+Avviser Skatteetaten en bestilling eller svaret på den, står grunnen i
+listen over bestillinger (bak <code dir="auto">LONN_LES</code>), og et avvist svar er endelig:
+det hentes ikke på nytt.</p>
+<p><strong>Alt er innsettings-bart, og forespørselen skrives FØR kallet</strong>
+(<code dir="auto">tax_card_request</code>, migration 0079): en bestilling Skatteetaten
+avviser — eller som forsvinner underveis — står likevel i registeret over
+kall til myndighetene, med feilen i <code dir="auto">tax_card_request_failure</code>. Godtar
+Skatteetaten den, blir den en <code dir="auto">tax_card_order</code> med samme id, og hver
+ansatts oppføring i svaret lagres ordrett i <code dir="auto">tax_card</code>, med skattekort-id
+og utstedelsesdato. Det er beviset for hvorfor trekket var det det var.</p>
+<p><strong>Bare det lønnskjøringen regner riktig settes på den ansatte</strong>, i
+samme transaksjon som kortet lagres. Det er
+<code dir="auto">loennFraHovedarbeidsgiver</code> som styrer — regnmed betaler ordinær lønn
+som hovedarbeidsgiver; pensjon, NAV og biarbeidsgiver ligger i kortet
+men brukes ikke.</p>
+<table>
+<thead>
+<tr>
+<th>Kortet sier</th>
+<th>regnmed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trekkprosent over 10,5 måneder</td>
+<td><strong>settes</strong> (prosenten leses som desimaltekst, aldri som flyttall)</td>
+</tr>
+<tr>
+<td>Trekkprosent over 12 måneder (bl.a. kildeskatt)</td>
+<td><strong>settes</strong>, merket 12 måneder (under)</td>
+</tr>
+<tr>
+<td>Trekktabell</td>
+<td><strong>settes</strong> når tabellnummeret og kortet er enige om 10,5 eller 12 måneder; ellers beholdes</td>
+</tr>
+<tr>
+<td>Frikort uten beløpsgrense, eller «ikke trekkplikt»</td>
+<td><strong>settes</strong> til ingen trekk</td>
+</tr>
+<tr>
+<td>Frikort med beløpsgrense</td>
+<td><strong>settes</strong> med grensen arbeidsgiveren er tildelt (under)</td>
+</tr>
+<tr>
+<td>Trekk over 11 måneder, eller et annet antall</td>
+<td>beholdes — regnmed kjenner reglene for 10,5 og 12</td>
+</tr>
+<tr>
+<td>Ikke skattekort</td>
+<td>beholdes — uten kort skal arbeidsgiver trekke 50 %, og det står i merknaden</td>
+</tr>
+</tbody>
+</table>
+<p>Det som beholdes, får en <strong>merknad</strong> med grunnen, i portalen og i
+API-et; den ansatte står med trekket den hadde. <strong>Lønnskjøringen sier
+fra</strong> om hver ansatt hvis nyeste kort for året ikke ble satt, med
+merknaden — ellers ville kjøringen trukket det gamle trekket uten et ord.
+Ingen kort settes i stillhet feil, og ingen kjøring går stille forbi et
+kort som ikke ble satt.</p>
+<p>Feltverdiene er slik testmiljøet faktisk sendte dem 2026-11-12, lagret i
+<code dir="auto">docs/lonn/skattekort-svar-test-2026.json</code> og brukt av testene:
+camelCase (<code dir="auto">loennFraHovedarbeidsgiver</code>), mens dokumentasjonens eget
+eksempel skriver dem med store bokstaver. Bestillingen er et kall til
+Skatteetaten på selskapets vegne, så <strong>kundevilkårene må være godtatt</strong>
+først, og den står i registeret over kall til myndighetene
+(<code dir="auto">/authority-calls</code>, docs/vilkar-teknisk.md).</p>
+<p>Ikke bygget ennå: endringsbestillinger (<code dir="auto">HENT_KUN_ENDRING</code>) og varsel
+ved endring — i dag hentes kortet på nytt med knappen — og bestillinger
+over 1000 ansatte, som API-et ikke tar i ett kall.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="12-måneder-og-frikort-migration-0080">12 måneder og frikort (migration 0080)</h2><a class="sl-anchor-link" href="#12-måneder-og-frikort-migration-0080"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “12 måneder og frikort (migration 0080)”</span></a></div>
+<p><strong>Kort over 12 måneder</strong> — bl.a. kildeskatt på lønn — trekker samme
+sats hver måned, <strong>også i feriepengene og i lønna før jul</strong>
+(skattebetalingsloven § 5-7 annet ledd; Skatteetaten: «Dette gjeld også
+i feriepengane og i lønna før jul»). Trekkfritaket i ferietiden og det
+halve trekket i desember gjelder bare kort over 10,5 måneder. For
+prosentkort lagres det på den ansatte (<code dir="auto">withholding_twelve_months</code>);
+for tabeller ligger det i tabellnummeret.</p>
+<p><strong>Frikort med beløpsgrense</strong>: ingen trekk så lenge årets trekkpliktige
+utbetalinger fra denne arbeidsgiveren er under grensen arbeidsgiveren er
+tildelt, deretter <strong>50 %</strong> av det som overstiger den (Skatteetaten:
+«trekke 50 prosent skatt av lønna» over grensen). Det som er utbetalt
+tidligere i året, telles fra de lagrede lønnslinjene etter
+utbetalingsdato.</p>
+<p><strong>En grense på 0 kr settes ikke</strong>: kortet står med begrunnelsen, og
+trekket føres for hånd. Skatteetatens eget testsvar har 0 kr på
+hovedarbeidsgiver, biarbeidsgiver og NAV samtidig, så 0 kan ikke der
+bety «fordelt til en annen arbeidsgiver» — og en gal tolkning tar
+halvparten av hver lønnsslipp. Avklares med Skatteetaten.</p>
+<p><strong>Frikortet må være for utbetalingsåret.</strong> Telleren starter på null
+hvert år, så en januarkjøring med fjorårets frikort ville gitt hele
+grensen trekkfritt én gang til. Kjøringen nekter derfor en ansatt med
+frikort uten et hentet frikort for utbetalingsåret («hent årets
+skattekort»). <strong>Lønn utbetalt utenfor regnmed</strong> tidligere i året (et
+system selskapet kom fra) telles ikke mot grensen; kjøringen advarer
+når en frikortansatt var ansatt før utbetalingsmåneden uten at regnmed
+har lønn til vedkommende i året.</p>
+<p><strong>Trekket avrundes ned til hele kroner</strong> for alle metoder: a-meldingen
+tar forskuddstrekk i hele kroner, og en kjøring kan ikke gjøres om, så
+et trekk med øre ville gitt en måned som aldri kunne leveres. Ned, så
+ingen trekkes mer enn kortet sier.</p>
+<p><strong>Arbeidsgiveravgiften regnes ÉN gang per kjøring, på det samlede
+grunnlaget, og avrundes ned til hele kroner</strong> — «Ved beregning av
+skatte- og avgiftskrav avrundes beløpet ned til nærmeste hele krone»
+(skattebetalingsforskriften § 10-4-4). Skatteetatens egen
+a-meldingsveiledning gjør det samme: 12 250 kr × 14,1 % = 1 727,25
+oppgis som 1 727. Én gang og ikke per ansatt, fordi kravet er
+grunnlaget × satsen (F185): avrundet per ansatt kunne summen bomme med
+opptil en krone per ansatt, og meldingen ville blitt avvist. Det som
+lagres per lønnslinje (<code dir="auto">payroll_line.aga_ore</code>) er den ansattes andel,
+avrundet for seg; den leses ikke, og den er ikke kravet —
+<code dir="auto">payroll_run.aga_ore</code> er. Avsetningen på feriepenger (5405/2780) er en
+periodisering, ikke et krav, og beholder øre.</p>
+<p>To punkter kildene ikke avgjør, og der regnmed velger siden som ikke kan
+gi den ansatte restskatt: <strong>feriepenger telles med</strong> i grensen
+(«all trekkpliktig lønn og godtgjersle»), og trekket over grensen
+<strong>halveres ikke i desember</strong>. For mye trekk kommer tilbake i
+skatteoppgjøret; for lite blir restskatt.</p>
+<p><strong>Lønnsslippen sier hvordan trekket ble regnet</strong> («35,00 %», «tabell
+8000», «frikort, 50 % av … over beløpsgrensen»), lagret med lønnslinjen
+(<code dir="auto">withholding_method</code>) så slippen viser det som ble gjort da, ikke det
+den ansattes kort sier i dag. Linjer fra før 0080 viser bare
+grunnlaget — kortet den ansatte har i dag er ikke nødvendigvis det
+linjen ble kjørt med.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="personvern">Personvern</h2><a class="sl-anchor-link" href="#personvern"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Personvern”</span></a></div>
+<p>Ansattlisten bærer <strong>fødselsdato</strong>, ikke fødselsnummer — samme valg som i
+aksjeeierboken. Nummeret lagres fordi a-meldingen vil kreve det, men
+leses bare der det trengs. Testene fester det: nummeret skal ikke være i
+listingen.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="endepunkter">Endepunkter</h2><a class="sl-anchor-link" href="#endepunkter"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Endepunkter”</span></a></div>
+<table>
+<thead>
+<tr>
+<th>Metode</th>
+<th>Sti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET/POST</td>
+<td><code dir="auto">/companies/{id}/employees</code></td>
+</tr>
+<tr>
+<td>POST/DELETE</td>
+<td><code dir="auto">/companies/{id}/employees/{eid}/link</code> (koble/koble fra portalbruker)</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code dir="auto">/companies/{id}/employees/{eid}/link/history</code></td>
+</tr>
+<tr>
+<td>GET/POST</td>
+<td><code dir="auto">/companies/{id}/payroll</code> (<code dir="auto">?preview=true</code>: beregn uten å bokføre)</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code dir="auto">/companies/{id}/payroll/{run}/slip/{employee}</code> (PDF)</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code dir="auto">/companies/{id}/payroll/{run}/amelding</code> (<code dir="auto">?format=xml</code>)</td>
+</tr>
+<tr>
+<td>GET/POST</td>
+<td><code dir="auto">/companies/{id}/payroll/{run}/amelding/submissions</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code dir="auto">/companies/{id}/payroll/months/{ÅÅÅÅ-MM}/amelding</code> (måned uten kjøring)</td>
+</tr>
+<tr>
+<td>GET/POST</td>
+<td><code dir="auto">/companies/{id}/payroll/months/{ÅÅÅÅ-MM}/amelding/submissions</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code dir="auto">/companies/{id}/payroll/hours/{employee}?ar=&amp;maned=</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code dir="auto">/companies/{id}/tax-cards</code> (bestillinger og svar)</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code dir="auto">/companies/{id}/tax-cards?year=</code> (bestill og hent skattekort)</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code dir="auto">/companies/{id}/tax-cards/{order}/answer</code> (hent et svar som ikke var klart)</td>
+</tr>
+</tbody>
+</table>
+<p>Lesing krever tilgang; registrering og kjøring krever <code dir="auto">bokforing</code> eller
+<code dir="auto">admin</code>.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="a-meldingen">A-meldingen</h2><a class="sl-anchor-link" href="#a-meldingen"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “A-meldingen”</span></a></div>
+<p><code dir="auto">regnmed-core::amelding::render</code> gjør én lønnskjøring om til én
+a-melding, håndrullet og deterministisk som RF-1086, og validert mot
+Skatteetatens offisielle XSD v2.3 (vendored i docs/amelding/, med kilde,
+versjon og hash i docs/amelding/README.md) i enhetstestene og i CI.
+Innsendingen er bygget (se «Innsendingssporet» under) og prøvd mot
+Skatteetatens testmiljø; i produksjon venter den på
+Altinn-systembrukeren (#180, docs/gov.md). Fra en lagret kjøring lages
+meldingen av <code dir="auto">regnmed-db::payroll::amelding_for_run</code>, se «Fra lagret
+kjøring» under; for en måned UTEN kjøring av <code dir="auto">amelding_for_month</code>, se
+«Måned uten lønnskjøring».</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="xsd-en-er-det-minste-ikke-det-hele">XSD-en er det minste, ikke det hele</h3><a class="sl-anchor-link" href="#xsd-en-er-det-minste-ikke-det-hele"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “XSD-en er det minste, ikke det hele”</span></a></div>
+<p>XSD-en er slapp: hver kode er en fri streng, og nesten alt i et
+arbeidsforhold er valgfritt. Det som faktisk avgjør om en melding blir
+godtatt, står i tre regneark Skatteetaten publiserer per halvår (R1/R2,
+lenket i docs/amelding/README.md): kodelisten, inntektskombinasjonene og
+forretningsreglene. Renderen bruker bare koder som står der, og nekter
+der forretningsreglene krever et felt modellen ikke har. Et oppdiktet
+felt blir godtatt av Skatteetaten og er feil hos NAV — det er verre enn
+en melding som aldri sendes.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="hva-modellen-allerede-har">Hva modellen allerede har</h3><a class="sl-anchor-link" href="#hva-modellen-allerede-har"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Hva modellen allerede har”</span></a></div>
+<table>
+<thead>
+<tr>
+<th>A-meldingen</th>
+<th>Kilde i regnmed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">opplysningspliktig/norskIdentifikator</code></td>
+<td>selskapets orgnr</td>
+</tr>
+<tr>
+<td><code dir="auto">kalendermaaned</code></td>
+<td>måneden til <code dir="auto">payroll_run.utbetalt_dato</code> — IKKE lønnsmåneden: a-meldingen rapporterer det som ble utbetalt, i måneden det ble utbetalt. En marskjøring utbetalt 2. april hører i aprilmeldingen</td>
+</tr>
+<tr>
+<td><code dir="auto">meldingsId</code></td>
+<td><code dir="auto">payroll_run.id</code> (sjekket mot XSD-ens tegnsett)</td>
+</tr>
+<tr>
+<td><code dir="auto">leveringstidspunkt</code></td>
+<td>tidspunktet meldingen lages, i UTC med <code dir="auto">Z</code> — uten sone leses det som norsk tid</td>
+</tr>
+<tr>
+<td><code dir="auto">inntektsmottaker/norskIdentifikator</code></td>
+<td><code dir="auto">employee.fodselsnummer</code> — leses ÉTT sted, som i RF-1086</td>
+</tr>
+<tr>
+<td><code dir="auto">arbeidsforhold/arbeidsforholdId</code></td>
+<td><code dir="auto">employee.id</code> (stabil på tvers av måneder, F108)</td>
+</tr>
+<tr>
+<td><code dir="auto">arbeidsforhold/typeArbeidsforhold</code></td>
+<td>alltid <code dir="auto">ordinaertArbeidsforhold</code></td>
+</tr>
+<tr>
+<td><code dir="auto">arbeidsforhold/startdato</code>, <code dir="auto">sluttdato</code></td>
+<td><code dir="auto">employee.ansatt_fra</code>, <code dir="auto">ansatt_til</code></td>
+</tr>
+<tr>
+<td><code dir="auto">inntekt</code> <code dir="auto">fastloenn</code> / <code dir="auto">timeloenn</code> / <code dir="auto">feriepenger</code></td>
+<td><code dir="auto">payroll_line.brutto_ore</code>, <code dir="auto">feriepenger_ore</code> — kombinasjon 111: <code dir="auto">kontantytelse</code>, utløser aga, inngår i trekkgrunnlaget</td>
+</tr>
+<tr>
+<td><code dir="auto">inntekt</code> kjøregodtgjørelse (<code dir="auto">utgiftsgodtgjoerelse</code>, <code dir="auto">antall</code> = km)</td>
+<td><code dir="auto">payroll_expense</code> — trekkfri del (gammel kode 711), del over trekkfri sats (153, utløser aga og trekk), passasjertillegg og andre kjøretøy (714). Se docs/utlegg.md «Utbetaling»</td>
+</tr>
+<tr>
+<td><code dir="auto">inntekt</code> diett (<code dir="auto">utgiftsgodtgjoerelse</code>, <code dir="auto">antall</code> = døgn på de trekkfrie)</td>
+<td><code dir="auto">payroll_travel</code> — trekkfri kost per overnattingstype og dagreise, trekkfritt nattillegg, og <code dir="auto">reiseKost</code>/<code dir="auto">reiseAnnet</code> for det over trekkfri sats (utløser aga og trekk, uten <code dir="auto">antall</code>). Se docs/utlegg.md «Reise og diett»</td>
+</tr>
+<tr>
+<td><code dir="auto">forskuddstrekk</code> (<code dir="auto">ordinaert</code>, negativt, F278-2)</td>
+<td><code dir="auto">payroll_line.forskuddstrekk_ore</code></td>
+</tr>
+<tr>
+<td><code dir="auto">sumForskuddstrekkPerLoennsutbetalingsdato</code> (fra 2026-01, F523)</td>
+<td><code dir="auto">payroll_run.utbetalt_dato</code> + sum trekk</td>
+</tr>
+<tr>
+<td><code dir="auto">sumArbeidsgiveravgift</code></td>
+<td><code dir="auto">payroll_run.aga_ore</code> (ikke avsetningen på feriepenger — den er periodisering, ikke avgift å betale). Må være NØYAKTIG grunnlaget × satsen avrundet ned til hele kroner (F185, skattebetalingsforskriften § 10-4-4); ellers nektes meldingen med begge tallene</td>
+</tr>
+<tr>
+<td><code dir="auto">loennOgGodtgjoerelse</code>: beregningskode, sone, grunnlag, sats</td>
+<td><code dir="auto">generelleNaeringer</code>; <code dir="auto">payroll_run.sone</code> (I→<code dir="auto">1</code>, Ia→<code dir="auto">1a</code>, …); summen av inntektene som utløser aga (F184) — ikke den trekkfrie kjøregodtgjørelsen eller dietten; satsen fra satsregisteret på utbetalingsdatoen</td>
+</tr>
+</tbody>
+</table>
+<p><code dir="auto">generelleNaeringer</code> er ikke en ny antakelse: lønnskjøringen bruker
+allerede den ordinære satsen per sone, og det ER den beregningskoden
+(F197-tabellen). Et selskap med sektorunntak er feil i kjøringen før det
+blir feil i meldingen.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="arbeidsforholdet-migration-0073">Arbeidsforholdet (migration 0073)</h3><a class="sl-anchor-link" href="#arbeidsforholdet-migration-0073"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Arbeidsforholdet (migration 0073)”</span></a></div>
+<p>Feltene forretningsreglene krever om arbeidsforholdet ligger nå på
+<code dir="auto">employee</code>, alle valgfrie i registeret og redigerbare som resten av
+vilkårene:</p>
+<table>
+<thead>
+<tr>
+<th>A-meldingen</th>
+<th>Kolonne</th>
+<th>Regel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">virksomhet</code></td>
+<td><code dir="auto">business_unit_orgnumber</code></td>
+<td>F290: underenheten i Enhetsregisteret, MOD11 og ALDRI selskapets eget orgnr</td>
+</tr>
+<tr>
+<td><code dir="auto">yrke</code></td>
+<td><code dir="auto">occupation_code</code></td>
+<td>F115B: 7 siffer (STYRK-08) — bare formatet sjekkes, katalogen er ikke vendored</td>
+</tr>
+<tr>
+<td><code dir="auto">stillingsprosent</code></td>
+<td><code dir="auto">position_percent_bp</code></td>
+<td>F291: 0–100 %, i basispunkter</td>
+</tr>
+<tr>
+<td><code dir="auto">antallTimerPerUkeSomEnFullStillingTilsvarer</code></td>
+<td><code dir="auto">full_time_hours_per_week_hundredths</code></td>
+<td>F291, i hundredeler</td>
+</tr>
+<tr>
+<td><code dir="auto">arbeidstidsordning</code></td>
+<td><code dir="auto">working_hours_scheme</code></td>
+<td>F291: kodelisten i <code dir="auto">regnmed-core::amelding</code></td>
+</tr>
+<tr>
+<td><code dir="auto">formForAnsettelse</code></td>
+<td><code dir="auto">employment_form</code></td>
+<td>F291: kodelisten i <code dir="auto">regnmed-core::amelding</code></td>
+</tr>
+<tr>
+<td><code dir="auto">sisteLoennsendringsdato</code></td>
+<td><code dir="auto">last_salary_change</code></td>
+<td>F291</td>
+</tr>
+</tbody>
+</table>
+<p>Kodelistene sjekkes i applikasjonen, ikke med en check-constraint: de
+endres per halvår (R1/R2), og en migrasjon per kodelisteendring ville
+vært feil sted. API-et serverer listene fra den ene kopien renderen
+sjekker mot (<code dir="auto">koder</code> på <code dir="auto">GET …/employees</code>).</p>
+<p><code dir="auto">Employee::amelding_missing()</code> sier hva a-meldingen ville nektet for, med
+<strong>de samme navnene som renderens feilmeldinger</strong> — en enhetstest i
+<code dir="auto">amelding</code> fester at <code dir="auto">Employment::missing()</code> og <code dir="auto">render</code> nevner samme
+felt. Portalen viser det som «mangler N» per ansatt, med et skjema
+(<code dir="auto">PUT …/employees/{eid}/employment</code>, <code dir="auto">LONN_SKRIV</code>) som erstatter alle
+sju feltene, så et felt kan tømmes igjen. Ansatte registrert før 0073
+har ingen av dem, og ingenting fylles inn for dem: det som mangler,
+mangler synlig.</p>
+<p>Virksomheten ligger per ANSATT fordi det er der den hører hjemme — et
+selskap med to underenheter har ansatte på begge. Renderen tar i dag ÉN
+virksomhet per melding; <code dir="auto">amelding_for_run</code> nekter derfor en kjøring der
+de ansatte står på ulike underenheter, til renderen grupperer per
+virksomhet (inkludert avgiften, som da må fordeles).</p>
+<p><strong>Fastlønn eller timelønn</strong> lagres nå per lønnslinje
+(<code dir="auto">payroll_line.pay_kind</code>), bestemt i kjøringen der det er kjent:
+timelister → <code dir="auto">hourly</code>, månedslønnen → <code dir="auto">fixed</code>, et oppgitt beløp →
+den ansattes ENE lønnsform; har den ansatte begge eller ingen, lagres
+NULL, og meldingen nekter heller enn å gjette. Linjer fra før 0073 er
+NULL.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="hva-modellen-fortsatt-ikke-har--og-renderen-nekter-for">Hva modellen fortsatt IKKE har — og renderen nekter for</h3><a class="sl-anchor-link" href="#hva-modellen-fortsatt-ikke-har--og-renderen-nekter-for"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Hva modellen fortsatt IKKE har — og renderen nekter for”</span></a></div>
+<ol>
+<li><strong>Kjøringer fra før hele kroner.</strong> Skjemaet vil ha trekk og avgift i
+hele kroner. Lønnskjøringen avrunder nå begge ned (se over), men en
+kjøring bokført før det kan bære øre, og kjøringer gjøres ikke om.
+Renderen runder IKKE — da ville meldingen sprike fra det som er
+bokført på 2600/2770 — så slike kjøringer nektes, og meldingen for
+den måneden må leveres på annet vis.</li>
+</ol>
+<p>Renderen nekter også, med eget navn:</p>
+<ul>
+<li><strong>Avgift som ikke er grunnlag × sats</strong> (F185), avrundet ned til hele
+kroner. Spriker bokført avgift fra det, sier feilmeldingen begge
+tallene i stedet for at meldingen sendes med en avgift den selv
+motsier. Det er dette en kjøring fra før avrundingen møter.</li>
+<li><strong>Negative beløp</strong> — trekk og inntekt har faste fortegn (F277,
+F278-2). En korreksjon er et reverserende bilag og en ny kjøring i
+hovedboken; hvordan den skal se ut i a-meldingen (erstatningsmelding)
+er ikke modellert.</li>
+</ul>
+<div class="sl-heading-wrapper level-h3"><h3 id="arbeidsforhold-uten-lønn-i-måneden-f108">Arbeidsforhold uten lønn i måneden (F108)</h3><a class="sl-anchor-link" href="#arbeidsforhold-uten-lønn-i-måneden-f108"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Arbeidsforhold uten lønn i måneden (F108)”</span></a></div>
+<p>Et arbeidsforhold rapporteres hver måned til og med måneden sluttdatoen
+er meldt i, også en måned uten utbetaling (F108: «Alle arbeidsforhold må
+rapporteres hver måned til og med kalendermåneden inntektsmottaker
+slutter»). Alle som er ansatt i meldingens kalendermåned uten å ha en
+linje i kjøringen, tas derfor med som inntektsmottaker med
+<strong>arbeidsforholdet alene</strong> — uten inntekt og uten trekk, noe XSD-en
+tillater. De påvirker verken grunnlaget eller avgiften. Arbeidsforholdet
+må være komplett som for alle andre, ellers er det en hindring.</p>
+<p>Måneden er <strong>utbetalingsdatoens</strong>, ikke lønnsmånedens, samme regel som
+kalendermåneden: marslønn utbetalt 2. april er aprils melding, så den
+som begynte 1. april er med og den som sluttet 31. mars er ikke.</p>
+<p><strong>Sluttdatoen</strong> settes med <code dir="auto">PUT /companies/{id}/employees/{eid}/end</code>
+(<code dir="auto">LONN_SKRIV</code>, <code dir="auto">{"ansatt_til": "2026-04-30"}</code>; <code dir="auto">null</code> fjerner en
+feilført dato, og nøkkelen er påkrevd så en feilstavet nøkkel ikke kan
+fjerne den) — i portalen «Sluttdato …» i ansattlisten. Uten den ville en
+som har sluttet, blitt rapportert som ansatt hver måned. Sluttdatoen kan
+ikke ligge før startdatoen. Lønn etter sluttdatoen — feriepenger året
+etter — kjøres og rapporteres som før, med sluttdatoen på
+arbeidsforholdet.</p>
+<p><strong>En sluttdato som føres for sent</strong> fanges også. Sluttet en ansatt i
+januar, men februars melding rapporterte arbeidsforholdet uten
+sluttdato fordi ingen hadde ført den, holder Skatteetaten det åpent —
+og F108 krever det da igjen i mars. Meldingen tar derfor med enhver
+ansatt som har sluttet før måneden, men som sto <strong>uten sluttdato</strong> i en
+melding <strong>levert</strong> for forrige måned (med kvittering, og ikke erstattet
+av en annen levert melding), nå med sluttdatoen. Kilden er den lagrede
+meldingen selv (<code dir="auto">amelding_submission.body</code>, nøyaktig det som ble sendt),
+ikke en gjetning. En forrige måned som ble levert utenfor regnmed, ser
+regnmed ikke.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="måned-uten-lønnskjøring">Måned uten lønnskjøring</h3><a class="sl-anchor-link" href="#måned-uten-lønnskjøring"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Måned uten lønnskjøring”</span></a></div>
+<p>En måned der INGEN får lønn, har ingen kjøring å lage meldingen av —
+men arbeidsforholdene skal rapporteres likevel (F108; Skatteetaten:
+a-melding skal sendes når arbeidsgiveren har aktive arbeidsforhold, selv
+om det ikke er utbetalt lønn den måneden). <code dir="auto">amelding_for_month</code> lager
+den: hvert arbeidsforhold som er ansatt i måneden (og en sluttdato ført
+for sent, som over), med <strong>arbeidsforholdet alene</strong>. Meldingen har ingen
+lønnsutbetalingsdato, så <code dir="auto">sumForskuddstrekkPerLoennsutbetalingsdato</code>
+utelates; den har intet avgiftsgrunnlag, så <code dir="auto">arbeidsgiveravgift</code> på
+virksomheten utelates og <code dir="auto">sumArbeidsgiveravgift</code> er 0. Alt er valgfritt
+i XSD-en, og meldingen valideres mot den i enhetstesten.</p>
+<p>Uten noen å rapportere (ingen ansatt i måneden) er det en hindring:
+uten ansatte og uten utbetalinger skal det ikke leveres a-melding.</p>
+<p><strong>En måned som har en kjøring, er kjøringens.</strong> Kjøringens melding tar
+allerede med arbeidsforholdene uten lønn, så en NY månedsmelding nektes
+da. Får måneden en kjøring ETTER at månedsmeldingen er levert,
+<strong>erstatter</strong> kjøringens første melding den (<code dir="auto">erstatterMeldingsId</code>):
+sendt ved siden av ville den rapportert de samme arbeidsforholdene to
+ganger, siden meldinger for samme måned legges sammen hos Skatteetaten.</p>
+<p><strong>En månedsmelding som feilet, blir ikke stående.</strong> Et tidsavbrudd kan
+komme ETTER at Skatteetaten tok imot meldingen, så et lagret, ikke
+levert forsøk har ukjent skjebne. Det kan derfor fortsatt sendes på nytt
+— samme kropp, samme nøkkel, telles ikke dobbelt — også etter at måneden
+har fått en kjøring, og kjøringens første melding <strong>nektes</strong> så lenge et
+slikt forsøk står: den kan ikke erstatte en melding uten kvittering, og
+sendt ved siden av kunne den telt arbeidsforholdene to ganger. Når
+forsøket er levert, erstatter kjøringens melding det som over.
+Innsendingssporet er det samme som for en kjøring — lagret før det
+sendes, samme kropp og nøkkel ved nytt forsøk, erstatning bare på
+uttrykkelig forespørsel — men en månedsinnsending har ingen
+<code dir="auto">run_id</code> (migration 0081) og kjennes på selskap og måned; låsen er
+selskapsraden i stedet for kjøringsraden.</p>
+<p><code dir="auto">GET /companies/{id}/payroll/months/{ÅÅÅÅ-MM}/amelding</code> (<code dir="auto">LONN_KJOR</code>)
+gir forhåndsvisningen og <code dir="auto">?format=xml</code> filen, med <code dir="auto">…/submissions</code> og
+<code dir="auto">…/submissions/{sid}/feedback</code> som for en kjøring. I portalen: «A-melding
+for en måned uten lønnskjøring» under kjøringene.</p>
+<p><strong>Det regnmed ikke gjør</strong>: å huske måneden for deg. Ingen jobb lager
+eller sender månedsmeldingen av seg selv; lønnsansvarlig må åpne den,
+som en kjøring.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="fra-lagret-kjøring">Fra lagret kjøring</h3><a class="sl-anchor-link" href="#fra-lagret-kjøring"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Fra lagret kjøring”</span></a></div>
+<p><code dir="auto">GET /companies/{id}/payroll/{rid}/amelding</code> (<code dir="auto">LONN_KJOR</code>) bygger
+meldingen av en lagret kjøring med <code dir="auto">amelding_for_run</code>. JSON-svaret er en
+forhåndsvisning som lister <strong>alle</strong> hindringene samlet, med navn — så
+lønnsansvarlig kan rette alt i én runde i stedet for å møte dem én og én
+fra renderen. <code dir="auto">?format=xml</code> gir filen, og bare når listen er tom.
+Renderens egen dom tas med først når vår liste er tom, ellers sier den
+det første punktet en gang til med andre ord.</p>
+<p>Hindringene <code dir="auto">amelding_for_run</code> finner:</p>
+<ul>
+<li>arbeidsforhold som mangler felt (samme navn som renderen bruker);</li>
+<li>lønnslinjer uten lagret lønnsform (<code dir="auto">pay_kind</code> NULL — kjøringer fra før
+0073, eller et oppgitt beløp for en ansatt med begge lønnsformer);</li>
+<li>ansatte på ulike virksomheter i samme kjøring;</li>
+<li>ansatte uten lønn i kjøringen hvis arbeidsforhold mangler felt — de
+er med i meldingen likevel (F108, se over), så feltene må finnes;</li>
+<li>manglende aga-sats i satsregisteret på utbetalingsdatoen.</li>
+</ul>
+<p>Fødselsnummeret leses ÉTT sted, her, som i RF-1086. Derfor krever
+endepunktet <code dir="auto">LONN_KJOR</code> og ikke <code dir="auto">LONN_LES</code>: filen bærer alle ansattes
+fødselsnummer, som resten av lønns-API-et aldri viser — den som kjører
+lønn og leverer meldingen trenger det, en leser (eller revisor) gjør
+ikke. Tilgangstesten fester begge sider og er sett feile.</p>
+<p><code dir="auto">meldingsId</code> er kjøringens id; <code dir="auto">leveringstidspunkt</code> er når filen lages.
+Erstatningsmelding (<code dir="auto">erstatterMeldingsId</code>) er ikke modellert.</p>
+<p>Portalen har en «Sjekk»-knapp per kjøring som viser hindringene, eller
+«Last ned XML» når meldingen kan lages.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="formatet-på-vei-inn">Formatet på vei inn</h3><a class="sl-anchor-link" href="#formatet-på-vei-inn"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Formatet på vei inn”</span></a></div>
+<p>Skatteetatens nye API-er (REST og filopplasting, scope
+<code dir="auto">skatteetaten:innrapporteringamelding</code>, systembruker) tar <strong>JSON</strong> etter
+OpenAPI-skjemaet <code dir="auto">Amelding</code> (<code dir="auto">innrapportering-amelding-api</code> 0.1.2 på
+SwaggerHub), ikke XML. Modellen er den samme felt for felt — <code dir="auto">leveranse</code>,
+<code dir="auto">oppgave</code>, <code dir="auto">inntektsmottaker</code>, <code dir="auto">arbeidsforhold</code> med samme navn og samme
+påkrevde felt — så XSD-en er fortsatt fasiten for innholdet, og XML-en
+kan lastes opp manuelt i Skatteetatens testmiljø.</p>
+<p>Derfor bygger renderen meldingen ÉN gang, som et lite typet tre, og
+skriver det enten som XML (<code dir="auto">render</code>, validert mot XSD-en) eller som JSON
+(<code dir="auto">render_json</code>, det REST-API-et tar). Samme validering, samme felt; bare
+typene skiller: lister er lister også med ett element,
+<code dir="auto">BeloepSomHeltall</code> er JSON-tall, <code dir="auto">Boolsk</code> er <code dir="auto">true</code>/<code dir="auto">false</code>, og
+desimaltall forblir strenger. En test fester at hver verdi i XML-en også
+står i JSON-en, så de to formatene ikke kan gli fra hverandre.</p>
+<p>Klienten (<code dir="auto">regnmed-gov::amelding</code>, docs/gov.md) sender JSON-en med
+kundens systembrukertoken og henter tilbakemeldingen via Dialogporten.
+Den er prøvd mot Skatteetatens testmiljø med en melding rendret av
+regnmed selv: <code dir="auto">mottatt</code>, ingen avvik.</p>
+<p><strong>To meldinger for samme måned LEGGES SAMMEN.</strong> En ny melding med ny
+<code dir="auto">meldingsId</code> for samme kalendermåned kommer i tillegg til den forrige —
+periodesummene i tilbakemeldingen ble doblet da testen ble kjørt to
+ganger. Derfor: et nytt forsøk på SAMME innsending skal gjenbruke
+<code dir="auto">idempotencyKey</code> (da svarer Skatteetaten med første kvittering), og en
+rettet melding skal være en erstatningsmelding (<code dir="auto">erstatterMeldingsId</code>),
+ikke en ny. Begge deler er nå modellert i innsendingssporet under.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="innsendingssporet-migration-0074">Innsendingssporet (migration 0074)</h3><a class="sl-anchor-link" href="#innsendingssporet-migration-0074"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Innsendingssporet (migration 0074)”</span></a></div>
+<p><strong>Først kundevilkårene.</strong> Innsendingen nekter til en administrator har
+godtatt kundevilkårene for selskapet (docs/vilkar-teknisk.md, «Aksept»):
+Digdirs og Skatteetatens vilkår tillater ingen innsending på kundens vegne
+uten en avtale med kunden.</p>
+<p><strong>Det som sendes, lagres før det sendes.</strong> <code dir="auto">amelding_submission</code> holder
+én rad per innsending: kjøringen, <code dir="auto">meldingsId</code> (ny per innsending — en
+erstatning trenger sin egen, så det er IKKE kjøringens id),
+<code dir="auto">idempotencyKey</code>, kalendermåneden, <code dir="auto">erstatterMeldingsId</code> og <strong>den
+eksakte JSON-kroppen</strong>. Hva som skjedde med den står i
+<code dir="auto">amelding_submission_event</code> (<code dir="auto">receipt</code>, <code dir="auto">failed</code>, <code dir="auto">feedback</code>); statusen
+— <code dir="auto">ikke_levert</code>, <code dir="auto">levert</code>, <code dir="auto">tilbakemelding</code> — beregnes av hendelsene og
+lagres aldri. Begge tabellene er innsettings-bare som hovedboken, og
+databasen tillater én kvittering og én tilbakemelding per innsending.</p>
+<p><code dir="auto">regnmed-db::amelding_submission::prepare_submission</code> avgjør hva som
+sendes:</p>
+<ul>
+<li><strong>Finnes en innsending uten kvittering, sendes DEN</strong> — samme kropp,
+samme nøkkel, byte for byte. Et nettverksbrudd eller et 503 fra
+Skatteetaten blir altså aldri en melding til, og feilen står i sporet
+(<code dir="auto">siste_feil</code>).</li>
+<li><strong>Er kjøringen levert, nektes en ny melding</strong> med beskjed om at den
+ville blitt lagt til. Bare <code dir="auto">erstatt: true</code> lager en ny, og da som
+erstatning for den sist leverte, med ny <code dir="auto">meldingsId</code> og ny nøkkel.</li>
+<li>Ellers rendres en ny fra kjøringen slik den står (<code dir="auto">amelding_for_run</code>,
+med alle hindringene samlet om noe mangler).</li>
+</ul>
+<p>To trykk samtidig gir ÉN innsending: kjøringens rad låses
+(<code dir="auto">for update</code>) i transaksjonen som avgjør. Testen
+<code dir="auto">concurrent_sends_create_one_submission</code> ble sett feile uten låsen.</p>
+<p>API: <code dir="auto">POST …/payroll/{rid}/amelding/submissions</code> (<code dir="auto">LONN_KJOR</code>; body
+<code dir="auto">{"erstatt": bool}</code>) sender og lagrer kvittering eller feil;
+<code dir="auto">GET …/submissions</code> (<code dir="auto">LONN_LES</code>) lister sporet uten kropp;
+<code dir="auto">POST …/submissions/{sid}/feedback</code> henter og lagrer tilbakemeldingen og
+viser DENNE meldingens <code dir="auto">mottakstatus</code> og <code dir="auto">avvik</code> fra den. Innsending er
+på når API-et har Maskinporten-klienten (<code dir="auto">MASKINPORTEN_*</code>, scopene settes
+av skinnen selv); uten den sier endepunktet det, og portalen tilbyr bare
+filen.</p>
+<p><strong>Prøvd ende til ende mot Skatteetatens testmiljø 2026-11-11</strong> fra
+portalen: «Send til Skatteetaten» → <code dir="auto">levert</code> → «Hent tilbakemelding» →
+<code dir="auto">mottatt, 0 avvik</code>, for det syntetiske Tenor-selskapet 311032240.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="tilbakemelding-som-hendelse-migration-0075">Tilbakemelding som hendelse (migration 0075)</h3><a class="sl-anchor-link" href="#tilbakemelding-som-hendelse-migration-0075"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Tilbakemelding som hendelse (migration 0075)”</span></a></div>
+<p>Altinns bruksvilkår (§1.2.4) foretrekker hendelser framfor polling, og
+Dialogporten publiserer en hendelse hver gang en forsendelse opprettes i
+en dialog — også Skatteetatens tilbakemelding. Når API-et har
+<code dir="auto">ALTINN_EVENTS_ENDPOINT</code> (vår offentlige webhook, f.eks.
+<code dir="auto">https://api.test.regnmed.no/webhooks/altinn</code>), abonnerer regnmed
+selskapet på <code dir="auto">dialogporten.dialog.transmission.created.v1</code> for ressursen
+<code dir="auto">ske-innrapportering-amelding</code> første gang en a-melding leveres, én gang
+per selskap (<code dir="auto">altinn_event_subscription</code>, innsettings-bar, unik per
+selskap/filter/endepunkt). Feiler abonnementet, logges det og
+innsendingen står likevel — knappen er reserveveien.</p>
+<p><strong>Events-API-et tar ikke et Maskinporten-token.</strong> Det svarer 401, og
+godtar det samme tokenet etter veksling til et Altinn-token på
+<code dir="auto">/authentication/api/v1/exchange/maskinporten</code> (prøvd mot TT02
+2026-11-11). Vekslet fra et systembrukertoken kjører abonnementet SOM
+systembrukeren (<code dir="auto">consumer: /systemuser/&lt;id&gt;</code>), og det er det som gir
+tilgang til kundens hendelser. Scopet <code dir="auto">altinn:events.subscribe</code> ligger i
+<code dir="auto">amelding::SCOPES</code>, så det er samme token-leverandør som innsendingen.</p>
+<p><strong>Webhooken <code dir="auto">POST /webhooks/altinn</code> er åpen, og stoler derfor ikke på
+noe den får.</strong> Altinn verken autentiserer eller signerer leveransene. En
+hendelse er bare et hint om hvilken dialog man skal se på: regnmed slår
+opp leverte innsendinger som venter på tilbakemelding og har den
+dialogen i kvitteringen, og henter tilbakemeldingen gjennom sin EGEN
+systembruker-autentiserte klient. Valideringshendelsen
+(<code dir="auto">platform.events.validatesubscription</code>) besvares med 200, og det gjør
+alle andre også — en ukjent dialog er ikke en feil Altinn skal prøve på
+nytt. En falsk hendelse kan altså i verste fall få regnmed til å hente en
+tilbakemelding som venter, aldri til å lagre noe den ikke selv har hentet.</p>
+<p>Prøvd: API-testen spiller Altinn mot en etterligning (validering,
+hendelser for fremmede dialoger og ressurser ignoreres, tilbakemeldingen
+lagres uten knappetrykk, samme hendelse to ganger henter ikke på nytt,
+en erstatning abonnerer ikke på nytt), og live mot TT02 er abonnementet
+opprettet, lest tilbake og slettet gjennom vår egen klient.</p>
+<p><strong>Prøvd ende til ende i testklyngen 2026-11-11</strong>, uten knappetrykk: fra
+test.regnmed.no ble oktober-meldingen til Tenor-selskapet 311032240
+sendt; leveransen abonnerte selskapet selv (abonnement 126913 mot
+<code dir="auto">https://api.test.regnmed.no/webhooks/altinn</code>), og 15 sekunder senere
+lå tilbakemeldingen lagret med <code dir="auto">created_by = altinn-events</code> —
+<code dir="auto">mottatt</code>, 0 avvik — før noen trykket «Hent tilbakemelding». Altinn
+validerte et abonnement mot den samme webhooken på under 5 sekunder.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="hva-som-ikke-er-bygget">Hva som IKKE er bygget</h2><a class="sl-anchor-link" href="#hva-som-ikke-er-bygget"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Hva som IKKE er bygget”</span></a></div>
+<p>Rekkefølgen er omtrent den de bør tas i.</p>
+<ol>
+<li><strong>A-meldingen.</strong> Månedlig, frist den 5. Renderen finnes og er
+validert mot XSD-en (se «A-meldingen» under), og arbeidsforholdets
+felt finnes nå (0073), og den lages fra en lagret kjøring med trekk
+og avgift i hele kroner og med arbeidsforholdene uten lønn i
+måneden (F108), også for en måned helt uten lønnskjøring.
+Innsendingen er bygget og prøvd i testmiljøet, men venter i
+produksjon på Altinn-systembrukeren (#180, docs/gov.md). Inntil
+den er på plass er dette internt regnskap, ikke rapportering —
+<strong>selskapet må fortsatt levere a-melding på annet vis.</strong> Dette er
+den viktigste mangelen.</li>
+<li><strong>Sykepengerefusjon, naturalytelser, pensjonstrekk, tariff-logikk,
+OTP</strong> — uttrykkelig utenfor v1 i #46 selv.</li>
+</ol>
+<div class="sl-heading-wrapper level-h2"><h2 id="timelønn-fra-timeføringen">Timelønn fra timeføringen</h2><a class="sl-anchor-link" href="#timelønn-fra-timeføringen"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Timelønn fra timeføringen”</span></a></div>
+<p>En lønnslinje kan hente beløpet fra timeføringen i stedet for å bruke
+månedslønn: minutter ført i måneden × den ansattes timesats. <strong>Alle</strong>
+førte timer teller, fakturerbare eller ikke — arbeidsgiver skylder lønn
+for utført arbeid uansett om en kunde faktureres for det.</p>
+<p>Regnestykket ligger i <code dir="auto">regnmed-core::payroll::hourly_pay</code> og går fra minutter
+direkte, uten et mellomsteg om desimaltimer som bare ville lagt til en
+avrunding. Én divisjon, halvt vekk fra null.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="måneden-må-være-låst">Måneden må være låst</h3><a class="sl-anchor-link" href="#måneden-må-være-låst"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Måneden må være låst”</span></a></div>
+<p>Dette er den viktigste regelen her, og den er en hard forutsetning i
+<code dir="auto">kjor_lonn</code>, ikke bare et råd i portalen:</p>
+<blockquote>
+<p>timelisten for 03/2026 er ikke låst — lås måneden før timelønn
+utbetales, ellers kan timene endres etter at lønnen er bokført</p>
+</blockquote>
+<p>En lønnskjøring er innsettings-bar. Endres timene etterpå, spriker
+timelisten og lønnen for alltid, uten noen måte å avstemme dem på.
+Månedslåsen i docs/timer.md finnes nettopp for denne rekkefølgen: lås
+for lønn, så fakturer.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="ansatt-og-portalbruker-er-to-ting">Ansatt og portalbruker er to ting</h3><a class="sl-anchor-link" href="#ansatt-og-portalbruker-er-to-ting"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Ansatt og portalbruker er to ting”</span></a></div>
+<p><code dir="auto">time_entry</code> føres av en <strong>person</strong> (en som logger inn), mens <code dir="auto">employee</code>
+er lønnsmottakeren identifisert ved fødselsnummer, fordi det er slik
+a-meldingen rapporterer. De skal fortsette å være atskilte: en ansatt
+trenger ikke portaltilgang, og en portalbruker er ikke nødvendigvis
+ansatt.</p>
+<p>Migration 0036 legger derfor til en <strong>valgfri, eksplisitt</strong> kobling
+(<code dir="auto">employee.person_id</code>), satt av en admin. Den gjettes ikke ut fra navn —
+det ville koblet feil person til feil lønn første gang to ansatte het
+det samme. Mangler koblingen, sier <code dir="auto">hour_basis</code> fra i stedet for å
+returnere null timer.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="hvordan-koblingen-settes-migration-0050">Hvordan koblingen settes (migration 0050)</h3><a class="sl-anchor-link" href="#hvordan-koblingen-settes-migration-0050"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Hvordan koblingen settes (migration 0050)”</span></a></div>
+<p>Koblingen avgjør hvem som kan lese en lønnsslipp, så veiene inn er få
+og kontrollerte, og hver endring står i det innsettings-bare sporet
+<code dir="auto">employee_link_change</code> (hvem koblet hvem, når, av hvem — spørsmålet som
+teller når en slipp var lesbar for feil person).</p>
+<ol>
+<li><strong>Invitasjonen bærer den ansatte</strong> (hovedveien). Admin oppgir den
+ansattes e-postadresse; invitasjonen (docs/auth.md §7) får en
+<code dir="auto">employee_id</code>, og innløsningen i <code dir="auto">/me</code> setter koblingen i SAMME
+transaksjon som medlemskapet. Da er det den ansatte selv som kobler
+seg, ved å logge inn med sin egen adresse — admin velger aldri en
+person fra en liste, og feilkobling krever at noen andre disponerer
+postkassen. Bare én åpen invitasjon kan love en ansatt om gangen.
+Kan koblingen ikke settes ved innløsning (personen er alt en annen
+ansatt her), består medlemskapet og den ansatte forblir SYNLIG
+ukoblet — en invitasjonstabbe skal aldri knekke en innlogging, og
+aldri skjules bak en stille feilkobling.</li>
+<li><strong>Manuell kobling til et eksisterende medlem</strong> (unntaksveien).
+<code dir="auto">POST …/employees/{eid}/link</code> — portalvelgeren viser bare selskapets
+direkte, aktive medlemmer, og vaktene holder uansett hva UI-et
+sender: bare ukoblede ansatte (omkobling er et to-stegs bevisst
+valg: koble fra først), bare mennesker (en integrasjon med
+lønnsslipptilgang ville vært en lekkasje ved konstruksjon), og én
+ansatt per person (delvis unik indeks fra 0036).</li>
+</ol>
+<p><code dir="auto">GET /companies/{id}/payroll/hours/{employee}?ar=&amp;maned=</code> gir minutter,
+sats, beløp og <code dir="auto">laast</code>, så portalen bare tilbyr timelønn når det faktisk
+er trygt å kjøre.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="lønnsslipp">Lønnsslipp</h2><a class="sl-anchor-link" href="#lønnsslipp"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Lønnsslipp”</span></a></div>
+<p><code dir="auto">regnmed-core::payslip</code> rendrer slippen med den samme hand-rolled
+PDF-skriveren som fakturaen — samme begrunnelse: et dokument vi står
+ansvarlig for, uten en motor med skjult oppførsel.</p>
+<p><strong>Slippen lagres ikke.</strong> Til forskjell fra fakturaen, der PDF-en <em>er</em>
+salgsdokumentet og derfor bokføres som vedlegg, er lønnsslippen utledet
+av lønnslinjen — og linjene er innsettings-bare. Samme linje gir samme
+bytes for alltid, så den rendres på forespørsel i stedet for å lagre
+enda en kopi av personopplysninger.</p>
+<p>Slippen <strong>forklarer</strong> trekket i stedet for bare å oppgi det: grunnlaget
+står i parentes («Forskuddstrekk (35 % av 55 000,00)»), og både
+feriepengenes trekkfrihet og desembers halve trekk får sin egen linje
+når de gjelder. Feriepenger opptjent denne måneden står under en egen
+overskrift, tydelig utenfor «Til utbetaling», og hittil-i-år-tallene
+står nederst.</p>
+<p><code dir="auto">GET /companies/{id}/payroll/{run}/slip/{employee}</code> → <code dir="auto">application/pdf</code>.
+Fødselsdato, ikke fødselsnummer — også på et dokument som sendes til
+den ansatte selv.</p>
+<p><strong>Hvem får se den (#55).</strong> Sin egen slipp får enhver ansatt
+(<code dir="auto">LONNSSLIPP_LES_EGEN</code>). Andres krever <code dir="auto">LONNSSLIPP_LES_ALLE</code>, som
+<code dir="auto">bokforing</code>, <code dir="auto">admin</code> og <strong>revisor</strong> har — men ikke en intern leser.
+Fram til #55 lå den i lesebunten, så enhver med lesetilgang kunne laste
+ned hvem som helst sin; det var ikke et valg, men en arv fra at lønn kom
+sist og gjenbrukte den generelle lesetilgangen. Ber man om en annens
+slipp uten retten, svarer endepunktet <strong>404</strong> og ikke 403: den som ikke
+får se noe skal heller ikke få vite at det finnes.</p>
+<p>Det samme gjelder ansattregisteret (<code dir="auto">LONN_LES</code>): fødselsdato,
+månedslønn og trekkprosent er ikke allmenn lesning.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="portal">Portal</h2><a class="sl-anchor-link" href="#portal"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Portal”</span></a></div>
+<p>Lønn-seksjonen starter med den månedlige jobben og har fire kort i
+denne rekkefølgen: <strong>Kjør lønn</strong>, <strong>Lønnskjøringer og a-melding</strong>,
+<strong>Ansatte</strong> og <strong>Skattekort</strong>.</p>
+<p><strong>Kjør lønn</strong> har år, måned, utbetalingsdato og sone, og én rad per
+aktiv ansatt der brutto kan overstyres og utbetalte feriepenger legges
+inn. Måneden er forhåndsvalgt til måneden etter siste kjøring (eller
+inneværende måned når ingen er kjørt), og året kan settes til i fjor,
+så desemberlønnen kan kjøres i januar. Allerede kjørte måneder er
+deaktivert i velgeren, så den vanligste feilen ikke kan forsøkes.</p>
+<p><strong>Ingenting bokføres uten forhåndsvisning.</strong> «Se hva som bokføres»
+sender skjemaet til <code dir="auto">POST …/payroll?preview=true</code>, som regner ut
+kjøringen nøyaktig som den bokføres — samme satser, samme trekk, samme
+feriepenge- og aga-avsetning, samme advarsler — men uten bilag, uten
+bilagsnummer og uten kjøringsrad (<code dir="auto">preview_payroll</code> i
+<code dir="auto">regnmed-db::payroll</code>; <code dir="auto">id</code> og <code dir="auto">voucher_id</code> er null-UUID). Den nekter
+også en måned som alt er kjørt. Forhåndsvisningen viser per ansatt
+brutto, feriepenger, trekk, kjøregodtgjørelse og netto, og i sum netto
+til utbetaling, arbeidsgiveravgift, feriepengeavsetning, aga på
+feriepenger og lønnskostnad. Bokfør-knappen («Bokfør lønn for juli
+2026») finnes bare så lenge forhåndsvisningen svarer til skjemaet; en
+endring i et felt tar den bort. Testen
+<code dir="auto">a_preview_books_nothing_and_matches_the_run</code> fester at
+forhåndsvisningen ikke skriver noe og at summene er de samme som i den
+bokførte kjøringen. Etter bokføringen står resultatet og eventuelle
+advarsler på skjermen, med lenke til bilaget, og skjemaet går videre
+til neste måned.</p>
+<p>Ansatte med timesats og uten månedslønn starter med «Fra låste timer»
+krysset av; serveren nekter hvis måneden ikke er låst.</p>
+<p><strong>Lønnskjøringer og a-melding</strong> viser hver kjøring med brutto,
+<strong>utbetalte feriepenger</strong>, trekk, kjøregodtgjørelse, netto og
+avsetningene — uten feriepengekolonnen gikk ikke tallene opp når
+feriepengene ble utbetalt. Hver kjøring har en knapp per ansatt (fullt
+navn) som laster ned lønnsslippen som <code dir="auto">lonnsslipp-ÅÅÅÅ-MM-navn.pdf</code>.</p>
+<p><strong>Ansatte</strong>-kortet har en <strong>Portalbruker</strong>-kolonne (koblet / invitert /
+ikke koblet) med invitasjons- og koblingsflyten fra 0050; skjemaet for
+ny ansatt tar e-postadresse rett i registreringen, så invitasjonen går
+ut i samme håndvending. Å koble fra en portalbruker eller trekke
+tilbake en invitasjon spør først, siden koblingen avgjør hvem som leser
+lønnsslippen.</p>
+<p>Verifisert i nettleser: registeret viser fødselsdato og ikke
+fødselsnummer, juni (allerede kjørt) er deaktivert, og en kjøring
+utført gjennom UI-et ga et bilag som summerer til nøyaktig null.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="testet">Testet</h2><a class="sl-anchor-link" href="#testet"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Testet”</span></a></div>
+<ul>
+<li>Skattekortene: <code dir="auto">regnmed-gov::tax_card</code> leser det EKTE svaret fra
+testmiljøet og fester beslutningen for hver korttype (prosent, tabell,
+frikort med og uten grense, kildeskatt, uten kort), og at prosenten
+aldri går gjennom et flyttall. Mot ekte Postgres
+(<code dir="auto">tests/grupper/tax_card.rs</code>, en lokal Skatteetaten som svarer 204
+først): at bestillingen nektes uten vilkårsaksept og uten å sende noe,
+at den gjelder årets ansatte og ikke en som sluttet året før, at bare
+prosent- og tabellkortene settes på den ansatte mens de andre beholder
+trekket med merknad, at et nytt svarkall ikke henter noe på nytt, og
+at kortet ikke kan endres. Testen er sett feile med 10,5-månedsvakten
+fjernet.</li>
+<li><code dir="auto">regnmed-core::withholding_table</code> — hver rad i utvalget fra
+Skatteetatens publiserte 2026-fil (og hele fila, 1 063 799 rader, når
+<code dir="auto">TREKKTABELL_FILE</code> er satt — kjørt 2026-11-12, alle like), rutinens egne
+kontroller (trygdeavgiftsgrensene 125 188 / 143 175, aldri mer enn
+grunnlaget), og at ukjente tabeller og år nektes.</li>
+<li><code dir="auto">regnmed-core::payroll</code> — prosenttrekk, tabelltrekk (og halvt i
+desember), trekkfrie feriepenger, halv skatt i desember, kort over 12
+måneder (trekk i feriepenger, fullt i desember), frikort med grense
+(under, over og på vei over), trekk og arbeidsgiveravgift avrundet
+ned til hele kroner (Skatteetatens 1 727,25 → 1 727, og ned også ved
+,99), og at ukjente tabeller, år og sone Ia nektes med begrunnelse.</li>
+<li>Mot ekte Postgres: frikort over to kjøringer (januar under grensen,
+februar 50 % av det som overstiger) med fjorårets lønn utenfor
+tellingen, at en kjøring utbetalt i et år uten hentet frikort nekter,
+et 12-månederskort med feriepenger, at lønnsslippen bærer metoden
+fra kjøringen, og at to lønninger med øre gir avgift regnet én gang på
+summen (10 481 kr, ikke 10 480 per ansatt) som a-meldingen godtar;
+at ansatte uten lønn er med i meldingen med arbeidsforholdet alene, i
+UTBETALINGSmånedens kalender (marslønn utbetalt i april tar med den
+som begynte i april, ikke den som sluttet i mars), uten å endre
+avgiften; og at sluttdatoen nektes før startdatoen, kan fjernes og
+ikke når et annet selskaps ansatt; og at en sluttdato ført etter at
+februars melding var levert uten den, gir mars-melding MED
+sluttdatoen og en april-melding uten den ansatte, mens den som sluttet
+før februar holdes ute. Sett feile med lønnsmåneden i stedet for
+utbetalingsmåneden, med de ulønnede utelatt og med regelen for sen
+sluttdato fjernet. For en måned uten kjøring: at meldingen bærer
+hvert arbeidsforhold alene og validerer mot XSD-en uten
+utbetalingsdato og avgiftsblokk, at en tom måned er en hindring, at
+den lagres, prøves på nytt uendret og leveres én gang, at den nektes
+når måneden har en kjøring, og at kjøringens første melding da
+erstatter den (men ikke i en måned uten levert månedsmelding); og at
+en månedsmelding som feilet, fortsatt kan sendes på nytt etter at
+måneden fikk en kjøring, mens kjøringen nektes til den er levert — sett
+feile med erstatningen, kjøringsvakten, ventevakten og den gamle
+nektingen av nye forsøk. Gjennom API-et:
+forhåndsvisning, ugyldig måned, nektet måned med kjøring, innsending,
+liste og tilbakemelding mot en etterlignet Skatteetaten.</li>
+<li>Aga-avsetningen: at målet er satsen av gjelden, at livsløpet
+(avsetning → utbetaling) summerer til nøyaktig null, at en satsendring
+korrigeres i sin helhet ved neste kjøring, og at negativ gjeld gir
+null avsetning framfor negativ avgift.</li>
+<li>At startkontoplanen bærer hver <code dir="auto">payroll::ACCOUNT_*</code> (enhetstest i
+<code dir="auto">regnmed-db::marketplace</code>), og mot ekte Postgres at en kjøring med to
+deaktiverte kontoer nekter med begge numrene og ingen kjøring lagret.</li>
+<li>Mot ekte Postgres: at avsetningen bokføres på 5405/2780 og bilaget
+fortsatt balanserer, at den føres tilbake i sin helhet ved
+ferieutbetaling og etterlater begge kontoene på null, at gjeld
+opptjent uten avsetning tas igjen ved neste kjøring, at saldoen på
+2780 etter hver kjøring er satsen av <strong>hver ansatts</strong> gjeld (fasiten
+bygges per ansatt — avrundingen skjer der), og at feriepengegjeld
+lønnshistorikken ikke forklarer gir en advarsel med beløpet i.</li>
+<li>Koblingen (<code dir="auto">tests/grupper/ansattkobling.rs</code>): at invitasjonen kobler i
+samme transaksjon som medlemskapet med <code dir="auto">kilde='invitasjon'</code> i sporet,
+at en konfliktkobling aldri knekker innloggingen men etterlater den
+ansatte synlig ukoblet, at bare én åpen invitasjon kan love en
+ansatt, og at manuell kobling nekter omkobling uten frakobling,
+person som alt er en annen ansatt, og maskinidentiteter — med begge
+hendelsene navngitt i historikken.</li>
+<li><code dir="auto">regnmed-db/tests/payroll.rs</code> — mot ekte Postgres: at bilaget balanserer
+eksakt, at hver konto får riktig beløp, at utbetalte feriepenger
+reduserer gjelden i stedet for å bli kostnad, at sone V er nullsats,
+at samme måned ikke kan kjøres to ganger, at kjøringer og identitet
+ikke kan endres i ettertid, og at listen viser fødselsdato og ikke
+fødselsnummer.</li>
+<li>Timelønn: at beløpet regnes fra minutter, at en ULÅST måned nektes,
+at kjøringen går etter låsing og gir riktig brutto og trekk, og at en
+ansatt uten portalbrukerkobling gir en tydelig feil framfor null timer.</li>
+<li><code dir="auto">regnmed-core::amelding</code> — en månedsmelding validert mot den
+offisielle XSD-en med xmllint (sett feile på et feilstavet element),
+også en 2025-melding med én trekksum, en erstatningsmelding og en
+mottaker med arbeidsforholdet alene (F108); at
+trekket er negativt per mottaker og positivt per utbetalingsdato, at
+avgiftsgrunnlaget er summen av inntektene; at hvert av de seks
+manglende arbeidsforholdsfeltene og virksomheten nektes med navn; at
+øre der skjemaet vil ha kroner nektes framfor å rundes (en kjøring med
+avgift i øre fra før avrundingen nektes som F185); og at koder
+utenfor kodelisten, ugyldig fødselsnummer og orgnr nektes. Etter
+review: at kalendermåneden følger utbetalingsdatoen (også over
+årsskiftet, der trekkformatet skifter), at avgift som ikke er grunnlag
+× sats nektes, at negative beløp nektes, at meldingsId, kildesystem og
+år utenfor XSD-ens grenser nektes, at leveringstidspunktet har <code dir="auto">Z</code>, og
+en melding med to mottakere der den ene har frikort.</li>
+<li><code dir="auto">regnmed-core::payslip</code> — velformet og deterministisk PDF, at
+slippen forklarer trekkgrunnlaget, feriepengenes trekkfrihet og
+desembers halve trekk, at den lagrede metoden står og at en linje
+uten metode ikke gjetter en, og at
+fødselsnummeret ikke er i dokumentet.</li>
+<li>Lønnsslippen bygget fra en ekte kjøring, med hittil-i-år summert over
+flere måneder — og hentet som <code dir="auto">application/pdf</code> fra en kjørende
+server (2,8 kB, uten fødselsnummer).</li>
+</ul>
+</div><footer class="sl-flex" data-astro-cid-ddtxxk7k><div class="meta sl-flex" data-astro-cid-ddtxxk7k><a href="https://github.com/BogenTech/regnmed/edit/main/docs/lonn.md" class="sl-flex print:hidden" data-astro-cid-qlekgd3o><svg data-astro-cid-qlekgd3o="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.2em;" data-astro-cid-hkc32dio><path d="M22 7.24a1 1 0 0 0-.29-.71l-4.24-4.24a1 1 0 0 0-1.1-.22 1 1 0 0 0-.32.22l-2.83 2.83L2.29 16.05a1 1 0 0 0-.29.71V21a1 1 0 0 0 1 1h4.24a1 1 0 0 0 .76-.29l10.87-10.93L21.71 8c.1-.1.17-.2.22-.33a1 1 0 0 0 0-.24v-.14l.07-.05ZM6.83 20H4v-2.83l9.93-9.93 2.83 2.83L6.83 20ZM18.17 8.66l-2.83-2.83 1.42-1.41 2.82 2.82-1.41 1.42Z"/></svg>Rediger side</a></div><div class="pagination-links print:hidden" dir="ltr" data-astro-cid-b5raizh3><a href="/teknisk/ledger/" rel="prev" data-astro-cid-b5raizh3><svg data-astro-cid-b5raizh3="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;" data-astro-cid-hkc32dio><path d="M17 11H9.41l3.3-3.29a1.004 1.004 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33 1 1 0 0 0 0 .76 1 1 0 0 0 .21.33l5 5a1.002 1.002 0 0 0 1.639-.325 1 1 0 0 0-.219-1.095L9.41 13H17a1 1 0 0 0 0-2Z"/></svg><span data-astro-cid-b5raizh3>Forrige<br data-astro-cid-b5raizh3><span class="link-title" data-astro-cid-b5raizh3>The ledger: append-only, hash-chained, independently verifiable</span></span></a><a href="/teknisk/marketplace/" rel="next" data-astro-cid-b5raizh3><svg data-astro-cid-b5raizh3="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;" data-astro-cid-hkc32dio><path d="M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z"/></svg><span data-astro-cid-b5raizh3>Neste<br data-astro-cid-b5raizh3><span class="link-title" data-astro-cid-b5raizh3>Marketplace: onboarding from the official registries</span></span></a></div></footer></div></div></main></div></div></div></div></body></html>

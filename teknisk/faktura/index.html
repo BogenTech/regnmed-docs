@@ -1,0 +1,557 @@
+<!DOCTYPE html><html lang="nb" dir="ltr" data-theme="dark" data-has-toc data-has-sidebar data-astro-cid-g5ptsecz><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Utgående faktura | regnmed docs</title><link rel="canonical" href="https://docs.regnmed.no/teknisk/faktura/"/><link rel="alternate" hreflang="nb" href="https://docs.regnmed.no/teknisk/faktura/"/><link rel="alternate" hreflang="en" href="https://docs.regnmed.no/en/teknisk/faktura/"/><link rel="alternate" hreflang="x-default" href="https://docs.regnmed.no/teknisk/faktura/"/><link rel="sitemap" href="/sitemap-index.xml"/><link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml"/><meta name="generator" content="Astro v7.4.13"/><meta name="generator" content="Starlight v0.43.1"/><meta property="og:title" content="Utgående faktura"/><meta property="og:type" content="article"/><meta property="og:url" content="https://docs.regnmed.no/teknisk/faktura/"/><meta property="og:locale" content="nb"/><meta property="og:description" content="Brukerveiledning, utviklerdokumentasjon og teknisk dokumentasjon for regnmed, regnskapssystemet du kan etterprøve."/><meta property="og:site_name" content="regnmed docs"/><meta name="twitter:card" content="summary_large_image"/><meta name="description" content="Brukerveiledning, utviklerdokumentasjon og teknisk dokumentasjon for regnmed, regnskapssystemet du kan etterprøve."/><script>
+	(() => {
+		const storedTheme =
+			typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme');
+		const theme =
+			storedTheme ||
+			(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+		document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+	})();
+</script><link rel="stylesheet" href="/_astro/print.C9eyqPGL.css" media="print"><link rel="stylesheet" href="/_astro/common.LP9BDTc3.css"><script type="module" src="/_astro/page.cNngjUgL.js"></script></head><body data-astro-cid-g5ptsecz><a class="sl-skip-link" href="#_top" data-astro-cid-qb7clj6f>Gå til innholdet</a><div class="page sl-flex" data-astro-cid-yntsjkba><header class="header" data-astro-cid-yntsjkba><div class="header" data-astro-cid-by6fddyj><div class="title-wrapper sl-flex" data-astro-cid-by6fddyj><a href="/" class="site-title sl-flex" data-astro-cid-6rvad3va><img alt="regnmed" src="/_astro/logo.BykUI3mu.svg" width="160" height="160" data-astro-cid-6rvad3va><span translate="no" data-astro-cid-6rvad3va>regnmed docs</span></a></div><div class="sl-flex print:hidden" data-astro-cid-by6fddyj><site-search data-translations="{&quot;placeholder&quot;:&quot;Søk&quot;}" data-astro-cid-b5kgnn7o="true"><button data-open-modal disabled aria-label="Søk" aria-keyshortcuts="Control+K" data-astro-cid-b5kgnn7o><svg data-astro-cid-b5kgnn7o="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z"/></svg><span class="sl-hidden md:sl-block" aria-hidden="true" data-astro-cid-b5kgnn7o>Søk</span><kbd class="sl-hidden md:sl-flex" style="display: none" data-astro-cid-b5kgnn7o><kbd data-astro-cid-b5kgnn7o>Ctrl</kbd><kbd data-astro-cid-b5kgnn7o>K</kbd></kbd></button><dialog style="padding: 0" aria-label="Søk" data-astro-cid-b5kgnn7o><div class="dialog-frame sl-flex" data-astro-cid-b5kgnn7o><button data-close-modal class="sl-flex md:sl-hidden" data-astro-cid-b5kgnn7o>Avbryt</button><div class="search-container" data-astro-cid-b5kgnn7o><div id="starlight__search" data-astro-cid-b5kgnn7o></div></div></div></dialog></site-search><script>
+	(() => {
+		const openBtn = document.querySelector('button[data-open-modal]');
+		const shortcut = openBtn?.querySelector('kbd');
+		if (!openBtn || !(shortcut instanceof HTMLElement)) return;
+		const platformKey = shortcut.querySelector('kbd');
+		if (platformKey && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+			platformKey.textContent = '⌘';
+			openBtn.setAttribute('aria-keyshortcuts', 'Meta+K');
+		}
+		shortcut.style.display = '';
+	})();
+</script><script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.CibB10mu.js"></script></div><div class="sl-hidden md:sl-flex print:hidden right-group" data-astro-cid-by6fddyj><div class="sl-flex social-icons" data-astro-cid-by6fddyj><a href="https://github.com/BogenTech/regnmed" rel="me" class="sl-flex" data-astro-cid-n2mnl6yq><span class="sr-only" data-astro-cid-n2mnl6yq>GitHub</span><svg data-astro-cid-n2mnl6yq="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select data-astro-cid-smhvfpqh="true"><label style="--sl-select-width: 6.25em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg tema</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg class="sl-theme-icon-dark" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg class="sl-theme-icon-light" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg class="sl-theme-icon-auto" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="dark" data-astro-cid-2z5xp7gb>Mørk</option><option value="light" data-astro-cid-2z5xp7gb>Lys</option><option value="auto" selected data-astro-cid-2z5xp7gb>Auto</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>(() => {
+		const theme = (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme'));
+		if (theme) document.querySelectorAll('starlight-theme-select select').forEach((s) => { s.value = theme; });
+	})();</script><script type="module">var e=`starlight-theme`,t=e=>e===`auto`||e===`dark`||e===`light`?e:`auto`,n=()=>t(typeof localStorage<`u`&&localStorage.getItem(e));function r(t){typeof localStorage<`u`&&localStorage.setItem(e,t===`light`||t===`dark`?t:``)}var i=()=>matchMedia(`(prefers-color-scheme: light)`).matches?`light`:`dark`;function a(e){document.querySelectorAll(`starlight-theme-select select`).forEach(t=>{t.value=e}),document.documentElement.dataset.theme=e===`auto`?i():e,r(e)}matchMedia(`(prefers-color-scheme: light)`).addEventListener(`change`,()=>{n()===`auto`&&a(`auto`)});var o=class extends HTMLElement{constructor(){super(),a(n()),this.querySelector(`select`)?.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&a(t(e.currentTarget.value))})}};customElements.define(`starlight-theme-select`,o);</script><starlight-lang-select><label style="--sl-select-width: 7em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg språk</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="/teknisk/faktura/" data-astro-cid-2z5xp7gb>Norsk</option><option value="/en/teknisk/faktura/" data-astro-cid-2z5xp7gb>English</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-lang-select><script type="module">var e=class extends HTMLElement{constructor(){super();let e=this.querySelector(`select`);e&&(e.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&(window.location.pathname=e.currentTarget.value)}),window.addEventListener(`pageshow`,t=>{if(!t.persisted)return;let n=e.querySelector(`option[selected]`)?.index;n!==e.selectedIndex&&(e.selectedIndex=n??0)}))}};customElements.define(`starlight-lang-select`,e);</script></div></div></header><nav class="sidebar print:hidden" aria-label="Hovednavigasjon" data-astro-cid-yntsjkba><button popovertarget="starlight__sidebar" class="sl-menu-button sl-flex md:sl-hidden print:hidden" data-astro-cid-r2osgdlg><svg class="open-menu" data-astro-cid-r2osgdlg="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M3 8h18a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2Zm18 8H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Zm0-5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></svg><svg class="close-menu" data-astro-cid-r2osgdlg="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="m13.41 12 6.3-6.29a1.004 1.004 0 1 0-1.42-1.42L12 10.59l-6.29-6.3a1.004 1.004 0 0 0-1.42 1.42l6.3 6.29-6.3 6.29a1 1 0 0 0 0 1.42.998.998 0 0 0 1.42 0l6.29-6.3 6.29 6.3a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.42L13.41 12Z"/></svg><span class="sr-only" data-astro-cid-r2osgdlg>Meny</span></button><script type="module">var e=class extends HTMLElement{constructor(){super();let e=matchMedia(`(min-width: 50em)`),t=()=>{this.popover=e.matches?null:`auto`};t(),e.addEventListener(`change`,()=>t()),this.addEventListener(`toggle`,({newState:e})=>this.trapFocus(e===`open`))}trapFocus(e){document.querySelectorAll(`.main-frame, .sl-skip-link`).forEach(t=>{t.toggleAttribute(`inert`,e)})}};customElements.define(`sl-sidebar-pane`,e);</script><sl-sidebar-pane popover id="starlight__sidebar" class="sidebar-pane" data-astro-cid-yntsjkba="true"><div class="sidebar-content sl-flex" data-astro-cid-yntsjkba><sl-sidebar-state-persist data-hash="0vzjo46" data-astro-cid-ipdry5cl="true"><script aria-hidden="true">
+		(() => {
+			try {
+				if (!matchMedia('(min-width: 50em)').matches) return;
+				/** @type {HTMLElement | null} */
+				const target = document.querySelector('sl-sidebar-state-persist');
+				const state = JSON.parse(sessionStorage.getItem('sl-sidebar-state') || '0');
+				if (!target || !state || target.dataset.hash !== state.hash) return;
+				window._starlightScrollRestore = state.scroll;
+				customElements.define(
+					'sl-sidebar-restore',
+					class SidebarRestore extends HTMLElement {
+						connectedCallback() {
+							try {
+								const idx = parseInt(this.dataset.index || '');
+								const details = this.closest('details');
+								if (details && typeof state.open[idx] === 'boolean') details.open = state.open[idx];
+							} catch {}
+						}
+					}
+				);
+			} catch {}
+		})();
+	</script><ul class="top-level" data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>Brukerveiledning</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="0"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Velkommen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/kom-i-gang/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kom i gang</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/forste-faktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Første faktura</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/fakturering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Fakturering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/purring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Purring og betalingsoppfølging</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/bilag-og-innboks/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilag og innboks</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/hovedbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Hovedbok og kontoplan</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/mva/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>MVA</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/lonn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn og a-melding</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/timer-og-prosjekter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Timer og prosjekter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/utlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utlegg og kjøregodtgjørelse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/anlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Anleggsregister og avskrivninger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/valuta/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Valuta</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/produkter-og-varelager/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Produkter og varelager</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/periodisering-og-budsjett/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodisering og budsjett</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/rapporter-og-arsavslutning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Rapporter og årsavslutning</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/aksjeeierbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og aksjonærregisteroppgaven</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/tilgang-og-roller/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang og roller</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/for-regnskapsforere/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>For regnskapsførere og byråer</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/for-revisorer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>For revisorer</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/migrering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Migrering fra et annet system</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/abonnement-og-priser/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Abonnement og priser</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/ai-agent/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Ta med din egen AI-agent</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/verifiser-regnskapet/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Verifiser regnskapet ditt</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/vanlige-sporsmal/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Vanlige spørsmål</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>For utviklere</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="1"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>api</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="2"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/developers/api/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>API-referanse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/identity/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Identitet og tilgang</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/ledger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Selskap og hovedbok</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/sales/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Salg og reskontro</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/reports/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Regnskap og rapporter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank og betaling</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/payroll/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn, timer og utlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/inbox/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Innboks, import og jobber</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/shares/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og anlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/agents/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Integrasjoner, agenter og meldinger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/verification/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Forankring og verifisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/platform/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Plattform (leverandørens konsoll)</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><a href="/developers/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Introduksjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/getting-started/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kom i gang for integrasjoner</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/authentication/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Autentisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/access-and-roles/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang og roller for integrasjoner</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/conventions/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Konvensjoner</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/examples/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Eksempler</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/mcp-and-agents/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>MCP og agenter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/verify-it-yourself/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Verifiser selv</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/self-hosting/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Selvhosting</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/contributing/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bidra</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>Teknisk dokumentasjon</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="3"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/teknisk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Teknisk dokumentasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/abonnement/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Abonnement: regnmeds egen kasse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/agent/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Ta med din egen agent</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/aksjonaer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og aksjonærregisteroppgave (RF-1086)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/anchoring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>External anchoring of chain heads</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/anlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Anleggsregister og avskrivninger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/api/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>API-referanse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/arsavslutning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Årsavslutning</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/attestering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Attestering: godkjenningsflyt før bokføring og betaling</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/auth/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang: hvem kan gjøre hva</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/balansedokumentasjon/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Balansedokumentasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank reconciliation</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/betaling/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Betalingsliste og remittering (pain.001)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/bilagsinnboks/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilagsinnboks</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/bilagstolkning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilagstolkning: forslag fra dokumentets egen tekst</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/blob-store/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Dokumenter i objektlagring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/budsjett/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Budsjett og avviksrapport</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/deploy/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Deployment</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/dimensjoner/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Dimensjoner: avdeling og prosjekt</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/efaktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>E-faktura ut fra 1. januar 2027 — forslag</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/ehf/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>EHF: elektronisk faktura ut og inn</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/epost-inn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>E-post-inn til bilagsinnboksen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/faktura/" aria-current="page" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utgående faktura</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/frugality/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The frugality budget</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/gov/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The government rail: Maskinporten and Skatteetaten&#39;s APIs</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/hovedbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Hovedbok: kontoplan og manuell bilagsføring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/integrations/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Maskin-tilgang til API-et</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/jobs/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bakgrunnsjobber</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/kontantsalg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kontantsalg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/ledger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The ledger: append-only, hash-chained, independently verifiable</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/lonn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn — første del</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/marketplace/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Marketplace: onboarding from the official registries</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/meldinger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Meldinger — samtaler mellom folk som jobber sammen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/migration/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Migration: SAF-T import</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/mva/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Merverdiavgift: codes, rates, spesifikasjon, melding</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/perioder/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodelåsing og bilagsvedlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/periodisering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/portal/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The portal</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/produkter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Produktregister og enkelt varelager</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/purring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Betalingsoppfølging (purring)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/rapporter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lovpålagte spesifikasjoner og rapporter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/regelverk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Regelverk som data</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/reskontro/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Reskontro: kunde- og leverandørspesifikasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/revisjon/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Revisorrollen og verifikasjonsrapporten</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/skattemelding/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Skattemelding og næringsspesifikasjon (#11) — kartlagt, ikke bygget</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/timer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Timeføring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/utlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utlegg og kjøregodtgjørelse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/valuta/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Flervaluta</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/vilkar-teknisk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kundevilkårene i koden</span></a></li></ul></details></li></ul><script aria-hidden="true">
+		(() => {
+			const scroller = document.getElementById('starlight__sidebar');
+			if (!window._starlightScrollRestore || !scroller) return;
+			scroller.scrollTop = window._starlightScrollRestore;
+			delete window._starlightScrollRestore;
+		})();
+	</script></sl-sidebar-state-persist><div class="md:sl-hidden"><div class="mobile-preferences sl-flex" data-astro-cid-p4azlveh><div class="social-icons" data-astro-cid-p4azlveh><a href="https://github.com/BogenTech/regnmed" rel="me" class="sl-flex" data-astro-cid-n2mnl6yq><span class="sr-only" data-astro-cid-n2mnl6yq>GitHub</span><svg data-astro-cid-n2mnl6yq="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select data-astro-cid-smhvfpqh="true"><label style="--sl-select-width: 6.25em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg tema</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg class="sl-theme-icon-dark" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg class="sl-theme-icon-light" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg class="sl-theme-icon-auto" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="dark" data-astro-cid-2z5xp7gb>Mørk</option><option value="light" data-astro-cid-2z5xp7gb>Lys</option><option value="auto" selected data-astro-cid-2z5xp7gb>Auto</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>(() => {
+		const theme = (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme'));
+		if (theme) document.querySelectorAll('starlight-theme-select select').forEach((s) => { s.value = theme; });
+	})();</script><starlight-lang-select><label style="--sl-select-width: 7em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg språk</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="/teknisk/faktura/" data-astro-cid-2z5xp7gb>Norsk</option><option value="/en/teknisk/faktura/" data-astro-cid-2z5xp7gb>English</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-lang-select></div></div></div></sl-sidebar-pane></nav><div class="main-frame" data-astro-cid-yntsjkba><script type="module">var e=document.getElementById(`starlight__sidebar`),t=e?.querySelector(`sl-sidebar-state-persist`),n=`sl-sidebar-state`,r=()=>{let r=[],i=t?.dataset.hash||``;try{let e=sessionStorage.getItem(n),t=JSON.parse(e||`{}`);Array.isArray(t.open)&&t.hash===i&&(r=t.open)}catch{}return{hash:i,open:r,scroll:e?.scrollTop||0}},i=e=>{try{sessionStorage.setItem(n,JSON.stringify(e))}catch{}},a=()=>i(r()),o=(e,t)=>{let n=r();n.open[t]=e,i(n)};t?.addEventListener(`click`,e=>{if(!(e.target instanceof Element))return;let t=e.target.closest(`summary`)?.closest(`details`);if(!t)return;let n=t.querySelector(`sl-sidebar-restore`),r=parseInt(n?.dataset.index||``);isNaN(r)||o(!t.open,r)}),addEventListener(`visibilitychange`,()=>{document.visibilityState===`hidden`&&a()});</script><div class="lg:sl-flex" data-astro-cid-lrzkfocr><aside class="right-sidebar-container print:hidden" data-astro-cid-lrzkfocr><div class="right-sidebar" data-astro-cid-lrzkfocr><div class="lg:sl-hidden" data-astro-cid-qok35upx><mobile-starlight-toc data-min-h="2" data-max-h="3" data-astro-cid-66cqc7ze="true"><nav aria-labelledby="starlight__on-this-page--mobile" data-astro-cid-66cqc7ze><details id="starlight__mobile-toc" data-astro-cid-66cqc7ze><summary id="starlight__on-this-page--mobile" class="sl-flex" data-astro-cid-66cqc7ze><span class="toggle sl-flex" data-astro-cid-66cqc7ze>På denne siden<svg class="caret" data-astro-cid-66cqc7ze="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></span><span class="display-current" data-astro-cid-66cqc7ze></span></summary><div class="dropdown" data-astro-cid-66cqc7ze><ul class="isMobile" style="--depth: 0;" data-astro-cid-jugkfwgx><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#_top" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Oversikt</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#guarantees" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Guarantees</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#salgsdokumentet-som-pdf-32" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Salgsdokumentet som PDF (#32)</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#registreringsstatus-5-1-2-81" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Registreringsstatus (§5-1-2, #81)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#kid-krever-bankavtale-104" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>KID krever bankavtale (#104)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#leveringstidspunkt-5-1-1-nr-4-81" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Leveringstidspunkt (§5-1-1 nr. 4, #81)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#deres-referanse-en-16931-bt-10-221" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Deres referanse (EN 16931 BT-10, #221)</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#e-postutsendelse-32" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>E-postutsendelse (#32)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#repeterende-faktura-30" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Repeterende faktura (#30)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#tilbud--ordre--faktura-31" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Tilbud → ordre → faktura (#31)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#not-yet-deliberate" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Not yet (deliberate)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#web-api-mutations-require-bokforing" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Web API (mutations require bokforing)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#i-portalen" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>I portalen</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#where-it-is-tested" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Where it is tested</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#kontantsalg-89-bokføringsforskriften-5-3" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Kontantsalg (#89, bokføringsforskriften §5-3)</span></a></li></ul></div></details></nav></mobile-starlight-toc><script type="module" src="/_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.C3fM4Kra.js"></script></div><div class="right-sidebar-panel sl-hidden lg:sl-block" data-astro-cid-qok35upx><div class="sl-container" data-astro-cid-qok35upx><starlight-toc data-min-h="2" data-max-h="3"><nav aria-labelledby="starlight__on-this-page"><h2 id="starlight__on-this-page">På denne siden</h2><ul style="--depth: 0;" data-astro-cid-jugkfwgx><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#_top" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Oversikt</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#guarantees" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Guarantees</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#salgsdokumentet-som-pdf-32" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Salgsdokumentet som PDF (#32)</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#registreringsstatus-5-1-2-81" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Registreringsstatus (§5-1-2, #81)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#kid-krever-bankavtale-104" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>KID krever bankavtale (#104)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#leveringstidspunkt-5-1-1-nr-4-81" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Leveringstidspunkt (§5-1-1 nr. 4, #81)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#deres-referanse-en-16931-bt-10-221" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Deres referanse (EN 16931 BT-10, #221)</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#e-postutsendelse-32" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>E-postutsendelse (#32)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#repeterende-faktura-30" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Repeterende faktura (#30)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#tilbud--ordre--faktura-31" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Tilbud → ordre → faktura (#31)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#not-yet-deliberate" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Not yet (deliberate)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#web-api-mutations-require-bokforing" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Web API (mutations require bokforing)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#i-portalen" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>I portalen</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#where-it-is-tested" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Where it is tested</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#kontantsalg-89-bokføringsforskriften-5-3" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Kontantsalg (#89, bokføringsforskriften §5-3)</span></a></li></ul></nav></starlight-toc><script type="module" src="/_astro/TableOfContents.astro_astro_type_script_index_0_lang.BpJaGz7G.js"></script></div></div></div></aside><div class="main-pane" data-astro-cid-lrzkfocr><main data-pagefind-body lang="nb" dir="ltr" data-astro-cid-g5ptsecz><div class="content-panel" data-astro-cid-a7po4psb><div class="sl-container" data-astro-cid-a7po4psb><h1 id="_top" data-astro-cid-bebwqqxs>Utgående faktura</h1></div></div><div class="content-panel" data-astro-cid-a7po4psb><div class="sl-container" data-astro-cid-a7po4psb><div class="sl-markdown-content"><p>Salgsdokument per bokføringsforskriften §5-1: gap-free invoice numbers,
+KID, and automatic posting to ledger + reskontro. Invoices are
+<strong>immutable once issued</strong> (insert-only for the app role) — a mistake is
+corrected with a kreditnota, never an edit, mirroring the ledger’s
+reversing-voucher rule.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="guarantees">Guarantees</h2><a class="sl-anchor-link" href="#guarantees"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Guarantees”</span></a></div>
+<ul>
+<li><strong>Fortløpende nummerering</strong>: the invoice number comes from a counter
+bumped in the <em>same transaction</em> as the ledger posting
+(<code dir="auto">post_voucher_in</code>), so a failed issue rolls back both — no gaps in
+invoice numbers or voucher numbers, ever. Tested: a rejected invoice
+attempt does not burn a number.</li>
+<li><strong>KID</strong>: derived from the invoice number (8 digits + MOD10 check,
+<code dir="auto">regnmed-core::invoice::invoice_kid</code>), unique per company. OCR
+innbetalinger resolve their invoice by KID at import and the payment
+list shows which invoice each payment settles (auto-<em>posting</em> of
+payments is a later, opt-in step — the bank statement is the posting
+source until then, avoiding double-posting).</li>
+<li><strong>Posting</strong>: debit receivable (with the customer — hash v2 covers the
+party), credit each revenue line with its VAT code, credit summed VAT.
+Line VAT uses the dated rate valid on the invoice date. Amounts:
+integer øre, <code dir="auto">quantity_milli × unit_price_ore / 1000</code> rounded half
+away from zero.</li>
+<li><strong>Kreditnota</strong>: same lines negated (signs flow through the whole
+computation), <code dir="auto">credits_invoice_id</code> links the pair, and the two
+receivable entries are auto-matched in reskontro for whatever remained
+open. Double-crediting is rejected.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="salgsdokumentet-som-pdf-32">Salgsdokumentet som PDF (#32)</h2><a class="sl-anchor-link" href="#salgsdokumentet-som-pdf-32"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Salgsdokumentet som PDF (#32)”</span></a></div>
+<ul>
+<li><strong>Deterministic, hand-rolled renderer</strong> (<code dir="auto">regnmed-core::pdf</code> +
+<code dir="auto">fakturapdf</code>): the three standard PDF fonts (no embedding),
+WinAnsi/CP1252 for æøå og typografi, ~3 KB per invoice, no rendering
+engine (frugality). Same input → byte-identical output forever.</li>
+<li><strong>Stored at issue time, in the issuing transaction</strong>, as an
+attachment on the invoice’s voucher — the document the customer
+receives is part of oppbevaringen from the moment the invoice exists,
+hash-checked on every download like all dokumentasjon. Serving is a
+DB read; nothing renders on the request path.</li>
+<li>Contents per bokføringsforskriften §5-1-1: nummer/dato, selger med
+orgnr (påtegningene under), kjøper, <strong>leveringstidspunkt (og -sted)</strong>,
+linjer, mva spesifisert i NOK per sats, forfall, KID og kontonummer.
+<strong>Begge parters adresse er påkrevd</strong> (§5-1-2) — utstedelsen nekter
+uten dem, siden fakturaen er uforanderlig i det den finnes og et
+manglende felt bare kan rettes ved å kreditere og gjøre om.</li>
+</ul>
+<div class="sl-heading-wrapper level-h3"><h3 id="registreringsstatus-5-1-2-81">Registreringsstatus (§5-1-2, #81)</h3><a class="sl-anchor-link" href="#registreringsstatus-5-1-2-81"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Registreringsstatus (§5-1-2, #81)”</span></a></div>
+<p>“MVA” etter orgnr og påtegningen “Foretaksregisteret” hører til
+REGISTRERINGEN, ikke til dokumentet. De ble utledet — <code dir="auto">vat_ore != 0</code>
+respektive <code dir="auto">orgform in (AS, ASA)</code> — og begge utledningene er gale i
+vanlige tilfeller: en registrert selger som fakturerer eksport eller
+fritatt omsetning fikk ingen “MVA”, og ANS/DA, NUF og næringsdrivende
+ENK er registreringspliktige i Foretaksregisteret uten å være AS.</p>
+<p>Statusen er nå lagret i <code dir="auto">company_registrering</code> (migration 0056),
+<strong>datert og innsettings-bar</strong> etter mønsteret fra sats og vat_rate:
+oppslag = nyeste rad med <code dir="auto">valid_from &lt;= dokumentets dato</code>. Dateringen
+er ikke teoretisk — tilbud og ordrebekreftelser rendres <em>on demand</em>, så
+uten den ville et gammelt tilbud fått dagens status neste gang noen
+lastet det ned.</p>
+<ul>
+<li><strong>Onboarding</strong> henter begge flaggene og forretningsadressen fra
+Enhetsregisteret (<code dir="auto">kilde='brreg'</code>).</li>
+<li><strong>Korrigering</strong>: <code dir="auto">POST …/settings/registrering</code> (admin) skriver en ny
+datert rad; den forrige blir stående som det som gjaldt da. Én rad
+per dato: samme status på nytt er en no-op, men en ANNEN status for en
+dato som alt har en rad nektes med datoen i meldingen. Før svarte den
+OK og forkastet endringen i stillhet (<code dir="auto">on conflict do nothing</code>), så en
+rettelse samme dag ble aldri lagret.</li>
+<li><strong>Eksisterende selskaper</strong> ble backfillet med den gamle utledningen
+løftet fra per-dokument til per-selskap, merket <code dir="auto">kilde='migrert'</code> —
+en ANTAKELSE, og portalen ber om at den bekreftes.</li>
+<li>Ingen rad = ingen påtegning: vi hevder ikke en registrering vi ikke
+har belegg for.</li>
+</ul>
+<p>Det samme oppslaget styrer <code dir="auto">cac:PartyTaxScheme</code> i EHF-en.</p>
+<p>Fra #99 styrer det også om en mva-kode kan brukes i det hele tatt —
+ikke bare hva dokumentet SIER, men hva det får gjøre. Regelen står i
+docs/mva.md.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="kid-krever-bankavtale-104">KID krever bankavtale (#104)</h3><a class="sl-anchor-link" href="#kid-krever-bankavtale-104"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “KID krever bankavtale (#104)”</span></a></div>
+<p>KID er ikke en egenskap ved fakturanummeret, men ved en <strong>OCR-/KID-avtale
+med banken</strong>. regnmed regnet før ut en KID for hver faktura og trykte
+den alltid — og en KID på et salgsdokument er en INSTRUKS til betaleren
+om hvordan betalingen skal merkes. Uten avtale kan den instruksen ikke
+følges: betalerens bank tilbyr ikke KID mot kontoen, eller avviser
+betalingen.</p>
+<p>Det traff det første ekte selskapet som fakturerte i regnmed — et
+nystartet AS har sjelden OCR-avtale fra dag én.</p>
+<p>Statusen er lagret på selskapet (<code dir="auto">company.kid_avtale</code>, migrasjon 0061),
+redigerbar stamdata ved siden av <code dir="auto">bank_account</code>, og <strong>av som standard</strong>:
+vi hevder ikke en bankavtale vi ikke har belegg for, samme regel som
+registreringsstatusen over. Uten avtale:</p>
+<ul>
+<li>faktura- og kreditnota-PDF-en skriver ingen KID-linje
+(<code dir="auto">FakturaPdfInput.kid</code> er <code dir="auto">Option&lt;String&gt;</code>),</li>
+<li>purringen gjentar ingen KID,</li>
+<li>EHF-en bærer ingen <code dir="auto">cbc:PaymentID</code>.</li>
+</ul>
+<p><code dir="auto">invoice.kid</code> BEREGNES OG LAGRES uansett: OCR-importen slår opp faktura
+<em>på</em> KID (#7), så verdien må finnes selv når dokumentet ikke viser den.
+Det samme gjelder den lagrede purreraden — det er gjengivelsen som
+utelater KID-en, ikke regnskapet som glemmer den.</p>
+<p>Dokumentet er låst ved utstedelse, så en faktura utstedt før avtalen
+kom får aldri KID påtrykt i ettertid. Avtalen krysses av i
+Firmaopplysninger, og bør settes FØR første faktura.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="leveringstidspunkt-5-1-1-nr-4-81">Leveringstidspunkt (§5-1-1 nr. 4, #81)</h3><a class="sl-anchor-link" href="#leveringstidspunkt-5-1-1-nr-4-81"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Leveringstidspunkt (§5-1-1 nr. 4, #81)”</span></a></div>
+<p>The forskrift requires <em>when</em> the ytelse was delivered on every
+salgsdokument, and it is <strong>not</strong> the same fact as the invoice date —
+anything billed in arrears separates them. <code dir="auto">InvoiceDraft.delivery_date</code>
+is therefore not an <code dir="auto">Option</code>: every caller has to decide. The choices
+in the tree today:</p>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Leveringsdato</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">POST …/invoices</code></td>
+<td><code dir="auto">leveringsdato</code> in the request; omitted = the invoice date (the default is declared at the boundary, and the portal always sends it)</td>
+</tr>
+<tr>
+<td>Timer → faktura</td>
+<td>the <strong>last day worked</strong> among the billed hours — that is when the ytelse was complete, often weeks before billing</td>
+</tr>
+<tr>
+<td>Kombinert faktura (varer + timer)</td>
+<td>the caller’s date, unless hours were worked later; then the later one wins, so the document cannot claim delivery before the work happened</td>
+</tr>
+<tr>
+<td>Ordre → faktura</td>
+<td><code dir="auto">leveringsdato</code> on the request; omitted = the invoice date</td>
+</tr>
+<tr>
+<td>Repeterende faktura</td>
+<td>the period’s own start date (<code dir="auto">neste_dato</code>)</td>
+</tr>
+<tr>
+<td>Kreditnota</td>
+<td>the <strong>original</strong> invoice’s delivery date — it credits that delivery; dating it today would assert a delivery that never happened</td>
+</tr>
+<tr>
+<td>Tilbud / ordrebekreftelse</td>
+<td>none: nothing is delivered yet, and these are not salgsdokumenter</td>
+</tr>
+</tbody>
+</table>
+<p>The database column is <strong>nullable, deliberately</strong>: invoices issued
+before #81 have no recorded delivery date, and backfilling them with
+the invoice date would invent a legal fact on an immutable document.
+That history stays visibly incomplete; the requirement is enforced at
+issue time instead. In EHF the field is <code dir="auto">cac:Delivery/cbc:ActualDeliveryDate</code>
+(BT-72) — omitted entirely rather than guessed when absent.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="deres-referanse-en-16931-bt-10-221">Deres referanse (EN 16931 BT-10, #221)</h3><a class="sl-anchor-link" href="#deres-referanse-en-16931-bt-10-221"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Deres referanse (EN 16931 BT-10, #221)”</span></a></div>
+<p>The buyer’s own reference — an order number, a department, a contact
+person — is what public and larger private buyers route an incoming
+invoice on. It is stored <strong>on the invoice at issue</strong>
+(<code dir="auto">invoice.buyer_reference</code>, migration 0084, insert-only like the rest of
+the row), printed on the PDF as «Deres ref.» and carried in the EHF as
+<code dir="auto">cbc:BuyerReference</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">POST …/invoices</code></td>
+<td><code dir="auto">buyer_reference</code> in the request</td>
+</tr>
+<tr>
+<td>Repeterende faktura</td>
+<td>the template’s own (<code dir="auto">buyer_reference</code> on create/update; “Gjenta denne” copies the invoice’s) — one per contract</td>
+</tr>
+<tr>
+<td>Tilbud → ordre → faktura</td>
+<td>the tilbud’s own, copied to the ordre and on to the invoice</td>
+</tr>
+<tr>
+<td>Any of the above without one</td>
+<td>the customer’s <strong>standing</strong> reference (<code dir="auto">party.buyer_reference</code>, set with <code dir="auto">PUT …/parties/{pid}/contact</code>)</td>
+</tr>
+<tr>
+<td>Kreditnota</td>
+<td><strong>exactly</strong> the original’s — none if the original had none; it never picks up a standing reference the invoice did not carry</td>
+</tr>
+</tbody>
+</table>
+<p>At most <strong>70 characters</strong>, refused rather than cut (a cut reference
+routes nowhere), checked in the code and by the database. The
+reference is printed on one line of the stored PDF. Setting the
+standing reference is the same single statement as the rest of the
+contact update, so a refused reference (on a supplier, or too long)
+leaves the address, e-mail and account number untouched as well.</p>
+<p>PEPPOL-EN16931-R003 requires a buyer reference or an order reference
+in every EHF. An invoice with neither falls back to <strong>our customer
+number</strong> in BT-10: the document stays valid, but a buyer that routes on
+its own reference (the public sector does) cannot use it. Invoices
+issued before #221 carry no reference and keep that content.</p>
+<ul>
+<li><strong>Kontaktinfo</strong> (migration 0019, editable master data, never hashed):
+company address/kontonummer/selskapsform via
+<code dir="auto">GET/PUT /companies/{id}/settings</code> (PUT is admin-only). The company
+kontonummer is MOD11-checked before it is stored, like a party’s: it
+is printed on every invoice and reminder as where to pay, and a typo
+there used to be accepted. It is kept as typed (<code dir="auto">1234.56.78903</code>); party
+address/e-mail via <code dir="auto">PUT …/parties/{pid}/contact</code>. Portal:
+Firmaopplysninger under Administrasjon, Kontaktinfo on the party page.</li>
+<li>Purringer/inkassovarsler render their stored text deterministically
+to PDF on demand (<code dir="auto">?format=pdf</code>, docs/purring.md).</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="e-postutsendelse-32">E-postutsendelse (#32)</h2><a class="sl-anchor-link" href="#e-postutsendelse-32"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “E-postutsendelse (#32)”</span></a></div>
+<ul>
+<li><strong>One rail for all outbound mail</strong>: regnmed publishes to the same
+JetStream stream regnid’s mail workers consume (<code dir="auto">REGNID_MAIL</code> /
+<code dir="auto">regnid.mail.send</code> — a wire contract; regnid’s <code dir="auto">OutboundMail</code> gained
+serde-defaulted <code dir="auto">reply_to</code> + base64 <code dir="auto">attachments</code> for it). SMTP/Brevo
+stay configured in exactly one place, the worker.</li>
+<li><strong>Sending is an explicit human action</strong> (portal Send buttons, or
+<code dir="auto">POST …/invoices/{iid}/send</code> / <code dir="auto">POST …/reminders/{rid}/send</code>, both
+bokforing+). Recipient defaults to the party’s stored e-mail,
+overridable per send; <strong>reply-to is the company’s own address</strong>
+(settings), never regnmed’s.</li>
+<li><strong>Insert-only utsendelseslogg</strong> (migration 0020): who sent what to
+whom, when. The log id doubles as the queue’s <code dir="auto">Nats-Msg-Id</code>, so a
+retried publish deduplicates in the stream — the log row and the
+queue message are the same event. <code dir="auto">GET …/invoices/{iid}/utsendelser</code>.</li>
+<li>The attached PDF is the stored salgsdokument (hash-checked on read) —
+the mail carries byte-exactly what oppbevaringen holds.</li>
+<li>Unconfigured rail (no <code dir="auto">NATS_URL</code>) → the endpoints answer with a clear
+message instead of pretending.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="repeterende-faktura-30">Repeterende faktura (#30)</h2><a class="sl-anchor-link" href="#repeterende-faktura-30"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Repeterende faktura (#30)”</span></a></div>
+<ul>
+<li><strong>A template is a plan, not evidence</strong>: customer + lines + intervall
+(månedlig/kvartalsvis/årlig) + neste/slutt-dato, ordinary editable
+data. Nothing regnskapsmessig exists until generation.</li>
+<li><strong>Generation adds no posting semantics</strong>: it issues a NORMAL invoice
+through the existing path — gap-free number, KID, posting, PDF, all
+in one transaction — with <code dir="auto">{måned}</code>/<code dir="auto">{år}</code> in line texts interpolated
+to the generated period (“Husleie august 2026”). Month arithmetic
+clamps into shorter months (31. jan + 1 mnd = 28. feb).</li>
+<li><strong>Idempotent and atomic</strong>: the template row is locked, the invoice +
+run-log row + neste_dato advance commit together, and a partial
+unique index makes a period impossible to generate twice — even
+under concurrent runs. Failures roll back, log a failure row
+(insert-only log), and leave neste_dato untouched for retry. A
+template several periods behind catches up.</li>
+<li><strong>Driven by the daily CronJob</strong> (<code dir="auto">regnmed generate-invoices</code>,
+deploy/base — same pattern as anchoring); the portal’s “Generer nå”
+is the same code path. <code dir="auto">merk_utsendelse</code> MARKS the generated invoice
+for sending in the run log — the send itself stays a human click.</li>
+<li>Templates are deactivated, never deleted, once they have runs (FK
+enforces it).</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">GET/POST /companies/{id}/invoice-templates</code></td>
+<td>list / create (<code dir="auto">from_invoice_id</code> = “gjenta denne”)</td>
+</tr>
+<tr>
+<td><code dir="auto">PUT …/invoice-templates/{tid}</code></td>
+<td>edit incl. lines and aktiv</td>
+</tr>
+<tr>
+<td><code dir="auto">POST …/invoice-templates/{tid}/generate</code></td>
+<td>generate every due period now</td>
+</tr>
+<tr>
+<td><code dir="auto">GET …/invoice-templates/{tid}/runs</code></td>
+<td>the insert-only generation log</td>
+</tr>
+</tbody>
+</table>
+<div class="sl-heading-wrapper level-h2"><h2 id="tilbud--ordre--faktura-31">Tilbud → ordre → faktura (#31)</h2><a class="sl-anchor-link" href="#tilbud--ordre--faktura-31"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Tilbud → ordre → faktura (#31)”</span></a></div>
+<ul>
+<li>The commercial chain BEFORE the invoice lives <strong>outside the ledger</strong>:
+nothing posts, tilbud are freely editable until akseptert/avslått, an
+ordre is a frozen confirmation. Both reuse the invoice line model, so
+conversion is lossless.</li>
+<li><strong>Own gap-free number series per kind</strong> (same counter pattern as
+invoices) — a rejected tilbud is history, not a hole.</li>
+<li><strong>One-way statuses</strong>: tilbud utkast → sendt → akseptert | avslått
+(accepting straight from utkast is allowed); ordre bekreftet →
+fakturert. At most one ordre per tilbud (unique index); converting an
+ordre runs the NORMAL atomic invoice path (number, KID, posting,
+stored PDF) and links the chain tilbud → ordre → invoice — the ordre
+status flip and the invoice commit together. One ordre → one faktura.</li>
+<li><strong>PDF on demand</strong>: TILBUD/ORDREBEKREFTELSE rendered from current
+state with the same layout (no KID, no betalingsinformasjon — not
+payable); the stored, hash-verified document arrives with the
+invoice.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">GET/POST /companies/{id}/quotes</code>, <code dir="auto">PUT …/{qid}</code></td>
+<td>tilbud; edit while utkast/sendt</td>
+</tr>
+<tr>
+<td><code dir="auto">POST …/quotes/{qid}/status</code></td>
+<td>sendt | akseptert | avslatt</td>
+</tr>
+<tr>
+<td><code dir="auto">POST …/quotes/{qid}/order</code></td>
+<td>akseptert tilbud → ordre (lines copied)</td>
+</tr>
+<tr>
+<td><code dir="auto">GET/POST /companies/{id}/orders</code></td>
+<td>ordrer (direct creation allowed)</td>
+</tr>
+<tr>
+<td><code dir="auto">POST …/orders/{oid}/invoice</code></td>
+<td>ordre → faktura (ordinary path)</td>
+</tr>
+<tr>
+<td><code dir="auto">GET …/quotes/{qid}/pdf</code>, <code dir="auto">…/orders/{oid}/pdf</code></td>
+<td>on-demand documents</td>
+</tr>
+</tbody>
+</table>
+<div class="sl-heading-wrapper level-h2"><h2 id="not-yet-deliberate">Not yet (deliberate)</h2><a class="sl-anchor-link" href="#not-yet-deliberate"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Not yet (deliberate)”</span></a></div>
+<ul>
+<li><strong>EHF dispatch</strong> arrives with the Peppol access point (issue #14).</li>
+<li>Proration and seat-based metering — templates are fixed lines first.</li>
+<li>Delleveranser/delfakturering — one ordre → one faktura in v1.</li>
+</ul>
+<p>Purring, forsinkelsesrente og inkassovarsel: shipped — docs/purring.md.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="web-api-mutations-require-bokforing">Web API (mutations require bokforing)</h2><a class="sl-anchor-link" href="#web-api-mutations-require-bokforing"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Web API (mutations require bokforing)”</span></a></div>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">POST /companies/{id}/invoices</code></td>
+<td>issue (party_no, dates, lines; defaults: journal GL, receivable 1500, VAT 2700, account 3000, quantity 1). Optional <code dir="auto">timer_entry_ids</code>: selected unbilled hours appended as hour lines per (prosjekt, sats) and marked fakturert in the SAME transaction — one invoice carries products and hours (docs/timer.md; requires <code dir="auto">TIMER_FAKTURER</code>, NOK only). Optional <code dir="auto">expenses: [{expense_id, treatment}]</code>: billable expense claims rebilled as <code dir="auto">resale</code> (cost + 25 % mva) or <code dir="auto">disbursement</code> (outside the mva base), locked in the same transaction (docs/utlegg.md «Viderefakturering»; requires <code dir="auto">UTLEGG_LES_ALLE</code>, NOK only, not on kontantsalg)</td>
+</tr>
+<tr>
+<td><code dir="auto">GET /companies/{id}/invoices?status=&amp;q=&amp;limit=&amp;offset=</code></td>
+<td>list with reskontro remaining and a DERIVED <code dir="auto">status</code> per invoice (<code dir="auto">open</code>, <code dir="auto">overdue</code>, <code dir="auto">paid</code>, <code dir="auto">credited</code>, <code dir="auto">credit_note</code> — computed in SQL from the reskontro and the due date, never stored). <code dir="auto">status</code> filters (<code dir="auto">open</code> = open or overdue, <code dir="auto">credit</code> = kreditnotaer and what they credit), <code dir="auto">q</code> matches an exact invoice number or KID or part of the customer’s name, <code dir="auto">limit</code> (≤ 200) pages newest first. The response carries <code dir="auto">total</code> and per-status <code dir="auto">counts</code> for the filter. Without <code dir="auto">limit</code>: every invoice, oldest first, as before. <code dir="auto">open=true</code> keeps its old meaning (anything with a remainder, kreditnotaer included)</td>
+</tr>
+<tr>
+<td><code dir="auto">GET /companies/{id}/invoices/{iid}</code></td>
+<td>one invoice: header, status, the stored lines (<code dir="auto">net_ore</code>/<code dir="auto">vat_ore</code> as issued), the kreditnota link either way, the customer’s e-mail, the voucher it was posted on (<code dir="auto">voucher_id</code>, <code dir="auto">voucher</code>) and <code dir="auto">settlements</code> — every payment and kreditnota matched against the receivable, each with its voucher</td>
+</tr>
+<tr>
+<td><code dir="auto">POST /companies/{id}/invoices/{iid}/payments</code></td>
+<td>record a payment by hand (<code dir="auto">dato</code>, <code dir="auto">belop_ore</code>, <code dir="auto">konto</code> 19xx, default 1920): one voucher money-account / receivable WITH the party, matched against the invoice in the same transaction under the party’s reskontro lock. Requires <code dir="auto">FAKTURA_SKRIV</code> and <code dir="auto">BILAG_BOKFOR</code>; refuses more than is open, a date in the future, a non-19xx account, a kreditnota and a currency invoice (settled from Bank, where the agio is posted); the attestation policy governs it like any manual voucher</td>
+</tr>
+<tr>
+<td><code dir="auto">GET /companies/{id}/quotes/{qid}</code></td>
+<td>a tilbud’s or ordre’s lines as stored (product by number), for editing</td>
+</tr>
+<tr>
+<td><code dir="auto">POST /companies/{id}/invoices/{iid}/credit-note</code></td>
+<td>full kreditnota</td>
+</tr>
+<tr>
+<td><code dir="auto">GET /companies/{id}/invoices/{iid}/pdf</code></td>
+<td>the stored salgsdokument (hash-checked)</td>
+</tr>
+<tr>
+<td><code dir="auto">GET/PUT /companies/{id}/settings</code></td>
+<td>firmaopplysninger for the PDF (PUT admin-only)</td>
+</tr>
+<tr>
+<td><code dir="auto">PUT /companies/{id}/parties/{pid}/contact</code></td>
+<td>party address/e-mail</td>
+</tr>
+</tbody>
+</table>
+<div class="sl-heading-wrapper level-h2"><h2 id="i-portalen">I portalen</h2><a class="sl-anchor-link" href="#i-portalen"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “I portalen”</span></a></div>
+<p>Faktura-seksjonen er bygget rundt fakturalisten (#/c/{id}/faktura): status
+per faktura, søk og filter i adressen, hver rad åpner fakturaen
+(#/c/{id}/faktura/{iid}) der alle handlingene bor og det naturlige neste
+steget er primærknappen — send en usendt faktura, purre en forfalt.
+<strong>Ny faktura</strong> (#/c/{id}/faktura/ny) tar så mange linjer som trengs og
+viser summen mens man skriver. Summen speiler <code dir="auto">regnmed-core</code>s
+avrunding (<code dir="auto">invoiceMath.js</code>, testet mot de samme tilfellene), men med
+dagens satser — serveren regner på nytt med satsen på fakturadatoen når
+fakturaen utstedes, og det er dens tall som står på fakturaen. Forfall
+følger fakturadato + 14 dager til brukeren endrer det; det finnes ennå
+ingen lagret betalingsfrist per selskap eller kunde. Utstedelse viser en
+oppsummering først, fordi en utstedt faktura aldri kan endres.</p>
+<p><strong>Ingenting i Faktura utsteder en faktura uten at brukeren har sett
+kunden og beløpet og bekreftet.</strong> Det gjelder alle veiene inn: ny
+faktura, ufakturerte timer (kunden er aldri forhåndsvalgt «første i
+listen» — bare foreslått når timene selv sier hvem de tilhører),
+ordre → faktura og «Lag forfalte nå» på repeterende fakturaer. Etter
+utstedelse lander brukeren på fakturaen, der «Send til kunde» er neste
+steg. Et avslått tilbud kan ikke tas opp igjen, og spør derfor også.</p>
+<p><strong>Registrer innbetaling</strong> står på fakturaen for penger som ikke kommer
+gjennom bankavstemmingen — kontant, Vipps, en enkeltinnbetaling. Den
+bokfører bilaget og avstemmer det mot fakturaen i én transaksjon
+(API-raden over), og fakturasiden viser deretter <strong>Innbetalinger og
+kreditering</strong>: hver post som har gjort opp fakturaen, med bilaget den er
+bokført på, og bilaget fakturaen selv er bokført på — sporbarheten
+fakturaen → betaling → bilag og tilbake er ett klikk hver vei
+(bokføringsloven §4 nr. 7).</p>
+<p>Purringen registreres bare slik den ble forhåndsvist: endres et valg
+etter forhåndsvisningen, forkastes den, og «Registrer» må vente på en ny.
+Etter registrering tilbys «Send til kunde» med en gang.</p>
+<p>Tilbud har så mange linjer som trengs og kan endres så lenge de er
+utkast eller sendt (<code dir="auto">GET</code>/<code dir="auto">PUT …/quotes/{qid}</code>).</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="where-it-is-tested">Where it is tested</h2><a class="sl-anchor-link" href="#where-it-is-tested"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Where it is tested”</span></a></div>
+<ul>
+<li><code dir="auto">regnmed-core/src/invoice.rs</code> — line/VAT computation, rounding, KID
+validity, voucher balance with party, credit-note sign flip.</li>
+<li><code dir="auto">regnmed-api/tests/grupper/invoice.rs</code> (real Postgres, also CI) — the whole
+loop over HTTP: issue (12 500 kr, valid KID), failed attempt burns no
+number, chain verifies, OCR payment resolves the invoice by KID,
+kreditnota auto-settles, double-credit rejected.
+<code dir="auto">a_payment_recorded_by_hand_settles_the_invoice</code>: a part payment in
+cash leaves the rest open and shows on the invoice with its voucher;
+overpaying, a non-19xx account, a future date and zero are refused
+with an actionable message; six simultaneous attempts at the rest
+settle it exactly once (the guarantee is the party lock — the harness
+does not reliably make the attempts overlap, so the test pins the
+outcome); the chain verifies.
+The invoice page answers with status <code dir="auto">overdue</code> and the stored lines
+(another company’s id is 404), and the list’s filters are pinned:
+<code dir="auto">status=credit</code> holds the kreditnota and the invoice it credits, newest
+first, <code dir="auto">q</code> matches number or name, paging keeps the true <code dir="auto">total</code>, and
+an unknown status is a 400. Kunderegisteret er festet i samme test: en
+kundes <code dir="auto">overdue_ore</code> er lik den forfalte fakturaen, søk og sortering
+skjer i SQL, <code dir="auto">GET …/parties/{pid}</code> og <code dir="auto">?party_no=</code> på fakturalisten
+svarer for én kunde, og en ny kunde med ugyldig kontonummer avvises før
+den finnes (docs/reskontro.md).</li>
+<li><code dir="auto">ui/portal/src/sections/faktura/invoiceMath.test.js</code> — the form’s
+running sum rounds exactly like <code dir="auto">regnmed-core</code> (line amounts, VAT,
+minutes to hours).</li>
+<li><code dir="auto">regnmed-core/src/pdf.rs</code> + <code dir="auto">fakturapdf.rs</code> — valid xref structure,
+WinAnsi encoding incl. CP1252 typografi, escaping, width-based right
+alignment, determinism, lovpålagt innhold, kreditnota variant,
+pagination.</li>
+<li><code dir="auto">regnmed-api/tests/grupper/faktura_pdf.rs</code> (real Postgres, also CI) —
+settings over the API, the PDF exists as a verified attachment the
+moment the invoice does, served with the kontaktinfo, kreditnota
+document, purring <code dir="auto">?format=pdf</code>, settings PUT rejected for
+non-admins.</li>
+<li><code dir="auto">regnmed-api/tests/grupper/salgsdokument.rs</code> (real Postgres, also CI) — the
+whole chain over HTTP: tilbud edited while utkast and read back for
+the editor (another id is 404), PDF without
+KID/betalingsinfo, one-way trapp, ordre copied losslessly (one per
+tilbud), fakturering through the ordinary path (chain + stored PDF
+verify, links carried), avslått path keeps the number series
+gap-free, direct ordre.</li>
+<li><code dir="auto">regnmed-api/tests/grupper/invoice_template.rs</code> (real Postgres, also CI) —
+template over the API, catch-up generation with periodetekst through
+the gap-free path (chain + attachments verify), idempotence, run log
+append-only and marked til utsendelse, deactivation respected,
+“gjenta denne” copies customer + lines.</li>
+<li><code dir="auto">regnmed-api/tests/grupper/utsendelse.rs</code> (real Postgres + a spawned
+<code dir="auto">nats-server</code>, skips without either) — the send endpoint puts a real
+JetStream message on the rail in regnid’s wire format (attachment
+base64-decodes back to the stored PDF, reply-to = company),
+the log records it, and an unconfigured rail answers clearly.
+regnid’s own suite pins the wire format’s backward compatibility.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="kontantsalg-89-bokføringsforskriften-5-3">Kontantsalg (#89, bokføringsforskriften §5-3)</h2><a class="sl-anchor-link" href="#kontantsalg-89-bokføringsforskriften-5-3"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Kontantsalg (#89, bokføringsforskriften §5-3)”</span></a></div>
+<p>En <strong>kontantfaktura</strong> dokumenterer en ytelse som er betalt ved levering
+— kort, Vipps eller kontanter. Dokumentet er et annet dokument, ikke en
+faktura med et flagg: <code dir="auto">DocumentType::CashInvoice</code> gir tittelen
+KONTANTFAKTURA, «Betalt: &lt;betalingsmiddel&gt;» blant dokumentfaktaene, og
+<strong>ingen KID, ingen forfallsdato og ingen betalingsinformasjon</strong>. Å be
+noen betale det de allerede har betalt er ikke en skjønnhetsfeil, det er
+et krav om betaling nummer to. Testen lister de forbudte strengene og
+sjekker samtidig at en vanlig faktura beholder dem alle.</p>
+<p><strong>Fordringen oppstår og gjøres opp i SAMME transaksjon.</strong> Det ville vært
+enklere å postere salget rett mot bank og hoppe over 1500 — og det er
+nettopp det som ikke må skje: reskontro-doktrinen sier at en kundes
+posteringer bærer en part, og en sidedør forbi den ville gjort
+<code dir="auto">subledger_check</code> (revisors avstemming) stille ufullstendig. Kravet
+finnes, bærer parten på BEGGE sider, og den åpne posten lukkes i det
+øyeblikket den oppstår.</p>
+<p><code dir="auto">oppgjorskonto</code> oppgis av kalleren — 1900 kontanter, 1920 bank eller
+kortinnløserens oppgjørskonto. Vi gjetter aldri hvordan noen ble betalt.</p>
+<p><code dir="auto">POST /companies/{id}/invoices</code> med <code dir="auto">kontant_betalingsmiddel</code> +
+<code dir="auto">oppgjorskonto</code> tar denne veien; uten dem er alt som før.</p>
+</div><footer class="sl-flex" data-astro-cid-ddtxxk7k><div class="meta sl-flex" data-astro-cid-ddtxxk7k><a href="https://github.com/BogenTech/regnmed/edit/main/docs/faktura.md" class="sl-flex print:hidden" data-astro-cid-qlekgd3o><svg data-astro-cid-qlekgd3o="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.2em;" data-astro-cid-hkc32dio><path d="M22 7.24a1 1 0 0 0-.29-.71l-4.24-4.24a1 1 0 0 0-1.1-.22 1 1 0 0 0-.32.22l-2.83 2.83L2.29 16.05a1 1 0 0 0-.29.71V21a1 1 0 0 0 1 1h4.24a1 1 0 0 0 .76-.29l10.87-10.93L21.71 8c.1-.1.17-.2.22-.33a1 1 0 0 0 0-.24v-.14l.07-.05ZM6.83 20H4v-2.83l9.93-9.93 2.83 2.83L6.83 20ZM18.17 8.66l-2.83-2.83 1.42-1.41 2.82 2.82-1.41 1.42Z"/></svg>Rediger side</a></div><div class="pagination-links print:hidden" dir="ltr" data-astro-cid-b5raizh3><a href="/teknisk/epost-inn/" rel="prev" data-astro-cid-b5raizh3><svg data-astro-cid-b5raizh3="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;" data-astro-cid-hkc32dio><path d="M17 11H9.41l3.3-3.29a1.004 1.004 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33 1 1 0 0 0 0 .76 1 1 0 0 0 .21.33l5 5a1.002 1.002 0 0 0 1.639-.325 1 1 0 0 0-.219-1.095L9.41 13H17a1 1 0 0 0 0-2Z"/></svg><span data-astro-cid-b5raizh3>Forrige<br data-astro-cid-b5raizh3><span class="link-title" data-astro-cid-b5raizh3>E-post-inn til bilagsinnboksen</span></span></a><a href="/teknisk/frugality/" rel="next" data-astro-cid-b5raizh3><svg data-astro-cid-b5raizh3="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;" data-astro-cid-hkc32dio><path d="M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z"/></svg><span data-astro-cid-b5raizh3>Neste<br data-astro-cid-b5raizh3><span class="link-title" data-astro-cid-b5raizh3>The frugality budget</span></span></a></div></footer></div></div></main></div></div></div></div></body></html>

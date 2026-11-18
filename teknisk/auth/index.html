@@ -1,0 +1,1584 @@
+<!DOCTYPE html><html lang="nb" dir="ltr" data-theme="dark" data-has-toc data-has-sidebar data-astro-cid-g5ptsecz><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Tilgang: hvem kan gjøre hva | regnmed docs</title><link rel="canonical" href="https://docs.regnmed.no/teknisk/auth/"/><link rel="alternate" hreflang="nb" href="https://docs.regnmed.no/teknisk/auth/"/><link rel="alternate" hreflang="en" href="https://docs.regnmed.no/en/teknisk/auth/"/><link rel="alternate" hreflang="x-default" href="https://docs.regnmed.no/teknisk/auth/"/><link rel="sitemap" href="/sitemap-index.xml"/><link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml"/><meta name="generator" content="Astro v7.4.13"/><meta name="generator" content="Starlight v0.43.1"/><meta property="og:title" content="Tilgang: hvem kan gjøre hva"/><meta property="og:type" content="article"/><meta property="og:url" content="https://docs.regnmed.no/teknisk/auth/"/><meta property="og:locale" content="nb"/><meta property="og:description" content="Brukerveiledning, utviklerdokumentasjon og teknisk dokumentasjon for regnmed, regnskapssystemet du kan etterprøve."/><meta property="og:site_name" content="regnmed docs"/><meta name="twitter:card" content="summary_large_image"/><meta name="description" content="Brukerveiledning, utviklerdokumentasjon og teknisk dokumentasjon for regnmed, regnskapssystemet du kan etterprøve."/><script>
+	(() => {
+		const storedTheme =
+			typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme');
+		const theme =
+			storedTheme ||
+			(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+		document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+	})();
+</script><link rel="stylesheet" href="/_astro/print.C9eyqPGL.css" media="print"><link rel="stylesheet" href="/_astro/common.LP9BDTc3.css"><script type="module" src="/_astro/page.cNngjUgL.js"></script></head><body data-astro-cid-g5ptsecz><a class="sl-skip-link" href="#_top" data-astro-cid-qb7clj6f>Gå til innholdet</a><div class="page sl-flex" data-astro-cid-yntsjkba><header class="header" data-astro-cid-yntsjkba><div class="header" data-astro-cid-by6fddyj><div class="title-wrapper sl-flex" data-astro-cid-by6fddyj><a href="/" class="site-title sl-flex" data-astro-cid-6rvad3va><img alt="regnmed" src="/_astro/logo.BykUI3mu.svg" width="160" height="160" data-astro-cid-6rvad3va><span translate="no" data-astro-cid-6rvad3va>regnmed docs</span></a></div><div class="sl-flex print:hidden" data-astro-cid-by6fddyj><site-search data-translations="{&quot;placeholder&quot;:&quot;Søk&quot;}" data-astro-cid-b5kgnn7o="true"><button data-open-modal disabled aria-label="Søk" aria-keyshortcuts="Control+K" data-astro-cid-b5kgnn7o><svg data-astro-cid-b5kgnn7o="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z"/></svg><span class="sl-hidden md:sl-block" aria-hidden="true" data-astro-cid-b5kgnn7o>Søk</span><kbd class="sl-hidden md:sl-flex" style="display: none" data-astro-cid-b5kgnn7o><kbd data-astro-cid-b5kgnn7o>Ctrl</kbd><kbd data-astro-cid-b5kgnn7o>K</kbd></kbd></button><dialog style="padding: 0" aria-label="Søk" data-astro-cid-b5kgnn7o><div class="dialog-frame sl-flex" data-astro-cid-b5kgnn7o><button data-close-modal class="sl-flex md:sl-hidden" data-astro-cid-b5kgnn7o>Avbryt</button><div class="search-container" data-astro-cid-b5kgnn7o><div id="starlight__search" data-astro-cid-b5kgnn7o></div></div></div></dialog></site-search><script>
+	(() => {
+		const openBtn = document.querySelector('button[data-open-modal]');
+		const shortcut = openBtn?.querySelector('kbd');
+		if (!openBtn || !(shortcut instanceof HTMLElement)) return;
+		const platformKey = shortcut.querySelector('kbd');
+		if (platformKey && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+			platformKey.textContent = '⌘';
+			openBtn.setAttribute('aria-keyshortcuts', 'Meta+K');
+		}
+		shortcut.style.display = '';
+	})();
+</script><script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.CibB10mu.js"></script></div><div class="sl-hidden md:sl-flex print:hidden right-group" data-astro-cid-by6fddyj><div class="sl-flex social-icons" data-astro-cid-by6fddyj><a href="https://github.com/BogenTech/regnmed" rel="me" class="sl-flex" data-astro-cid-n2mnl6yq><span class="sr-only" data-astro-cid-n2mnl6yq>GitHub</span><svg data-astro-cid-n2mnl6yq="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select data-astro-cid-smhvfpqh="true"><label style="--sl-select-width: 6.25em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg tema</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg class="sl-theme-icon-dark" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg class="sl-theme-icon-light" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg class="sl-theme-icon-auto" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="dark" data-astro-cid-2z5xp7gb>Mørk</option><option value="light" data-astro-cid-2z5xp7gb>Lys</option><option value="auto" selected data-astro-cid-2z5xp7gb>Auto</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>(() => {
+		const theme = (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme'));
+		if (theme) document.querySelectorAll('starlight-theme-select select').forEach((s) => { s.value = theme; });
+	})();</script><script type="module">var e=`starlight-theme`,t=e=>e===`auto`||e===`dark`||e===`light`?e:`auto`,n=()=>t(typeof localStorage<`u`&&localStorage.getItem(e));function r(t){typeof localStorage<`u`&&localStorage.setItem(e,t===`light`||t===`dark`?t:``)}var i=()=>matchMedia(`(prefers-color-scheme: light)`).matches?`light`:`dark`;function a(e){document.querySelectorAll(`starlight-theme-select select`).forEach(t=>{t.value=e}),document.documentElement.dataset.theme=e===`auto`?i():e,r(e)}matchMedia(`(prefers-color-scheme: light)`).addEventListener(`change`,()=>{n()===`auto`&&a(`auto`)});var o=class extends HTMLElement{constructor(){super(),a(n()),this.querySelector(`select`)?.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&a(t(e.currentTarget.value))})}};customElements.define(`starlight-theme-select`,o);</script><starlight-lang-select><label style="--sl-select-width: 7em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg språk</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="/teknisk/auth/" data-astro-cid-2z5xp7gb>Norsk</option><option value="/en/teknisk/auth/" data-astro-cid-2z5xp7gb>English</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-lang-select><script type="module">var e=class extends HTMLElement{constructor(){super();let e=this.querySelector(`select`);e&&(e.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&(window.location.pathname=e.currentTarget.value)}),window.addEventListener(`pageshow`,t=>{if(!t.persisted)return;let n=e.querySelector(`option[selected]`)?.index;n!==e.selectedIndex&&(e.selectedIndex=n??0)}))}};customElements.define(`starlight-lang-select`,e);</script></div></div></header><nav class="sidebar print:hidden" aria-label="Hovednavigasjon" data-astro-cid-yntsjkba><button popovertarget="starlight__sidebar" class="sl-menu-button sl-flex md:sl-hidden print:hidden" data-astro-cid-r2osgdlg><svg class="open-menu" data-astro-cid-r2osgdlg="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M3 8h18a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2Zm18 8H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Zm0-5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></svg><svg class="close-menu" data-astro-cid-r2osgdlg="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="m13.41 12 6.3-6.29a1.004 1.004 0 1 0-1.42-1.42L12 10.59l-6.29-6.3a1.004 1.004 0 0 0-1.42 1.42l6.3 6.29-6.3 6.29a1 1 0 0 0 0 1.42.998.998 0 0 0 1.42 0l6.29-6.3 6.29 6.3a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.42L13.41 12Z"/></svg><span class="sr-only" data-astro-cid-r2osgdlg>Meny</span></button><script type="module">var e=class extends HTMLElement{constructor(){super();let e=matchMedia(`(min-width: 50em)`),t=()=>{this.popover=e.matches?null:`auto`};t(),e.addEventListener(`change`,()=>t()),this.addEventListener(`toggle`,({newState:e})=>this.trapFocus(e===`open`))}trapFocus(e){document.querySelectorAll(`.main-frame, .sl-skip-link`).forEach(t=>{t.toggleAttribute(`inert`,e)})}};customElements.define(`sl-sidebar-pane`,e);</script><sl-sidebar-pane popover id="starlight__sidebar" class="sidebar-pane" data-astro-cid-yntsjkba="true"><div class="sidebar-content sl-flex" data-astro-cid-yntsjkba><sl-sidebar-state-persist data-hash="0vzjo46" data-astro-cid-ipdry5cl="true"><script aria-hidden="true">
+		(() => {
+			try {
+				if (!matchMedia('(min-width: 50em)').matches) return;
+				/** @type {HTMLElement | null} */
+				const target = document.querySelector('sl-sidebar-state-persist');
+				const state = JSON.parse(sessionStorage.getItem('sl-sidebar-state') || '0');
+				if (!target || !state || target.dataset.hash !== state.hash) return;
+				window._starlightScrollRestore = state.scroll;
+				customElements.define(
+					'sl-sidebar-restore',
+					class SidebarRestore extends HTMLElement {
+						connectedCallback() {
+							try {
+								const idx = parseInt(this.dataset.index || '');
+								const details = this.closest('details');
+								if (details && typeof state.open[idx] === 'boolean') details.open = state.open[idx];
+							} catch {}
+						}
+					}
+				);
+			} catch {}
+		})();
+	</script><ul class="top-level" data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>Brukerveiledning</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="0"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Velkommen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/kom-i-gang/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kom i gang</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/forste-faktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Første faktura</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/fakturering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Fakturering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/purring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Purring og betalingsoppfølging</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/bilag-og-innboks/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilag og innboks</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/hovedbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Hovedbok og kontoplan</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/mva/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>MVA</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/lonn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn og a-melding</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/timer-og-prosjekter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Timer og prosjekter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/utlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utlegg og kjøregodtgjørelse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/anlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Anleggsregister og avskrivninger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/valuta/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Valuta</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/produkter-og-varelager/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Produkter og varelager</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/periodisering-og-budsjett/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodisering og budsjett</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/rapporter-og-arsavslutning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Rapporter og årsavslutning</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/aksjeeierbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og aksjonærregisteroppgaven</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/tilgang-og-roller/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang og roller</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/for-regnskapsforere/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>For regnskapsførere og byråer</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/for-revisorer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>For revisorer</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/migrering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Migrering fra et annet system</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/abonnement-og-priser/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Abonnement og priser</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/ai-agent/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Ta med din egen AI-agent</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/verifiser-regnskapet/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Verifiser regnskapet ditt</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/vanlige-sporsmal/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Vanlige spørsmål</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>For utviklere</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="1"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>api</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="2"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/developers/api/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>API-referanse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/identity/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Identitet og tilgang</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/ledger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Selskap og hovedbok</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/sales/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Salg og reskontro</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/reports/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Regnskap og rapporter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank og betaling</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/payroll/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn, timer og utlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/inbox/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Innboks, import og jobber</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/shares/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og anlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/agents/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Integrasjoner, agenter og meldinger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/verification/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Forankring og verifisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/platform/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Plattform (leverandørens konsoll)</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><a href="/developers/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Introduksjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/getting-started/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kom i gang for integrasjoner</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/authentication/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Autentisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/access-and-roles/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang og roller for integrasjoner</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/conventions/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Konvensjoner</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/examples/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Eksempler</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/mcp-and-agents/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>MCP og agenter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/verify-it-yourself/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Verifiser selv</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/self-hosting/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Selvhosting</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/contributing/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bidra</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>Teknisk dokumentasjon</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="3"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/teknisk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Teknisk dokumentasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/abonnement/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Abonnement: regnmeds egen kasse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/agent/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Ta med din egen agent</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/aksjonaer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og aksjonærregisteroppgave (RF-1086)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/anchoring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>External anchoring of chain heads</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/anlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Anleggsregister og avskrivninger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/api/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>API-referanse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/arsavslutning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Årsavslutning</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/attestering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Attestering: godkjenningsflyt før bokføring og betaling</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/auth/" aria-current="page" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang: hvem kan gjøre hva</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/balansedokumentasjon/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Balansedokumentasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank reconciliation</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/betaling/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Betalingsliste og remittering (pain.001)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/bilagsinnboks/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilagsinnboks</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/bilagstolkning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilagstolkning: forslag fra dokumentets egen tekst</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/blob-store/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Dokumenter i objektlagring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/budsjett/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Budsjett og avviksrapport</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/deploy/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Deployment</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/dimensjoner/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Dimensjoner: avdeling og prosjekt</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/efaktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>E-faktura ut fra 1. januar 2027 — forslag</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/ehf/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>EHF: elektronisk faktura ut og inn</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/epost-inn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>E-post-inn til bilagsinnboksen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/faktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utgående faktura</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/frugality/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The frugality budget</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/gov/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The government rail: Maskinporten and Skatteetaten&#39;s APIs</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/hovedbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Hovedbok: kontoplan og manuell bilagsføring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/integrations/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Maskin-tilgang til API-et</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/jobs/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bakgrunnsjobber</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/kontantsalg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kontantsalg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/ledger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The ledger: append-only, hash-chained, independently verifiable</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/lonn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn — første del</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/marketplace/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Marketplace: onboarding from the official registries</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/meldinger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Meldinger — samtaler mellom folk som jobber sammen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/migration/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Migration: SAF-T import</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/mva/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Merverdiavgift: codes, rates, spesifikasjon, melding</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/perioder/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodelåsing og bilagsvedlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/periodisering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/portal/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The portal</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/produkter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Produktregister og enkelt varelager</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/purring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Betalingsoppfølging (purring)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/rapporter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lovpålagte spesifikasjoner og rapporter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/regelverk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Regelverk som data</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/reskontro/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Reskontro: kunde- og leverandørspesifikasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/revisjon/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Revisorrollen og verifikasjonsrapporten</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/skattemelding/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Skattemelding og næringsspesifikasjon (#11) — kartlagt, ikke bygget</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/timer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Timeføring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/utlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utlegg og kjøregodtgjørelse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/valuta/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Flervaluta</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/vilkar-teknisk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kundevilkårene i koden</span></a></li></ul></details></li></ul><script aria-hidden="true">
+		(() => {
+			const scroller = document.getElementById('starlight__sidebar');
+			if (!window._starlightScrollRestore || !scroller) return;
+			scroller.scrollTop = window._starlightScrollRestore;
+			delete window._starlightScrollRestore;
+		})();
+	</script></sl-sidebar-state-persist><div class="md:sl-hidden"><div class="mobile-preferences sl-flex" data-astro-cid-p4azlveh><div class="social-icons" data-astro-cid-p4azlveh><a href="https://github.com/BogenTech/regnmed" rel="me" class="sl-flex" data-astro-cid-n2mnl6yq><span class="sr-only" data-astro-cid-n2mnl6yq>GitHub</span><svg data-astro-cid-n2mnl6yq="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select data-astro-cid-smhvfpqh="true"><label style="--sl-select-width: 6.25em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg tema</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg class="sl-theme-icon-dark" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg class="sl-theme-icon-light" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg class="sl-theme-icon-auto" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="dark" data-astro-cid-2z5xp7gb>Mørk</option><option value="light" data-astro-cid-2z5xp7gb>Lys</option><option value="auto" selected data-astro-cid-2z5xp7gb>Auto</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>(() => {
+		const theme = (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme'));
+		if (theme) document.querySelectorAll('starlight-theme-select select').forEach((s) => { s.value = theme; });
+	})();</script><starlight-lang-select><label style="--sl-select-width: 7em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg språk</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="/teknisk/auth/" data-astro-cid-2z5xp7gb>Norsk</option><option value="/en/teknisk/auth/" data-astro-cid-2z5xp7gb>English</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-lang-select></div></div></div></sl-sidebar-pane></nav><div class="main-frame" data-astro-cid-yntsjkba><script type="module">var e=document.getElementById(`starlight__sidebar`),t=e?.querySelector(`sl-sidebar-state-persist`),n=`sl-sidebar-state`,r=()=>{let r=[],i=t?.dataset.hash||``;try{let e=sessionStorage.getItem(n),t=JSON.parse(e||`{}`);Array.isArray(t.open)&&t.hash===i&&(r=t.open)}catch{}return{hash:i,open:r,scroll:e?.scrollTop||0}},i=e=>{try{sessionStorage.setItem(n,JSON.stringify(e))}catch{}},a=()=>i(r()),o=(e,t)=>{let n=r();n.open[t]=e,i(n)};t?.addEventListener(`click`,e=>{if(!(e.target instanceof Element))return;let t=e.target.closest(`summary`)?.closest(`details`);if(!t)return;let n=t.querySelector(`sl-sidebar-restore`),r=parseInt(n?.dataset.index||``);isNaN(r)||o(!t.open,r)}),addEventListener(`visibilitychange`,()=>{document.visibilityState===`hidden`&&a()});</script><div class="lg:sl-flex" data-astro-cid-lrzkfocr><aside class="right-sidebar-container print:hidden" data-astro-cid-lrzkfocr><div class="right-sidebar" data-astro-cid-lrzkfocr><div class="lg:sl-hidden" data-astro-cid-qok35upx><mobile-starlight-toc data-min-h="2" data-max-h="3" data-astro-cid-66cqc7ze="true"><nav aria-labelledby="starlight__on-this-page--mobile" data-astro-cid-66cqc7ze><details id="starlight__mobile-toc" data-astro-cid-66cqc7ze><summary id="starlight__on-this-page--mobile" class="sl-flex" data-astro-cid-66cqc7ze><span class="toggle sl-flex" data-astro-cid-66cqc7ze>På denne siden<svg class="caret" data-astro-cid-66cqc7ze="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></span><span class="display-current" data-astro-cid-66cqc7ze></span></summary><div class="dropdown" data-astro-cid-66cqc7ze><ul class="isMobile" style="--depth: 0;" data-astro-cid-jugkfwgx><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#_top" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Oversikt</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#1-identitet-bare-oidc-relying-party" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>1. Identitet: bare OIDC relying party</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#2-aktørene" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>2. Aktørene</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hvordan-tilgang-oppstår-og-opphører" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hvordan tilgang oppstår og opphører</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#3-vakten" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>3. Vakten</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#4-rettigheter-og-roller" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>4. Rettigheter og roller</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#omfang-egne-data-mot-alles" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Omfang: egne data mot alles</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#de-innebygde-rollene" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>De innebygde rollene</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#5-matrisen" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>5. Matrisen</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#6-egendefinerte-roller" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>6. Egendefinerte roller</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#7-medlemsadministrasjon" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>7. Medlemsadministrasjon</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#det-som-ikke-kan-skje" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Det som ikke kan skje</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#8-grensen-mot-plattformen-hva-som-finnes-og-hva-som-aldri-gjør-det" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>8. Grensen mot plattformen: hva som finnes, og hva som aldri gjør det</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#ingen-vei-inn-i-hovedboken-krysser-selskapsgrenser" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Ingen vei inn i hovedboken krysser selskapsgrenser</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#plattformrollene-systemadmin-og-support--den-avgrensede-unntaksveien" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Plattformrollene systemadmin og support — den avgrensede unntaksveien</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#det-som-ellers-ikke-finnes" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Det som ellers ikke finnes</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#9-grensene-mot-resten-av-systemet" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>9. Grensene mot resten av systemet</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#maskintaket-101" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Maskintaket (#101)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#herding-av-http-svarene-64" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Herding av HTTP-svarene (#64)</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#10-i-portalen" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>10. I portalen</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#11-hvor-det-er-testet" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>11. Hvor det er testet</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#tre-feller-alle-gått-i-under-bygging" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Tre feller, alle gått i under bygging</span></a></li></ul></li></ul></div></details></nav></mobile-starlight-toc><script type="module" src="/_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.C3fM4Kra.js"></script></div><div class="right-sidebar-panel sl-hidden lg:sl-block" data-astro-cid-qok35upx><div class="sl-container" data-astro-cid-qok35upx><starlight-toc data-min-h="2" data-max-h="3"><nav aria-labelledby="starlight__on-this-page"><h2 id="starlight__on-this-page">På denne siden</h2><ul style="--depth: 0;" data-astro-cid-jugkfwgx><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#_top" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Oversikt</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#1-identitet-bare-oidc-relying-party" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>1. Identitet: bare OIDC relying party</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#2-aktørene" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>2. Aktørene</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hvordan-tilgang-oppstår-og-opphører" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hvordan tilgang oppstår og opphører</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#3-vakten" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>3. Vakten</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#4-rettigheter-og-roller" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>4. Rettigheter og roller</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#omfang-egne-data-mot-alles" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Omfang: egne data mot alles</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#de-innebygde-rollene" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>De innebygde rollene</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#5-matrisen" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>5. Matrisen</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#6-egendefinerte-roller" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>6. Egendefinerte roller</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#7-medlemsadministrasjon" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>7. Medlemsadministrasjon</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#det-som-ikke-kan-skje" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Det som ikke kan skje</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#8-grensen-mot-plattformen-hva-som-finnes-og-hva-som-aldri-gjør-det" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>8. Grensen mot plattformen: hva som finnes, og hva som aldri gjør det</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#ingen-vei-inn-i-hovedboken-krysser-selskapsgrenser" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Ingen vei inn i hovedboken krysser selskapsgrenser</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#plattformrollene-systemadmin-og-support--den-avgrensede-unntaksveien" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Plattformrollene systemadmin og support — den avgrensede unntaksveien</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#det-som-ellers-ikke-finnes" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Det som ellers ikke finnes</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#9-grensene-mot-resten-av-systemet" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>9. Grensene mot resten av systemet</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#maskintaket-101" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Maskintaket (#101)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#herding-av-http-svarene-64" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Herding av HTTP-svarene (#64)</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#10-i-portalen" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>10. I portalen</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#11-hvor-det-er-testet" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>11. Hvor det er testet</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#tre-feller-alle-gått-i-under-bygging" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Tre feller, alle gått i under bygging</span></a></li></ul></li></ul></nav></starlight-toc><script type="module" src="/_astro/TableOfContents.astro_astro_type_script_index_0_lang.BpJaGz7G.js"></script></div></div></div></aside><div class="main-pane" data-astro-cid-lrzkfocr><main data-pagefind-body lang="nb" dir="ltr" data-astro-cid-g5ptsecz><div class="content-panel" data-astro-cid-a7po4psb><div class="sl-container" data-astro-cid-a7po4psb><h1 id="_top" data-astro-cid-bebwqqxs>Tilgang: hvem kan gjøre hva</h1></div></div><div class="content-panel" data-astro-cid-a7po4psb><div class="sl-container" data-astro-cid-a7po4psb><div class="sl-markdown-content"><p>Dette dokumentet er svaret på det spørsmålet en revisor faktisk stiller:
+<strong>hvem kan gjøre hva, og hvor er det håndhevet?</strong></p>
+<p>To bevisst atskilte ting:</p>
+<ul>
+<li><strong>Identitet</strong> (hvem du er): bevist av et OIDC-token fra
+påloggingstjenesten.</li>
+<li><strong>Tilgang</strong> (hva du får gjøre, i hvilket selskap): avgjort av regnmeds
+egen database. Aldri båret i tokenet — en regnskapsfører med 60
+klienter kan ikke meningsfullt bære det i en JWT, og en
+tilgangsendring må virke uten ny innlogging.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="1-identitet-bare-oidc-relying-party">1. Identitet: bare OIDC relying party</h2><a class="sl-anchor-link" href="#1-identitet-bare-oidc-relying-party"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “1. Identitet: bare OIDC relying party”</span></a></div>
+<p>Påloggingstjenesten er <strong>regnid</strong> (søsterrepo). regnmed validerer
+RS256-tokens mot en konfigurert issuer/JWKS
+(<code dir="auto">crates/regnmed-api/src/auth.rs</code>: <code dir="auto">Verifier</code> + <code dir="auto">AuthPerson</code>-ekstraktoren
+— å legge <code dir="auto">AuthPerson</code> til som handler-argument beskytter ruten). regnmed
+baker aldri inn detaljer om én bestemt IdP; enhver spec-følgende issuer
+virker. Konfig: <code dir="auto">OIDC_ISSUER</code>, valgfri <code dir="auto">OIDC_AUDIENCE</code>, <code dir="auto">OIDC_JWKS_FILE</code>
+(utvikling/test: statisk JWKS, signaturen valideres like fullt).</p>
+<p>Avvist med 401, dekket av tester: manglende og oppdiktede tokens, tokens
+signert med feil nøkkel, utløpte tokens, feil audience.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="2-aktørene">2. Aktørene</h2><a class="sl-anchor-link" href="#2-aktørene"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2. Aktørene”</span></a></div>
+<p>En <strong>person</strong> opprettes just-in-time ved første innlogging, nøklet på
+tokenets <code dir="auto">sub</code>. En <strong>integrasjon</strong> (#45, docs/integrations.md) er en
+person med <code dir="auto">kind='integrasjon'</code> — nettopp for at tilgangsoppslag,
+attribusjon og revisjonsspor skal være identiske for robot og menneske.</p>
+<p>Tre veier inn til et selskap:</p>
+<div class="expressive-code"><link rel="stylesheet" href="/_astro/ec.w36nc.css"><script type="module" src="/_astro/ec.0vx5m.js"></script><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="plaintext"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">person ──── company_member ─────────────────────────► selskap   («direkte»)</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">   </span></span><span style="--0:#d6deeb;--1:#403f53">│</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">   </span></span><span style="--0:#d6deeb;--1:#403f53">├─────── firm_member ──► byrå ── oppdrag ────────► selskap   (byrånavnet)</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">   </span></span><span style="--0:#d6deeb;--1:#403f53">│</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">   </span></span><span style="--0:#d6deeb;--1:#403f53">└─────── integration_grant ──────────────────────► selskap   («integrasjon»)</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="person ──── company_member ─────────────────────────► selskap   («direkte»)   │   ├─────── firm_member ──► byrå ── oppdrag ────────► selskap   (byrånavnet)   │   └─────── integration_grant ──────────────────────► selskap   («integrasjon»)"><div></div></button></div></figure></div>
+<ul>
+<li>Et <strong>oppdrag</strong> er den kontraktsfestede relasjonen mellom et
+regnskaps-/revisjonsbyrå og en klient, med omfang og gyldighet. Et
+<code dir="auto">regnskap</code>-oppdrag gir rollen <code dir="auto">bokforing</code>; et <code dir="auto">revisjon</code>-oppdrag gir
+<code dir="auto">revisor</code>.</li>
+<li><code dir="auto">/me</code> løser token → person → alle selskapene personen kan handle for,
+hver med rollen, veien den kom gjennom og de OPPLØSTE rettighetene
+(<code dir="auto">rettigheter</code>, sluggene fra vokabularet under, implikasjoner
+inkludert). Rettighetslisten er BARE visning: portalen slutter å tilby
+knapper som ville fått 403, mens vakten på serveren fortsatt avgjør
+hvert kall.</li>
+<li>Dette speiler Altinns delegeringsmodell (docs/gov.md), slik at
+offentlig delegering og regnmeds oppdrag kan holdes på linje.</li>
+</ul>
+<p><strong>Rettighetene unioneres over alle veier inn.</strong> En person kan være
+direkte medlem <em>og</em> komme inn via et oppdrag. Så lenge rollene var en
+stige holdt det å velge den sterkeste; etter <code dir="auto">ansatt</code> (#54) er de ikke
+det, og en ansatt som også kom inn gjennom et byrå ville mistet retten
+til å føre sine egne timer hvis vi valgte én. <code dir="auto">company_access</code> finnes
+fortsatt, men bare til visning — tilgang avgjøres av <code dir="auto">company_roles</code> og
+unionen.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="hvordan-tilgang-oppstår-og-opphører">Hvordan tilgang oppstår og opphører</h3><a class="sl-anchor-link" href="#hvordan-tilgang-oppstår-og-opphører"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Hvordan tilgang oppstår og opphører”</span></a></div>
+<table>
+<thead>
+<tr>
+<th>Hendelse</th>
+<th>Virkning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invitasjon løses inn ved innlogging</td>
+<td>medlemskap opprettes (se §7)</td>
+</tr>
+<tr>
+<td>Rolle endres</td>
+<td>virker ved neste forespørsel</td>
+</tr>
+<tr>
+<td>Medlemskap deaktiveres</td>
+<td>virker straks; raden slettes aldri</td>
+</tr>
+<tr>
+<td>Oppdrag avsluttes</td>
+<td><code dir="auto">valid_to</code> er <strong>eksklusiv</strong> — tilgangen faller bort samme dag</td>
+</tr>
+<tr>
+<td>Integrasjonsgrant tilbakekalles</td>
+<td>samme eksklusive <code dir="auto">valid_to</code>, virker straks</td>
+</tr>
+<tr>
+<td>Egendefinert rolle deaktiveres</td>
+<td>de som har den mister rettighetene straks</td>
+</tr>
+</tbody>
+</table>
+<div class="sl-heading-wrapper level-h2"><h2 id="3-vakten">3. Vakten</h2><a class="sl-anchor-link" href="#3-vakten"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “3. Vakten”</span></a></div>
+<p>Hvert selskapsavgrenset endepunkt går gjennom <strong>én</strong> vakt,
+<code dir="auto">regnmed_api::access::require</code> — det eneste stedet i API-et som slår opp
+tilgang. Endepunktet sier hvilken <strong>rettighet</strong> handlingen krever, ikke
+hvem som får gjøre den:</p>
+<div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="rust"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">require</span><span style="--0:#D6DEEB;--1:#403F53">(</span><span style="--0:#7FDBCA;--1:#096E72">&amp;</span><span style="--0:#C5E478;--1:#3B61B0">state</span><span style="--0:#D6DEEB;--1:#403F53">, </span><span style="--0:#C5E478;--1:#3B61B0">person</span><span style="--0:#7FDBCA;--1:#096E72">.</span><span style="--0:#D6DEEB;--1:#403F53">person_id, </span><span style="--0:#C5E478;--1:#3B61B0">company_id</span><span style="--0:#D6DEEB;--1:#403F53">, Right</span><span style="--0:#7FDBCA;--1:#096E72">::</span><span style="--0:#D6DEEB;--1:#403F53">InvoiceWrite)</span><span style="--0:#7FDBCA;--1:#096E72">.</span><span style="--0:#C792EA;--1:#8844AE">await</span><span style="--0:#7FDBCA;--1:#096E72">?</span><span style="--0:#D6DEEB;--1:#403F53">;</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="require(&amp;state, person.person_id, company_id, Right::InvoiceWrite).await?;"><div></div></button></div></figure></div>
+<p><code dir="auto">krev</code> returnerer personens samlede tilgang, så en handler som trenger
+mer enn ja/nei slipper et nytt oppslag — periodelåsen bruker det: å låse
+krever <code dir="auto">PERIODE_LAAS</code>, å <strong>åpne igjen</strong> krever admin.</p>
+<p><strong>Ingen tilgang gir 404, ikke 403.</strong> En som ikke har tilgang skal ikke
+lære at selskapet finnes. <code dir="auto">403</code> betyr «du har tilgang, men ikke nok».
+Samme regel gjelder innenfor et selskap der omfanget er «egne data»:
+kollegaens lønnsslipp og kvittering svarer 404.</p>
+<p><strong>Hvorfor én vakt.</strong> Fram til #56 hadde hver modul sin egen
+<code dir="auto">require_access</code> — 22 kopier i tre ulike former (<code dir="auto">write: bool</code>,
+<code dir="auto">admin: bool</code>, et nivå som streng, og noen uten parameter i det hele
+tatt). Så lenge regelen var «les eller skriv» gikk det bra, men hver
+kopi var et sted å ta feil, og en fjerde rolle måtte skrives inn 22
+ganger. Samme begrunnelse som ratebegrensningen for integrasjoner: én
+søm ingen kan glemme.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="4-rettigheter-og-roller">4. Rettigheter og roller</h2><a class="sl-anchor-link" href="#4-rettigheter-og-roller"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “4. Rettigheter og roller”</span></a></div>
+<p><strong>En rolle er et sett rettigheter, ikke et trinn på en stige.</strong> Fram til
+#59 var tilgang tre nivåer (<code dir="auto">admin</code> &gt; <code dir="auto">bokforing</code> &gt; <code dir="auto">les</code>), lett å
+forstå og umulig å bøye: enten så du hele hovedboken, eller ingenting.</p>
+<p>Vokabularet er en <strong>enum i koden</strong> (<code dir="auto">regnmed_api::access::Right</code>), ikke
+fritekst i databasen: et endepunkt kan ikke kreve en rettighet som ikke
+finnes, og kompilatoren finner alle stedene når en rettighet endrer
+navn. Navnene er norske, som resten av domenet — <code dir="auto">FAKTURA_LES</code>, ikke
+<code dir="auto">INVOICE_READ</code>.</p>
+<p><strong>Rettigheter er additive, aldri subtraktive.</strong> Det finnes ingen «alt
+unntatt X»; den regelen er umulig å resonnere om når roller settes
+sammen.</p>
+<p>En <strong>ukjent rolleverdi gir ingen rettigheter.</strong> Før <code dir="auto">ansatt</code> var <code dir="auto">les</code>
+svakest, så «ukjent → les» var trygt. Nå er <code dir="auto">ansatt</code> og <code dir="auto">les</code> ikke
+sammenlignbare, og under en rullerende utrulling kan en gammel binær
+møte <code dir="auto">ansatt</code> i databasen — å tolke den som <code dir="auto">les</code> ville vært en
+<strong>oppgradering</strong>, ikke en degradering. Den samme fail-closed-egenskapen
+er grunnen til at check-constraint-en på <code dir="auto">company_member.role</code> kunne
+fjernes da egendefinerte roller kom (#60): en ugyldig verdi stenger ute
+i stedet for å slippe inn.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="omfang-egne-data-mot-alles">Omfang: egne data mot alles</h3><a class="sl-anchor-link" href="#omfang-egne-data-mot-alles"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Omfang: egne data mot alles”</span></a></div>
+<p>Noen rettigheter finnes i par, <code dir="auto">_EGNE</code>/<code dir="auto">_ALLE</code>: <code dir="auto">TIMER_LES_*</code>,
+<code dir="auto">TIMER_SKRIV_*</code>, <code dir="auto">UTLEGG_LES_*</code> og <code dir="auto">LONNSSLIPP_LES_*</code>.</p>
+<ul>
+<li><strong><code dir="auto">_ALLE</code> medfører <code dir="auto">_EGNE</code>.</strong> Ellers måtte hver bunt huske begge, og
+en bunt som glemte <code dir="auto">_EGNE</code> ville stengt folk ute fra deres egne data.</li>
+<li>Et endepunkt som allerede filtrerer på personen krever <code dir="auto">_EGNE</code>; et som
+viser eller endrer andres krever <code dir="auto">_ALLE</code>.</li>
+</ul>
+<p>Dimensjonen ble bestemt i #59, ikke utsatt, nettopp fordi den er dyr i
+ettertid: hver «egen»-variant ville blitt et nytt navn, og lagrede roller
+måtte migreres.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="de-innebygde-rollene">De innebygde rollene</h3><a class="sl-anchor-link" href="#de-innebygde-rollene"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “De innebygde rollene”</span></a></div>
+<table>
+<thead>
+<tr>
+<th>Rolle</th>
+<th>Kort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">ansatt</code></td>
+<td>Selvbetjening: egne timer, eget utlegg, egen lønnsslipp, kvitteringsfoto</td>
+</tr>
+<tr>
+<td><code dir="auto">les</code></td>
+<td>Lesing av regnskapet — <strong>ikke lønn</strong></td>
+</tr>
+<tr>
+<td><code dir="auto">revisor</code></td>
+<td><code dir="auto">les</code> + lønnsopplysningene revisjonen krever. Følger av et revisjonsoppdrag; kan ikke tildeles direkte</td>
+</tr>
+<tr>
+<td><code dir="auto">bokforing</code></td>
+<td><code dir="auto">les</code> + alt som endrer hovedboken, + lønn</td>
+</tr>
+<tr>
+<td><code dir="auto">admin</code></td>
+<td><code dir="auto">bokforing</code> + å styre selskapet og hvem som slipper inn</td>
+</tr>
+</tbody>
+</table>
+<p>Hver innebygd rolle bærer også en <strong>forklaring i klartekst</strong>
+(<code dir="auto">Role::description()</code>, #79) som serveres på <code dir="auto">/roles</code> — én kopi, rett
+ved buntene som gjør den sann, vist både i rollekortet og i
+invitasjonsveiledningen. En test krever at ingen innebygd rolle står
+uten forklaring.</p>
+<p><code dir="auto">les</code> ⊂ <code dir="auto">revisor</code> ⊂ <code dir="auto">bokforing</code> ⊂ <code dir="auto">admin</code> er en egenskap ved <strong>disse
+fire</strong>, ikke ved modellen. <code dir="auto">ansatt</code> er ikke nøstet i det hele tatt, og en
+egendefinert rolle trenger ikke være det.</p>
+<p><strong>Ansattrollen er ikke «lesing minus noe».</strong> Den er den formen
+rangstigen ikke kunne uttrykke: en ansatt får <strong>skrive</strong> noen få ting —
+sine egne timer, sitt eget refusjonskrav, et bilde av en kvittering — og
+<strong>lese nesten ingenting</strong>. Før #54 måtte man gi bort bokføringstilgang
+til hele hovedboken for å la noen føre timer. Bunten er positivt
+avgrenset: den lister hva en ansatt får, ikke hva hun er nektet, så
+resten havner ikke innenfor ved et uhell.</p>
+<p><strong>Lønn er ikke allmenn lesning.</strong> Fram til #55 lå <code dir="auto">LONNSSLIPP_LES_ALLE</code>
+og <code dir="auto">LONN_LES</code> i lesebunten, så enhver med lesetilgang kunne laste ned
+hvem som helst sin lønnsslipp — bruttolønn, forskuddstrekk, feriepenger,
+fødselsdato — og se ansattlisten med månedslønn og trekkprosent. Det var
+ingen beslutning; lønn kom sist og gjenbrukte den generelle
+lesetilgangen.</p>
+<p>Rettingen tvang fram et skille som uansett var riktig: <strong><code dir="auto">revisor</code> og en
+intern leser er ikke det samme.</strong> Begge er skrivebeskyttet, men bare den
+ene har en revisjonsplikt som krever lønnsopplysningene — lønn er en
+vesentlig kostnad, og forskuddstrekk og arbeidsgiveravgift er lovpålagte
+størrelser som skal kunne kontrolleres. Svaret på «hvor mye ser en
+revisor?» er altså fortsatt «lønn også», men det er nå et <strong>uttrykkelig
+ja</strong> i stedet for en bieffekt.</p>
+<p><strong>Ingen egen lønnsrolle.</strong> Vurdert og valgt bort: den som fører
+regnskapet må uansett se lønn for å bokføre den. Et selskap som vil ha
+«controller uten lønn» lager det som en egendefinert rolle (§6).</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="5-matrisen">5. Matrisen</h2><a class="sl-anchor-link" href="#5-matrisen"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “5. Matrisen”</span></a></div>
+<p>Hele vokabularet, og hva hver innebygd rolle gir. <strong>Tabellen er
+maskinsjekket</strong> — <code dir="auto">crates/regnmed-api/tests/grupper/matrix.rs</code> genererer den fra
+<code dir="auto">Role</code> og <code dir="auto">Right</code> og feiler hvis dokumentet ikke stemmer. En
+tilgangstabell som er blitt feil er verre enn ingen tabell: den blir
+sitert i en revisjon, og ingen leser koden for å kontrollere den.</p>
+<p>&lt;!– MATRISE: generert av crates/regnmed-api/tests/grupper/matrix.rs –&gt;</p>
+<table>
+<thead>
+<tr>
+<th>Rettighet</th>
+<th>Hva den gir</th>
+<th>ansatt</th>
+<th>les</th>
+<th>revisor</th>
+<th>bokforing</th>
+<th>admin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bilag</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code dir="auto">BILAG_LES</code></td>
+<td>Se bilag og vedlegg</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">VEDLEGG_SKRIV</code></td>
+<td>Legge vedlegg på et bilag</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">BILAG_LAST_OPP</code></td>
+<td>Sende dokument til innboksen</td>
+<td>✅</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">BILAG_BOKFOR</code></td>
+<td>Bokføre fra innboksen</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">PERIODE_LAAS</code></td>
+<td>Låse en periode</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">EPOST_INN_LES</code></td>
+<td>Se e-post inn til innboksen</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">EPOST_INN_ADMIN</code></td>
+<td>Styre mottaksadresse og avsenderliste</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Rapporter</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code dir="auto">RAPPORT_LES</code></td>
+<td>Se regnskapsrapportene</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">MVA_ORDNING_ADMIN</code></td>
+<td>Endre mva-terminordning</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">BUDSJETT_LES</code></td>
+<td>Se budsjett og avviksrapport</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">BUDSJETT_SKRIV</code></td>
+<td>Lage og fastsette budsjett</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">FORANKRING_LES</code></td>
+<td>Se forankringen av hovedboken</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Faktura</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code dir="auto">FAKTURA_LES</code></td>
+<td>Se fakturaer</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">FAKTURA_SKRIV</code></td>
+<td>Utstede faktura og kreditnota</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">FAKTURA_SEND</code></td>
+<td>Sende faktura på e-post</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">FAKTURAMAL_LES</code></td>
+<td>Se repeterende fakturaer</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">FAKTURAMAL_SKRIV</code></td>
+<td>Endre repeterende fakturaer</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">TILBUD_LES</code></td>
+<td>Se tilbud og ordre</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">TILBUD_SKRIV</code></td>
+<td>Lage tilbud og ordre</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">PURRING_LES</code></td>
+<td>Se purringer og forfalte krav</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">PURRING_SKRIV</code></td>
+<td>Sende purring og inkassovarsel</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Reskontro</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code dir="auto">RESKONTRO_LES</code></td>
+<td>Se kunder, leverandører og åpne poster</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">RESKONTRO_SKRIV</code></td>
+<td>Endre kontakter og matche åpne poster</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">KONTAKT_SKRIV</code></td>
+<td>Endre kontaktinfo på en part</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Bank</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code dir="auto">BANK_LES</code></td>
+<td>Se bankavstemming</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">BANK_AVSTEM</code></td>
+<td>Importere kontoutdrag og matche</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">OCR_LES</code></td>
+<td>Se OCR-innbetalinger</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">OCR_IMPORT</code></td>
+<td>Importere OCR-fil</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">VALUTA_LES</code></td>
+<td>Se valutakurser</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">VALUTA_SKRIV</code></td>
+<td>Legge inn og hente valutakurser</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Betaling</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code dir="auto">BETALING_LES</code></td>
+<td>Se betalingslister</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">BETALING_OPPRETT</code></td>
+<td>Opprette betalingsliste</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">BETALING_GODKJENN</code></td>
+<td>Godkjenne betalingsliste</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">BETALING_OPPGJOR</code></td>
+<td>Registrere at betalingene er utført</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Produkter</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code dir="auto">PRODUKT_LES</code></td>
+<td>Se produktregisteret</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">PRODUKT_SKRIV</code></td>
+<td>Endre produktregisteret</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">LAGER_LES</code></td>
+<td>Se lagerbeholdning</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">LAGER_SKRIV</code></td>
+<td>Registrere lagerbevegelser og varetelling</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Anlegg</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code dir="auto">ANLEGG_LES</code></td>
+<td>Se anleggsregisteret</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">ANLEGG_SKRIV</code></td>
+<td>Registrere, avskrive og avhende anleggsmidler</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Timer</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code dir="auto">TIMER_LES_EGNE</code></td>
+<td>Se sine egne timer</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">TIMER_LES_ALLE</code></td>
+<td>Se alles timer</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">TIMER_RAPPORT_LES</code></td>
+<td>Se timeoversikt per prosjekt og ufakturert</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">TIMER_SKRIV_EGNE</code></td>
+<td>Føre sine egne timer</td>
+<td>✅</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">TIMER_SKRIV_ALLE</code></td>
+<td>Rette alles timer</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">TIMER_FAKTURER</code></td>
+<td>Fakturere førte timer</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">TIMER_SATS_SKRIV</code></td>
+<td>Sette timesatser på prosjekter og overstyre sats på timeføringer</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">TIMER_LAAS</code></td>
+<td>Låse timelisten for en måned</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Utlegg</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code dir="auto">UTLEGG_LES_EGNE</code></td>
+<td>Se sine egne utlegg</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">UTLEGG_LES_ALLE</code></td>
+<td>Se alles utlegg</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">UTLEGG_SKRIV_EGNE</code></td>
+<td>Sende inn eget utlegg og kjøregodtgjørelse</td>
+<td>✅</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">UTLEGG_GODKJENN</code></td>
+<td>Godkjenne og avvise utlegg</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">UTLEGG_UTBETAL</code></td>
+<td>Registrere utbetaling av utlegg</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Lønn</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code dir="auto">LONN_LES</code></td>
+<td>Se ansattregisteret og lønnskjøringene</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">LONNSSLIPP_LES_EGEN</code></td>
+<td>Se sin egen lønnsslipp</td>
+<td>✅</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">LONNSSLIPP_LES_ALLE</code></td>
+<td>Se alles lønnsslipper</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">LONN_SKRIV</code></td>
+<td>Registrere ansatte</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">LONN_KJOR</code></td>
+<td>Kjøre lønn</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Dimensjoner</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code dir="auto">DIMENSJON_LES</code></td>
+<td>Se avdelinger og prosjekter</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">DIMENSJON_SKRIV</code></td>
+<td>Endre avdelinger og prosjekter</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Aksjonærer</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code dir="auto">AKSJEBOK_LES</code></td>
+<td>Se aksjeeierboken</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">AKSJEBOK_SKRIV</code></td>
+<td>Registrere aksjonærer, hendelser og utbytte</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Attestering</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code dir="auto">ATTESTERING_LES</code></td>
+<td>Se attesteringssporet</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">ATTESTERING_UTFOR</code></td>
+<td>Attestere bilag</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">ATTESTERING_ADMIN</code></td>
+<td>Sette attesteringspolicyen</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Selskap</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code dir="auto">SELSKAP_LES</code></td>
+<td>Se firmaopplysningene</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">SELSKAP_ADMIN</code></td>
+<td>Endre firmaopplysningene</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">MEDLEM_ADMIN</code></td>
+<td>Gi og fjerne tilgang</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">OPPDRAG_LES</code></td>
+<td>Se oppdrag</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">OPPDRAG_ADMIN</code></td>
+<td>Inngå og avslutte oppdrag</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">INTEGRASJON_LES</code></td>
+<td>Se integrasjoner</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">INTEGRASJON_ADMIN</code></td>
+<td>Slippe til en integrasjon</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code dir="auto">MIGRERING_ADMIN</code></td>
+<td>Importere regnskap fra et annet system</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>&lt;!– /MATRISE –&gt;</p>
+<p>Egendefinerte roller står ikke i tabellen — de er per selskap. De består
+av de samme rettighetene, med unntakene i §6.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="6-egendefinerte-roller">6. Egendefinerte roller</h2><a class="sl-anchor-link" href="#6-egendefinerte-roller"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “6. Egendefinerte roller”</span></a></div>
+<p>Et selskap setter sammen sine egne roller av rettighetene som finnes:
+«Fakturaansvarlig», «Controller uten lønn», «Lagermedarbeider».
+<code dir="auto">company_role</code> + <code dir="auto">company_role_right</code>, per selskap, og
+<code dir="auto">company_member.role</code> peker på navnet.</p>
+<p><strong>De innebygde rollene ligger IKKE i databasen.</strong> De er definert i
+<code dir="auto">regnmed-api::access</code> og blir der. To definisjoner av det samme er to
+steder å drive fra hverandre, og et regnskapssystem har ikke råd til at
+tilgang betyr én ting i koden og en annen i basen. Tabellen holder bare
+det selskapet har funnet på selv; portalen får de innebygde beskrevet
+fra koden via <code dir="auto">GET …/roles</code>.</p>
+<p><strong>Rollenavnet er permanent</strong>, som en dimensjonskode og av samme grunn:
+det er nøkkelen medlemskapene peker på. De innebygde navnene er
+reservert, ellers ville en selskapsdefinert «admin» skygget for den
+ekte.</p>
+<p><strong>Rettigheter som styrer hvem som har tilgang kan ikke delegeres.</strong>
+<code dir="auto">MEDLEM_ADMIN</code>, <code dir="auto">SELSKAP_ADMIN</code>, <code dir="auto">OPPDRAG_ADMIN</code> og <code dir="auto">INTEGRASJON_ADMIN</code>
+er utenfor rekkevidde for en egendefinert rolle
+([<code dir="auto">Right::can_be_delegated</code>]) — en rolle som kan endre tilganger kan gi seg
+selv alt annet, og da er resten av avgrensningen bare pynt. Avvist når
+rollen lages, ikke bare ignorert ved oppslag.</p>
+<p><strong>Ukjente rettighetsnavn oppfører seg forskjellig i de to retningene</strong>,
+og det er med vilje: når et <em>menneske</em> skriver en rolle, avvises et
+ukjent navn høylytt (en rolle som stilltiende mangler halve innholdet er
+verre enn en feilmelding); ved <em>oppslag</em> ignoreres det (der er det en
+gammel database eller en tilbakerullet versjon, ikke en skrivefeil).</p>
+<p>En rolle <strong>slettes aldri</strong>, den deaktiveres — og en deaktivert rolle gir
+ingenting. Endringene ligger i <code dir="auto">company_role_change</code>.</p>
+<p><strong>Hver endring er én transaksjon</strong> (#62). Rollen, rettighetene og
+loggraden skrives sammen eller ikke i det hele tatt: en rolle som finnes
+uten at <code dir="auto">company_role_change</code> forklarer hvordan, er nøyaktig det
+endringsloggen finnes for å umuliggjøre. Og fordi det å sette
+rettigheter er <code dir="auto">delete</code> + <code dir="auto">insert</code>, ville et samtidig oppslag fra vakten
+utenfor en transaksjon kunne lest <em>mellom</em> dem og sett en tom liste — den
+som har rollen ville mistet tilgangen et øyeblikk, tilfeldig, i en helt
+annen forespørsel. Nå ser oppslaget alltid enten den gamle eller den nye
+listen. Rollen låses (<code dir="auto">for update</code>) før listen skrives om, ellers ville
+to samtidige endringer begge slettet den gamle og sluppet igjennom hver
+sin — altså unionen, som er mer tilgang enn noen av dem ba om. Testene
+står i <code dir="auto">tests/grupper/access.rs</code> og er sett feile uten rettingen.</p>
+<p>Integrasjoner går gjennom samme oppslag, så en maskin kan få en
+egendefinert rolle og dermed nøyaktig <code dir="auto">FAKTURA_LES</code> og ingenting mer.</p>
+<blockquote>
+<p><strong>OPPHEVET 2026-10-28 — se #101.</strong> Her sto det at <code dir="auto">admin</code> ikke er
+grantbart til en maskin. Det gjelder ikke lenger som endelig
+avgjørelse: en agent skal kunne tildeles tilgang som en bruker, også
+migrering, når eieren bestemmer det. Grunnen er at regelen var
+strengest der brukeren er mest hjelpeløs — en ny kunde står foran
+migreringen, den vanskeligste oppgaven i systemet, og det var nettopp
+der ingen agent slapp til. Grensen som BESTÅR er
+<code dir="auto">Right::can_be_delegated</code>: en maskin kan gjøre jobben, men aldri utvide
+sin egen eller andres tilgang. Teksten under blir stående til #101 er
+implementert, slik at koden og dokumentet sier det samme så lenge
+<code dir="auto">integration_grant.access</code> fortsatt er <code dir="auto">les</code>/<code dir="auto">bokforing</code>.</p>
+</blockquote>
+<div class="sl-heading-wrapper level-h2"><h2 id="7-medlemsadministrasjon">7. Medlemsadministrasjon</h2><a class="sl-anchor-link" href="#7-medlemsadministrasjon"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “7. Medlemsadministrasjon”</span></a></div>
+<p>Fram til migrasjon 0037 kunne <strong>ingen gi noen tilgang</strong>. De to veiene inn
+var å opprette selskapet selv (og bli admin) eller å få et oppdrag fra
+et byrå — et selskap kunne altså ikke ta inn sin egen interne
+regnskapsfører eller en ansatt.</p>
+<p>Nå: <code dir="auto">MEDLEM_ADMIN</code> gir rett til å invitere, endre rolle og fjerne
+tilgang, under <code dir="auto">/companies/{id}/access…</code> og <code dir="auto">/companies/{id}/invitations…</code>.</p>
+<p><code dir="auto">person</code> opprettes just-in-time fra tokenets <code dir="auto">sub</code>, så en som aldri har
+brukt regnmed <strong>finnes ikke å slå opp</strong>. En invitasjon peker derfor på en
+e-postadresse og blir til et medlemskap når adressen logger inn. Det
+løses inn i <code dir="auto">/me</code>, altså når portalen starter en økt — samme mønster som
+oppdrag, der tilgangen blir synlig uten ny innlogging. Å legge oppslaget
+i <code dir="auto">AuthPerson</code>-ekstraktoren ville kostet en spørring på <em>hver</em>
+forespørsel for noe som skjer én gang.</p>
+<p><strong>Adressen må være den IdP-en oppgir.</strong> <code dir="auto">ensure_person</code> skriver
+<code dir="auto">person.email</code> fra hver innlogging, så en invitasjon til en privat
+adresse blir aldri løst inn om tokenet bærer jobbadressen.
+Normaliseringen (trimming og små bokstaver) skjer ett sted,
+<code dir="auto">members::normalize_email</code>, og det er den normaliserte formen som
+lagres.</p>
+<p><strong>Svaret røper ikke om adressen alt har en bruker hos oss.</strong> Et oppslag
+«finnes denne e-posten» ville gjort enhver selskapsadmin i stand til å
+kartlegge hvem som er bruker på plattformen, ett forsøk om gangen. Både
+det kjente og det ukjente tilfellet gir samme svar, og det har sin egen
+test.</p>
+<p><strong>Invitasjonen sendes som e-post</strong> (#66), på den samme mail-skinnen og i
+den samme insert-only <code dir="auto">utsendelse</code>-loggen som faktura og purring —
+migrasjon 0044 utvider bare hva en utsendelsesrad kan peke på. Adressen
+får vite hvem som ga tilgang, til hvilket selskap, med hvilken rolle, og
+en lenke til portalen.</p>
+<p><strong>Det ligger ingen hemmelighet i e-posten.</strong> Lenken går til portalens
+forside og ikke noe mer; innløsningen er fortsatt at adressen logger inn
+gjennom IdP-en og <code dir="auto">/me</code> finner invitasjonen. En videresendt
+invitasjons-e-post gir altså mottakeren ingenting — som er nettopp
+grunnen til at det ikke er noe i den verdt å stjele. Lenkeadressen er
+konfigurasjon (<code dir="auto">PORTAL_BASE_URL</code>), aldri forespørselens <code dir="auto">Host</code>-header:
+en e-post vi sender skal ikke kunne pekes noe sted av den som kalte oss.</p>
+<p><strong>E-posten kan aldri velte invitasjonen.</strong> Invitasjonen ER tildelingen;
+e-posten er bare varselet om den. Er køen nede, opprettes invitasjonen
+likevel, og svaret sier <code dir="auto">epost_sendt: false</code> med grunnen — ellers ville
+et driftsavbrudd på NATS tatt med seg medlemsadministrasjonen. Portalen
+sier fra om det samme, så en admin vet at hun må si fra i en annen
+kanal. <code dir="auto">POST …/invitations/{id}/resend</code> sender på nytt (egen
+utsendelsesrad, invitasjonen selv røres ikke), og listen over åpne
+invitasjoner bærer <code dir="auto">sist_sendt</code>.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="det-som-ikke-kan-skje">Det som ikke kan skje</h3><a class="sl-anchor-link" href="#det-som-ikke-kan-skje"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Det som ikke kan skje”</span></a></div>
+<ul>
+<li><strong>Et selskap kan ikke bli stående uten administrator.</strong> Den siste kan
+verken degradere eller fjerne seg selv. Kontrollen kjører inne i
+transaksjonen, etter endringen, med <code dir="auto">for update</code> på selskapets
+medlemsrader først — uten låsen kunne to samtidige degraderinger begge
+se «det finnes en annen admin».</li>
+<li><strong>Tilgang gjennom et oppdrag kan ikke endres her.</strong> Den følger
+engasjementet. Listen viser vedkommende, merket <code dir="auto">kan_endres: false</code>, og
+et forsøk avvises med en forklaring i stedet for å se ut som om det
+virket.</li>
+<li><strong>Medlemskap slettes aldri</strong>, det deaktiveres — det er historikken over
+hvem som hadde tilgang.</li>
+</ul>
+<p>En invitasjon kan peke på en <strong>egendefinert rolle som blir deaktivert før
+den løses inn</strong>. Medlemskapet opprettes da med en rolle som ikke gir
+noe — vedkommende kommer inn i selskapet og får ingenting. Det er valgt,
+ikke oppdaget: alternativet ville vært å avvise innløsningen, og da måtte
+den inviterte fått vite hvorfor, altså at selskapet har en deaktivert
+rolle med det navnet. Fail-closed er riktigere enn å lekke, og en admin
+som ser medlemmet uten tilgang kan gi det en annen rolle med én gang.</p>
+<p>Hver endring havner i <code dir="auto">company_member_change</code>, som er innsettings-bar:
+hvem fikk hva, når, og hvem som ga det. En innløst invitasjon har ingen
+utfører (personen løste den inn selv); hvem som inviterte står på
+invitasjonen.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="8-grensen-mot-plattformen-hva-som-finnes-og-hva-som-aldri-gjør-det">8. Grensen mot plattformen: hva som finnes, og hva som aldri gjør det</h2><a class="sl-anchor-link" href="#8-grensen-mot-plattformen-hva-som-finnes-og-hva-som-aldri-gjør-det"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “8. Grensen mot plattformen: hva som finnes, og hva som aldri gjør det”</span></a></div>
+<div class="sl-heading-wrapper level-h3"><h3 id="ingen-vei-inn-i-hovedboken-krysser-selskapsgrenser">Ingen vei inn i hovedboken krysser selskapsgrenser</h3><a class="sl-anchor-link" href="#ingen-vei-inn-i-hovedboken-krysser-selskapsgrenser"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Ingen vei inn i hovedboken krysser selskapsgrenser”</span></a></div>
+<p><strong>Ingen tilgangsvei inn i et selskaps regnskap krysser selskapsgrenser.</strong>
+Alle tre veiene i §2 er avgrenset til ett selskap i selve datamodellen —
+<code dir="auto">company_member</code>, <code dir="auto">engagement</code> og <code dir="auto">integration_grant</code> bærer hver sin
+<code dir="auto">company_id</code>, og tilgangsoppslaget (<code dir="auto">company_access_for_person</code> i
+tenancy.rs) kjenner ingen jokertegn. Plattformrollene i neste avsnitt
+går ikke gjennom det oppslaget og gir <strong>ingen</strong> selskabstilgang: bilag,
+saldoer, rapporter og reskontroposter er utenfor rekkevidde for enhver
+leverandørrolle.</p>
+<p>Det ble besluttet i #57, og begrunnelsen er produktets egen
+tillitshistorie: hovedboken selges som etterprøvbar («ikke stol på oss —
+kontrollér»), og en global administrator er nøyaktig den bakveien vi
+selger fraværet av. En revisor som spør «hvem hos leverandøren kan lese
+klientens regnskap?» skal få svaret <em>ingen</em> — og takket være
+forankringen (docs/anchoring.md) er også den påstanden kontrollerbar i
+den delen som betyr mest: en omskrevet hovedbok kan bevises, uansett
+hvem som skrev.</p>
+<p>Avgjørelsen er festet i test, ikke bare i tekst:
+<code dir="auto">an_admin_crosses_no_company_boundary</code> i <code dir="auto">tests/grupper/access.rs</code> viser at den
+sterkeste selskapsrollen som finnes er en fullstendig fremmed i
+naboselskapet — 404 på lesing, skriving og administrasjon, og <code dir="auto">/me</code>
+nevner ikke selskapet. Og
+<code dir="auto">a_company_admin_is_a_stranger_to_the_platform_and_vice_versa</code> i
+<code dir="auto">tests/grupper/plattform.rs</code> fester den andre retningen: en
+plattform-systemadmin får 404 på selskapets hovedbok, stamdata og
+administrasjon. Skal noen av grensene flyttes, må testene endres
+bevisst, og dette avsnittet med dem.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="plattformrollene-systemadmin-og-support--den-avgrensede-unntaksveien">Plattformrollene systemadmin og support — den avgrensede unntaksveien</h3><a class="sl-anchor-link" href="#plattformrollene-systemadmin-og-support--den-avgrensede-unntaksveien"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Plattformrollene systemadmin og support — den avgrensede unntaksveien”</span></a></div>
+<p>Bygget 2026-08-03, etter kravlisten #57 selv stilte opp. En
+plattformrolle når <strong>administrative stamdata på tvers av selskaper og
+byråer</strong> — personer, medlemskap, invitasjoner-i-praksis (tildeling av
+medlemskap) og kunderegistre — og ingenting i noen hovedbok. Alt den
+kan ligger under <code dir="auto">/platform/*</code> på sin egen sub-router
+(<code dir="auto">regnmed-api::platform</code>); tilgangsvakten <code dir="auto">access::require</code> og
+tenancy-oppslaget er uendret.</p>
+<p>To roller, lagret i <code dir="auto">platform_member</code> (migrasjon 0049):</p>
+<ul>
+<li><strong><code dir="auto">support</code></strong> ser selskaper, byråer og brukere med tilknytninger, og
+kan tildele et <strong>nytt</strong> medlemskap (innebygde roller). Den ser ikke
+kunderegistre og administrerer ikke plattformbrukere.</li>
+<li><strong><code dir="auto">systemadmin</code></strong> ser i tillegg kunderegistrene (stamdata med eierens
+selskap navngitt — aldri saldoer), endrer eksisterende medlemskap og
+roller, og administrerer plattformmedlemskapene selv.</li>
+</ul>
+<p>Konsollens dashbord (2026-08-06): <code dir="auto">GET /platform/overview</code> gir tellinger
+(selskaper, byråer, brukere, integrasjoner, aktive plattformroller) og
+fordelingen av abonnementsstatuser — samme aggregater som listene
+support alt ser. <code dir="auto">GET /platform/subscriptions</code> lister
+abonnementsstatus <strong>per selskap</strong> (plan, status, dato) og er
+systemadmin-territorium som kunderegistrene: det er regnmeds eget
+kundeforhold, aldri noe selskaps saldo. Statusen beregnes av regelen i
+<code dir="auto">regnmed-core::abonnement</code> over fakta hentet mengdevis
+(<code dir="auto">platform_list_subscriptions</code>) — lagres aldri, som ellers. Begge går
+gjennom samme <code dir="auto">vakt</code> og logges som alt annet under <code dir="auto">/platform/*</code>.</p>
+<p><strong>Back-office (2026-08-06, brukerbeslutning):</strong> konsollen er
+arbeidsflaten for leverandørens egne folk — supportsaker, vedlikehold,
+oversikt — og fikk derfor redigering, fortsatt bare av administrative
+stamdata:</p>
+<ul>
+<li><code dir="auto">GET /platform/companies/{id}</code> — drill-down: firmaopplysninger,
+medlemmer, åpne invitasjoner og abonnementsforholdet (dekningsrader
+m/ referanse) på én side. Support ser; alt under er systemadmin.</li>
+<li><code dir="auto">PUT /platform/companies/{id}/settings</code> — retter firmaopplysninger på
+kundens vegne (samme lagring som selskapets egen PUT /settings —
+adresse, e-post, kontonummer, orgform; ingenting hasjet).</li>
+<li><code dir="auto">DELETE/POST …/members/{pid}[/restore]</code> — deaktiverer/gjenoppretter
+medlemskap via samme <code dir="auto">sett_aktiv</code> som selskapets admin bruker, med
+<strong><code dir="auto">kilde='plattform'</code></strong> i selskapets egen endringslogg; vakten mot å
+fjerne siste aktive admin gjelder plattformen også (ingen foreldreløse
+selskaper — nødprosedyren finnes for det motsatte problemet).</li>
+<li><code dir="auto">POST …/subscription</code> (+ <code dir="auto">/end</code>) — åpner/avslutter dekning manuelt for
+supporttilfellene kort/faktura-maskineriet ikke dekker; åpningen
+krever obligatorisk referanse som står på dekningsraden, avslutningen
+følger «korteste sanne dekning er én dag»-regelen fra <code dir="auto">platform::end_coverage</code>.</li>
+<li><code dir="auto">GET/PUT /platform/settings</code> — plattforminnstillinger (migrasjon 0053,
+innsettings-bare rader, nyeste per nøkkel): i dag ikonstilen i
+portalmenyen, <strong>låst globalt</strong> av systemadmin og servert alle via det
+åpne <code dir="auto">/portal-config</code>. Verdien valideres mot stilene portalen kan.</li>
+</ul>
+<p>Identitetsdata (navn/e-post) eies av IdP-en og speiles hit ved
+innlogging — regnmed redigerer dem aldri (neste innlogging ville
+overskrevet), konsollen lenker til utstederen i stedet
+(BogenTech/regnid#1). Sperregrensene består uendret: ingen
+plattformrolle når noen hovedbok, og alle kallene over går gjennom samme
+loggede <code dir="auto">vakt</code>.</p>
+<p>Kravene fra #57 er håndhevet strukturelt, ikke i rutiner:</p>
+<ol>
+<li><strong>Logget.</strong> <code dir="auto">vakt</code>-middlewaren omslutter hele sub-routeren: token →
+person → aktiv rolle → loggrad i <code dir="auto">platform_access_log</code>
+(innsettings-bar) → handler. Raden skrives FØR handleren avgjør noe
+(et avvist forsøk er også synlig) og synkront — feiler
+logginnsettet, feiler kallet. Et /platform-endepunkt som glemmer
+loggen kan ikke eksistere.</li>
+<li><strong>Synlig for den det gjelder.</strong> <code dir="auto">GET /companies/{id}/platform-access</code>
+(og byråtvillingen <code dir="auto">GET /firms/{id}/platform-access</code>) serverer radene
+som angår selskapet til selskapets egne administratorer — vist i
+portalen under Brukere. Medlemskap plattformen tildeler havner i
+<code dir="auto">company_member_change</code>/<code dir="auto">firm_member_change</code> med <strong><code dir="auto">kilde = 'plattform'</code></strong> (0049 utvider sjekkene), i samme logg som alle andre
+tilgangsendringer.</li>
+<li><strong>Tidsbegrenset.</strong> <code dir="auto">platform_member.valid_to</code> er NOT NULL — en
+plattformrolle uten utløpsdato kan ikke skrives inn. Datoen er
+eksklusiv og sjekkes per forespørsel; tilbakekalling
+(<code dir="auto">DELETE /platform/members/{id}</code>, eller <code dir="auto">regnmed platform-end</code>)
+virker på neste kall. Notat med begrunnelse er obligatorisk.</li>
+</ol>
+<p>Førstegangs tildeling skjer i CLI-et (<code dir="auto">regnmed platform-grant</code>) — den
+første systemadminen kan ikke komme gjennom et API bare systemadminer
+får kalle. Deretter administreres medlemskapene via
+<code dir="auto">/platform/members</code>. Roller gis bare til mennesker; en
+integrasjonsidentitet avvises både ved tildeling og i vakten. En kundes
+tilknytning til sitt selskap er for øvrig <strong>fast</strong>: part-id-en er del av
+hasjkjeden, så det finnes bevisst ingen funksjon som flytter en kunde
+mellom selskaper.</p>
+<p><strong>Støtteveien via kunden består</strong> og er fortsatt førstevalget der den
+strekker til: en <strong>invitasjon</strong> (§7) med den minste rollen som holder,
+eller et <strong>oppdrag</strong> til et byrå — synlig, logget, trekkbar samme dag.
+Plattformrollen finnes for det invitasjonen ikke dekker (feiladresserte
+invitasjoner, låste medlemskap, onboarding-hjelp), og prisen for den er
+betalt i punktene over: den er logget, synlig og tidsbegrenset, bygget
+som om misbruk antas.</p>
+<p><strong>Selskapet uten administrator.</strong> I normal drift kan det ikke oppstå —
+den siste administratoren kan verken degradere eller fjerne seg selv
+(§7). Men et dødsfall eller en brå avslutning spør ikke systemet først.
+For det tilfellet finnes en <strong>nødprosedyre</strong>, og den går gjennom
+databasen, ikke API-et — for det finnes ingen API-vei, og det skal det
+ikke gjøre:</p>
+<ol>
+<li>
+<p>Selskapet ber om det skriftlig, fra noen med rett til å representere
+det (styreleder, daglig leder, eier). Samtykket arkiveres og får en
+referanse.</p>
+</li>
+<li>
+<p>Den som skal overta logger inn i portalen én gang, slik at personen
+finnes (<code dir="auto">person</code> opprettes just-in-time, §7).</p>
+</li>
+<li>
+<p>En operatør med databasetilgang utfører, i én transaksjon:</p>
+<div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="sql"><code><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">begin</span><span style="--0:#D6DEEB;--1:#403F53">;</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">insert into</span><span style="--0:#D6DEEB;--1:#403F53"> company_member (company_id, person_id, </span><span style="--0:#C792EA;--1:#8844AE">role</span><span style="--0:#D6DEEB;--1:#403F53">)</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">values</span><span style="--0:#D6DEEB;--1:#403F53"> (</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">&lt;selskap&gt;</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53">, </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">&lt;person&gt;</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53">, </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">admin</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53">)</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">on</span><span style="--0:#D6DEEB;--1:#403F53"> conflict (company_id, person_id)</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#D6DEEB;--1:#403F53">    </span></span><span style="--0:#D6DEEB;--1:#403F53">do </span><span style="--0:#C792EA;--1:#8844AE">update</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#C792EA;--1:#8844AE">set</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#C792EA;--1:#8844AE">role</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#C792EA;--1:#8844AE">=</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">admin</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53">, active </span><span style="--0:#C792EA;--1:#8844AE">=</span><span style="--0:#D6DEEB;--1:#403F53"> true;</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">insert into</span><span style="--0:#D6DEEB;--1:#403F53"> company_member_change</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#D6DEEB;--1:#403F53">    </span></span><span style="--0:#D6DEEB;--1:#403F53">(id, company_id, person_id, endring, til_rolle, kilde, notat)</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">values</span><span style="--0:#D6DEEB;--1:#403F53"> (gen_random_uuid(), </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">&lt;selskap&gt;</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53">, </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">&lt;person&gt;</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53">,</span></div></div><div class="ec-line"><div class="code"><span class="indent">        </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">lagt_til</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53">, </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">admin</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53">, </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">nodprosedyre</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53">,</span></div></div><div class="ec-line"><div class="code"><span class="indent">        </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">&lt;samtykkereferanse&gt;</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53">);</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">commit</span><span style="--0:#D6DEEB;--1:#403F53">;</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="begin;insert into company_member (company_id, person_id, role)values (&#x27;<selskap>&#x27;, &#x27;<person>&#x27;, &#x27;admin&#x27;)on conflict (company_id, person_id)    do update set role = &#x27;admin&#x27;, active = true;insert into company_member_change    (id, company_id, person_id, endring, til_rolle, kilde, notat)values (gen_random_uuid(), &#x27;<selskap>&#x27;, &#x27;<person>&#x27;,        &#x27;lagt_til&#x27;, &#x27;admin&#x27;, &#x27;nodprosedyre&#x27;,        &#x27;<samtykkereferanse>&#x27;);commit;"><div></div></button></div></figure></div>
+</li>
+<li>
+<p>Kunden bekrefter at tilgangen virker, og rydder selv videre med den.</p>
+</li>
+</ol>
+<p>Sporet <strong>heter det det er</strong>: <code dir="auto">kilde = 'nodprosedyre'</code> (migrasjon 0040)
+står i den samme endringsloggen som alle andre tilgangsendringer,
+synlig for kundens admin og for revisoren. Uten en egen kilde måtte
+innslaget ha utgitt seg for å være en vanlig admin-handling —
+tilgangsloggen ville løyet om akkurat det innslaget den finnes for å
+fange. Og et nødinnslag <em>uten</em> samtykkereferanse avvises av selve
+databasen (check-constraint i 0040): det uattribuerte inngrepet er
+nettopp det prosedyren skal umuliggjøre.</p>
+<p>Merk hva prosedyren IKKE kan: databasetilgang gir ingen vei rundt
+hovedbokens vern. Endring og sletting stoppes av triggerne, og en
+omskriving på DBA-nivå bryter hasjkjeden mot den offentlig forankrede
+merkleroten (docs/anchoring.md).</p>
+<p>Med plattformrollene på plass er nødprosedyren sjeldnere nødvendig —
+en systemadmin kan tildele en ny administrator gjennom
+<code dir="auto">/platform/users/{pid}/companies/{cid}</code>, logget og synlig som
+beskrevet over. Databaseprosedyren består for tilfellet der ingen
+plattformrolle finnes eller selve API-et er utilgjengelig; kravet om
+skriftlig samtykke med referanse gjelder begge veier.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="det-som-ellers-ikke-finnes">Det som ellers ikke finnes</h3><a class="sl-anchor-link" href="#det-som-ellers-ikke-finnes"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Det som ellers ikke finnes”</span></a></div>
+<ul>
+<li><strong>Ingen tilgang i tokenet.</strong> Tokenet beviser identitet, ingenting
+annet. Derfor virker en tilbakekalling straks, uten å vente på at et
+token løper ut.</li>
+<li><strong>Ingen tilgangsstyring i portalen.</strong> Portalen skjuler menyvalg og
+knapper for å slippe at man klikker seg inn i en feilmelding. Det er
+en bekvemmelighet. <strong>Serveren nekter</strong>, og det er der sannheten
+ligger.</li>
+<li><strong>Driftsoppgavene går utenom.</strong> <code dir="auto">regnmed anchor</code>,
+<code dir="auto">generate-invoices</code>, <code dir="auto">depreciate</code>, <code dir="auto">migrate</code>, <code dir="auto">verify-ledger</code> og
+<code dir="auto">saft-export</code> kjører som CLI/CronJob rett mot databasen, uten noen
+person og uten denne vakten. De er maskinelle og tar ingen avgjørelse
+et menneske skulle tatt. Det er en bevisst grense (docs/deploy.md),
+og den står her — rett ved plattformavgjørelsen — for at den ikke
+skal se ut som et hull.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="9-grensene-mot-resten-av-systemet">9. Grensene mot resten av systemet</h2><a class="sl-anchor-link" href="#9-grensene-mot-resten-av-systemet"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “9. Grensene mot resten av systemet”</span></a></div>
+<p>Tilgang er ett lag av flere, og de gjør forskjellige ting:</p>
+<table>
+<thead>
+<tr>
+<th>Mekanisme</th>
+<th>Hva den stopper</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tilgang</strong> (dette dokumentet)</td>
+<td>hvem som får utføre en handling</td>
+</tr>
+<tr>
+<td><strong>Attestering</strong> (docs/attestering.md)</td>
+<td>en EKSTRA sperre oppå tilgang: at <em>en annen</em> har godkjent før bokføring eller betaling. Ikke en erstatning — den som attesterer må uansett ha tilgang</td>
+</tr>
+<tr>
+<td><strong>Periodelås / timelås</strong></td>
+<td>tidssperrer, ikke tilgangssperrer: en admin med all verdens rettigheter kan ikke bokføre i en låst periode</td>
+</tr>
+<tr>
+<td><strong>Abonnementssperren</strong> (docs/abonnement.md)</td>
+<td>en betalingssperre, håndhevet i samme vakt: et sperret abonnement stopper endrende rettigheter (<code dir="auto">Right::mutates</code>), aldri lesing, eksport eller styringen av selskapet</td>
+</tr>
+<tr>
+<td><strong>Append-only-hovedboken</strong> (docs/ledger.md)</td>
+<td>gjelder uansett rolle. En admin kan heller ikke endre eller slette et bilag — korreksjon er et reverserende bilag</td>
+</tr>
+<tr>
+<td><strong>Maskintaket</strong> (#101, docs/agent.md)</td>
+<td>en annen akse enn rollen: en integrasjon får aldri en rettighet som styrer hvem som har tilgang, uansett hvilken rolle eieren ga den</td>
+</tr>
+</tbody>
+</table>
+<div class="sl-heading-wrapper level-h3"><h3 id="maskintaket-101">Maskintaket (#101)</h3><a class="sl-anchor-link" href="#maskintaket-101"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Maskintaket (#101)”</span></a></div>
+<p><strong>Revisjon 2026-10-28, tatt uttrykkelig.</strong> #45 skrev at <code dir="auto">admin</code> bevisst
+ikke var grantbart til en maskin. Prinsippet bak holdt; utfallet gjorde
+det ikke — <code dir="auto">MIGRERING_ADMIN</code> var dermed utenfor rekkevidde for en agent,
+og sperren var strengest der en ny kunde er mest hjelpeløs
+(docs/integrations.md har hele begrunnelsen).</p>
+<p>Siden migrasjon 0062 bærer <code dir="auto">integration_grant.access</code> et <strong>rollenavn</strong>,
+innebygd eller selskapets eget, tildelt som til et medlem. Taket er
+flyttet fra tildelingen til <strong>oppslaget</strong>:</p>
+<div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="rust"><code><div class="ec-line"><div class="code"><span style="--0:#919F9F;--1:#5D6376">// access.rs — Access::has</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">if</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#7FDBCA;--1:#096E72">self.</span><span style="--0:#D6DEEB;--1:#403F53">maskin </span><span style="--0:#C792EA;--1:#8844AE">&amp;&amp;</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#C792EA;--1:#8844AE">!</span><span style="--0:#C5E478;--1:#3B61B0">rett</span><span style="--0:#7FDBCA;--1:#096E72">.</span><span style="--0:#82AAFF;--1:#3B61B0">kan_delegeres</span><span style="--0:#D6DEEB;--1:#403F53">() {</span></div></div><div class="ec-line"><div class="code"><span class="indent">    </span><span style="--0:#C792EA;--1:#8844AE">return</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">false</span><span style="--0:#D6DEEB;--1:#403F53">;</span></div></div><div class="ec-line"><div class="code"><span style="--0:#D6DEEB;--1:#403F53">}</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="// access.rs — Access::hasif self.maskin &amp;&amp; !rett.kan_delegeres() {    return false;}"><div></div></button></div></figure></div>
+<p>Det er ett sted, og det er valgt: da gjelder regelen også for roller som
+kommer til senere og for rader som ble skrevet før den fantes.
+<code dir="auto">right_slugs</code> filtrerer det samme, så <code dir="auto">/me</code> ikke lover en maskin
+knapper som kommer til å feile.</p>
+<p><code dir="auto">machine</code> er sann når minst én av veiene inn til selskapet er et
+<code dir="auto">integration_grant</code> (<code dir="auto">via = 'integrasjon'</code> fra
+<code dir="auto">company_access_for_person</code> — samme spørring, ingen ekstra kostnad på
+forespørselsveien).</p>
+<p>De fire rettighetene <code dir="auto">kan_delegeres</code> nekter er uendret: <code dir="auto">MEDLEM_ADMIN</code>,
+<code dir="auto">OPPDRAG_ADMIN</code>, <code dir="auto">INTEGRASJON_ADMIN</code>, <code dir="auto">SELSKAP_ADMIN</code>. Matrisen under §5
+er derfor også uendret — dette er ingen ny rettighet, det er et tak oppå
+de som finnes.</p>
+<p>Festet i <code dir="auto">tests/grupper/integrasjon.rs</code>
+(<code dir="auto">an_agent_with_admin_may_migrate_but_never_widen_access</code>), <strong>sett
+feile</strong>: uten filteret inviterer roboten medlemmer inn i selskapet.</p>
+<p>Det siste punktet er verdt å si tydelig: <strong>ingen rolle i dette
+dokumentet gir rett til å endre historikk.</strong> Tilgangsmodellen avgjør hvem
+som får legge noe til, aldri hvem som får ta noe bort.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="herding-av-http-svarene-64">Herding av HTTP-svarene (#64)</h3><a class="sl-anchor-link" href="#herding-av-http-svarene-64"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Herding av HTTP-svarene (#64)”</span></a></div>
+<p>Tilgangsvakten avgjør <em>om</em> du får bytene. Dette laget avgjør hva
+nettleseren gjør med dem, og finnes fordi forsvaret ellers hviler på
+vaner: portalen laster ned via <code dir="auto">blob</code> + <code dir="auto">a.download</code> og navigerer aldri
+til et dokument, Bearer-modellen gjør at en lenke ikke kan «åpnes
+autentisert», og Svelte escaper det den rendrer. Alt sammen stemmer i
+dag. Ingen av delene er håndhevet.</p>
+<p>To sømmer, av samme grunn som vakten er én søm:</p>
+<table>
+<thead>
+<tr>
+<th>Søm</th>
+<th>Hva den gjør</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">herding::security_headers</code> (middleware på ALT)</td>
+<td><code dir="auto">X-Content-Type-Options: nosniff</code> og <code dir="auto">Referrer-Policy: no-referrer</code> på hvert svar; <code dir="auto">Content-Security-Policy</code> på HTML</td>
+</tr>
+<tr>
+<td><code dir="auto">herding::file_response</code> (hver eneste nedlasting)</td>
+<td>saniterer filnavnet og bestemmer hva serveren påstår at bytene er</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Opplasteren bestemmer ikke hva serveren sier bytene er.</strong> En <code dir="auto">ansatt</code>
+eller en tillatt e-postavsender kunne ellers fått oss til å servere
+<code dir="auto">text/html</code> fra vårt eget opphav — og <code dir="auto">nosniff</code> hjelper ikke da, for
+typen ville vært vår egen påstand. Bare kjente typer serveres
+(dokumenter, bildeformater, XML, tekst); alt annet blir
+<code dir="auto">application/octet-stream</code>, og <code dir="auto">inline</code> nedgraderes til <code dir="auto">attachment</code>.
+<strong><code dir="auto">image/svg+xml</code> står bevisst ikke på listen</strong> — en SVG er et dokument
+som kan kjøre skript, og er den ene bildetypen som aldri skal serveres
+som bilde. Bytene selv røres aldri: dokumentet er bevis (migrasjon 0015).</p>
+<p>Filnavnet er den andre halvparten. Et anførselstegn lukket
+quoted-stringen i <code dir="auto">Content-Disposition</code> og lot opplasteren legge til egne
+parametere; CR/LF avsluttet headerlinjen og ga en 500. Nå saniteres
+ASCII-formen, og <code dir="auto">filename*=UTF-8''…</code> bærer de norske bokstavene.</p>
+<p>CSP-en henter hashen til portalens ene innebygde skript <strong>fra HTML-en som
+faktisk serveres</strong>. En hash festet i koden ville stilltiende sluttet å
+matche den dagen noen redigerte skriptet — temablinket ville kommet
+tilbake, og ingen ville koblet det til en header. <code dir="auto">script-src</code> har ikke
+<code dir="auto">unsafe-inline</code>; det er den klausulen som gjør en glemt escape til en
+konsollfeil i stedet for et innbrudd. <code dir="auto">style-src</code> tillater inline stil,
+fordi nøkkeltallsøylene er ren CSS (#36) og injisert stil er et
+vesentlig mindre problem enn injisert skript.</p>
+<p><code dir="auto">frame-src 'self' blob:</code> finnes for én ting: Bilag viser et innboks-PDF
+ved siden av bokføringsskjemaet, fra en blob-URL portalen lager selv.
+Bytene hentes som før (som nedlasting, med serverens egen
+innholdstype), og portalen ser på <strong>bytene selv</strong> — <code dir="auto">%PDF-</code>, eller
+PNG/JPEG/GIF/WebP-signaturen — og gir blob-en den typen den har sjekket,
+aldri den opplasteren oppga. Et dokument som ikke er et av disse vises
+ikke, det lastes ned. Ingen annen kilde kan rammes inn (ikke andre
+opphav, ikke <code dir="auto">data:</code>); <code dir="auto">object-src 'none'</code> står. Testen
+<code dir="auto">the_csp_pins_the_portals_own_inline_script</code> fester begge.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="10-i-portalen">10. I portalen</h2><a class="sl-anchor-link" href="#10-i-portalen"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “10. I portalen”</span></a></div>
+<p><strong>«Inviter folkene dine»</strong> (#79): så lenge selskapet har nøyaktig ett
+direkte medlem, viser Oversikt et veiledningskort for de første
+invitasjonene. Typiske profiler er snarveier til riktig rolle
+(lønnsmottaker → <code dir="auto">ansatt</code>, økonomiansvarlig → <code dir="auto">bokforing</code>, medeier →
+<code dir="auto">admin</code>), med rollens forklaring fra <code dir="auto">/roles</code> synlig der valget tas.
+Den eksterne regnskapsføreren er med vilje <strong>ikke</strong> en invitasjon —
+kortet peker til oppdragskatalogen, siden tilgang gjennom et oppdrag
+følger avtalen og kan avsluttes samme dag. Åpne invitasjoner vises i
+samme kort med sendt-status; kortet forsvinner når medlem nummer to er
+inne, og Oppdrag → Tilgang tar over. Kortet er bare en visning: alle
+kallene går til de samme MEDLEM_ADMIN-vaktede endepunktene.</p>
+<p>Under <strong>Oppdrag</strong> ligger tre kort: Tilgang (hvem som kommer til), Roller
+og Integrasjoner. Rollekortet viser de innebygde rollene som de er —
+uendrelige, men leselige, så en admin ser hva de faktisk betyr uten å
+måtte lese koden — og et rutenett for selskapets egne.</p>
+<p>Rutenettet viser <strong>hva rettigheten lar deg gjøre</strong>, ikke slug-en: «Se
+alles timer», ikke <code dir="auto">TIMER_LES_ALLE</code>. Teksten og grupperingen kommer fra
+<code dir="auto">Right::description()</code> og <code dir="auto">Right::group()</code> og serveres av API-et, så det
+finnes bare én liste — portalen har ingen egen kopi, og en ny rettighet
+kan ikke bli stående uten forklaring (egen test).</p>
+<p>De fire rettighetene som ikke kan delegeres vises som avkryssede bokser
+i grå, med begrunnelsen ved siden av: <em>«kan bare gis av admin, siden den
+styrer hvem som har tilgang»</em>. Konsekvensen står der valget tas, ikke i
+en hjelpetekst.</p>
+<p>Gruppene er <code dir="auto">&lt;details&gt;</code> og ikke en bred tabell — det er formen som tåler
+375 px uten å rulle sidelengs. <strong>Portalen skjuler, serveren nekter:</strong>
+rutenettet er en visning av det som allerede håndheves, og en meny uten
+et valg er en bekvemmelighet, ikke en sperre.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="11-hvor-det-er-testet">11. Hvor det er testet</h2><a class="sl-anchor-link" href="#11-hvor-det-er-testet"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “11. Hvor det er testet”</span></a></div>
+<p>Autorisasjon testes som <strong>nektelser</strong>. At en admin slipper til er dekket
+overalt ellers i suiten; at en leser <em>ikke</em> slipper til er det ingenting
+annet som fanger.</p>
+<table>
+<thead>
+<tr>
+<th>Fil</th>
+<th>Hva den fester</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">tests/grupper/me_endpoint.rs</code></td>
+<td>Identiteten: lokalt generert JWKS signerer ekte RS256-tokens, et byrå-med-oppdrag pluss et direkte medlemskap løses til nøyaktig forventet selskapsliste, og forfalskede/utløpte/feil-audience-tokens avvises</td>
+</tr>
+<tr>
+<td><code dir="auto">tests/grupper/access.rs</code></td>
+<td>Tilgangsmatrisen mot en ekte server: at <code dir="auto">les</code> ikke får endre noe, at <code dir="auto">bokforing</code> ikke får administrere, at en ansatt ikke kommer til hovedboken, at lønn ikke er allmenn lesning, at en egendefinert rolle gir akkurat det den sier, at en utenforstående får 404 og ikke 403 — og at admin i ett selskap er en fullstendig fremmed i et annet (§8), inkludert at nødprosedyren krever referanse og navngir seg selv i sporet</td>
+</tr>
+<tr>
+<td><code dir="auto">tests/grupper/medlemmer.rs</code></td>
+<td>Hele livsløpet: invitasjon → innlogging → medlemskap, at svaret ikke røper om brukeren finnes, at siste admin ikke kan fjerne seg selv, at oppdragstilgang ikke kan endres herfra, og at sporet navngir hvem som ga hvem tilgang</td>
+</tr>
+<tr>
+<td><code dir="auto">tests/grupper/plattform.rs</code></td>
+<td>Plattformgrensen (§8) begge veier: en selskapsadmin er fremmed for <code dir="auto">/platform</code>, en plattform-systemadmin får 404 på hovedbok/stamdata/administrasjon i ethvert selskap; hvert kall logges (også avviste) og loggen leses av selskapets admin men ikke av <code dir="auto">les</code>; support får ikke kunderegistre, medlemsendringer eller plattformadministrasjon; tilbakekalling virker på neste forespørsel; tildelinger står med <code dir="auto">kilde='plattform'</code> i selskapets egen logg</td>
+</tr>
+<tr>
+<td><code dir="auto">tests/grupper/matrix.rs</code></td>
+<td>At tabellen i §5 stemmer med koden, og at den dekker hele vokabularet</td>
+</tr>
+<tr>
+<td><code dir="auto">regnmed_api::access</code> sine enhetstester</td>
+<td>At buntene ikke overlapper, at slug-ene er unike og går rundtur, at <code dir="auto">_ALLE</code> medfører <code dir="auto">_EGNE</code>, at hver rettighet har forklaring og gruppe, og at en ukjent rolleverdi gir <strong>ingen</strong> rettigheter</td>
+</tr>
+</tbody>
+</table>
+<div class="sl-heading-wrapper level-h3"><h3 id="tre-feller-alle-gått-i-under-bygging">Tre feller, alle gått i under bygging</h3><a class="sl-anchor-link" href="#tre-feller-alle-gått-i-under-bygging"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Tre feller, alle gått i under bygging”</span></a></div>
+<p>Dette avsnittet står her fordi hver av dem ga en test som så grønn ut
+mens den målte ingenting.</p>
+<ol>
+<li><strong>Enhetstestene kan ikke fange en rettighet i feil bunt.</strong> De utleder
+fasiten sin <em>fra</em> buntene. Prøvd med vilje — <code dir="auto">PRODUKT_SKRIV</code> flyttet
+til lesebunten — og samtlige besto. Det er <code dir="auto">tests/grupper/access.rs</code> som er
+sperren der, og den slo ut.</li>
+<li><strong>Kroppen må være gyldig JSON for endepunktet.</strong> axum kjører
+<code dir="auto">Json&lt;T&gt;</code>-uttrekket før handleren, så en tom kropp gir 422 og vakten
+blir aldri spurt. En matrise med <code dir="auto">{}</code> består uten å bevise noe.</li>
+<li><strong>Spørrestrengen må også være gyldig.</strong> Samme mekanisme med
+<code dir="auto">Query&lt;T&gt;</code>: <code dir="auto">/bank/reconciliation</code> uten <code dir="auto">?account=</code> gir 400 før
+vakten. Felle nummer to og tre er samme feil i to former, og den
+andre ble gjort etter at den første var oppdaget.</li>
+</ol>
+<p>Mønsteret er verdt å ta med videre: <strong>en autorisasjonstest som ikke er
+sett feile, er ikke verifisert.</strong> Hver av sperrene over er kontrollert
+ved å ødelegge det den skal fange.</p>
+</div><footer class="sl-flex" data-astro-cid-ddtxxk7k><div class="meta sl-flex" data-astro-cid-ddtxxk7k><a href="https://github.com/BogenTech/regnmed/edit/main/docs/auth.md" class="sl-flex print:hidden" data-astro-cid-qlekgd3o><svg data-astro-cid-qlekgd3o="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.2em;" data-astro-cid-hkc32dio><path d="M22 7.24a1 1 0 0 0-.29-.71l-4.24-4.24a1 1 0 0 0-1.1-.22 1 1 0 0 0-.32.22l-2.83 2.83L2.29 16.05a1 1 0 0 0-.29.71V21a1 1 0 0 0 1 1h4.24a1 1 0 0 0 .76-.29l10.87-10.93L21.71 8c.1-.1.17-.2.22-.33a1 1 0 0 0 0-.24v-.14l.07-.05ZM6.83 20H4v-2.83l9.93-9.93 2.83 2.83L6.83 20ZM18.17 8.66l-2.83-2.83 1.42-1.41 2.82 2.82-1.41 1.42Z"/></svg>Rediger side</a></div><div class="pagination-links print:hidden" dir="ltr" data-astro-cid-b5raizh3><a href="/teknisk/attestering/" rel="prev" data-astro-cid-b5raizh3><svg data-astro-cid-b5raizh3="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;" data-astro-cid-hkc32dio><path d="M17 11H9.41l3.3-3.29a1.004 1.004 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33 1 1 0 0 0 0 .76 1 1 0 0 0 .21.33l5 5a1.002 1.002 0 0 0 1.639-.325 1 1 0 0 0-.219-1.095L9.41 13H17a1 1 0 0 0 0-2Z"/></svg><span data-astro-cid-b5raizh3>Forrige<br data-astro-cid-b5raizh3><span class="link-title" data-astro-cid-b5raizh3>Attestering: godkjenningsflyt før bokføring og betaling</span></span></a><a href="/teknisk/balansedokumentasjon/" rel="next" data-astro-cid-b5raizh3><svg data-astro-cid-b5raizh3="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;" data-astro-cid-hkc32dio><path d="M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z"/></svg><span data-astro-cid-b5raizh3>Neste<br data-astro-cid-b5raizh3><span class="link-title" data-astro-cid-b5raizh3>Balansedokumentasjon</span></span></a></div></footer></div></div></main></div></div></div></div></body></html>

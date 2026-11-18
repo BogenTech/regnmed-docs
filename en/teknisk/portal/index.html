@@ -1,0 +1,628 @@
+<!DOCTYPE html><html lang="en" dir="ltr" data-theme="dark" data-has-toc data-has-sidebar data-astro-cid-g5ptsecz><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>The portal | regnmed docs</title><link rel="canonical" href="https://docs.regnmed.no/en/teknisk/portal/"/><link rel="alternate" hreflang="nb" href="https://docs.regnmed.no/teknisk/portal/"/><link rel="alternate" hreflang="en" href="https://docs.regnmed.no/en/teknisk/portal/"/><link rel="alternate" hreflang="x-default" href="https://docs.regnmed.no/teknisk/portal/"/><link rel="sitemap" href="/sitemap-index.xml"/><link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml"/><meta name="generator" content="Astro v7.4.13"/><meta name="generator" content="Starlight v0.43.1"/><meta property="og:title" content="The portal"/><meta property="og:type" content="article"/><meta property="og:url" content="https://docs.regnmed.no/en/teknisk/portal/"/><meta property="og:locale" content="en"/><meta property="og:description" content="Brukerveiledning, utviklerdokumentasjon og teknisk dokumentasjon for regnmed, regnskapssystemet du kan etterprøve."/><meta property="og:site_name" content="regnmed docs"/><meta name="twitter:card" content="summary_large_image"/><meta name="description" content="Brukerveiledning, utviklerdokumentasjon og teknisk dokumentasjon for regnmed, regnskapssystemet du kan etterprøve."/><meta name="robots" content="noindex"/><script>
+	(() => {
+		const storedTheme =
+			typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme');
+		const theme =
+			storedTheme ||
+			(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+		document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+	})();
+</script><link rel="stylesheet" href="/_astro/print.C9eyqPGL.css" media="print"><link rel="stylesheet" href="/_astro/common.LP9BDTc3.css"><script type="module" src="/_astro/page.cNngjUgL.js"></script></head><body data-astro-cid-g5ptsecz><a class="sl-skip-link" href="#_top" data-astro-cid-qb7clj6f>Skip to content</a><div class="page sl-flex" data-astro-cid-yntsjkba><header class="header" data-astro-cid-yntsjkba><div class="header" data-astro-cid-by6fddyj><div class="title-wrapper sl-flex" data-astro-cid-by6fddyj><a href="/en" class="site-title sl-flex" data-astro-cid-6rvad3va><img alt="regnmed" src="/_astro/logo.BykUI3mu.svg" width="160" height="160" data-astro-cid-6rvad3va><span translate="no" data-astro-cid-6rvad3va>regnmed docs</span></a></div><div class="sl-flex print:hidden" data-astro-cid-by6fddyj><site-search data-translations="{&quot;placeholder&quot;:&quot;Search&quot;}" data-astro-cid-b5kgnn7o="true"><button data-open-modal disabled aria-label="Search" aria-keyshortcuts="Control+K" data-astro-cid-b5kgnn7o><svg data-astro-cid-b5kgnn7o="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z"/></svg><span class="sl-hidden md:sl-block" aria-hidden="true" data-astro-cid-b5kgnn7o>Search</span><kbd class="sl-hidden md:sl-flex" style="display: none" data-astro-cid-b5kgnn7o><kbd data-astro-cid-b5kgnn7o>Ctrl</kbd><kbd data-astro-cid-b5kgnn7o>K</kbd></kbd></button><dialog style="padding: 0" aria-label="Search" data-astro-cid-b5kgnn7o><div class="dialog-frame sl-flex" data-astro-cid-b5kgnn7o><button data-close-modal class="sl-flex md:sl-hidden" data-astro-cid-b5kgnn7o>Cancel</button><div class="search-container" data-astro-cid-b5kgnn7o><div id="starlight__search" data-astro-cid-b5kgnn7o></div></div></div></dialog></site-search><script>
+	(() => {
+		const openBtn = document.querySelector('button[data-open-modal]');
+		const shortcut = openBtn?.querySelector('kbd');
+		if (!openBtn || !(shortcut instanceof HTMLElement)) return;
+		const platformKey = shortcut.querySelector('kbd');
+		if (platformKey && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+			platformKey.textContent = '⌘';
+			openBtn.setAttribute('aria-keyshortcuts', 'Meta+K');
+		}
+		shortcut.style.display = '';
+	})();
+</script><script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.CibB10mu.js"></script></div><div class="sl-hidden md:sl-flex print:hidden right-group" data-astro-cid-by6fddyj><div class="sl-flex social-icons" data-astro-cid-by6fddyj><a href="https://github.com/BogenTech/regnmed" rel="me" class="sl-flex" data-astro-cid-n2mnl6yq><span class="sr-only" data-astro-cid-n2mnl6yq>GitHub</span><svg data-astro-cid-n2mnl6yq="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select data-astro-cid-smhvfpqh="true"><label style="--sl-select-width: 6.25em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Select theme</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg class="sl-theme-icon-dark" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg class="sl-theme-icon-light" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg class="sl-theme-icon-auto" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="dark" data-astro-cid-2z5xp7gb>Dark</option><option value="light" data-astro-cid-2z5xp7gb>Light</option><option value="auto" selected data-astro-cid-2z5xp7gb>Auto</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>(() => {
+		const theme = (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme'));
+		if (theme) document.querySelectorAll('starlight-theme-select select').forEach((s) => { s.value = theme; });
+	})();</script><script type="module">var e=`starlight-theme`,t=e=>e===`auto`||e===`dark`||e===`light`?e:`auto`,n=()=>t(typeof localStorage<`u`&&localStorage.getItem(e));function r(t){typeof localStorage<`u`&&localStorage.setItem(e,t===`light`||t===`dark`?t:``)}var i=()=>matchMedia(`(prefers-color-scheme: light)`).matches?`light`:`dark`;function a(e){document.querySelectorAll(`starlight-theme-select select`).forEach(t=>{t.value=e}),document.documentElement.dataset.theme=e===`auto`?i():e,r(e)}matchMedia(`(prefers-color-scheme: light)`).addEventListener(`change`,()=>{n()===`auto`&&a(`auto`)});var o=class extends HTMLElement{constructor(){super(),a(n()),this.querySelector(`select`)?.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&a(t(e.currentTarget.value))})}};customElements.define(`starlight-theme-select`,o);</script><starlight-lang-select><label style="--sl-select-width: 7em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Select language</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="/teknisk/portal/" data-astro-cid-2z5xp7gb>Norsk</option><option value="/en/teknisk/portal/" selected data-astro-cid-2z5xp7gb>English</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-lang-select><script type="module">var e=class extends HTMLElement{constructor(){super();let e=this.querySelector(`select`);e&&(e.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&(window.location.pathname=e.currentTarget.value)}),window.addEventListener(`pageshow`,t=>{if(!t.persisted)return;let n=e.querySelector(`option[selected]`)?.index;n!==e.selectedIndex&&(e.selectedIndex=n??0)}))}};customElements.define(`starlight-lang-select`,e);</script></div></div></header><nav class="sidebar print:hidden" aria-label="Main" data-astro-cid-yntsjkba><button popovertarget="starlight__sidebar" class="sl-menu-button sl-flex md:sl-hidden print:hidden" data-astro-cid-r2osgdlg><svg class="open-menu" data-astro-cid-r2osgdlg="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M3 8h18a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2Zm18 8H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Zm0-5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></svg><svg class="close-menu" data-astro-cid-r2osgdlg="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="m13.41 12 6.3-6.29a1.004 1.004 0 1 0-1.42-1.42L12 10.59l-6.29-6.3a1.004 1.004 0 0 0-1.42 1.42l6.3 6.29-6.3 6.29a1 1 0 0 0 0 1.42.998.998 0 0 0 1.42 0l6.29-6.3 6.29 6.3a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.42L13.41 12Z"/></svg><span class="sr-only" data-astro-cid-r2osgdlg>Menu</span></button><script type="module">var e=class extends HTMLElement{constructor(){super();let e=matchMedia(`(min-width: 50em)`),t=()=>{this.popover=e.matches?null:`auto`};t(),e.addEventListener(`change`,()=>t()),this.addEventListener(`toggle`,({newState:e})=>this.trapFocus(e===`open`))}trapFocus(e){document.querySelectorAll(`.main-frame, .sl-skip-link`).forEach(t=>{t.toggleAttribute(`inert`,e)})}};customElements.define(`sl-sidebar-pane`,e);</script><sl-sidebar-pane popover id="starlight__sidebar" class="sidebar-pane" data-astro-cid-yntsjkba="true"><div class="sidebar-content sl-flex" data-astro-cid-yntsjkba><sl-sidebar-state-persist data-hash="0kff4cj" data-astro-cid-ipdry5cl="true"><script aria-hidden="true">
+		(() => {
+			try {
+				if (!matchMedia('(min-width: 50em)').matches) return;
+				/** @type {HTMLElement | null} */
+				const target = document.querySelector('sl-sidebar-state-persist');
+				const state = JSON.parse(sessionStorage.getItem('sl-sidebar-state') || '0');
+				if (!target || !state || target.dataset.hash !== state.hash) return;
+				window._starlightScrollRestore = state.scroll;
+				customElements.define(
+					'sl-sidebar-restore',
+					class SidebarRestore extends HTMLElement {
+						connectedCallback() {
+							try {
+								const idx = parseInt(this.dataset.index || '');
+								const details = this.closest('details');
+								if (details && typeof state.open[idx] === 'boolean') details.open = state.open[idx];
+							} catch {}
+						}
+					}
+				);
+			} catch {}
+		})();
+	</script><ul class="top-level" data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>User guide (Norwegian)</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="0"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Velkommen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/kom-i-gang/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kom i gang</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/forste-faktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Første faktura</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/fakturering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Fakturering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/purring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Purring og betalingsoppfølging</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/bilag-og-innboks/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilag og innboks</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/hovedbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Hovedbok og kontoplan</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/mva/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>MVA</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/lonn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn og a-melding</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/timer-og-prosjekter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Timer og prosjekter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/utlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utlegg og kjøregodtgjørelse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/anlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Anleggsregister og avskrivninger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/valuta/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Valuta</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/produkter-og-varelager/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Produkter og varelager</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/periodisering-og-budsjett/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodisering og budsjett</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/rapporter-og-arsavslutning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Rapporter og årsavslutning</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/aksjeeierbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og aksjonærregisteroppgaven</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/tilgang-og-roller/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang og roller</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/for-regnskapsforere/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>For regnskapsførere og byråer</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/for-revisorer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>For revisorer</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/migrering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Migrering fra et annet system</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/abonnement-og-priser/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Abonnement og priser</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/ai-agent/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Ta med din egen AI-agent</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/verifiser-regnskapet/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Verifiser regnskapet ditt</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/vanlige-sporsmal/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Vanlige spørsmål</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>For developers</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="1"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>api</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="2"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>API reference</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/identity/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Identity and access</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/ledger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Company and general ledger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/sales/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Sales and subledger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/reports/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Accounting and reports</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank and payments</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/payroll/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Payroll, time and expenses</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/inbox/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Inbox, import and jobs</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/shares/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Share register and assets</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/agents/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Integrations, agents and messages</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/verification/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Anchoring and verification</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/platform/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Platform (the vendor console)</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Introduction</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/getting-started/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Getting started with integrations</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/authentication/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Authentication</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/access-and-roles/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Access and roles for integrations</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/conventions/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Conventions</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/examples/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Examples</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/mcp-and-agents/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>MCP and agents</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/verify-it-yourself/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Verify it yourself</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/self-hosting/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Self-hosting</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/contributing/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Contributing</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>Technical documentation (Norwegian)</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="3"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Teknisk dokumentasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/abonnement/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Abonnement: regnmeds egen kasse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/agent/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Ta med din egen agent</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/aksjonaer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og aksjonærregisteroppgave (RF-1086)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/anchoring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>External anchoring of chain heads</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/anlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Anleggsregister og avskrivninger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/api/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>API-referanse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/arsavslutning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Årsavslutning</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/attestering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Attestering: godkjenningsflyt før bokføring og betaling</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/auth/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang: hvem kan gjøre hva</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/balansedokumentasjon/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Balansedokumentasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank reconciliation</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/betaling/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Betalingsliste og remittering (pain.001)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/bilagsinnboks/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilagsinnboks</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/bilagstolkning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilagstolkning: forslag fra dokumentets egen tekst</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/blob-store/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Dokumenter i objektlagring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/budsjett/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Budsjett og avviksrapport</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/deploy/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Deployment</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/dimensjoner/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Dimensjoner: avdeling og prosjekt</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/efaktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>E-faktura ut fra 1. januar 2027 — forslag</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/ehf/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>EHF: elektronisk faktura ut og inn</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/epost-inn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>E-post-inn til bilagsinnboksen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/faktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utgående faktura</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/frugality/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The frugality budget</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/gov/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The government rail: Maskinporten and Skatteetaten&#39;s APIs</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/hovedbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Hovedbok: kontoplan og manuell bilagsføring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/integrations/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Maskin-tilgang til API-et</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/jobs/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bakgrunnsjobber</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/kontantsalg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kontantsalg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/ledger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The ledger: append-only, hash-chained, independently verifiable</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/lonn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn — første del</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/marketplace/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Marketplace: onboarding from the official registries</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/meldinger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Meldinger — samtaler mellom folk som jobber sammen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/migration/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Migration: SAF-T import</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/mva/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Merverdiavgift: codes, rates, spesifikasjon, melding</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/perioder/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodelåsing og bilagsvedlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/periodisering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/portal/" aria-current="page" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The portal</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/produkter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Produktregister og enkelt varelager</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/purring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Betalingsoppfølging (purring)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/rapporter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lovpålagte spesifikasjoner og rapporter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/regelverk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Regelverk som data</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/reskontro/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Reskontro: kunde- og leverandørspesifikasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/revisjon/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Revisorrollen og verifikasjonsrapporten</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/skattemelding/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Skattemelding og næringsspesifikasjon (#11) — kartlagt, ikke bygget</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/timer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Timeføring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/utlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utlegg og kjøregodtgjørelse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/valuta/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Flervaluta</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/vilkar-teknisk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kundevilkårene i koden</span></a></li></ul></details></li></ul><script aria-hidden="true">
+		(() => {
+			const scroller = document.getElementById('starlight__sidebar');
+			if (!window._starlightScrollRestore || !scroller) return;
+			scroller.scrollTop = window._starlightScrollRestore;
+			delete window._starlightScrollRestore;
+		})();
+	</script></sl-sidebar-state-persist><div class="md:sl-hidden"><div class="mobile-preferences sl-flex" data-astro-cid-p4azlveh><div class="social-icons" data-astro-cid-p4azlveh><a href="https://github.com/BogenTech/regnmed" rel="me" class="sl-flex" data-astro-cid-n2mnl6yq><span class="sr-only" data-astro-cid-n2mnl6yq>GitHub</span><svg data-astro-cid-n2mnl6yq="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select data-astro-cid-smhvfpqh="true"><label style="--sl-select-width: 6.25em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Select theme</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg class="sl-theme-icon-dark" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg class="sl-theme-icon-light" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg class="sl-theme-icon-auto" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="dark" data-astro-cid-2z5xp7gb>Dark</option><option value="light" data-astro-cid-2z5xp7gb>Light</option><option value="auto" selected data-astro-cid-2z5xp7gb>Auto</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>(() => {
+		const theme = (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme'));
+		if (theme) document.querySelectorAll('starlight-theme-select select').forEach((s) => { s.value = theme; });
+	})();</script><starlight-lang-select><label style="--sl-select-width: 7em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Select language</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="/teknisk/portal/" data-astro-cid-2z5xp7gb>Norsk</option><option value="/en/teknisk/portal/" selected data-astro-cid-2z5xp7gb>English</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-lang-select></div></div></div></sl-sidebar-pane></nav><div class="main-frame" data-astro-cid-yntsjkba><script type="module">var e=document.getElementById(`starlight__sidebar`),t=e?.querySelector(`sl-sidebar-state-persist`),n=`sl-sidebar-state`,r=()=>{let r=[],i=t?.dataset.hash||``;try{let e=sessionStorage.getItem(n),t=JSON.parse(e||`{}`);Array.isArray(t.open)&&t.hash===i&&(r=t.open)}catch{}return{hash:i,open:r,scroll:e?.scrollTop||0}},i=e=>{try{sessionStorage.setItem(n,JSON.stringify(e))}catch{}},a=()=>i(r()),o=(e,t)=>{let n=r();n.open[t]=e,i(n)};t?.addEventListener(`click`,e=>{if(!(e.target instanceof Element))return;let t=e.target.closest(`summary`)?.closest(`details`);if(!t)return;let n=t.querySelector(`sl-sidebar-restore`),r=parseInt(n?.dataset.index||``);isNaN(r)||o(!t.open,r)}),addEventListener(`visibilitychange`,()=>{document.visibilityState===`hidden`&&a()});</script><div class="lg:sl-flex" data-astro-cid-lrzkfocr><aside class="right-sidebar-container print:hidden" data-astro-cid-lrzkfocr><div class="right-sidebar" data-astro-cid-lrzkfocr><div class="lg:sl-hidden" data-astro-cid-qok35upx><mobile-starlight-toc data-min-h="2" data-max-h="3" data-astro-cid-66cqc7ze="true"><nav aria-labelledby="starlight__on-this-page--mobile" data-astro-cid-66cqc7ze><details id="starlight__mobile-toc" data-astro-cid-66cqc7ze><summary id="starlight__on-this-page--mobile" class="sl-flex" data-astro-cid-66cqc7ze><span class="toggle sl-flex" data-astro-cid-66cqc7ze>On this page<svg class="caret" data-astro-cid-66cqc7ze="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></span><span class="display-current" data-astro-cid-66cqc7ze></span></summary><div class="dropdown" data-astro-cid-66cqc7ze><ul class="isMobile" style="--depth: 0;" data-astro-cid-jugkfwgx><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#_top" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Overview</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#byggekjeden-node-bygger-cargo-bare-leser-76" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Byggekjeden: node bygger, cargo bare leser (#76)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#fart-komprimering-seksjoner-ved-behov-svarbuffer-2026-11-09" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Fart: komprimering, seksjoner ved behov, svarbuffer (2026-11-09)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#utvikling" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Utvikling</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#auth" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Auth</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#innlogging-fra-en-annen-enhet-qr-kode-rfc-8628" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Innlogging fra en annen enhet: QR-kode (RFC 8628)</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#theming-the-cross-site-contract" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Theming (the cross-site contract)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#skallet-meny-meldinger-dialoger-og-ulagret-arbeid-2026-11-14" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Skallet: meny, meldinger, dialoger og ulagret arbeid (2026-11-14)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#sections-all-backed-by-the-existing-engagement-guarded-api" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Sections (all backed by the existing engagement-guarded API)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#administrasjon-konsollen-og-ikonene-2026-08-06" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Administrasjon-konsollen og ikonene (2026-08-06)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#pwa-kvitteringsfoto-og-attestering-på-farten-48" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>PWA: kvitteringsfoto og attestering på farten (#48)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#verified" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Verified</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#flippen-2026-07-29-76-steg-3" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Flippen (2026-07-29, #76 steg 3)</span></a></li></ul></li></ul></div></details></nav></mobile-starlight-toc><script type="module" src="/_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.C3fM4Kra.js"></script></div><div class="right-sidebar-panel sl-hidden lg:sl-block" data-astro-cid-qok35upx><div class="sl-container" data-astro-cid-qok35upx><starlight-toc data-min-h="2" data-max-h="3"><nav aria-labelledby="starlight__on-this-page"><h2 id="starlight__on-this-page">On this page</h2><ul style="--depth: 0;" data-astro-cid-jugkfwgx><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#_top" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Overview</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#byggekjeden-node-bygger-cargo-bare-leser-76" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Byggekjeden: node bygger, cargo bare leser (#76)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#fart-komprimering-seksjoner-ved-behov-svarbuffer-2026-11-09" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Fart: komprimering, seksjoner ved behov, svarbuffer (2026-11-09)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#utvikling" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Utvikling</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#auth" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Auth</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#innlogging-fra-en-annen-enhet-qr-kode-rfc-8628" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Innlogging fra en annen enhet: QR-kode (RFC 8628)</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#theming-the-cross-site-contract" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Theming (the cross-site contract)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#skallet-meny-meldinger-dialoger-og-ulagret-arbeid-2026-11-14" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Skallet: meny, meldinger, dialoger og ulagret arbeid (2026-11-14)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#sections-all-backed-by-the-existing-engagement-guarded-api" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Sections (all backed by the existing engagement-guarded API)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#administrasjon-konsollen-og-ikonene-2026-08-06" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Administrasjon-konsollen og ikonene (2026-08-06)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#pwa-kvitteringsfoto-og-attestering-på-farten-48" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>PWA: kvitteringsfoto og attestering på farten (#48)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#verified" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Verified</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#flippen-2026-07-29-76-steg-3" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Flippen (2026-07-29, #76 steg 3)</span></a></li></ul></li></ul></nav></starlight-toc><script type="module" src="/_astro/TableOfContents.astro_astro_type_script_index_0_lang.BpJaGz7G.js"></script></div></div></div></aside><div class="main-pane" data-astro-cid-lrzkfocr><main lang="nb" dir="ltr" data-astro-cid-g5ptsecz><div class="content-panel" data-astro-cid-a7po4psb><div class="sl-container" data-astro-cid-a7po4psb><h1 id="_top" data-astro-cid-bebwqqxs>The portal</h1><p class="sl-flex" data-astro-cid-gsljcgkv><svg data-astro-cid-gsljcgkv="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-color: var(--sl-color-orange-high);--sl-icon-size: 1.5em;" data-astro-cid-hkc32dio><path d="M12 16a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm10.67 1.47-8.05-14a3 3 0 0 0-5.24 0l-8 14A3 3 0 0 0 3.94 22h16.12a3 3 0 0 0 2.61-4.53Zm-1.73 2a1 1 0 0 1-.88.51H3.94a1 1 0 0 1-.88-.51 1 1 0 0 1 0-1l8-14a1 1 0 0 1 1.78 0l8.05 14a1 1 0 0 1 .05 1.02v-.02ZM12 8a1 1 0 0 0-1 1v4a1 1 0 0 0 2 0V9a1 1 0 0 0-1-1Z"/></svg><span data-astro-cid-gsljcgkv>This content is not available in your language yet.</span></p></div></div><div class="content-panel" data-astro-cid-a7po4psb><div class="sl-container" data-astro-cid-a7po4psb><div class="sl-markdown-content"><p>The web frontend — the product surface for regnskapsførere, revisorer
+and businesses. A <strong>Svelte 5 (runes) single-page app</strong>, built by Vite,
+embedded into the regnmed-api binary and served on the API’s own origin.
+One service, no CORS, nothing extra in the distroless image.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="byggekjeden-node-bygger-cargo-bare-leser-76">Byggekjeden: node bygger, cargo bare leser (#76)</h2><a class="sl-anchor-link" href="#byggekjeden-node-bygger-cargo-bare-leser-76"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Byggekjeden: node bygger, cargo bare leser (#76)”</span></a></div>
+<p>Kilden ligger i <code dir="auto">ui/portal/</code>. <code dir="auto">scripts/build-portal.sh</code> kompilerer den,
+og <strong><code dir="auto">ui/portal/dist/</code> sjekkes inn</strong> — nøyaktig presedensen den
+genererte <code dir="auto">app.css</code> satte. Rust-siden leser dist med <code dir="auto">include_dir</code>, så
+<code dir="auto">cargo build</code>, og særlig kryssbygget i <code dir="auto">build-images.sh</code>, <strong>trenger
+aldri Node</strong>. Vite gir innholdshashede filnavn, derfor <code dir="auto">include_dir</code> og
+ikke én <code dir="auto">include_str!</code> per fil.</p>
+<p>En innsjekket artefakt lyver hvis den ikke er bygget fra kilden, så en
+CI-jobb (<code dir="auto">portal</code>) bygger portalen på nytt og feiler dersom <code dir="auto">dist</code>
+avviker. dist har dessuten sitt eget budsjett i <code dir="auto">scripts/frugality.sh</code>.</p>
+<p>Adressene:</p>
+<ul>
+<li><code dir="auto">/</code> og <code dir="auto">/callback</code> → appen (rutingen skjer i hashen, og
+callback-adressen må lande i appen for å fullføre PKCE-flyten).</li>
+<li><code dir="auto">/assets/*</code> → Vite-filene, <code dir="auto">immutable</code> og cachet for alltid fordi
+filnavnet bærer innholdshashen. En ukjent asset gir <strong>404</strong>, ikke
+appen på nytt: en 200 med HTML der JS-en skulle vært feiler stille.</li>
+<li><code dir="auto">/ny</code> → permanent redirect til <code dir="auto">/</code>. Det var appens adresse mens
+migreringen pågikk; gamle bokmerker skal ikke lande i en 404.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="fart-komprimering-seksjoner-ved-behov-svarbuffer-2026-11-09">Fart: komprimering, seksjoner ved behov, svarbuffer (2026-11-09)</h2><a class="sl-anchor-link" href="#fart-komprimering-seksjoner-ved-behov-svarbuffer-2026-11-09"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Fart: komprimering, seksjoner ved behov, svarbuffer (2026-11-09)”</span></a></div>
+<p>Tre grep som gjør portalen rask å bruke, uten å endre hva serveren
+garanterer:</p>
+<ul>
+<li><strong>Gzip på tekst.</strong> <code dir="auto">compression_layer()</code> i <code dir="auto">regnmed-api</code> komprimerer
+JS, CSS, HTML, JSON og XML over 1 kB. PDF-er, bilder og opplastede
+dokumenter går urørt (allerede komprimert eller opake — å presse et
+vedlegg på 20 MB koster CPU for ingenting). Gzip og ikke brotli: den
+gjenbruker flate2 og holder minnet per strøm lite (frugality-budsjettet
+på 64 MB). Testet i <code dir="auto">text_is_gzipped_and_documents_are_not</code>.</li>
+<li><strong>Seksjonene lastes ved behov.</strong> Første nedlasting er skallet og
+oversikten (106 kB JS, 39 kB komprimert — før: 408 kB ukomprimert).
+Hver seksjon er en egen bit (<code dir="auto">lib/lazy.svelte.js</code>); etter oppstart
+forhåndslastes resten i ledig tid, så et menyklikk likevel ikke venter
+på nettet. Feiler en bit (typisk: en ny versjon er rullet ut mens fanen
+sto åpen), ber siden om omlasting i stedet for å vise en tom flate.</li>
+<li><strong>Svarbuffer for GET</strong> (<code dir="auto">lib/api.js</code>). Et svar gjenbrukes i 30 sekunder,
+så et seksjonsbytte frem og tilbake er øyeblikkelig. <strong>Enhver endring
+(POST/PUT/DELETE) tømmer hele bufferet</strong>, før og etter kallet, så egne
+endringer vises alltid straks; et lesekall som startet før en endring
+lagres ikke etter den (generasjonsteller). Andres endringer kan være
+opptil 30 sekunder gamle ved et seksjonsbytte — som en side som står
+åpen. Bufferet tømmes når fanen blir synlig igjen, ligger bare i minnet
+(dør med fanen), og lagrer teksten, så en seksjon som endrer svaret sitt
+aldri endrer bufferet. <code dir="auto">/me</code> bufres aldri: den løser inn invitasjoner.
+Bufferet påvirker bare visningen — hver endring valideres av serveren
+som før. Testet med <code dir="auto">npm test</code> (kjøres i CI-jobben <code dir="auto">portal</code>).</li>
+</ul>
+<p>Historikk: fram til 2026-07-29 var portalen rammeverksfri og uten
+byggesteg (<code dir="auto">app.js</code> + <code dir="auto">theme.js</code> + generert <code dir="auto">app.css</code>, <code dir="auto">include_str!</code>).
+Vedtaket om å bytte, og hvorfor, står i #76.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="utvikling">Utvikling</h2><a class="sl-anchor-link" href="#utvikling"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Utvikling”</span></a></div>
+<div class="expressive-code"><link rel="stylesheet" href="/_astro/ec.w36nc.css"><script type="module" src="/_astro/ec.0vx5m.js"></script><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">scripts/build-portal.sh</span><span style="--0:#D6DEEB;--1:#403F53">          </span><span style="--0:#919F9F;--1:#5F636F"># bygg dist (kjøres før commit av UI-endringer)</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C5E478;--1:#3B61B0">cd</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">ui/portal</span><span style="--0:#D6DEEB;--1:#403F53"> &amp;&amp; </span><span style="--0:#82AAFF;--1:#3B61B0">npm</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">run</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">dev</span><span style="--0:#D6DEEB;--1:#403F53">      </span><span style="--0:#919F9F;--1:#5F636F"># hot reload mot en kjørende regnmed-api</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="scripts/build-portal.sh          # bygg dist (kjøres før commit av UI-endringer)cd ui/portal &amp;&amp; npm run dev      # hot reload mot en kjørende regnmed-api"><div></div></button></div></figure></div>
+<p>Dev-serveren proxyer API-kallene til <code dir="auto">localhost:8080</code>, så innlogging og
+data virker som i produksjon.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="auth">Auth</h2><a class="sl-anchor-link" href="#auth"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Auth”</span></a></div>
+<p>OIDC authorization code + <strong>PKCE</strong> against regnid. The code→token
+exchange is proxied through <code dir="auto">POST /auth/token</code> (server-to-server), so
+the IdP needs no browser CORS and the SPA never talks cross-origin.
+Logout goes through regnid’s <code dir="auto">end_session</code> with <code dir="auto">id_token_hint</code>
+(RP-initiated logout). regnmed still never sees a password.</p>
+<p><strong>Økten holdes i live av refresh-tokenet, ikke av en ny innlogging.</strong>
+Tilgangstokenet lever en time, refresh-tokenet 30 dager. Et <code dir="auto">401</code>
+veksler derfor refresh-tokenet gjennom <code dir="auto">POST /auth/refresh</code> — samme
+proxy-skinne som <code dir="auto">/auth/token</code>, samme grunn (ingen browser-CORS, og
+utstederens feildetalj blir på serveren) — og forsøker kallet én gang
+til; bare en feilet veksling sender brukeren tilbake til innlogging.</p>
+<p><strong>INGEN TOKENER LAGRES I NETTLESEREN</strong> (avgjort 2026-10-31). De to
+tokenene har ulik verdi og ligger derfor ikke på samme sted:</p>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Levetid</th>
+<th>Hvor</th>
+<th>Hva XSS kan gjøre med det</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access</td>
+<td>1 time</td>
+<td>en variabel i <code dir="auto">auth.svelte.js</code></td>
+<td>bruke timen som alt er i gang</td>
+</tr>
+<tr>
+<td>refresh</td>
+<td>30 dager</td>
+<td><code dir="auto">HttpOnly</code>-cookie, <code dir="auto">Path=/auth</code></td>
+<td>ingenting — siden kan ikke lese den</td>
+</tr>
+</tbody>
+</table>
+<p>Veien dit var <code dir="auto">sessionStorage</code> → <code dir="auto">localStorage</code> → cookie, og
+mellomstasjonen ble forkastet med vilje. <code dir="auto">sessionStorage</code> og
+<code dir="auto">localStorage</code> er like åpne for XSS — samme origin, samme JS — så
+flyttingen mellom dem endret ikke XSS-flaten for tilgangstokenet. Det
+den ville endret, er hva et innbrudd er verdt: et 30-dagers
+refresh-token i <code dir="auto">localStorage</code> gjør ett XSS-vindu om til en måneds
+fornybar tilgang, mens et tilgangstoken i minnet er over om en time.
+<strong>Det er levetiden som er risikoen, ikke lageret</strong> — så det lange
+tokenet ble lagt der JavaScript ikke rekker.</p>
+<p>Det er proxyen som kan holde det: den er alt det eneste som snakker med
+token-endepunktet, så den deler svaret — tilgangstokenet til siden,
+refresh-tokenet ut som <code dir="auto">Set-Cookie</code>. En omlasting har derfor ingenting i
+minnet, og oppstarten veksler cookien ÉN gang før innloggingen vises;
+økten overlever både lukket fane og omstartet maskin uten at noe
+langlivet ligger i et lager siden kan lese. Testen
+<code dir="auto">the_refresh_token_leaves_only_as_an_httponly_cookie</code> fester at
+<code dir="auto">refresh_token</code> ikke finnes i noe svar til nettleseren (sett feile).</p>
+<p>Cookien er <code dir="auto">HttpOnly</code>, <code dir="auto">SameSite=Strict</code> og <code dir="auto">Path=/auth</code> — bare de to
+rutene som faktisk bruker den ser den — og <code dir="auto">Secure</code> alltid UNNTATT på en
+loopback-vert. <code dir="auto">X-Forwarded-Proto</code> ville sviktet åpent den dagen en
+proxy slutter å sette headeren; et vertsnavn kan ikke drive på den
+måten.</p>
+<p><code dir="auto">POST /auth/logout</code> tømmer cookien, og det er ikke pynt: uten den
+overlever refresh-tokenet utloggingen, og neste besøk logger stille inn
+igjen — på en delt maskin som forrige bruker.</p>
+<p>PKCE-flighten (<code dir="auto">regnmed-pkce</code>) blir liggende i sessionStorage. Den
+gjelder én fane og brukes én gang, og skal dø med fanen.</p>
+<p><strong>Rotasjonen, og kappløpet mellom faner.</strong> Utstederen ROTERER: svaret
+bærer en erstatter, og tokenet vi nettopp brukte er dødt. Innenfor én
+fane deles ÉN veksling (<code dir="auto">refreshing</code> i <code dir="auto">auth.svelte.js</code>), men cookien
+deles mellom faner, så to faner kan fortsatt veksle samtidig — og
+taperen får avslag på et token som nettopp ble byttet ut. Her hjelper
+cookien av seg selv: vinnerens <code dir="auto">Set-Cookie</code> havner i den DELTE
+cookie-burken, så taperen prøver ganske enkelt én gang til og bærer det
+nye tokenet uten å vite om det. Derfor skiller <code dir="auto">/auth/refresh</code> mellom
+<code dir="auto">401</code> (ingen cookie — ingen økt å redde, ikke prøv igjen) og <code dir="auto">400</code>
+(utstederen avviste — kan være rotasjonen, prøv én gang til). Smetten
+som står igjen er smal: rekker avslaget fram før vinnerens svar er
+lagret, blir det likevel en utlogging — samme utfall som før denne
+endringen, aldri verre.</p>
+<p>ÆRLIG BEGRENSNING: <code dir="auto">end_session</code> tilbakekaller ikke refresh-tokenet hos
+utstederen, så et token noen alt har stjålet dør først når det utløper.
+Vi slipper cookien, som er alt vi rår over; en <code dir="auto">revoke</code>-rute hører i
+regnid.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="innlogging-fra-en-annen-enhet-qr-kode-rfc-8628">Innlogging fra en annen enhet: QR-kode (RFC 8628)</h3><a class="sl-anchor-link" href="#innlogging-fra-en-annen-enhet-qr-kode-rfc-8628"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Innlogging fra en annen enhet: QR-kode (RFC 8628)”</span></a></div>
+<p>En bilskjerm, en TV, en lånt PC: et langt passord fra en
+passordbehandler finnes ikke der. Derfor tilbyr innloggingssiden
+«Logg inn med telefonen», som kjører <strong>device authorization grant</strong>
+(RFC 8628) mot regnid:</p>
+<ol>
+<li>Portalen ber <code dir="auto">POST /auth/device</code>. Proxyen kaller regnids
+<code dir="auto">/device_authorization</code> og får en <strong>enhetskode</strong> (legitimasjonen) og
+en <strong>brukerkode</strong> (de ni tegnene et menneske leser).</li>
+<li>Svaret til siden bærer brukerkoden, adressen og et <strong>QR-bilde</strong> av
+godkjenningssiden med koden ferdig utfylt. Enhetskoden gjør det
+ikke: den legges i en HttpOnly-cookie (<code dir="auto">regnmed_device</code>, fem
+minutter, <code dir="auto">Path=/auth</code>) av samme grunn som refresh-tokenet — siden
+skal ikke holde en legitimasjon.</li>
+<li>Telefonen skanner, lander på regnids <code dir="auto">/device</code>, ser hvilken tjeneste
+som spør og hvilken kode, og godkjenner eller avviser.</li>
+<li>Skjermen spør <code dir="auto">POST /auth/device/poll</code> hvert femte sekund. <strong>202
+betyr «ingen har svart ennå»</strong> — statuskoden bærer forskjellen, så
+siden aldri tolker utstederens ordlyd. 200 bærer tilgangstokenet,
+400 avslutter.</li>
+</ol>
+<p><strong>Refresh-cookie settes bare når den som godkjenner sier at skjermen er
+sin egen.</strong> Godkjenningssiden spør: uten avhuking varer økten én time og
+skjermen må spørre på nytt — en lånt PC skal ikke sitte igjen med en
+måneds tilgang. Med avhuking svarer regnid med et refresh-token, proxyen
+løfter det ut av kroppen og inn i <code dir="auto">regnmed_refresh</code> som på en vanlig
+innlogging, og en bilskjerm overlever en omlasting.</p>
+<p>Valget ligger på <strong>telefonen</strong>, ikke på skjermen, og det er grunnen til
+at det er trygt å tilby: bare den som holder telefonen kan se om det er
+sin egen bil eller en kiosk, og en angriper som har lurt noen til å
+godkjenne en kode ville uansett huket av selv. Standardsvaret er det
+trygge, altså det som skjer når ingen velger.</p>
+<p><strong>Risikoen her er overtalelse, ikke avlytting.</strong> Device-code-phishing
+virker ved at noen sender deg en kode og en plausibel grunn til å
+godkjenne den; ditt eget trykk gjør resten. Mottrekkene ligger i regnid
+og er dokumentert i regnids README: koden varer fem minutter, gjetting
+strupes per adresse, og godkjenningssiden sier rett ut at man bare skal
+godkjenne en kode som står på en skjerm foran en.</p>
+<p><strong>Siden viser med vilje IKKE enhetens IP-adresse eller nettleser.</strong> Den
+IP-en regnid ser er vår egen proxys, ikke bilskjermens, og gjennom
+Traefik kan den ikke bæres videre ærlig; en videresendt IP ville dessuten
+kunne forfalskes av hvem som helst som når <code dir="auto">/device_authorization</code>, siden
+portalklienten er offentlig. En oppdiktet detalj presentert som faktum er
+verre enn ingen detalj — sammenligningen av koden er vernet som holder.</p>
+<p>QR-koden rendres av <code dir="auto">regnmed-core::qr</code> — håndrullet som alt annet format
+i den kisten, byte-modus, feilrettingsnivå L, versjon 1–5 (de versjonene
+som har ÉN rettingsblokk, så interleaving-halvdelen av standarden
+forsvinner). En nyttelast som ikke passer sier fra høyt i stedet for å
+lage noe et kamera ikke kan lese. <strong>Verifisert mot en uavhengig koder
+(segno) modul for modul</strong> på hver versjon, og i tillegg dekodet og
+EC-regnet på nytt fra bunnen av; <code dir="auto">the_modules_are_pinned</code> fester
+resultatet. Ingen QR-pakke i portalen: <code dir="auto">ui/portal/dist</code> har ikke plass
+(547 KB av 552), og en koder i Rust koster ingenting der.</p>
+<p>The public client <code dir="auto">regnmed-portal</code> must have the portal’s origin
+registered: <code dir="auto">{origin}/callback</code> as redirect URI and <code dir="auto">{origin}/</code> as
+post-logout URI. The portal derives both from <code dir="auto">location.origin</code>, so the
+<strong>port is part of the registration</strong> — moving the dev server means
+re-registering the client.</p>
+<ul>
+<li>Cluster: <code dir="auto">regnmed.localhost</code> (portalen) og <code dir="auto">api.regnmed.localhost</code>
+(API-verten, samme binær), begge seedet av <code dir="auto">scripts/dev-cluster.sh</code>.
+<strong>Begge opphav må stå på klienten</strong>, siden appen kan åpnes fra begge.</li>
+<li>Two-process dev (no cluster): <code dir="auto">scripts/dev-sso.sh</code> registers the
+client and a dev admin against a local regnid, defaulting to
+regnmed-api on <strong>8082</strong> and regnid on 8081. 8080 is avoided because
+colima/k3s port forwards commonly hold it. Start regnid first —
+regnmed-api resolves OIDC discovery at startup and exits if the
+issuer is unreachable.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="theming-the-cross-site-contract">Theming (the cross-site contract)</h2><a class="sl-anchor-link" href="#theming-the-cross-site-contract"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Theming (the cross-site contract)”</span></a></div>
+<p><code dir="auto">ui/portal/themes.css</code> is a <strong>copy of the canonical
+<code dir="auto">../regnid/ui/themes.css</code></strong> — same daisyUI theme names and blocks, so a
+user’s theme feels identical on both sites. Update both files together.
+(The copy lives beside the app because <code dir="auto">@plugin "daisyui/theme"</code>
+resolves against the nearest <code dir="auto">node_modules</code>, and Node lives only in
+<code dir="auto">ui/portal</code>.) The preference is stored per site in localStorage
+(<code dir="auto">regnmed-theme</code>), resolved stored → system → light, applied pre-paint
+by an inline script in <code dir="auto">index.html</code> so the page never flashes; it is
+never synced through the IdP or tokens. Tailwind and daisyUI are built
+by Vite as part of <code dir="auto">scripts/build-portal.sh</code>.</p>
+<p><strong>Alle daisyUIs innebygde temaer er tilgjengelige</strong> (<code dir="auto">themes: all</code> i
+<code dir="auto">ui/portal/src/app.css</code>, samme i <code dir="auto">../regnid/ui/input.css</code>) — 35 innebygde
+pluss våre egne: <code dir="auto">regnid</code>, <code dir="auto">kontrast</code> og <code dir="auto">steelzombie</code>. Temavalget er
+brukerens, og en håndplukket liste måtte vedlikeholdes for hånd hver gang
+daisyUI la til et tema. <strong><code dir="auto">steelzombie</code> er husets MØRKE standard</strong>
+(2026-08-06): blokken i themes.css har <code dir="auto">prefersdark: true</code>, som vinner
+prefers-dark-plassen over innebygde <code dir="auto">dark</code> fordi den lastes ETTER
+plugin-en — «følg systemet» med mørkt OS gir steelzombie, og
+snarveisknappens syklus er system → light → steelzombie (<code dir="auto">CYCLE</code> i
+theme.svelte.js). Innebygde <code dir="auto">dark</code> kan fortsatt velges ved navn.
+To ting å vite:</p>
+<ul>
+<li><code dir="auto">all</code> kan <strong>ikke</strong> kombineres med <code dir="auto">light --default, dark --prefersdark</code>:
+da faller resten av listen stille bort (verifisert 2026-08-03 — 4 temaer
+i bygget i stedet for 37). <code dir="auto">all</code> beholder de samme standardene selv:
+<code dir="auto">light</code> på <code dir="auto">:where(:root)</code>, <code dir="auto">dark</code> under <code dir="auto">prefers-color-scheme</code>.</li>
+<li>Velgeren er <strong>gruppert etter daisyUIs egen <code dir="auto">color-scheme</code></strong> på hver
+temablokk, ikke etter skjønn: <code dir="auto">THEME_GROUPS</code> i
+<code dir="auto">src/lib/theme.svelte.js</code> og <code dir="auto">THEME_GROUPS</code> i regnids <code dir="auto">src/accounts.rs</code>
+(som også er allowlisten <code dir="auto">is_theme</code> validerer mot). En flat liste på 37
+navn er ubrukelig, og den som vil ha et mørkt tema skal slippe å gjette.</li>
+</ul>
+<p>Selve velgeren er daisyUIs <strong>theme-controller</strong> i et <code dir="auto">dropdown</code>+<code dir="auto">menu</code>
+(begge steder): en avkrysset radio med temanavnet som <code dir="auto">value</code> velger
+temaet i REN CSS. I regnid heter radioene <code dir="auto">theme</code>, så skjemaet POSTer
+valget uten JS i innsendingsveien. JS-en består likevel — den husker
+valget (localStorage) og setter <code dir="auto">data-theme</code> FØR første maling, ellers
+blinker siden i feil tema.</p>
+<p><strong>Fellen, og hvorfor «system» er bygget som den er:</strong> en avkrysset
+theme-controller har HØYERE spesifisitet enn <code dir="auto">[data-theme]</code>
+(<code dir="auto">:root:has(input.theme-controller[value=x]:checked)</code> slår
+<code dir="auto">[data-theme=x]</code>). «Følg systemet» er derfor med vilje IKKE en
+theme-controller: den ligger i samme radiogruppe, så den krysser av de
+andre, og uten noen avkrysset controller finnes ingen overstyring — da
+får OS-preferansen bestemme. Var «system» en controller, ville en
+gjenglemt avkryssing overstyrt den i det stille.</p>
+<p>Nye temaer lages enklest med daisyUIs <strong>Theme Generator</strong>
+(&lt;<a href="https://daisyui.com/theme-generator/">https://daisyui.com/theme-generator/</a>&gt;): den skriver ut nøyaktig én
+<code dir="auto">@plugin "daisyui/theme" { … }</code>-blokk, som er formatet <code dir="auto">themes.css</code>
+allerede har. Lim blokken inn i BEGGE <code dir="auto">themes.css</code>-filene, legg navnet i
+begge <code dir="auto">THEME_GROUPS</code>, og bygg (<code dir="auto">scripts/build-portal.sh</code> +
+<code dir="auto">../regnid/scripts/build-css.sh</code>).</p>
+<p>Kostnaden er ren CSS: dist vokste ~32 KB (~21 KB gzipet) og ligger godt
+innenfor <code dir="auto">PORTAL_DIST_BUDGET_KB</code> i <code dir="auto">scripts/frugality.sh</code>.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="skallet-meny-meldinger-dialoger-og-ulagret-arbeid-2026-11-14">Skallet: meny, meldinger, dialoger og ulagret arbeid (2026-11-14)</h2><a class="sl-anchor-link" href="#skallet-meny-meldinger-dialoger-og-ulagret-arbeid-2026-11-14"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Skallet: meny, meldinger, dialoger og ulagret arbeid (2026-11-14)”</span></a></div>
+<p>Det som omgir hver side, og som derfor må virke likt overalt:</p>
+<ul>
+<li><strong>Meny.</strong> Seksjonene står i en <code dir="auto">&lt;nav aria-label="Seksjoner"&gt;</code>. På
+telefon er de en liste bak en knapp som viser hvor du er («Lønn ·
+Meny») — tidligere var de en vannrett stripe på 18 punkter der den
+aktive kunne ligge 1 400 px utenfor skjermen. Listen legger seg
+OVER siden, ikke inn i den — ellers ville en seksjon som fyller
+skjermen (Meldinger) blitt klemt hver gang den åpnes — og lukker seg
+når du har valgt, trykker utenfor eller trykker Escape.</li>
+<li><strong>Hopp til innhold.</strong> Første tabulatorstopp er en knapp (ikke en
+<code dir="auto">#</code>-lenke — hashen tilhører ruteren) som setter fokus i innholdet; uten
+den var det 20 tabulatorstopp før siden begynte.</li>
+<li><strong>Ny side.</strong> Ved bytte av seksjon eller underside rulles det til toppen,
+og ved bytte av seksjon flyttes fokus til innholdet (<code dir="auto">main</code>,
+<code dir="auto">tabindex=-1</code>), så tastatur og skjermleser lander der siden er. En
+seksjon som bare endrer sin egen <code dir="auto">?spørring</code> (en uke, et filter) flytter
+ingenting — ellers ville piltastene i timearket miste cellen.</li>
+<li><strong>Fanetittel.</strong> Hver side heter «Seksjon · Selskap · regnmed» i fanen
+og i historikken.</li>
+<li><strong>Ukjent selskap.</strong> En adresse til et selskap personen ikke har tilgang
+til, sier «Fant ikke selskapet» med lenke til Mine selskaper, i stedet
+for en halvtom oversikt.</li>
+<li><strong>Meldinger.</strong> Toast-feltet står alltid i siden med <code dir="auto">aria-live</code>, så
+skjermlesere hører meldingene; feil er <code dir="auto">role="alert"</code>. En bekreftelse
+forsvinner etter fem sekunder, en <strong>feil blir stående til den lukkes</strong> —
+feilmeldingene våre sier hva man skal gjøre, og fem sekunder holder ikke
+til å lese dem. Høyst fire vises samtidig.</li>
+<li><strong>Dialoger.</strong> Felles dialog (<code dir="auto">lib/dialog.svelte.js</code>) navngir seg selv
+etter tittelen (<code dir="auto">aria-labelledby</code>), og hvert felt har en ekte <code dir="auto">&lt;label&gt;</code>
+(et spørsmål uten egen etikett får dialogtittelen som navn). Før var
+ingen felt i noen dialog navngitt for skjermlesere.</li>
+<li><strong>Oppstart.</strong> Svarer ikke serveren (<code dir="auto">/portal-config</code>), sier portalen
+det med «Prøv igjen» i stedet for å snurre for alltid.</li>
+<li><strong>Ulagret arbeid</strong> (<code dir="auto">lib/ulagret.js</code>). Et skjema som holder noe ulagret,
+registrerer en vakt (<code dir="auto">vaktUlagret({ ulagret: () =&gt; …, tittel, melding })</code>
+i <code dir="auto">onMount</code>). Da spør portalen før man forlater siden — via en lenke
+hvor som helst (fanget før adressen endres), via Tilbake (adressen
+settes tilbake og spørsmålet stilles etterpå) og ved omlasting eller
+lukket fane (nettleserens egen advarsel). Ny faktura er første bruker;
+før dekket den bare sine egne to lenker, ikke menyen.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="sections-all-backed-by-the-existing-engagement-guarded-api">Sections (all backed by the existing engagement-guarded API)</h2><a class="sl-anchor-link" href="#sections-all-backed-by-the-existing-engagement-guarded-api"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Sections (all backed by the existing engagement-guarded API)”</span></a></div>
+<p>Én komponentmappe per seksjon under <code dir="auto">ui/portal/src/sections/</code>, registrert
+i <code dir="auto">App.svelte</code> og navngitt i <code dir="auto">lib/meny.js</code>:</p>
+<p>Meldinger (2026-11-16, docs/meldinger.md §7) er en egen visning,
+<code dir="auto">#/meldinger</code>, utenfor selskapene — en samtale er mellom personer, og
+byråets folk snakker med alle klientene. Knappen med uleste står i hver
+navbar (<code dir="auto">ChatButton</code> i brukermenyen) og i selskapsmenyen. Liste og
+samtale side om side på bred skjerm, én av dem om gangen på telefon.
+<code dir="auto">lib/chat.svelte.js</code> holder ÉN SSE-forbindelse per innlogget person (lest
+med <code dir="auto">fetch</code>, fordi <code dir="auto">EventSource</code> ikke kan sende <code dir="auto">Authorization</code>).
+<code dir="auto">/chat</code>-adressene bufres aldri i API-klienten, og Vite-proxyen sender dem
+videre.</p>
+<p>Oversikt (snarveier, «Til oppfølging» — forfalte fakturaer, neste
+mva-frist etter terminordningen, innboks, uavstemt bank — tre nøkkeltall,
+resultat per måned, siste bilag, migrering av tomt selskap, inviter-kort
+som kan skjules; valutakurser bor i Bank, forankringen under Rapporter →
+Revisjon) · Faktura (fakturaliste m/ status, søk og filter;
+fakturaside m/ linjer, send/PDF/EHF/purring/kreditnota/gjenta; ny faktura
+m/ flere linjer og løpende sum; faner for tilbud→ordre, repeterende og
+ufakturerte timer — docs/faktura.md) · Produkter
+(register, varelager, telling) · Prosjekter (register m/ kundekobling og
+navneendring, avdelinger — docs/dimensjoner.md) · Timer (ukegrid m/
+autolagring per celle, kopier forrige uke, fakturagrunnlag m/
+personutvalg — docs/timer.md) · Lønn · Utlegg · Anlegg ·
+Aksjonærer · Kunder (register m/ søk, sortering og
+sider på serveren, utestående og forfalt per kunde; ny kunde fra
+organisasjonsnummeret m/ navn og adresse fra Enhetsregisteret og varsel
+ved konkurs/avvikling; kundeside m/ kundens fakturaer, «Ny faktura» med
+kunden valgt, merket kontaktinfo og reskontroposter under) · Leverandører
+(samme register og «ny» fra orgnr som Kunder, med leverandørens ord og
+fortegn; leverandørside m/ skyldig og forfalt, åpne poster med forfall og
+KID som kan føres og rettes, «Legg i betalingsliste» for valgte poster,
+kontonummer og reskontroposter under — docs/betaling.md) · Reskontro (alle parter på tvers, CSV-import) · Mva
+(spesifikasjon, eksport, terminordning) · Rapporter (saldobalanse,
+resultat, balanse, budsjett/avvik, konto-, reskontro- og
+bokføringsspesifikasjon, revisjon) · Bank (kontoutskrift, avstemming,
+betalingsliste) · Bilag
+(innboksen som forside m/ flere filer og dra-og-slipp; dokumentside m/
+PDF/bilde ved siden av en enkel bokføring som viser linjene, avansert
+linjeredigering, attestering og «neste dokument»; faner for
+behandlede, bokførte bilag og innstillinger — docs/bilagsinnboks.md) ·
+<strong>Administrasjon</strong> (konsollen, se under) — pluss byråvisningen på
+<code dir="auto">#/byra/{id}</code>.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="administrasjon-konsollen-og-ikonene-2026-08-06">Administrasjon-konsollen og ikonene (2026-08-06)</h2><a class="sl-anchor-link" href="#administrasjon-konsollen-og-ikonene-2026-08-06"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Administrasjon-konsollen og ikonene (2026-08-06)”</span></a></div>
+<p><strong>Administrasjon</strong> (<code dir="auto">#/c/{id}/admin/{fane}</code>) samler selskapets styring
+bak én menyoppføring: et dashbord med statusfliser (daisyUI
+stat-komponenter, samme form som plattformdashbordet: abonnement,
+medlemmer, åpne invitasjoner, oppdrag/integrasjoner, periodelås,
+firmaopplysninger) og faner som gjenbruker de eksisterende kortene —
+Firmaopplysninger og Abonnement (flyttet fra Oversikt), Brukere og
+roller, Oppdrag og integrasjoner, Periode, Utseende. Ingen ny
+autorisasjon: alle kall går til de samme vaktede endepunktene, og en
+flis hvis endepunkt nektet sier «krever mer tilgang» i stedet for å
+late som null. De gamle adressene <code dir="auto">#/c/{id}/brukere|oppdrag|periode</code>
+består og rutes til riktig fane (<code dir="auto">FLYTTET_TIL_ADMIN</code> i <code dir="auto">lib/meny.js</code>).</p>
+<p>Revidert 2026-11-15 (gjennomgang mot grunnreglene):</p>
+<ul>
+<li><strong>«Å gjøre»</strong> øverst på dashbordet lister det som mangler før
+selskapet kan fakturere og sende til myndighetene — adresse,
+kontonummer, e-post, en registreringsstatus som bare er utledet,
+kundevilkår som ikke er godtatt, et ubetalt eller sperret abonnement —
+hver med lenke til fanen som retter det (<code dir="auto">gjoremal</code> i
+<code dir="auto">sections/admin/admin.js</code>, testet). Bare fakta som faktisk ble hentet
+teller: manglende tilgang gir ingen falsk alarm.</li>
+<li><strong>Nektet er ikke nede</strong>: om en flis «krever mer tilgang» avgjøres av
+rettighetene i <code dir="auto">/me</code> FØR kallet; et kall som feiler sier «kunne ikke
+hentes» med Prøv igjen. Før så et nettverksbrudd ut som manglende
+tilgang på alle flisene.</li>
+<li><strong>Hver fane henter sitt</strong>: dashbordets kall går bare på Oversikt;
+Firmaopplysninger og Abonnement henter bare det de viser.</li>
+<li>Fanelinjen er en <code dir="auto">nav</code> med <code dir="auto">aria-current="page"</code>, ikke en tablist uten
+paneler. Firmaopplysninger har ekte etiketter og stables på telefon,
+Lagre viser fremdrift og resultatet ved knappen, og historikken viser
+kilden i ord. Kundevilkår og abonnementshandlinger vises bare for
+administrator; innsendingene til myndighetene er rader, ikke en
+femkolonners tabell. Abonnementet viser årspris når «Årlig» er valgt
+(<code dir="auto">pris_ore_per_ar</code> fra <code dir="auto">/subscription</code>; uten egen årsrad er den 12 ×
+månedsprisen, samme regel som faktureringen).</li>
+</ul>
+<p>Brukere og roller revidert 2026-11-16 (samme gjennomgang):</p>
+<ul>
+<li><strong>Nektet er ikke nede her heller</strong>: fanen henter bare det <code dir="auto">/me</code> sier
+at brukeren får lese (<code dir="auto">MEDLEM_ADMIN</code> for medlemmer, invitasjoner,
+roller og leverandørtilgang; <code dir="auto">INTEGRASJON_LES</code> for agentene). Et kall
+som feiler gir «Prøv igjen», ikke «krever administrator».</li>
+<li><strong>Medlemmer og agenter er rader, ikke tabeller</strong>, så rolle, Fjern og
+agentenes handlinger kan nås på telefon. De sjeldne agenthandlingene
+(bytt rolle, modell, trekk tilbake) ligger under «Mer».</li>
+<li><strong>Rollebytte bekreftes når det kan stenge noen ute</strong>: når en
+administrator mister administratorrollen, eller når du endrer din egen
+rolle (<code dir="auto">rolleendringAdvarsel</code> i <code dir="auto">sections/brukere/brukere.js</code>,
+testet). Et vanlig bytte skjer straks, som før. Avbryter man, settes
+velgeren tilbake. Siste-admin-vakten står fortsatt på serveren.</li>
+<li>Rollene vises med navn («Bokføring», «Lesetilgang»), ikke lagringsnøkkel,
+og med rollens forklaring fra <code dir="auto">/roles</code>. Invitasjon, ny rolle og
+«gi tilgang» er skjemaer med etiketter, Enter sender, knappen viser
+fremdrift og feltet tømmes etterpå. Tilbakekalling av en invitasjon
+bekreftes. En lukket rettighetsgruppe viser hvor mange som er valgt
+(«2 av 8»), og Lagre på en egen rolle er bare aktiv når noe er endret.</li>
+</ul>
+<p>Byråvisningen (<code dir="auto">#/byra/{id}</code>) revidert 2026-11-16 (samme gjennomgang):</p>
+<ul>
+<li><strong><code dir="auto">/me</code> lister hvert selskap ÉN gang.</strong> En person kan nå samme
+selskap på flere veier — direkte medlemskap og et byrås oppdrag, eller
+to byråer — og <code dir="auto">/me</code> sendte én rad per vei. Selskapslisten er nøklet på
+id, så duplikatet blanket ut startsiden for et byrå som fører sitt eget
+regnskap og har tatt seg selv som klient. Nå slås radene sammen
+(<code dir="auto">regnmed-db::one_per_company</code>): den sterkeste veien vises
+(<code dir="auto">access_rank</code>, samme rangering som <code dir="auto">company_access</code>), og rettighetene
+er som før unionen av alle veiene. Testet i
+<code dir="auto">me_lists_a_company_once_when_reached_two_ways</code>, sett feile uten
+rettingen.</li>
+<li><strong>Klientene er lenker</strong> til selskapets Oversikt — grunnen til at en
+regnskapsfører åpner siden. Avsluttede oppdrag står for seg under
+«Avsluttede oppdrag», uten lenke (<code dir="auto">delKlienter</code> i
+<code dir="auto">sections/byra/byra.js</code>, testet; <code dir="auto">valid_to</code> er eksklusiv som overalt).</li>
+<li><strong>Godta og Avslå bekreftes</strong>, og forespørselen viser dato og
+oppdragstype i ord. Forespørsler, klienter og medlemmer er rader som
+passer en telefon. Medlemmer-kortet følger Tilgang-kortet: rollebytte
+som kan stenge noen ute bekreftes, invitasjonen er et skjema med
+etiketter, tilbakekalling bekreftes.</li>
+<li><strong>Et ukjent byrå sier fra</strong> i stedet for å spinne for alltid, og et
+kall som feiler gir «Prøv igjen». Brødsmulesti tilbake til Mine
+selskaper.</li>
+<li><strong>Leverandørtilgang vises også for byrået</strong> (administrator):
+<code dir="auto">/firms/{id}/platform-access</code> fantes, men byråvisningen brukte den
+aldri, så «varslet»-kravet fra #57 var oppfylt for selskaper og ikke
+for byråer.</li>
+</ul>
+<p><strong>Menyikonene</strong> er håndrullede 24×24 outline-SVG-er i
+<code dir="auto">src/lib/ikoner.js</code> — vendored som themes.css: intet ikonbibliotek,
+ingen CDN, ingenting hentes i kjøretid. Hvert ikon lagres ÉN gang som
+statisk markup; <strong>ikonstilen</strong> (linje / kraftig / emoji / ingen) endrer
+bare gjengivelsen i <code dir="auto">components/Ikon.svelte</code> (strekbredde eller
+emoji-fallback). Tilordningen seksjon → ikon er fast med vilje —
+gjenkjenning dør om hver installasjon stokker om. Stilen er en
+PLATTFORMINNSTILLING, låst globalt av systemadmin (brukerbeslutning
+2026-08-06, migrasjon 0053): portalen leser den fra <code dir="auto">/portal-config</code>
+ved oppstart (<code dir="auto">lib/prefs.svelte.js</code> er bare speilet), og velgeren bor i
+plattformkonsollens Innstillinger-fane (<code dir="auto">PUT /platform/settings</code>).
+Ingen brukeroverstyring — i motsetning til fargetemaet, som fortsatt er
+per bruker.</p>
+<p><strong>Brukermenyen</strong> (2026-08-06, <code dir="auto">components/UserMenu.svelte</code>): én
+avatar-dropdown (initialer, daisyUI avatar-placeholder) i alle
+innloggede navbarer — navn/e-post, Profil (lenker til IdP-ens
+<code dir="auto">/account</code>, identitet redigeres ALDRI her), kontekstens Innstillinger
+(selskapsskallet peker på Administrasjon), fargetemavelgeren (samme
+theme-controller-maskineri som før; ThemeControls består bare på
+innloggingssiden), Logg ut og versjonsnummeret. Versjonen kommer fra
+<code dir="auto">/portal-config</code> (<code dir="auto">versjon</code>): CI baker <code dir="auto">REGNMED_VERSION</code> inn i binæren
+(taggen eller sha-&lt;kort&gt; — images.yml), lokalt svarer den ærlig «dev».</p>
+<p><strong>Plattformkonsollen</strong> (<code dir="auto">#/plattform</code>, docs/auth.md §8) er back-office:
+dashbord (<code dir="auto">/platform/overview</code>), Abonnementer per selskap
+(<code dir="auto">/platform/subscriptions</code>), og drill-down per selskap
+(<code dir="auto">components/PlattformSelskap.svelte</code> mot
+<code dir="auto">GET /platform/companies/{id}</code>) med redigerbare firmaopplysninger,
+medlemsstyring (kilde «plattform» i selskapets logg) og manuell
+åpning/avslutning av dekning. Identitetsdata (navn/e-post) eies av
+IdP-en — Brukere-fanen sier det og lenker dit (BogenTech/regnid#1).</p>
+<p>Fellesdeler ligger i <code dir="auto">src/lib/</code> (API-klient, auth, ruter, tema, toast,
+nedlasting, offline-kø) og <code dir="auto">src/components/</code> (skall, kort, dimensjons-
+og mva-velger). Ruteren leser hash-spørringen ett sted, så
+<code dir="auto">#/c/{id}/mva?year=&amp;termin=</code> fortsatt kan deles.</p>
+<p><strong>Modale spørsmål</strong> (2026-08-06): nettleserens <code dir="auto">confirm()</code>/<code dir="auto">prompt()</code>
+er erstattet av daisyUI-modaler med samme mønster som toastene —
+<code dir="auto">lib/dialog.svelte.js</code> eier tilstanden og tilbyr promise-funksjonene
+<code dir="auto">bekreft</code> (ja/nei; <code dir="auto">farlig</code> gir rød OK-knapp), <code dir="auto">sporsmal</code>
+(prompt-ekvivalenten) og <code dir="auto">skjema</code> (flere felt i én modal: text/date/
+textarea/select/checkbox, påkrevde felt sperrer OK-knappen);
+<code dir="auto">components/Dialog.svelte</code> monteres én gang i App.svelte og rendrer via
+en nativ <code dir="auto">&lt;dialog&gt;</code> (<code dir="auto">showModal()</code>), så Esc, fokusfelle og
+bakgrunnsklikk kommer fra plattformen. Flyter som før stilte flere
+prompt-spørsmål etter hverandre (gjenta faktura, avhending, godkjenn
+utlegg, aksjonærkontakt) er nå ett skjema. Ingen <code dir="auto">confirm(</code>/<code dir="auto">prompt(</code>
+skal finnes igjen i <code dir="auto">ui/portal/src</code>.</p>
+<p>Authorization is entirely server-side — the portal is a <em>view</em>; a
+revisor’s read-only access or a stranger’s 404 comes from the API, never
+from hidden buttons. Menyen skjuler bare det en rolle ikke kan bruke, så
+ingen klikker seg inn i en feilmelding; sperren ligger i tilgangsvakten.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="pwa-kvitteringsfoto-og-attestering-på-farten-48">PWA: kvitteringsfoto og attestering på farten (#48)</h2><a class="sl-anchor-link" href="#pwa-kvitteringsfoto-og-attestering-på-farten-48"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “PWA: kvitteringsfoto og attestering på farten (#48)”</span></a></div>
+<p>De to tingene folk faktisk gjør på telefon er å ta bilde av en
+kvittering i det den finnes, og å godkjenne noe mens de er ute.
+Begge deler er den samme portalen — ingen app-butikk, ingen andre
+kodebase.</p>
+<p><strong>Installerbar</strong>: <code dir="auto">/manifest.webmanifest</code> (standalone, norsk, ikoner
+192 og 512 — den siste <code dir="auto">maskable</code>, fordi Android beskjærer) og
+<code dir="auto">/sw.js</code>, servert fra binæren som alt annet. Ikonene genereres av
+<code dir="auto">scripts/build-icons.py</code> (hand-rolled PNG, ingen bildebibliotek i
+treet) og sjekkes inn ferdig, akkurat som <code dir="auto">dist</code>.</p>
+<p><strong>Service workeren cacher app-skallet — og bare det.</strong></p>
+<blockquote>
+<p>Hovedboken caches aldri. Et regnskap som viser gamle tall offline er
+verre enn et som sier at det ikke har kontakt.</p>
+</blockquote>
+<p>Siden skallet er Vite-bygget, kan filnavnene ikke listes opp på
+forhånd. Regelen er derfor uttrykt som <strong>adresser</strong>: <code dir="auto">/assets/*</code> er
+bygde, uforanderlige filer, og de faste PWA-filene er navngitt. Alt
+annet — hele API-et — går utenom cachen. Skallet hentes nett-først (en
+oppdatert app vinner alltid), og cachen trår bare til uten dekning.
+Endrende forespørsler går aldri gjennom arbeideren.</p>
+<p><strong>Kvitteringsfoto</strong>: knappen bruker
+<code dir="auto">&lt;input type="file" accept="image/*" capture="environment"&gt;</code> — kamera
+på telefon, vanlig filvelger på maskin — og laster opp til det samme
+innboks-endepunktet som før. API-et er uendret.</p>
+<p><strong>Offline-kø, bare for opplastinger.</strong> Uten dekning legges bildet i
+IndexedDB og sendes automatisk når nettet er tilbake (ved <code dir="auto">online</code> og
+ved oppstart). Bildet hashes i telefonen og sendes med <code dir="auto">?sha256=</code>, og
+serveren:</p>
+<ul>
+<li>avviser innhold den <strong>allerede har</strong> («nøyaktig dette dokumentet
+ligger allerede i innboksen som …»), så en kø som prøver igjen fordi
+svaret aldri kom fram ikke gjør ett bilag til to — med ett unntak:
+en <strong>avvist</strong> kopi sperrer ikke. Avvisningen var svaret på den
+opplastingen, og å sende samme kvittering inn igjen er et nytt
+spørsmål (<code dir="auto">regnmed-db::upload_inbox_document</code>), og</li>
+<li>avviser en hash som ikke stemmer med bytene den mottok, som betyr at
+bildet ble skadet underveis.</li>
+</ul>
+<p>Køen fjerner et bilde når serveren avviser det (det blir ikke bedre av
+å prøve igjen) og lar det ligge når det er nettet som svikter.</p>
+<p><strong>Responsivt</strong>: menyen legger seg vannrett over innholdet under <code dir="auto">sm</code>
+og er sidestilt fra <code dir="auto">sm</code> og opp; kortkroppene ruller sine egne brede
+tabeller i stedet for å dytte siden sidelengs. Temakontrakten er
+urørt — samme daisyUI-temaer som på skrivebordet.
+Stat-radene stabler (<code dir="auto">stats-vertical</code>) under sitt brytepunkt i stedet
+for å rulle sidelengs. Aktivt menyvalg markeres diskret med
+temastyrte tokens (<code dir="auto">bg-base-200 text-primary</code> + primærfarget stolpe
+via inset-skygge i <code dir="auto">currentColor</code> + <code dir="auto">aria-current</code> — daisyUIs
+<code dir="auto">menu-active</code> ble prøvd og var for kraftig, og stolpen bærer
+markeringen i temaer der tonen knapt synes), og skallet
+viser brødsmulesti
+(daisyUI <code dir="auto">breadcrumbs</code>): Mine selskaper → selskap → seksjon — dybden
+innenfor en seksjon er seksjonens egen fanelinje.</p>
+<p>Bevisst utenfor: native apper, push-varsler (e-post dekker frister),
+og offline bokføring — aldri.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="verified">Verified</h2><a class="sl-anchor-link" href="#verified"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Verified”</span></a></div>
+<p>Full browser round-trip against the dev servers: SSO login via regnid →
+company picker from <code dir="auto">/me</code> → dashboard with live ledger numbers → customer
+created → invoice issued (KID shown) → mva-spesifikasjon reflecting the
+new invoice → theme switch (corporate) applied instantly.</p>
+<p>PWA-en er verifisert i mobilviewport (375×812): service workeren
+registrert og aktiv med rot-scope, manifestet lest, kameraknappen med
+<code dir="auto">capture="environment"</code>, menyen vannrett, ingen vannrett overflyt — og
+et «kamerabilde» lastet opp gjennom den ekte veien, der den samme
+filen sendt en gang til ble avvist av serveren.</p>
+<p><code dir="auto">regnmed-api/tests/grupper/pwa.rs</code> dekker det som må stå: manifest og ikoner
+serveres med riktig content-type (og er ekte PNG-er i riktig
+størrelse), arbeideren nevner ikke hovedboken, <code dir="auto">index.html</code> peker på
+manifestet, og den samme kvitteringen to ganger blir ett bilag mens en
+gal hash avvises. <code dir="auto">tests/grupper/portal.rs</code> dekker serveringen: <code dir="auto">/</code> og
+<code dir="auto">/callback</code> gir appen, hver hashet asset serveres <code dir="auto">immutable</code>, en ukjent
+asset gir 404 (ikke appen på nytt), <code dir="auto">/ny</code> redirecter til <code dir="auto">/</code>, og de
+gamle adressene <code dir="auto">/app.js</code>, <code dir="auto">/app.css</code>, <code dir="auto">/theme.js</code> er borte.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="flippen-2026-07-29-76-steg-3">Flippen (2026-07-29, #76 steg 3)</h3><a class="sl-anchor-link" href="#flippen-2026-07-29-76-steg-3"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Flippen (2026-07-29, #76 steg 3)”</span></a></div>
+<p>Svelte-appen overtok <code dir="auto">/</code>, og den rammeverksfrie portalen ble slettet i
+samme endring: <code dir="auto">app.js</code> (4 174 linjer), <code dir="auto">theme.js</code>, den genererte
+<code dir="auto">app.css</code>, <code dir="auto">index.html</code>, <code dir="auto">scripts/build-css.sh</code> og <code dir="auto">ui/input.css</code>.
+Verifisert i nettleseren etterpå: appen serveres fra roten, service
+workeren er registrert med rot-scope og cachen inneholder <strong>bare</strong>
+skallet (<code dir="auto">/</code>, <code dir="auto">/assets/*</code>, ikoner, manifest) og ingenting fra
+hovedboken, den gamle <code dir="auto">v1</code>-cachen er ryddet bort, de gamle adressene
+svarer 404, <code dir="auto">/ny</code> redirecter, og 375×812 har fortsatt ingen vannrett
+sidescroll.</p>
+</div><footer class="sl-flex" data-astro-cid-ddtxxk7k><div class="meta sl-flex" data-astro-cid-ddtxxk7k><a href="https://github.com/BogenTech/regnmed/edit/main/docs/portal.md" class="sl-flex print:hidden" data-astro-cid-qlekgd3o><svg data-astro-cid-qlekgd3o="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.2em;" data-astro-cid-hkc32dio><path d="M22 7.24a1 1 0 0 0-.29-.71l-4.24-4.24a1 1 0 0 0-1.1-.22 1 1 0 0 0-.32.22l-2.83 2.83L2.29 16.05a1 1 0 0 0-.29.71V21a1 1 0 0 0 1 1h4.24a1 1 0 0 0 .76-.29l10.87-10.93L21.71 8c.1-.1.17-.2.22-.33a1 1 0 0 0 0-.24v-.14l.07-.05ZM6.83 20H4v-2.83l9.93-9.93 2.83 2.83L6.83 20ZM18.17 8.66l-2.83-2.83 1.42-1.41 2.82 2.82-1.41 1.42Z"/></svg>Edit page</a></div><div class="pagination-links print:hidden" dir="ltr" data-astro-cid-b5raizh3><a href="/en/teknisk/periodisering/" rel="prev" data-astro-cid-b5raizh3><svg data-astro-cid-b5raizh3="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;" data-astro-cid-hkc32dio><path d="M17 11H9.41l3.3-3.29a1.004 1.004 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33 1 1 0 0 0 0 .76 1 1 0 0 0 .21.33l5 5a1.002 1.002 0 0 0 1.639-.325 1 1 0 0 0-.219-1.095L9.41 13H17a1 1 0 0 0 0-2Z"/></svg><span data-astro-cid-b5raizh3>Previous<br data-astro-cid-b5raizh3><span class="link-title" data-astro-cid-b5raizh3>Periodisering</span></span></a><a href="/en/teknisk/produkter/" rel="next" data-astro-cid-b5raizh3><svg data-astro-cid-b5raizh3="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;" data-astro-cid-hkc32dio><path d="M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z"/></svg><span data-astro-cid-b5raizh3>Next<br data-astro-cid-b5raizh3><span class="link-title" data-astro-cid-b5raizh3>Produktregister og enkelt varelager</span></span></a></div></footer></div></div></main></div></div></div></div></body></html>

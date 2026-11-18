@@ -1,0 +1,848 @@
+<!DOCTYPE html><html lang="nb" dir="ltr" data-theme="dark" data-has-toc data-has-sidebar data-astro-cid-g5ptsecz><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>The government rail: Maskinporten and Skatteetaten's APIs | regnmed docs</title><link rel="canonical" href="https://docs.regnmed.no/teknisk/gov/"/><link rel="alternate" hreflang="nb" href="https://docs.regnmed.no/teknisk/gov/"/><link rel="alternate" hreflang="en" href="https://docs.regnmed.no/en/teknisk/gov/"/><link rel="alternate" hreflang="x-default" href="https://docs.regnmed.no/teknisk/gov/"/><link rel="sitemap" href="/sitemap-index.xml"/><link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml"/><meta name="generator" content="Astro v7.4.13"/><meta name="generator" content="Starlight v0.43.1"/><meta property="og:title" content="The government rail: Maskinporten and Skatteetaten's APIs"/><meta property="og:type" content="article"/><meta property="og:url" content="https://docs.regnmed.no/teknisk/gov/"/><meta property="og:locale" content="nb"/><meta property="og:description" content="Brukerveiledning, utviklerdokumentasjon og teknisk dokumentasjon for regnmed, regnskapssystemet du kan etterprøve."/><meta property="og:site_name" content="regnmed docs"/><meta name="twitter:card" content="summary_large_image"/><meta name="description" content="Brukerveiledning, utviklerdokumentasjon og teknisk dokumentasjon for regnmed, regnskapssystemet du kan etterprøve."/><script>
+	(() => {
+		const storedTheme =
+			typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme');
+		const theme =
+			storedTheme ||
+			(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+		document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+	})();
+</script><link rel="stylesheet" href="/_astro/print.C9eyqPGL.css" media="print"><link rel="stylesheet" href="/_astro/common.LP9BDTc3.css"><script type="module" src="/_astro/page.cNngjUgL.js"></script></head><body data-astro-cid-g5ptsecz><a class="sl-skip-link" href="#_top" data-astro-cid-qb7clj6f>Gå til innholdet</a><div class="page sl-flex" data-astro-cid-yntsjkba><header class="header" data-astro-cid-yntsjkba><div class="header" data-astro-cid-by6fddyj><div class="title-wrapper sl-flex" data-astro-cid-by6fddyj><a href="/" class="site-title sl-flex" data-astro-cid-6rvad3va><img alt="regnmed" src="/_astro/logo.BykUI3mu.svg" width="160" height="160" data-astro-cid-6rvad3va><span translate="no" data-astro-cid-6rvad3va>regnmed docs</span></a></div><div class="sl-flex print:hidden" data-astro-cid-by6fddyj><site-search data-translations="{&quot;placeholder&quot;:&quot;Søk&quot;}" data-astro-cid-b5kgnn7o="true"><button data-open-modal disabled aria-label="Søk" aria-keyshortcuts="Control+K" data-astro-cid-b5kgnn7o><svg data-astro-cid-b5kgnn7o="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z"/></svg><span class="sl-hidden md:sl-block" aria-hidden="true" data-astro-cid-b5kgnn7o>Søk</span><kbd class="sl-hidden md:sl-flex" style="display: none" data-astro-cid-b5kgnn7o><kbd data-astro-cid-b5kgnn7o>Ctrl</kbd><kbd data-astro-cid-b5kgnn7o>K</kbd></kbd></button><dialog style="padding: 0" aria-label="Søk" data-astro-cid-b5kgnn7o><div class="dialog-frame sl-flex" data-astro-cid-b5kgnn7o><button data-close-modal class="sl-flex md:sl-hidden" data-astro-cid-b5kgnn7o>Avbryt</button><div class="search-container" data-astro-cid-b5kgnn7o><div id="starlight__search" data-astro-cid-b5kgnn7o></div></div></div></dialog></site-search><script>
+	(() => {
+		const openBtn = document.querySelector('button[data-open-modal]');
+		const shortcut = openBtn?.querySelector('kbd');
+		if (!openBtn || !(shortcut instanceof HTMLElement)) return;
+		const platformKey = shortcut.querySelector('kbd');
+		if (platformKey && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+			platformKey.textContent = '⌘';
+			openBtn.setAttribute('aria-keyshortcuts', 'Meta+K');
+		}
+		shortcut.style.display = '';
+	})();
+</script><script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.CibB10mu.js"></script></div><div class="sl-hidden md:sl-flex print:hidden right-group" data-astro-cid-by6fddyj><div class="sl-flex social-icons" data-astro-cid-by6fddyj><a href="https://github.com/BogenTech/regnmed" rel="me" class="sl-flex" data-astro-cid-n2mnl6yq><span class="sr-only" data-astro-cid-n2mnl6yq>GitHub</span><svg data-astro-cid-n2mnl6yq="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select data-astro-cid-smhvfpqh="true"><label style="--sl-select-width: 6.25em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg tema</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg class="sl-theme-icon-dark" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg class="sl-theme-icon-light" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg class="sl-theme-icon-auto" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="dark" data-astro-cid-2z5xp7gb>Mørk</option><option value="light" data-astro-cid-2z5xp7gb>Lys</option><option value="auto" selected data-astro-cid-2z5xp7gb>Auto</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>(() => {
+		const theme = (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme'));
+		if (theme) document.querySelectorAll('starlight-theme-select select').forEach((s) => { s.value = theme; });
+	})();</script><script type="module">var e=`starlight-theme`,t=e=>e===`auto`||e===`dark`||e===`light`?e:`auto`,n=()=>t(typeof localStorage<`u`&&localStorage.getItem(e));function r(t){typeof localStorage<`u`&&localStorage.setItem(e,t===`light`||t===`dark`?t:``)}var i=()=>matchMedia(`(prefers-color-scheme: light)`).matches?`light`:`dark`;function a(e){document.querySelectorAll(`starlight-theme-select select`).forEach(t=>{t.value=e}),document.documentElement.dataset.theme=e===`auto`?i():e,r(e)}matchMedia(`(prefers-color-scheme: light)`).addEventListener(`change`,()=>{n()===`auto`&&a(`auto`)});var o=class extends HTMLElement{constructor(){super(),a(n()),this.querySelector(`select`)?.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&a(t(e.currentTarget.value))})}};customElements.define(`starlight-theme-select`,o);</script><starlight-lang-select><label style="--sl-select-width: 7em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg språk</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="/teknisk/gov/" data-astro-cid-2z5xp7gb>Norsk</option><option value="/en/teknisk/gov/" data-astro-cid-2z5xp7gb>English</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-lang-select><script type="module">var e=class extends HTMLElement{constructor(){super();let e=this.querySelector(`select`);e&&(e.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&(window.location.pathname=e.currentTarget.value)}),window.addEventListener(`pageshow`,t=>{if(!t.persisted)return;let n=e.querySelector(`option[selected]`)?.index;n!==e.selectedIndex&&(e.selectedIndex=n??0)}))}};customElements.define(`starlight-lang-select`,e);</script></div></div></header><nav class="sidebar print:hidden" aria-label="Hovednavigasjon" data-astro-cid-yntsjkba><button popovertarget="starlight__sidebar" class="sl-menu-button sl-flex md:sl-hidden print:hidden" data-astro-cid-r2osgdlg><svg class="open-menu" data-astro-cid-r2osgdlg="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M3 8h18a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2Zm18 8H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Zm0-5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></svg><svg class="close-menu" data-astro-cid-r2osgdlg="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="m13.41 12 6.3-6.29a1.004 1.004 0 1 0-1.42-1.42L12 10.59l-6.29-6.3a1.004 1.004 0 0 0-1.42 1.42l6.3 6.29-6.3 6.29a1 1 0 0 0 0 1.42.998.998 0 0 0 1.42 0l6.29-6.3 6.29 6.3a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.42L13.41 12Z"/></svg><span class="sr-only" data-astro-cid-r2osgdlg>Meny</span></button><script type="module">var e=class extends HTMLElement{constructor(){super();let e=matchMedia(`(min-width: 50em)`),t=()=>{this.popover=e.matches?null:`auto`};t(),e.addEventListener(`change`,()=>t()),this.addEventListener(`toggle`,({newState:e})=>this.trapFocus(e===`open`))}trapFocus(e){document.querySelectorAll(`.main-frame, .sl-skip-link`).forEach(t=>{t.toggleAttribute(`inert`,e)})}};customElements.define(`sl-sidebar-pane`,e);</script><sl-sidebar-pane popover id="starlight__sidebar" class="sidebar-pane" data-astro-cid-yntsjkba="true"><div class="sidebar-content sl-flex" data-astro-cid-yntsjkba><sl-sidebar-state-persist data-hash="0vzjo46" data-astro-cid-ipdry5cl="true"><script aria-hidden="true">
+		(() => {
+			try {
+				if (!matchMedia('(min-width: 50em)').matches) return;
+				/** @type {HTMLElement | null} */
+				const target = document.querySelector('sl-sidebar-state-persist');
+				const state = JSON.parse(sessionStorage.getItem('sl-sidebar-state') || '0');
+				if (!target || !state || target.dataset.hash !== state.hash) return;
+				window._starlightScrollRestore = state.scroll;
+				customElements.define(
+					'sl-sidebar-restore',
+					class SidebarRestore extends HTMLElement {
+						connectedCallback() {
+							try {
+								const idx = parseInt(this.dataset.index || '');
+								const details = this.closest('details');
+								if (details && typeof state.open[idx] === 'boolean') details.open = state.open[idx];
+							} catch {}
+						}
+					}
+				);
+			} catch {}
+		})();
+	</script><ul class="top-level" data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>Brukerveiledning</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="0"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Velkommen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/kom-i-gang/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kom i gang</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/forste-faktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Første faktura</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/fakturering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Fakturering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/purring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Purring og betalingsoppfølging</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/bilag-og-innboks/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilag og innboks</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/hovedbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Hovedbok og kontoplan</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/mva/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>MVA</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/lonn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn og a-melding</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/timer-og-prosjekter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Timer og prosjekter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/utlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utlegg og kjøregodtgjørelse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/anlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Anleggsregister og avskrivninger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/valuta/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Valuta</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/produkter-og-varelager/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Produkter og varelager</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/periodisering-og-budsjett/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodisering og budsjett</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/rapporter-og-arsavslutning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Rapporter og årsavslutning</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/aksjeeierbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og aksjonærregisteroppgaven</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/tilgang-og-roller/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang og roller</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/for-regnskapsforere/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>For regnskapsførere og byråer</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/for-revisorer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>For revisorer</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/migrering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Migrering fra et annet system</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/abonnement-og-priser/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Abonnement og priser</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/ai-agent/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Ta med din egen AI-agent</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/verifiser-regnskapet/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Verifiser regnskapet ditt</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/vanlige-sporsmal/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Vanlige spørsmål</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>For utviklere</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="1"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>api</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="2"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/developers/api/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>API-referanse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/identity/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Identitet og tilgang</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/ledger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Selskap og hovedbok</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/sales/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Salg og reskontro</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/reports/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Regnskap og rapporter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank og betaling</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/payroll/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn, timer og utlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/inbox/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Innboks, import og jobber</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/shares/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og anlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/agents/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Integrasjoner, agenter og meldinger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/verification/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Forankring og verifisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/platform/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Plattform (leverandørens konsoll)</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><a href="/developers/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Introduksjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/getting-started/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kom i gang for integrasjoner</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/authentication/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Autentisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/access-and-roles/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang og roller for integrasjoner</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/conventions/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Konvensjoner</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/examples/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Eksempler</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/mcp-and-agents/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>MCP og agenter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/verify-it-yourself/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Verifiser selv</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/self-hosting/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Selvhosting</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/contributing/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bidra</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>Teknisk dokumentasjon</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="3"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/teknisk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Teknisk dokumentasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/abonnement/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Abonnement: regnmeds egen kasse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/agent/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Ta med din egen agent</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/aksjonaer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og aksjonærregisteroppgave (RF-1086)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/anchoring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>External anchoring of chain heads</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/anlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Anleggsregister og avskrivninger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/api/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>API-referanse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/arsavslutning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Årsavslutning</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/attestering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Attestering: godkjenningsflyt før bokføring og betaling</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/auth/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang: hvem kan gjøre hva</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/balansedokumentasjon/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Balansedokumentasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank reconciliation</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/betaling/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Betalingsliste og remittering (pain.001)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/bilagsinnboks/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilagsinnboks</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/bilagstolkning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilagstolkning: forslag fra dokumentets egen tekst</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/blob-store/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Dokumenter i objektlagring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/budsjett/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Budsjett og avviksrapport</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/deploy/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Deployment</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/dimensjoner/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Dimensjoner: avdeling og prosjekt</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/efaktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>E-faktura ut fra 1. januar 2027 — forslag</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/ehf/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>EHF: elektronisk faktura ut og inn</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/epost-inn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>E-post-inn til bilagsinnboksen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/faktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utgående faktura</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/frugality/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The frugality budget</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/gov/" aria-current="page" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The government rail: Maskinporten and Skatteetaten&#39;s APIs</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/hovedbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Hovedbok: kontoplan og manuell bilagsføring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/integrations/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Maskin-tilgang til API-et</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/jobs/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bakgrunnsjobber</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/kontantsalg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kontantsalg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/ledger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The ledger: append-only, hash-chained, independently verifiable</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/lonn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn — første del</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/marketplace/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Marketplace: onboarding from the official registries</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/meldinger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Meldinger — samtaler mellom folk som jobber sammen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/migration/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Migration: SAF-T import</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/mva/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Merverdiavgift: codes, rates, spesifikasjon, melding</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/perioder/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodelåsing og bilagsvedlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/periodisering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/portal/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The portal</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/produkter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Produktregister og enkelt varelager</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/purring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Betalingsoppfølging (purring)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/rapporter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lovpålagte spesifikasjoner og rapporter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/regelverk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Regelverk som data</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/reskontro/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Reskontro: kunde- og leverandørspesifikasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/revisjon/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Revisorrollen og verifikasjonsrapporten</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/skattemelding/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Skattemelding og næringsspesifikasjon (#11) — kartlagt, ikke bygget</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/timer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Timeføring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/utlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utlegg og kjøregodtgjørelse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/valuta/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Flervaluta</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/vilkar-teknisk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kundevilkårene i koden</span></a></li></ul></details></li></ul><script aria-hidden="true">
+		(() => {
+			const scroller = document.getElementById('starlight__sidebar');
+			if (!window._starlightScrollRestore || !scroller) return;
+			scroller.scrollTop = window._starlightScrollRestore;
+			delete window._starlightScrollRestore;
+		})();
+	</script></sl-sidebar-state-persist><div class="md:sl-hidden"><div class="mobile-preferences sl-flex" data-astro-cid-p4azlveh><div class="social-icons" data-astro-cid-p4azlveh><a href="https://github.com/BogenTech/regnmed" rel="me" class="sl-flex" data-astro-cid-n2mnl6yq><span class="sr-only" data-astro-cid-n2mnl6yq>GitHub</span><svg data-astro-cid-n2mnl6yq="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select data-astro-cid-smhvfpqh="true"><label style="--sl-select-width: 6.25em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg tema</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg class="sl-theme-icon-dark" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg class="sl-theme-icon-light" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg class="sl-theme-icon-auto" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="dark" data-astro-cid-2z5xp7gb>Mørk</option><option value="light" data-astro-cid-2z5xp7gb>Lys</option><option value="auto" selected data-astro-cid-2z5xp7gb>Auto</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>(() => {
+		const theme = (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme'));
+		if (theme) document.querySelectorAll('starlight-theme-select select').forEach((s) => { s.value = theme; });
+	})();</script><starlight-lang-select><label style="--sl-select-width: 7em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg språk</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="/teknisk/gov/" data-astro-cid-2z5xp7gb>Norsk</option><option value="/en/teknisk/gov/" data-astro-cid-2z5xp7gb>English</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-lang-select></div></div></div></sl-sidebar-pane></nav><div class="main-frame" data-astro-cid-yntsjkba><script type="module">var e=document.getElementById(`starlight__sidebar`),t=e?.querySelector(`sl-sidebar-state-persist`),n=`sl-sidebar-state`,r=()=>{let r=[],i=t?.dataset.hash||``;try{let e=sessionStorage.getItem(n),t=JSON.parse(e||`{}`);Array.isArray(t.open)&&t.hash===i&&(r=t.open)}catch{}return{hash:i,open:r,scroll:e?.scrollTop||0}},i=e=>{try{sessionStorage.setItem(n,JSON.stringify(e))}catch{}},a=()=>i(r()),o=(e,t)=>{let n=r();n.open[t]=e,i(n)};t?.addEventListener(`click`,e=>{if(!(e.target instanceof Element))return;let t=e.target.closest(`summary`)?.closest(`details`);if(!t)return;let n=t.querySelector(`sl-sidebar-restore`),r=parseInt(n?.dataset.index||``);isNaN(r)||o(!t.open,r)}),addEventListener(`visibilitychange`,()=>{document.visibilityState===`hidden`&&a()});</script><div class="lg:sl-flex" data-astro-cid-lrzkfocr><aside class="right-sidebar-container print:hidden" data-astro-cid-lrzkfocr><div class="right-sidebar" data-astro-cid-lrzkfocr><div class="lg:sl-hidden" data-astro-cid-qok35upx><mobile-starlight-toc data-min-h="2" data-max-h="3" data-astro-cid-66cqc7ze="true"><nav aria-labelledby="starlight__on-this-page--mobile" data-astro-cid-66cqc7ze><details id="starlight__mobile-toc" data-astro-cid-66cqc7ze><summary id="starlight__on-this-page--mobile" class="sl-flex" data-astro-cid-66cqc7ze><span class="toggle sl-flex" data-astro-cid-66cqc7ze>På denne siden<svg class="caret" data-astro-cid-66cqc7ze="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></span><span class="display-current" data-astro-cid-66cqc7ze></span></summary><div class="dropdown" data-astro-cid-66cqc7ze><ul class="isMobile" style="--depth: 0;" data-astro-cid-jugkfwgx><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#_top" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Oversikt</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#maskinporten-cratesregnmed-govsrcmaskinportenrs" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Maskinporten (crates/regnmed-gov/src/maskinporten.rs)</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#operational-setup-one-time-per-environment" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Operational setup (one-time, per environment)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hele-scope-behovet-ikke-bare-det-neste" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hele scope-behovet, ikke bare det neste</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#det-som-ikke-er-skatteetaten-scope" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Det som IKKE er Skatteetaten-scope</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#a-melding-api-cratesregnmed-govsrcameldingrs" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>A-melding API (crates/regnmed-gov/src/amelding.rs)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#mva-melding-apis-cratesregnmed-govsrcmvameldingrs" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Mva-melding APIs (crates/regnmed-gov/src/mvamelding.rs)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#aksjonærregisteroppgaven-cratesregnmed-coreshareholder_return" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Aksjonærregisteroppgaven (crates/regnmed-core::shareholder_return)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#er-scopet-faktisk-tilgjengelig-spør-maskinporten" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Er scopet faktisk tilgjengelig? Spør Maskinporten</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#valideringsrundturen-mva-melding-vil-ha-id-porten-ikke-maskinporten" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Valideringsrundturen: mva-melding vil ha ID-PORTEN, ikke Maskinporten</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hva-hver-av-de-fire-tildelingene-faktisk-krever" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hva hver av de fire tildelingene faktisk krever</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#skatteetatens-svar-ssv-5760-2026-08-11-det-er-loven-ikke-etterslep" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Skatteetatens svar (SSV-5760, 2026-08-11): det er loven, ikke etterslep</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#systembruker-hvilke-tilgangspakker-og-hvorfor-det-er-to-systemer" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Systembruker: hvilke tilgangspakker, og hvorfor det er to systemer</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#registrert-2026-11-11-étt-system-ikke-to" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Registrert 2026-11-11: ÉTT system, ikke to</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#første-a-melding-2026-11-11-mottatt-uten-avvik" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Første a-melding, 2026-11-11: mottatt uten avvik</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#status--verification" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Status &amp; verification</span></a></li></ul></div></details></nav></mobile-starlight-toc><script type="module" src="/_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.C3fM4Kra.js"></script></div><div class="right-sidebar-panel sl-hidden lg:sl-block" data-astro-cid-qok35upx><div class="sl-container" data-astro-cid-qok35upx><starlight-toc data-min-h="2" data-max-h="3"><nav aria-labelledby="starlight__on-this-page"><h2 id="starlight__on-this-page">På denne siden</h2><ul style="--depth: 0;" data-astro-cid-jugkfwgx><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#_top" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Oversikt</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#maskinporten-cratesregnmed-govsrcmaskinportenrs" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Maskinporten (crates/regnmed-gov/src/maskinporten.rs)</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#operational-setup-one-time-per-environment" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Operational setup (one-time, per environment)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hele-scope-behovet-ikke-bare-det-neste" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hele scope-behovet, ikke bare det neste</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#det-som-ikke-er-skatteetaten-scope" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Det som IKKE er Skatteetaten-scope</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#a-melding-api-cratesregnmed-govsrcameldingrs" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>A-melding API (crates/regnmed-gov/src/amelding.rs)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#mva-melding-apis-cratesregnmed-govsrcmvameldingrs" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Mva-melding APIs (crates/regnmed-gov/src/mvamelding.rs)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#aksjonærregisteroppgaven-cratesregnmed-coreshareholder_return" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Aksjonærregisteroppgaven (crates/regnmed-core::shareholder_return)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#er-scopet-faktisk-tilgjengelig-spør-maskinporten" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Er scopet faktisk tilgjengelig? Spør Maskinporten</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#valideringsrundturen-mva-melding-vil-ha-id-porten-ikke-maskinporten" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Valideringsrundturen: mva-melding vil ha ID-PORTEN, ikke Maskinporten</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hva-hver-av-de-fire-tildelingene-faktisk-krever" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hva hver av de fire tildelingene faktisk krever</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#skatteetatens-svar-ssv-5760-2026-08-11-det-er-loven-ikke-etterslep" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Skatteetatens svar (SSV-5760, 2026-08-11): det er loven, ikke etterslep</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#systembruker-hvilke-tilgangspakker-og-hvorfor-det-er-to-systemer" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Systembruker: hvilke tilgangspakker, og hvorfor det er to systemer</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#registrert-2026-11-11-étt-system-ikke-to" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Registrert 2026-11-11: ÉTT system, ikke to</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#første-a-melding-2026-11-11-mottatt-uten-avvik" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Første a-melding, 2026-11-11: mottatt uten avvik</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#status--verification" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Status &amp; verification</span></a></li></ul></nav></starlight-toc><script type="module" src="/_astro/TableOfContents.astro_astro_type_script_index_0_lang.BpJaGz7G.js"></script></div></div></div></aside><div class="main-pane" data-astro-cid-lrzkfocr><main data-pagefind-body lang="nb" dir="ltr" data-astro-cid-g5ptsecz><div class="content-panel" data-astro-cid-a7po4psb><div class="sl-container" data-astro-cid-a7po4psb><h1 id="_top" data-astro-cid-bebwqqxs>The government rail: Maskinporten and Skatteetaten&#39;s APIs</h1></div></div><div class="content-panel" data-astro-cid-a7po4psb><div class="sl-container" data-astro-cid-a7po4psb><div class="sl-markdown-content"><p>Everything regnmed sends to Norwegian authorities rides on
+<strong>Maskinporten</strong> (Digdir’s machine-to-machine OAuth2 server). The client
+lives in <code dir="auto">crates/regnmed-gov</code> and is shared by every government
+integration — mva-melding first, later skattemelding and årsregnskap.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="maskinporten-cratesregnmed-govsrcmaskinportenrs">Maskinporten (crates/regnmed-gov/src/maskinporten.rs)</h2><a class="sl-anchor-link" href="#maskinporten-cratesregnmed-govsrcmaskinportenrs"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Maskinporten (crates/regnmed-gov/src/maskinporten.rs)”</span></a></div>
+<p>Flow (RFC 7523): sign a short-lived JWT grant with the key registered on
+our Maskinporten client → POST to the token endpoint → receive an access
+token carrying the requested scopes → cache until shortly before expiry.
+Grant constraints honored: <code dir="auto">exp − iat ≤ 120 s</code>, unique <code dir="auto">jti</code>, <code dir="auto">aud</code> =
+the Maskinporten issuer.</p>
+<p>Configuration (environment):</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">MASKINPORTEN_TOKEN_ENDPOINT</code></td>
+<td><code dir="auto">https://test.maskinporten.no/token</code></td>
+</tr>
+<tr>
+<td><code dir="auto">MASKINPORTEN_AUDIENCE</code></td>
+<td><code dir="auto">https://test.maskinporten.no/</code></td>
+</tr>
+<tr>
+<td><code dir="auto">MASKINPORTEN_CLIENT_ID</code></td>
+<td>client UUID from Samarbeidsportalen</td>
+</tr>
+<tr>
+<td><code dir="auto">MASKINPORTEN_KEY_FILE</code></td>
+<td>path to the RS256 private key (PEM)</td>
+</tr>
+<tr>
+<td><code dir="auto">MASKINPORTEN_KID</code></td>
+<td>key id, if several keys are registered</td>
+</tr>
+<tr>
+<td><code dir="auto">MASKINPORTEN_SCOPES</code></td>
+<td><code dir="auto">skatteetaten:mvameldingvalidering</code></td>
+</tr>
+</tbody>
+</table>
+<p>Production uses <code dir="auto">https://maskinporten.no</code>. <strong>No secrets in the repo,
+ever</strong> — keys live outside git and outside container images. That rule
+is absolute, in test as well as production — there is no encrypted-secrets
+carve-out. Where the keys actually live is recorded in docs/secrets.md.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="operational-setup-one-time-per-environment">Operational setup (one-time, per environment)</h3><a class="sl-anchor-link" href="#operational-setup-one-time-per-environment"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Operational setup (one-time, per environment)”</span></a></div>
+<p><strong>Status: TILDELT 2026-08-10</strong> — svar på sak SSV-5760: BogenTech AS
+(935115086) har fått følgende tilganger i <strong>test</strong>: Innrapportering
+A-melding (DM-1), Innrapportering aksjonærregisteroppgave (DM-8), MVA
+Melding Validering (DM-39), Skattekort til arbeidsgiver (DM-41).
+Bestillingen ble sendt 2026-08-06 på brukerstøttedesken
+(eksternjira.sits.no, kategori Innrapportering), tjenesteområder
+A-meldingen, Aksjonærregisteret, MVA-melding og Skattekort til
+arbeidsgiver, akseptert bruksvilkår. Skjemaet spør aldri om klient-id —
+tilgangen gis organisasjonen, og scopene legges på klienten i
+Samarbeidsportalen etterpå. Historikken bak: den
+opprinnelige bestillingen 2026-07-24 gikk via skriv-til-oss, som
+2026-08-06 svarte at kanalen ikke behandler slike saker; omveien
+kostet lite, siden juli-bestillingen ba om
+<code dir="auto">skatteetaten:mvameldinginnsending</code> som ikke finnes (innsending går
+via Altinn 3, se tabellen under).</p>
+<p>Veien inn, for neste gang (dette var det som stanset bestillingen):
+<strong>det finnes ikke noe registreringsskjema</strong> — daglig leder/styreleder
+har automatisk tilgang til brukeradministrasjonsverktøyet
+(&lt;<a href="https://skatt.skatteetaten.no/web/sakservice-web/">https://skatt.skatteetaten.no/web/sakservice-web/</a>&gt;), oppretter
+brukerkontoene der (gjort 2026-08-06, <a href="mailto:andre@bogentech.no">andre@bogentech.no</a>), og første
+pålogging på desken går via «Har du glemt passordet ditt?». Skal
+andre enn daglig leder administrere: deleger Altinn-tjenesten
+«Brukeradministrasjon – brukerstøtte for bruk av Skatteetatens
+opplysninger» først.</p>
+<p>Gjenstår:</p>
+<ol>
+<li><del>Legg de fire tildelte scopene på testklienten</del> <strong>GJORT
+2026-08-10</strong> (alle fire GRANTED, se under). Legg de fire tildelte scopene på testklienten i Samarbeidsportalen
+(tildelingen gjelder organisasjonen; klienten må fortsatt bære
+scopene), registrer denne maskinens nye nøkkel (se nøkkelnotatet
+under), og kjør valideringsrundturen (steg 4 under) — empirisk
+sjekk: <code dir="auto">scripts/maskinporten-scope-test.py &lt;scope&gt;</code> skal svare
+GRANTED for alle fire.</li>
+<li><code dir="auto">skatteetaten:mvaregisteravgiftssubjekt</code> og <code dir="auto">skatteetaten:frister</code>
+var <strong>ikke</strong> valgbare i Innrapportering-skjemaet — de hører til
+Deling-siden (eget behandlingsgrunnlagskrav) og bestilles separat
+der når de trengs. Lav prioritet: begge er kryssjekker, ikke
+forutsetninger.</li>
+<li><del>Altinn 3-tilgangen for mva-melding-INNSENDING</del> <strong>BESVART
+2026-08-11</strong>: <code dir="auto">altinn:instances.read</code>/<code dir="auto">write</code> bestilles i Digdirs
+registreringsskjema for sluttbrukersystem, ikke hos Skatteetaten.
+Den opprinnelige noten sto slik, og var riktig om skjemaet vi da
+så på:
+(<code dir="auto">altinn:instances.read</code>/<code dir="auto">write</code> mot mva-melding-appen) hadde ikke
+noe felt i skjemaet — still spørsmålet som oppfølging på SSV-5760
+når saken får en behandler.</li>
+<li>Produksjon bestilles i samme skjema når testintegrasjonen er
+verifisert.</li>
+</ol>
+<p>The <strong>test client exists</strong> with an RS256 keypair registered on it; its
+id and the rest of the <code dir="auto">MASKINPORTEN_*</code> configuration live outside git
+in <code dir="auto">~/.config/regnmed/maskinporten-test.env</code> (docs/secrets.md).
+<strong>Nøkkelnotat 2026-08-10:</strong> denne utviklingsmaskinen hadde ingen
+<code dir="auto">~/.config/regnmed/</code>, så en ny nøkkel ble generert etter
+per-maskin-oppskriften (<code dir="auto">scripts/maskinporten-key.sh</code>) og registrert
+på klienten samme dag (kid = RFC 7638-thumbprinten — portalen beholdt
+JWK-ens egen kid denne gangen, utløper 10.08.2027). Den gamle nøkkelen
+(kid <code dir="auto">6e9b86f2-…</code>, utløper 24.07.2027) er fortsatt I BRUK på den andre
+MacBook-en — to maskiner, to nøkler, akkurat slik docs/secrets.md
+foreskriver.</p>
+<p>The aksjonærregisteroppgave scope rides in SSV-5760 — and additionally
+needs an Altinn systembruker, see below.</p>
+<ol>
+<li>
+<p>Get access to Digdir’s <strong>Samarbeidsportalen</strong> (requires the
+organization’s Altinn roles).</p>
+</li>
+<li>
+<p>Create a Maskinporten client in the test environment; register a
+public key (or virksomhetssertifikat) on it.</p>
+</li>
+<li>
+<p>Request the Skatteetaten scopes. <strong>Verified against Skatteetatens
+own API-dokumentasjon 2026-07-27</strong> — the earlier note here was partly
+wrong, so check the API’s own page before ordering:</p>
+<table>
+<thead>
+<tr>
+<th>Trenger</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mva-melding, validering</td>
+<td><code dir="auto">skatteetaten:mvameldingvalidering</code></td>
+</tr>
+<tr>
+<td>Mva-melding, <strong>innsending</strong></td>
+<td>ingen <code dir="auto">skatteetaten:</code>-scope — går via Altinn3 med <code dir="auto">altinn:instances.read</code> / <code dir="auto">altinn:instances.write</code></td>
+</tr>
+<tr>
+<td>A-melding (#46)</td>
+<td><code dir="auto">skatteetaten:innrapporteringamelding</code></td>
+</tr>
+<tr>
+<td>Skattekort (#46)</td>
+<td><code dir="auto">skatteetaten:skattekorttilarbeidsgiver</code></td>
+</tr>
+<tr>
+<td>Aksjonærregisteroppgaven (#43)</td>
+<td><code dir="auto">skatteetaten:innrapporteringaksjonaerregisteroppgave</code></td>
+</tr>
+</tbody>
+</table>
+<p>Merk at <code dir="auto">skatteetaten:mvamelding</code> er et ANNET API — det <em>leverer
+fastsatte</em> mva-meldinger (leser inn), ikke innsending. Navnelikheten
+er en felle.</p>
+<p><strong>Alle Skatteetaten-scopene bestilles ett sted.</strong> Verifisert
+2026-07-28: hver SBS-side («mva-melding», «a-meldingen»,
+«aksjonarregisteroppgaven») lenker under «trenger du hjelp» til den
+SAMME brukerstøttetjenesten, med samme setning — <em>«Send oss en
+henvendelse her hvis du har spørsmål knyttet til en tjeneste, skal
+bestille tilgang til en ny tjeneste eller vil melde inn
+endringsønsker»</em>:</p>
+<p>&lt;<a href="https://eksternjira.sits.no/plugins/servlet/desk/site/global">https://eksternjira.sits.no/plugins/servlet/desk/site/global</a>&gt;</p>
+<p>Én henvendelse kan altså be om alle scopene samtidig. En tidligere
+utgave av dette dokumentet listet én rad per scope med lenke til
+API-ets egen side; det var å notere hvilken side man går <em>fra</em>, ikke
+hvor den fører — og fikk bestillingen til å se ut som fire søknader.</p>
+<p>Tjenesten krever egen brukerkonto (ikke ID-porten): virksomheten må
+først opprette en brukeradministrator som lager kontoene. Førstegangs
+pålogging går via «Har du glemt passordet ditt?».</p>
+<p>Oppgi alltid <strong>organisasjonsnummer</strong>, <strong>miljø</strong> (test/prod) og
+<strong>klient-id</strong>, og bestill test og produksjon hver for seg.</p>
+</li>
+</ol>
+<div class="sl-heading-wrapper level-h3"><h3 id="hele-scope-behovet-ikke-bare-det-neste">Hele scope-behovet, ikke bare det neste</h3><a class="sl-anchor-link" href="#hele-scope-behovet-ikke-bare-det-neste"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Hele scope-behovet, ikke bare det neste”</span></a></div>
+<p>Kartlagt 2026-07-27 ved å gå gjennom Skatteetatens API-dokumentasjon i
+sin helhet (99 API-sider), fordi å bestille ett scope om gangen er den
+dyreste måten å gjøre dette på: hver tildeling har ukers ledetid.</p>
+<p><strong>Bestilles nå — dekker kode som finnes eller er neste steg:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>Til</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">skatteetaten:mvameldingvalidering</code></td>
+<td>mva-melding, validering (#8)</td>
+<td>koden finnes</td>
+</tr>
+<tr>
+<td><code dir="auto">skatteetaten:innrapporteringamelding</code></td>
+<td>a-melding <strong>og</strong> avstemmingsrapporten (#46)</td>
+<td>koden mangler</td>
+</tr>
+<tr>
+<td><code dir="auto">skatteetaten:skattekorttilarbeidsgiver</code></td>
+<td>skattekort → forskuddstrekk (#46)</td>
+<td>koden finnes (<code dir="auto">regnmed-gov::tax_card</code>, docs/lonn.md); prøvd mot testmiljøet 2026-11-12</td>
+</tr>
+<tr>
+<td><code dir="auto">skatteetaten:innrapporteringaksjonaerregisteroppgave</code></td>
+<td>RF-1086 (#43)</td>
+<td>rendringen finnes</td>
+</tr>
+<tr>
+<td><code dir="auto">skatteetaten:mvaregisteravgiftssubjekt</code></td>
+<td>er selskapet mva-registrert?</td>
+<td>i dag et manuelt flagg i firmaopplysningene (docs/faktura.md) — dette er den autoritative kilden</td>
+</tr>
+<tr>
+<td><code dir="auto">skatteetaten:frister</code></td>
+<td>offisielle frister</td>
+<td>vi <em>beregner</em> mva-frister selv (<code dir="auto">Terminordning</code>); en autoritativ kilde er en kryssjekk, ikke en erstatning</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Vent til saken er planlagt</strong> — ikke bestill tilgang til opplysninger
+uten et sted å bruke dem; det er både dataminimering og noe
+Skatteetaten spør om:</p>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>Til</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">skatteetaten:skattemeldingupersonlig</code>, <code dir="auto">skatteetaten:naeringsspesifikasjon</code></td>
+<td>skattemelding m/ næringsspesifikasjon (#11, «later»)</td>
+</tr>
+<tr>
+<td><code dir="auto">skatteetaten:formueinntekt/skattemelding</code></td>
+<td>innsending av skattemelding (#11)</td>
+</tr>
+</tbody>
+</table>
+<p>⚠️ <strong>Men innsending av skattemelding går ikke på denne skinnen i det
+hele tatt.</strong> Skatteetaten skriver selv, om overgangen til Altinn 3:
+<em>«Validering og innsending må fortsatt gjøres med ID-porten»</em>. For
+inntektsår 2025 gir Maskinporten bare <strong>lesetilgang</strong> — hente gjeldende
+skattemelding og PDF av den fastsatte. Å bestille scopene over gir
+altså ikke en innsendingsvei; den krever en innlogget person.
+Konsekvensene for #11 står i docs/skattemelding.md.</p>
+<p><strong>Ikke aktuelt for regnmed:</strong> primærnæringsscopene (med mindre et
+kundesegment krever det), oppdragsregisteret (bygg/anlegg),
+innkrevings- og utleggsscopene (inkasso overlates bevillingshavere,
+docs/purring.md), og tredjepartsrapporteringen for bank/forsikring.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="det-som-ikke-er-skatteetaten-scope">Det som IKKE er Skatteetaten-scope</h3><a class="sl-anchor-link" href="#det-som-ikke-er-skatteetaten-scope"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Det som IKKE er Skatteetaten-scope”</span></a></div>
+<p>Den fellen som kostet en runde: to av behovene løses ikke med et
+<code dir="auto">skatteetaten:</code>-scope i det hele tatt, og må søkes hos Digdir/Altinn
+<strong>parallelt</strong>, ikke etterpå.</p>
+<table>
+<thead>
+<tr>
+<th>Behov</th>
+<th>Krever</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mva-melding, <strong>innsending</strong></td>
+<td>Altinn3-instansflyten med <code dir="auto">altinn:instances.read</code> / <code dir="auto">altinn:instances.write</code></td>
+</tr>
+<tr>
+<td>Aksjonærregisteroppgaven</td>
+<td><strong>Altinn systembruker</strong> med tilgangspakke, i tillegg til scopet</td>
+</tr>
+</tbody>
+</table>
+<p><code dir="auto">altinn:instances.read</code> / <code dir="auto">altinn:instances.write</code> er synlige i
+Samarbeidsportalens scope-velger og kan hukes av — men det gir ingen
+tilgang, akkurat som for Skatteetaten-scopene (verifisert 2026-07-28:
+klienten fikk dem lagt til, og portalen svarte «Det er lagt til scopes
+på klienten som virksomheten din ikke har tilgang til»).</p>
+<p><strong>LØST 2026-08-11.</strong> Skatteetaten bekreftet på SSV-5760 at innsending
+krever nettopp <code dir="auto">altinn:instances.write</code> / <code dir="auto">.read</code>, og bestillingsveien
+er Digdirs <strong>registreringsskjema for sluttbrukersystem</strong> (steg 1.1 i
+deres onboarding) — funksjonsområdet «Innsending av skjema/data» ER
+<code dir="auto">altinn:instances.write</code>. Altså samme skjema som systembruker-scopene,
+ikke en egen kanal. Avsnittet under sto som åpent spørsmål til da:</p>
+<p>Altinns egen dokumentasjon beskriver bare hvordan <strong>tjenesteeiere</strong> får
+disse scopene delegert, ikke hvordan et sluttbrukersystem får dem. Vi
+hadde altså <strong>ingen verifisert bestillingsvei</strong> for dem — ikke skriv
+en inn her før den er prøvd. Det praktiske første forsøket er å spørre i
+samme henvendelse til Skatteetatens brukerstøtte: innsendingsflyten er
+deres, så de vet hvilken delegering den krever.</p>
+<ol start="4">
+<li>Point the env variables above at the test environment and run
+<code dir="auto">regnmed mva-melding … --validate</code>.</li>
+</ol>
+<p>For a regnskapsfører acting on behalf of clients, the client company
+<strong>delegates</strong> the scope to the accounting firm in Altinn (Altinn
+Autorisasjon). This maps 1:1 onto regnmed’s engagement model — the same
+firm→client relationship, expressed in the government’s registry.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="a-melding-api-cratesregnmed-govsrcameldingrs">A-melding API (crates/regnmed-gov/src/amelding.rs)</h2><a class="sl-anchor-link" href="#a-melding-api-cratesregnmed-govsrcameldingrs"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “A-melding API (crates/regnmed-gov/src/amelding.rs)”</span></a></div>
+<p><code dir="auto">AmeldingClient</code> sender en a-melding og henter tilbakemeldingen, begge
+med kundens <strong>systembrukertoken</strong>
+(<code dir="auto">TokenProvider::token_for_systemuser</code>, scopene i <code dir="auto">amelding::SCOPES</code>:
+<code dir="auto">skatteetaten:innrapporteringamelding digdir:dialogporten</code>). Kroppen er
+<code dir="auto">regnmed_core::amelding::render_json</code> (docs/lonn.md).</p>
+<ul>
+<li><code dir="auto">submit</code> → <code dir="auto">POST {AMELDING_URL}/v1/innsending/{periode}/{opplysningspliktig}</code>
+med <code dir="auto">idempotencyKey</code>; svaret er en kvittering (<code dir="auto">dialogId</code>,
+<code dir="auto">forsendelseId</code>, <code dir="auto">meldingsId</code>), ikke en dom. Feil fra Skatteetaten
+(<code dir="auto">kode</code>, <code dir="auto">melding</code>, <code dir="auto">spesifisering</code>) sendes videre ordrett.</li>
+<li><code dir="auto">feedback</code> → dialogen i Dialogporten (<code dir="auto">DIALOGPORTEN_URL</code>), den
+<code dir="auto">Information</code>-transmissionen som er relatert til innsendingen, og
+dens <code dir="auto">Api</code>-URL. <code dir="auto">None</code> til den finnes.</li>
+<li><code dir="auto">from_env</code> peker på TESTMILJØET når variablene mangler — produksjon
+velges uttrykkelig, aldri ved et uhell.</li>
+</ul>
+<p><strong>Prøvd mot ekte testmiljø 2026-11-11</strong>:
+<code dir="auto">crates/regnmed-gov/tests/amelding_live.rs</code> rendrer en melding med
+regnmeds egen kode, sender den med klienten og venter på dommen —
+<code dir="auto">mottatt</code>, <code dir="auto">avvik: []</code>, etter 24 s. Testen hopper over seg selv uten
+<code dir="auto">AMELDING_LIVE=1</code> og kjører aldri i CI; hver kjøring er en ekte
+innsending i test (og legges til periodens summer — se docs/lonn.md om
+hvorfor en ny melding for samme måned ADDERER).</p>
+<p>Koblingen til lagrede lønnskjøringer — innsendingssporet med
+idempotensnøkkel, meldingsId og erstatningsmelding, API-endepunktene og
+portalknappene — står i docs/lonn.md («Innsendingssporet»), og
+tilbakemeldingen som Altinn-hendelse (<code dir="auto">regnmed-gov::altinn_events</code>,
+webhook <code dir="auto">/webhooks/altinn</code>) i «Tilbakemelding som hendelse». Merk:
+Events-API-et krever et VEKSLET Altinn-token, ikke Maskinporten-tokenet.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="mva-melding-apis-cratesregnmed-govsrcmvameldingrs">Mva-melding APIs (crates/regnmed-gov/src/mvamelding.rs)</h2><a class="sl-anchor-link" href="#mva-melding-apis-cratesregnmed-govsrcmvameldingrs"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Mva-melding APIs (crates/regnmed-gov/src/mvamelding.rs)”</span></a></div>
+<ul>
+<li><strong>Validation</strong> (implemented): POST the melding XML to Skatteetaten’s
+validation endpoint (test:
+<code dir="auto">https://idporten-api-test.sits.no/api/mva/grensesnittstoette/mva-melding/valider</code>,
+override with <code dir="auto">MVA_VALIDATION_URL</code>). The returned
+<code dir="auto">valideringsresultat</code> is kept verbatim — it is documentation of a
+control — and any avvik fail the CLI run.</li>
+<li><strong>Submission</strong> (pending): the Altinn3 instance flow (create instance →
+upload melding + konvolutt → confirm → poll feedback). Deliberately
+not implemented until we hold real test credentials, so it can be
+developed against the actual test environment instead of guessed.
+Tracked in issue #8.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="aksjonærregisteroppgaven-cratesregnmed-coreshareholder_return">Aksjonærregisteroppgaven (crates/regnmed-core::shareholder_return)</h2><a class="sl-anchor-link" href="#aksjonærregisteroppgaven-cratesregnmed-coreshareholder_return"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Aksjonærregisteroppgaven (crates/regnmed-core::shareholder_return)”</span></a></div>
+<p>RF-1086 rides the same rail, and is the most urgent of them:
+<strong>from June 2026 an end-user system is the only way to file</strong> — Altinn.no
+and paper are gone (docs/aksjonaer.md).</p>
+<ul>
+<li><strong>Rendering</strong> (implemented): hovedskjema + one underskjema per
+shareholder, validated against Skatteetatens official XSDs (vendored
+in <code dir="auto">docs/aksjonaer/</code>) in unit tests, the integration test and CI.</li>
+<li><strong>Submission</strong> (implemented, #182): <code dir="auto">regnmed-gov::shareholder_return</code>
+— POST hovedskjema → POST underskjema (×N) → POST bekreft, each call
+with its own stored <code dir="auto">idempotencyKey</code>, all under the company’s
+systembruker token. First live filing accepted by the test environment
+2026-11-11 (Tenor company 311032240) and <strong>approved</strong> — the answer is
+an <code dir="auto">Acceptance</code> transmission in the receipt’s Dialogporten dialog, so
+the rail’s token also carries <code dir="auto">digdir:dialogporten</code>. The record, the
+retry rules and the verified transaction codes are in
+docs/aksjonaer.md. The API turns the rail on whenever
+MASKINPORTEN_* is set, against the TEST base URL unless
+<code dir="auto">AKSJONAERREGISTER_URL</code> points elsewhere.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="er-scopet-faktisk-tilgjengelig-spør-maskinporten">Er scopet faktisk tilgjengelig? Spør Maskinporten</h2><a class="sl-anchor-link" href="#er-scopet-faktisk-tilgjengelig-spør-maskinporten"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Er scopet faktisk tilgjengelig? Spør Maskinporten”</span></a></div>
+<p>Samarbeidsportalen viser en <strong>katalog</strong> over alle registrerte scope —
+ikke en liste over hva virksomheten har fått tildelt. At et scope er
+synlig betyr altså ikke at det kan brukes. (Katalogen inneholder blant
+annet Skatteetatens egne skrape-scope som <code dir="auto">skatteetaten:frodetest657</code>
+«frode tester create» og <code dir="auto">skatteetaten:kjetiltest</code> «kun for test» —
+ingen har delegert dem til noen.)</p>
+<p><code dir="auto">scripts/maskinporten-scope-test.py &lt;scope&gt;</code> gjør spørsmålet empirisk,
+og skiller de tre tilstandene som ellers blandes sammen:</p>
+<table>
+<thead>
+<tr>
+<th>Svar</th>
+<th>Betyr</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">GRANTED</code></td>
+<td>virker</td>
+</tr>
+<tr>
+<td><code dir="auto">IKKE TILDELT</code></td>
+<td>«Consumer has not been granted access» — Skatteetaten har ikke gitt virksomheten tilgang. <strong>Må bestilles.</strong></td>
+</tr>
+<tr>
+<td><code dir="auto">IKKE PÅ KLIENTEN</code></td>
+<td>«invalid scopes for client» — scopet er ukjent for klienten</td>
+</tr>
+<tr>
+<td><code dir="auto">OPPSETTFEIL</code></td>
+<td><code dir="auto">invalid_grant</code>: nøkkel, kid eller klient-id</td>
+</tr>
+<tr>
+<td><code dir="auto">INGEN SYSTEMBRUKER</code></td>
+<td>MP-303, bare med <code dir="auto">--systemuser &lt;orgnr&gt;</code>: grantet er gyldig, men kunden har ikke godkjent noen systembruker for systemet vårt i Altinn</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Å huke av et scope i Samarbeidsportalen gir ingen tilgang.</strong> Det er
+den viktigste lærdommen her, og den er testet: da a-melding-scopet ble
+lagt til på klienten, endret svaret seg fra «invalid scopes for client»
+til «Consumer has not been granted access» — altså fra én blokkering til
+en annen. Katalogen viser hva som <em>finnes</em>, tildelingen avgjør hva som
+kan <em>brukes</em>, og bare Skatteetaten kan gjøre det siste.</p>
+<p><strong>Status 2026-07-27:</strong> klient og nøkkel autentiserer (kid <code dir="auto">6e9b86f2-…</code>,
+satt i <code dir="auto">~/.config/regnmed/maskinporten-test.env</code>) — hele JWT-grant-kjeden
+virker. <code dir="auto">skatteetaten:innrapporteringamelding</code> og
+<code dir="auto">skatteetaten:skattekorttilarbeidsgiver</code> svarer <strong>IKKE TILDELT</strong>, altså
+ligger bestillingen hos Skatteetaten. Bestill med de verifiserte
+navnene i tabellen over, ikke fra hukommelsen.</p>
+<p><strong>Status 2026-08-10:</strong> tildelingen fra Skatteetaten er bekreftet på
+SSV-5760 (DM-1, DM-8, DM-39, DM-41 — se øverst), og <strong>empirisk
+verifisert samme dag</strong>: alle fire scopene svarer <strong>GRANTED</strong> med den
+nye maskinnøkkelen. Hele kjeden nøkkel → grant-JWT → token virker.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="valideringsrundturen-mva-melding-vil-ha-id-porten-ikke-maskinporten">Valideringsrundturen: mva-melding vil ha ID-PORTEN, ikke Maskinporten</h3><a class="sl-anchor-link" href="#valideringsrundturen-mva-melding-vil-ha-id-porten-ikke-maskinporten"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Valideringsrundturen: mva-melding vil ha ID-PORTEN, ikke Maskinporten”</span></a></div>
+<p>Dette er dagens viktigste funn (2026-08-10), og det flytter #8.
+Meldings-XML-en bygges fint fra demo-boken, men rundturen fullfører
+ikke — av to grunner som ble blandet sammen i første diagnose:</p>
+<p><strong>1. Vi leste feil dokumentasjonssted, og URL-en var utdatert.</strong>
+<code dir="auto">idporten-api-sbstest.sits.no</code> — verten på mva-meldingens eget
+dokumentasjonsnettsted — fullfører TLS-håndtrykket (gyldig
+Sectigo-sertifikat) og RESETTER så ALLE forespørsler: hver sti, også
+<code dir="auto">/</code> og port 80, med og uten token, TLS 1.2 og 1.3, fra tre uavhengige
+nett (hjemme bak Check Point-VPN, homelab, amerikansk sky). Verten er
+åpenbart avviklet. Den riktige er <code dir="auto">idporten-api-**test**.sits.no</code>
+(uten <code dir="auto">sbs</code>), som svarer 401 som seg hør og bør, og den står i
+<strong>api-dokumentasjon-katalogen</strong> — <code dir="auto">Skatteetaten/api-dokumentasjon</code>,
+<code dir="auto">docs/api/*.md</code>. <strong>Den katalogen er fasiten</strong>, ikke de eldre
+per-tjeneste-nettstedene: den har ett oppslag per API med scope,
+token-type, testvert og lenke til OpenAPI-spesifikasjonen på
+SwaggerHub. Vi brukte flere timer på et feilsøk som ett oppslag der
+ville avsluttet.</p>
+<p><strong>2. Og da svarer API-et hva som faktisk er galt:</strong></p>
+<div class="expressive-code"><link rel="stylesheet" href="/_astro/ec.w36nc.css"><script type="module" src="/_astro/ec.0vx5m.js"></script><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="json"><code><div class="ec-line"><div class="code"><span style="--0:#D6DEEB;--1:#403F53">{</span><span style="--0:#7FDBCA;--1:#096E72">"feilkode"</span><span style="--0:#D6DEEB;--1:#403F53">:</span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#C789D6;--1:#7C5686">IDPORTEN_TOKEN_FEIL_FORMAT</span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#D6DEEB;--1:#403F53">,</span><span style="--0:#7FDBCA;--1:#096E72">"feilmelding"</span><span style="--0:#D6DEEB;--1:#403F53">:</span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#C789D6;--1:#7C5686">Ingen tilgang</span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#D6DEEB;--1:#403F53">,</span></div></div><div class="ec-line"><div class="code"><span class="indent"> </span><span style="--0:#7FDBCA;--1:#096E72">"tekniskeDetaljer"</span><span style="--0:#D6DEEB;--1:#403F53">:</span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#C789D6;--1:#7C5686">403 - Forbidden</span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#D6DEEB;--1:#403F53">}</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="{&quot;feilkode&quot;:&quot;IDPORTEN_TOKEN_FEIL_FORMAT&quot;,&quot;feilmelding&quot;:&quot;Ingen tilgang&quot;, &quot;tekniskeDetaljer&quot;:&quot;403 - Forbidden&quot;}"><div></div></button></div></figure></div>
+<p>Valideringstjenesten vil ha et <strong>ID-porten-token</strong>, ikke vårt
+Maskinporten-token. Skatteetatens egen dokumentasjon sier det samme,
+lest på nytt etterpå: scopene for validering og innsending listes
+sammen med <strong><code dir="auto">openid</code></strong> — som bare en brukerpålogging bærer — og om
+Maskinporten står det gjennomgående <em>«det kommer senere»</em>. Maskinporten
+er dokumentert for <strong>innsynstjenestene</strong> (<code dir="auto">mp-test.sits.no</code>,
+<code dir="auto">.../innsyn/...</code>), altså det som LESER fastsatte meldinger.</p>
+<p><strong>Konsekvens: #8s gjenstående halvdel er nedstrøms #26</strong>
+(ID-porten-føderering via regnid) — nøyaktig samme funn som
+docs/skattemelding.md alt hadde gjort for #11, men ROADMAP-en fanget
+det ikke for mva-meldingen. Selve klienten er ikke bortkastet: formen
+på kallet er riktig, det er token-KILDEN som må byttes.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="hva-hver-av-de-fire-tildelingene-faktisk-krever">Hva hver av de fire tildelingene faktisk krever</h3><a class="sl-anchor-link" href="#hva-hver-av-de-fire-tildelingene-faktisk-krever"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Hva hver av de fire tildelingene faktisk krever”</span></a></div>
+<p>Prøvd med ekte token mot testmiljøet 2026-08-10 — ikke lest, kjørt.
+Svarene skiller seg fra hverandre på en måte som er verdt å merke seg:
+<strong>401 betyr at selve token-TYPEN ble avvist, 403 at den ble godtatt og
+noe annet mangler.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tildeling</th>
+<th>Skinne</th>
+<th>Svar i dag</th>
+<th>Mangler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DM-39 mva-validering</td>
+<td><strong>ID-porten</strong></td>
+<td>401</td>
+<td>brukerpålogging (#26)</td>
+</tr>
+<tr>
+<td>DM-1 a-melding</td>
+<td>Maskinporten</td>
+<td>403 <code dir="auto">AMLD_1063</code></td>
+<td>systembruker</td>
+</tr>
+<tr>
+<td>DM-41 skattekort</td>
+<td>Maskinporten</td>
+<td>403</td>
+<td>systembruker</td>
+</tr>
+<tr>
+<td>DM-8 aksjonærregister</td>
+<td>Maskinporten</td>
+<td>(dok.)</td>
+<td>systembruker</td>
+</tr>
+</tbody>
+</table>
+<p>A-meldingen sier det rett ut, og er derfor kilden til hele
+konklusjonen: <em>«Tokenet mangler informasjon om systembruker i
+<code dir="auto">authorization_details</code>»</em>.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="skatteetatens-svar-ssv-5760-2026-08-11-det-er-loven-ikke-etterslep">Skatteetatens svar (SSV-5760, 2026-08-11): det er loven, ikke etterslep</h3><a class="sl-anchor-link" href="#skatteetatens-svar-ssv-5760-2026-08-11-det-er-loven-ikke-etterslep"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Skatteetatens svar (SSV-5760, 2026-08-11): det er loven, ikke etterslep”</span></a></div>
+<p>Vi spurte, og svaret er entydig — og viktigere enn selve blokkeringen:</p>
+<blockquote>
+<p>«Støtte for Maskinporten er IKKE på veikartet pga lovregulering.
+MVA-loven krever å vite hvem (fnr) som har sendt inn melding (noe
+maskinporten ikke støtter — maskinporten oppgir kun orgnr)»</p>
+</blockquote>
+<p><strong>Dette er altså ikke et hull som tettes senere.</strong> Den eldre
+dokumentasjonen sa «vi ser på Maskinporten, det kommer» — det er
+foreldet, og premisset er nå navngitt: mva-meldingen må kunne
+tilskrives et <strong>menneske</strong>, og Maskinporten bærer per konstruksjon bare
+et organisasjonsnummer. Ingen tidsplan kan endre det; det ville krevd
+en lovendring.</p>
+<p>Skatteetaten bekreftet samtidig de tre andre punktene: at vi leste
+utgått GitHub-dokumentasjon (fasiten er
+<code dir="auto">skatteetaten.github.io/api-dokumentasjon</code>), at valideringsverten er
+<code dir="auto">idporten-api-test.sits.no</code> — nøyaktig den vi selv fant og rettet til
+2026-08-10 — og at innsending krever <code dir="auto">altinn:instances.write</code>/<code dir="auto">.read</code>.</p>
+<p><strong>Konsekvensen er en ren linje gjennom hele regjeringsskinnen</strong>, og den
+er verdt å holde fast ved når nye API-er dukker opp:</p>
+<table>
+<thead>
+<tr>
+<th>Familie</th>
+<th>Tilskrives</th>
+<th>Skinne</th>
+<th>Kan automatiseres?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fastsetting</strong> — mva-melding, skattemelding</td>
+<td>et <strong>menneske</strong> (fnr)</td>
+<td>ID-porten</td>
+<td><strong>Nei.</strong> En innlogget person, hver gang</td>
+</tr>
+<tr>
+<td><strong>Innrapportering</strong> — a-melding, skattekort, RF-1086</td>
+<td>en <strong>virksomhet</strong> (orgnr)</td>
+<td>Maskinporten + systembruker</td>
+<td>Ja</td>
+</tr>
+</tbody>
+</table>
+<p>Den linjen faller heldigvis sammen med hvordan regnmed alt er bygget:
+utsendelse, betaling og attestering er allerede uttrykkelige
+menneskehandlinger, aldri CronJobs. En mva-melding som sendes inn av
+seg selv klokka 03:00 ville vært feil design uansett hva loven sa —
+her sier loven det samme.</p>
+<p><strong>#8 er derfor permanent nedstrøms #26</strong>, ikke midlertidig. Det samme
+gjelder #11 (docs/skattemelding.md). Valideringsklienten er ikke
+bortkastet: formen på kallet er bekreftet riktig, og den venter bare på
+en token-kilde vi skal bygge uansett.</p>
+<p><strong>Altså: ÉN ting låser opp tre av fire — Altinn systembruker.</strong> Det er
+Digdirs nyere mekanisme, den samme docs/aksjonaer.md alt hadde notert
+for RF-1086, og den gjelder hele den reetablerte Altinn-generasjonen av
+Skatteetatens API-er. Oppskriften står i api-dokumentasjonens
+<code dir="auto">docs/om/systembruker.md</code>: bestill Digdir-scopene
+(<code dir="auto">altinn:authentication/systemregister.write</code>,
+<code dir="auto">…/systemuser.request.read</code>, <code dir="auto">…/systemuser.request.write</code>,
+<code dir="auto">digdir:dialogporten</code>) via Digdirs skjema, registrer systemet i
+systemregisteret knyttet til vår klient-id, og oppgi tilgangspakkene
+API-ene krever. Det er nå det høyest prioriterte neste steget på denne
+skinnen — ikke fordi det haster mest, men fordi det låser opp mest.</p>
+<p><strong>Bestilt 2026-11-11</strong> (sporet i #180): Digdirs registreringsskjema
+«Sluttbrukersystem i Altinn 3» sendt for <strong>test</strong>, med
+funksjonsområdene Innsending av skjema/data, Overvåke/hente fra innboks,
+Systembruker og Klientdelegering. Samme dag signerte BogenTech
+<strong>bruksvilkårene for sluttbrukersystemleverandører i Altinn</strong> i
+Samarbeidsportalen. Vilkårene kreves først før produksjon (§1.1), men
+§1.2 legger et krav på oss før vi går dit: kunden er fullt ansvarlig
+for det vi gjør i Altinn på deres vegne, så hver kunde må ha en avtale
+med oss som viderefører vilkårene. Utkastet står i docs/kundevilkar.md
+(ikke gjeldende før juridisk gjennomgang og aksept i portalen).</p>
+<p><strong>Token-siden er klar før tildelingen</strong> (2026-11-11):
+<code dir="auto">TokenProvider::token_for_systemuser(orgnr)</code> i
+<code dir="auto">crates/regnmed-gov/src/maskinporten.rs</code> legger Digdirs RAR-utvidelse
+i grantet — <code dir="auto">authorization_details</code> med <code dir="auto">type: urn:altinn:systemuser</code>
+og kundens orgnr som <code dir="auto">0192:&lt;orgnr&gt;</code> (docs.digdir.no, «Systembruker for
+virksomheter») — og cacher ett token per kunde, adskilt fra vårt eget.
+Formen er festet i enhetstest. Prøvd mot ekte test-Maskinporten samme
+dag med <code dir="auto">scripts/maskinporten-scope-test.py &amp;lt;scope&amp;gt; --systemuser 935115086</code>: svaret er <strong>MP-303</strong> <code dir="auto">invalid_altinn_customer_configuration</code>
+(«No access or invalid configuration of the requested system-user»),
+mens samme scope uten systembruker svarer GRANTED. Grantet er altså
+godtatt; det som mangler er systemet i systemregisteret og en godkjent
+systembruker — nøyaktig det bestillingen over låser opp. <code dir="auto">externalRef</code>
+er bevisst utelatt (én systembruker per kunde per system).</p>
+<p>Den fjerde, mva-valideringen, låses ikke opp av systembruker i det hele
+tatt — den er fastsetting, og venter på #26 for godt (se over).</p>
+<p><strong>Lærdommen, to hakk dypere enn den forrige i dette dokumentet:</strong>
+katalogen viser hva som <em>finnes</em>, tildelingen avgjør hva som kan
+<em>utstedes</em>, <strong>API-et avgjør hvilken token-TYPE det godtar</strong> — og selv
+riktig type kan mangle <strong>systembruker</strong>. At DM-39 ble tildelt og at
+scope-testen svarer GRANTED beviser bare de to første leddene. Bare et
+ekte kall beviser resten.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="systembruker-hvilke-tilgangspakker-og-hvorfor-det-er-to-systemer">Systembruker: hvilke tilgangspakker, og hvorfor det er to systemer</h3><a class="sl-anchor-link" href="#systembruker-hvilke-tilgangspakker-og-hvorfor-det-er-to-systemer"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Systembruker: hvilke tilgangspakker, og hvorfor det er to systemer”</span></a></div>
+<p>Kartlagt 2026-08-10 mot Altinns egen dokumentasjon og deres levende
+tilgangspakke-API
+(<code dir="auto">platform.tt02.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/export</code>).
+Skatteetatens advarsel om å «ikke kombinere tilgangspakker på tvers av
+fullmaktsområder» er et symptom; <strong>den egentlige regelen er strengere og
+står hos Altinn</strong>.</p>
+<p><strong>Regel 1 — klientpakker er OG, ikke ELLER.</strong> Altinn skriver at
+tilgangspakker for klientforhold <em>«fungerer kun for AND-tilfeller»</em>: har
+systembrukeren flere pakker, må klienten ha <strong>alle</strong> for at den skal
+virke i det hele tatt. Å bunte pakker gjør altså systemet mindre
+brukbart, ikke mer. Derfor er regnskapsfører- og revisorpakker
+utelukket fra samme system — et selskaps regnskapsfører og revisor er
+to forskjellige foretak, så ingen klient vil noensinne ha begge.</p>
+<p><strong>Regel 2 — systemregisteret godtar bare klientpakkene.</strong> Feilkoden
+<code dir="auto">AUTH.VLD-00008</code> sier at pakker må være del av <strong>REGN/REVI/
+Forretningsfører</strong>. <code dir="auto">a-ordning</code>, <code dir="auto">lonn</code>, <code dir="auto">skattegrunnlag</code> og
+<code dir="auto">skatt-naering</code> — som API-ene ellers godtar — kan altså <strong>ikke</strong>
+registreres som <code dir="auto">accessPackages</code>. De hører til fullmaktsområdene
+Personale og «Skatt, avgift, regnskap og toll», som en virksomhet
+delegerer direkte.</p>
+<p>Det er nettopp derfor regnmed trenger <strong>to systemregistreringer</strong>, én
+per kundeform vi allerede har i produktet (#77s to ruter):</p>
+<table>
+<thead>
+<tr>
+<th>Rute</th>
+<th>Mekanisme</th>
+<th>Registreres med</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>«Egen virksomhet» — selskapet rapporterer selv</td>
+<td>standard systembruker</td>
+<td><code dir="auto">rights</code> med Skatteetatens ressurser</td>
+</tr>
+<tr>
+<td>«Regnskapsfører» — byrået rapporterer for klientene</td>
+<td>klient-systembruker</td>
+<td><code dir="auto">accessPackages</code> fra REGN</td>
+</tr>
+</tbody>
+</table>
+<p>Ressursene til den første (fra API-dokumentasjonen, ikke gjettet):
+<code dir="auto">ske-innrapportering-amelding</code>, <code dir="auto">ske-skattekort-til-arbeidsgiver</code>,
+<code dir="auto">ske-innrapportering-aksjonaerregisteroppgave</code>. Den ruten berøres ikke
+av regel 1 i det hele tatt.</p>
+<p>Til den andre gir ER-rollen «Regnskapsfører» disse tre pakkene, og
+API-ene godtar dem slik:</p>
+<table>
+<thead>
+<tr>
+<th>Pakke</th>
+<th>a-melding</th>
+<th>skattekort</th>
+<th>aksjonærreg.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">regnskapsforer-med-signeringsrettighet</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><code dir="auto">regnskapsforer-uten-signeringsrettighet</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><code dir="auto">regnskapsforer-lonn</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Anbefaling (vår slutning, ikke Altinns instruks): én pakke per
+klient-system.</strong> Med OG-semantikken er et system med <code dir="auto">med-</code> OG <code dir="auto">uten- signeringsrettighet</code> ubrukelig for begge slags byråer, mens to systemer
+med én pakke hver virker for hver sin. De to signeringsvariantene
+dekker alle tre API-ene alene, så det er nok å begynne med.</p>
+<p><strong>Revisor er bevisst utelatt.</strong> regnmeds revisoroppdrag er lesetilgang</p>
+<ul>
+<li>kjedeverifikasjon (CLAUDE.md), og alle tre API-ene er
+rapportering. Skulle det endres, blir det et eget system i
+revisorområdet — aldri blandet inn i regnskapsførersystemet.</li>
+</ul>
+<div class="sl-heading-wrapper level-h3"><h3 id="registrert-2026-11-11-étt-system-ikke-to">Registrert 2026-11-11: ÉTT system, ikke to</h3><a class="sl-anchor-link" href="#registrert-2026-11-11-étt-system-ikke-to"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Registrert 2026-11-11: ÉTT system, ikke to”</span></a></div>
+<p>To funn under selve registreringen i TT02 endret planen over, og
+begge er Altinns egne regler, ikke vår slutning:</p>
+<ol>
+<li><strong>Én Maskinporten-klient kan bare knyttes til ett system</strong>
+(<code dir="auto">AUTH.VLD-00004</code>). Systembrukertokenet finner systemet gjennom
+klient-id-en, så to systemer ville krevd to klienter med hver sin
+nøkkel og hver sin <code dir="auto">TokenProvider</code>.</li>
+<li><strong>Forespørselen velger pakkene, ikke systemet.</strong> En
+klient-systembrukerforespørsel (<code dir="auto">…/systemuser/request/vendor/agent</code>)
+har sin egen <code dir="auto">accesspackages</code>-liste. OG-regelen (regel 1) gjelder
+altså pakkene på SYSTEMBRUKEREN — og den får én pakke, den
+forespørselen ber om. Anbefalingen «én pakke per system» over løser
+derfor et problem som ikke oppstår når forespørselen alltid ber om
+én.</li>
+</ol>
+<p>Derfor er regnmed registrert som <strong>ett system, <code dir="auto">935115086_regnmed</code></strong>,
+med begge kundeformene: <code dir="auto">rights</code> med de tre Skatteetaten-ressursene
+(egen virksomhet) og <code dir="auto">accessPackages</code> med de tre REGN-pakkene
+(regnskapsfører). Hver forespørsel ber om sin del: en standard
+systembruker om rettighetene, en klient-systembruker om ÉN pakke.
+Registreringen godtok ressursene (<code dir="auto">AUTH.VLD-00003</code> ville sagt fra om
+noen ikke fantes).</p>
+<p><strong><code dir="auto">isVisible</code> må være <code dir="auto">false</code></strong> når systemet har klientpakker
+(<code dir="auto">AUTH.VLD-00018</code>). Systemet listes da ikke i Altinn for en kunde å
+velge selv — hver systembruker starter som en forespørsel regnmed
+sender, og kunden godkjenner den via <code dir="auto">confirmUrl</code>. Det var planen
+uansett: tilgangen skal begynne i regnmed, der kunden alt er.</p>
+<p>Registreringen er kode, ikke klikk: <code dir="auto">scripts/altinn-system.py</code>
+(<code dir="auto">show</code>/<code dir="auto">register</code>/<code dir="auto">update</code>) holder hele definisjonen, så produksjon
+registreres med samme innhold når testen er verifisert. Etter
+registreringen svarer <code dir="auto">scripts/maskinporten-scope-test.py &amp;lt;scope&amp;gt; --systemuser 935115086</code> fortsatt <strong>MP-303</strong> — riktig, ingen kunde har
+godkjent en systembruker ennå.</p>
+<p><strong>Første systembruker, 2026-11-11.</strong> Forespørsel
+(<code dir="auto">scripts/altinn-system.py request &lt;orgnr&gt;</code>, rettighetene til egen
+virksomhet) sendt for det syntetiske Tenor-selskapet KREATIV INNESLUTTET
+TIGER AS (311032240) og godkjent av dets daglige leder med TestID i
+TT02 (<code dir="auto">status &lt;id&gt;</code> → <code dir="auto">Accepted</code>). Deretter utstedte test-Maskinporten
+systembrukertoken for alle tre scopene (a-melding, skattekort,
+aksjonærregister) med <code dir="auto">--systemuser 311032240</code>, og tokenet bærer
+<code dir="auto">authorization_details</code> med <code dir="auto">systemuser_id</code> og
+<code dir="auto">system_id: 935115086_regnmed</code> — samme form som Skatteetatens eget
+eksempel. Hele kjeden fra registrering til token er dermed prøvd mot
+ekte testmiljø; neste ledd er et ekte kall mot et av Skatteetatens
+API-er med tokenet.</p>
+<p>Tre ting å vite til neste gang:</p>
+<ul>
+<li><strong>Tenor-listen blander hovedenheter og underenheter.</strong> En
+systembruker gis av den juridiske enheten; underenhetens
+«Relasjoner»-fane peker til hovedenheten, og daglig leder står i
+hovedenhetens kildedata (<code dir="auto">rollegrupper</code>, kode <code dir="auto">DAGL</code>).</li>
+<li><strong>Godkjenning i TT02 skjer med TestID, ikke BankID.</strong> Test-ID-porten
+tilbyr også BankID, men det er BankIDs testmiljø, som krever
+test-BankID med kodebrikke. Velg «TestID på nivå høyt» og skriv inn
+det syntetiske fødselsnummeret.</li>
+<li><strong>Godkjenningssiden viste «levert av N/A»</strong> med riktig orgnr — TT02
+kjenner ikke BogenTechs navn. Sjekk at navnet vises i produksjon.</li>
+</ul>
+<div class="sl-heading-wrapper level-h3"><h3 id="første-a-melding-2026-11-11-mottatt-uten-avvik">Første a-melding, 2026-11-11: mottatt uten avvik</h3><a class="sl-anchor-link" href="#første-a-melding-2026-11-11-mottatt-uten-avvik"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Første a-melding, 2026-11-11: mottatt uten avvik”</span></a></div>
+<p>Første ekte kall mot Skatteetatens a-melding-API, med
+systembrukertokenet over: <code dir="auto">POST /v1/innsending/2026-10/311032240</code> på
+<code dir="auto">innrapporteringamelding.api.skatteetaten-test.no</code>
+(<code dir="auto">innrapportering-amelding-api</code> 0.1.2, påkrevd header
+<code dir="auto">idempotencyKey</code>). Innholdet var en hel månedsmelding for det
+syntetiske selskapet — underenhet 314752538, én inntektsmottaker (den
+daglige lederen), fastlønn 40 000, forskuddstrekk 14 000, aga 14,1 % =
+5 640 — i nøyaktig den formen <code dir="auto">regnmed-core::amelding</code> rendrer, bare
+som JSON. Svaret var <strong>200</strong> med <code dir="auto">dialogId</code>, <code dir="auto">forsendelseId</code> og
+<code dir="auto">meldingsId</code>.</p>
+<p>Tilbakemeldingen kom 21 sekunder senere: <code dir="auto">mottakstatus: "mottatt"</code>,
+<strong><code dir="auto">avvik: []</code></strong>, summene speilet tilbake og <code dir="auto">kildesystem: "regnmed"</code>.
+Den inneholder også kontonummer og KID for innbetaling av
+arbeidsgiveravgift, forskuddstrekk og finansskatt — det
+betalingslisten (#33) trenger for å betale dem.</p>
+<p>Det som er verdt å vite til klienten skal bygges:</p>
+<ul>
+<li><strong>JSON-en er samme tre som XML-en</strong>, felt for felt med samme navn.
+Gjentatte elementer blir lister (<code dir="auto">virksomhet</code>, <code dir="auto">inntektsmottaker</code>,
+<code dir="auto">arbeidsforhold</code>, <code dir="auto">inntekt</code>, <code dir="auto">forskuddstrekk</code>,
+<code dir="auto">loennOgGodtgjoerelse</code>, <code dir="auto">sumForskuddstrekkPerLoennsutbetalingsdato</code>);
+<code dir="auto">BeloepSomHeltall</code> er JSON-tall, <code dir="auto">BeloepSomDesimaltall</code> og
+<code dir="auto">Desimaltall</code> er strenger, <code dir="auto">Boolsk</code> er <code dir="auto">true</code>/<code dir="auto">false</code>. Renderen
+trenger altså en JSON-serialisering av samme modell, ikke en ny
+modell.</li>
+<li><strong>Tilbakemeldingen slås IKKE opp med <code dir="auto">forsendelseId</code>.</strong> Den gir 404
+(<code dir="auto">AMLD_1050</code>). Den finnes som en EGEN transmission i dialogen —
+type <code dir="auto">Information</code>, <code dir="auto">relatedTransmissionId</code> = innsendingens
+<code dir="auto">forsendelseId</code> — og vedleggets URL med <code dir="auto">consumerType: "Api"</code> peker
+på <code dir="auto">ameldingtilbakemelding.api.skatteetaten-test.no/v1/forsendelser/&lt;den transmissionens id&gt;</code>. Veien er altså
+<code dir="auto">GET platform.tt02.altinn.no/dialogporten/api/v1/enduser/dialogs/&lt;dialogId&gt;</code>
+→ finn transmissionen → hent URL-en. Det er det Skatteetaten mener
+med «lytt på hendelser hos Dialogporten»; i drift skal det skje via
+<code dir="auto">altinn:events.subscribe</code> (bruksvilkårene §1.2.4: hendelser, ikke
+polling).</li>
+<li><strong>Dialogportens sluttbruker-API godtar systembrukertokenet</strong> når
+scope-et er <code dir="auto">digdir:dialogporten skatteetaten:innrapporteringamelding</code>
+og <code dir="auto">authorization_details</code> er det samme — ingen egen pålogging.</li>
+<li>Tokenet for innsending, tilbakemelding og Dialogporten er ett og
+samme systembrukertoken for kunden; bare scopene varierer.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="status--verification">Status &amp; verification</h2><a class="sl-anchor-link" href="#status--verification"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Status &amp; verification”</span></a></div>
+<ul>
+<li>Implemented and locked by tests (no credentials needed): grant-JWT
+claims (decoded and checked against the spec), the full token flow and
+its cache against a local mock endpoint, melding XSD validity.</li>
+<li>Requires real test credentials (next step, blocked on client
+registration): live validation round-trip, delegation, submission.</li>
+</ul>
+</div><footer class="sl-flex" data-astro-cid-ddtxxk7k><div class="meta sl-flex" data-astro-cid-ddtxxk7k><a href="https://github.com/BogenTech/regnmed/edit/main/docs/gov.md" class="sl-flex print:hidden" data-astro-cid-qlekgd3o><svg data-astro-cid-qlekgd3o="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.2em;" data-astro-cid-hkc32dio><path d="M22 7.24a1 1 0 0 0-.29-.71l-4.24-4.24a1 1 0 0 0-1.1-.22 1 1 0 0 0-.32.22l-2.83 2.83L2.29 16.05a1 1 0 0 0-.29.71V21a1 1 0 0 0 1 1h4.24a1 1 0 0 0 .76-.29l10.87-10.93L21.71 8c.1-.1.17-.2.22-.33a1 1 0 0 0 0-.24v-.14l.07-.05ZM6.83 20H4v-2.83l9.93-9.93 2.83 2.83L6.83 20ZM18.17 8.66l-2.83-2.83 1.42-1.41 2.82 2.82-1.41 1.42Z"/></svg>Rediger side</a></div><div class="pagination-links print:hidden" dir="ltr" data-astro-cid-b5raizh3><a href="/teknisk/frugality/" rel="prev" data-astro-cid-b5raizh3><svg data-astro-cid-b5raizh3="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;" data-astro-cid-hkc32dio><path d="M17 11H9.41l3.3-3.29a1.004 1.004 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33 1 1 0 0 0 0 .76 1 1 0 0 0 .21.33l5 5a1.002 1.002 0 0 0 1.639-.325 1 1 0 0 0-.219-1.095L9.41 13H17a1 1 0 0 0 0-2Z"/></svg><span data-astro-cid-b5raizh3>Forrige<br data-astro-cid-b5raizh3><span class="link-title" data-astro-cid-b5raizh3>The frugality budget</span></span></a><a href="/teknisk/hovedbok/" rel="next" data-astro-cid-b5raizh3><svg data-astro-cid-b5raizh3="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;" data-astro-cid-hkc32dio><path d="M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z"/></svg><span data-astro-cid-b5raizh3>Neste<br data-astro-cid-b5raizh3><span class="link-title" data-astro-cid-b5raizh3>Hovedbok: kontoplan og manuell bilagsføring</span></span></a></div></footer></div></div></main></div></div></div></div></body></html>

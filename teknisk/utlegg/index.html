@@ -1,0 +1,912 @@
+<!DOCTYPE html><html lang="nb" dir="ltr" data-theme="dark" data-has-toc data-has-sidebar data-astro-cid-g5ptsecz><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Utlegg og kjøregodtgjørelse | regnmed docs</title><link rel="canonical" href="https://docs.regnmed.no/teknisk/utlegg/"/><link rel="alternate" hreflang="nb" href="https://docs.regnmed.no/teknisk/utlegg/"/><link rel="alternate" hreflang="en" href="https://docs.regnmed.no/en/teknisk/utlegg/"/><link rel="alternate" hreflang="x-default" href="https://docs.regnmed.no/teknisk/utlegg/"/><link rel="sitemap" href="/sitemap-index.xml"/><link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml"/><meta name="generator" content="Astro v7.4.13"/><meta name="generator" content="Starlight v0.43.1"/><meta property="og:title" content="Utlegg og kjøregodtgjørelse"/><meta property="og:type" content="article"/><meta property="og:url" content="https://docs.regnmed.no/teknisk/utlegg/"/><meta property="og:locale" content="nb"/><meta property="og:description" content="Brukerveiledning, utviklerdokumentasjon og teknisk dokumentasjon for regnmed, regnskapssystemet du kan etterprøve."/><meta property="og:site_name" content="regnmed docs"/><meta name="twitter:card" content="summary_large_image"/><meta name="description" content="Brukerveiledning, utviklerdokumentasjon og teknisk dokumentasjon for regnmed, regnskapssystemet du kan etterprøve."/><script>
+	(() => {
+		const storedTheme =
+			typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme');
+		const theme =
+			storedTheme ||
+			(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+		document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+	})();
+</script><link rel="stylesheet" href="/_astro/print.C9eyqPGL.css" media="print"><link rel="stylesheet" href="/_astro/common.LP9BDTc3.css"><script type="module" src="/_astro/page.cNngjUgL.js"></script></head><body data-astro-cid-g5ptsecz><a class="sl-skip-link" href="#_top" data-astro-cid-qb7clj6f>Gå til innholdet</a><div class="page sl-flex" data-astro-cid-yntsjkba><header class="header" data-astro-cid-yntsjkba><div class="header" data-astro-cid-by6fddyj><div class="title-wrapper sl-flex" data-astro-cid-by6fddyj><a href="/" class="site-title sl-flex" data-astro-cid-6rvad3va><img alt="regnmed" src="/_astro/logo.BykUI3mu.svg" width="160" height="160" data-astro-cid-6rvad3va><span translate="no" data-astro-cid-6rvad3va>regnmed docs</span></a></div><div class="sl-flex print:hidden" data-astro-cid-by6fddyj><site-search data-translations="{&quot;placeholder&quot;:&quot;Søk&quot;}" data-astro-cid-b5kgnn7o="true"><button data-open-modal disabled aria-label="Søk" aria-keyshortcuts="Control+K" data-astro-cid-b5kgnn7o><svg data-astro-cid-b5kgnn7o="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z"/></svg><span class="sl-hidden md:sl-block" aria-hidden="true" data-astro-cid-b5kgnn7o>Søk</span><kbd class="sl-hidden md:sl-flex" style="display: none" data-astro-cid-b5kgnn7o><kbd data-astro-cid-b5kgnn7o>Ctrl</kbd><kbd data-astro-cid-b5kgnn7o>K</kbd></kbd></button><dialog style="padding: 0" aria-label="Søk" data-astro-cid-b5kgnn7o><div class="dialog-frame sl-flex" data-astro-cid-b5kgnn7o><button data-close-modal class="sl-flex md:sl-hidden" data-astro-cid-b5kgnn7o>Avbryt</button><div class="search-container" data-astro-cid-b5kgnn7o><div id="starlight__search" data-astro-cid-b5kgnn7o></div></div></div></dialog></site-search><script>
+	(() => {
+		const openBtn = document.querySelector('button[data-open-modal]');
+		const shortcut = openBtn?.querySelector('kbd');
+		if (!openBtn || !(shortcut instanceof HTMLElement)) return;
+		const platformKey = shortcut.querySelector('kbd');
+		if (platformKey && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+			platformKey.textContent = '⌘';
+			openBtn.setAttribute('aria-keyshortcuts', 'Meta+K');
+		}
+		shortcut.style.display = '';
+	})();
+</script><script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.CibB10mu.js"></script></div><div class="sl-hidden md:sl-flex print:hidden right-group" data-astro-cid-by6fddyj><div class="sl-flex social-icons" data-astro-cid-by6fddyj><a href="https://github.com/BogenTech/regnmed" rel="me" class="sl-flex" data-astro-cid-n2mnl6yq><span class="sr-only" data-astro-cid-n2mnl6yq>GitHub</span><svg data-astro-cid-n2mnl6yq="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select data-astro-cid-smhvfpqh="true"><label style="--sl-select-width: 6.25em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg tema</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg class="sl-theme-icon-dark" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg class="sl-theme-icon-light" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg class="sl-theme-icon-auto" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="dark" data-astro-cid-2z5xp7gb>Mørk</option><option value="light" data-astro-cid-2z5xp7gb>Lys</option><option value="auto" selected data-astro-cid-2z5xp7gb>Auto</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>(() => {
+		const theme = (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme'));
+		if (theme) document.querySelectorAll('starlight-theme-select select').forEach((s) => { s.value = theme; });
+	})();</script><script type="module">var e=`starlight-theme`,t=e=>e===`auto`||e===`dark`||e===`light`?e:`auto`,n=()=>t(typeof localStorage<`u`&&localStorage.getItem(e));function r(t){typeof localStorage<`u`&&localStorage.setItem(e,t===`light`||t===`dark`?t:``)}var i=()=>matchMedia(`(prefers-color-scheme: light)`).matches?`light`:`dark`;function a(e){document.querySelectorAll(`starlight-theme-select select`).forEach(t=>{t.value=e}),document.documentElement.dataset.theme=e===`auto`?i():e,r(e)}matchMedia(`(prefers-color-scheme: light)`).addEventListener(`change`,()=>{n()===`auto`&&a(`auto`)});var o=class extends HTMLElement{constructor(){super(),a(n()),this.querySelector(`select`)?.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&a(t(e.currentTarget.value))})}};customElements.define(`starlight-theme-select`,o);</script><starlight-lang-select><label style="--sl-select-width: 7em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg språk</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="/teknisk/utlegg/" data-astro-cid-2z5xp7gb>Norsk</option><option value="/en/teknisk/utlegg/" data-astro-cid-2z5xp7gb>English</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-lang-select><script type="module">var e=class extends HTMLElement{constructor(){super();let e=this.querySelector(`select`);e&&(e.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&(window.location.pathname=e.currentTarget.value)}),window.addEventListener(`pageshow`,t=>{if(!t.persisted)return;let n=e.querySelector(`option[selected]`)?.index;n!==e.selectedIndex&&(e.selectedIndex=n??0)}))}};customElements.define(`starlight-lang-select`,e);</script></div></div></header><nav class="sidebar print:hidden" aria-label="Hovednavigasjon" data-astro-cid-yntsjkba><button popovertarget="starlight__sidebar" class="sl-menu-button sl-flex md:sl-hidden print:hidden" data-astro-cid-r2osgdlg><svg class="open-menu" data-astro-cid-r2osgdlg="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M3 8h18a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2Zm18 8H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Zm0-5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></svg><svg class="close-menu" data-astro-cid-r2osgdlg="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="m13.41 12 6.3-6.29a1.004 1.004 0 1 0-1.42-1.42L12 10.59l-6.29-6.3a1.004 1.004 0 0 0-1.42 1.42l6.3 6.29-6.3 6.29a1 1 0 0 0 0 1.42.998.998 0 0 0 1.42 0l6.29-6.3 6.29 6.3a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.42L13.41 12Z"/></svg><span class="sr-only" data-astro-cid-r2osgdlg>Meny</span></button><script type="module">var e=class extends HTMLElement{constructor(){super();let e=matchMedia(`(min-width: 50em)`),t=()=>{this.popover=e.matches?null:`auto`};t(),e.addEventListener(`change`,()=>t()),this.addEventListener(`toggle`,({newState:e})=>this.trapFocus(e===`open`))}trapFocus(e){document.querySelectorAll(`.main-frame, .sl-skip-link`).forEach(t=>{t.toggleAttribute(`inert`,e)})}};customElements.define(`sl-sidebar-pane`,e);</script><sl-sidebar-pane popover id="starlight__sidebar" class="sidebar-pane" data-astro-cid-yntsjkba="true"><div class="sidebar-content sl-flex" data-astro-cid-yntsjkba><sl-sidebar-state-persist data-hash="0vzjo46" data-astro-cid-ipdry5cl="true"><script aria-hidden="true">
+		(() => {
+			try {
+				if (!matchMedia('(min-width: 50em)').matches) return;
+				/** @type {HTMLElement | null} */
+				const target = document.querySelector('sl-sidebar-state-persist');
+				const state = JSON.parse(sessionStorage.getItem('sl-sidebar-state') || '0');
+				if (!target || !state || target.dataset.hash !== state.hash) return;
+				window._starlightScrollRestore = state.scroll;
+				customElements.define(
+					'sl-sidebar-restore',
+					class SidebarRestore extends HTMLElement {
+						connectedCallback() {
+							try {
+								const idx = parseInt(this.dataset.index || '');
+								const details = this.closest('details');
+								if (details && typeof state.open[idx] === 'boolean') details.open = state.open[idx];
+							} catch {}
+						}
+					}
+				);
+			} catch {}
+		})();
+	</script><ul class="top-level" data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>Brukerveiledning</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="0"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Velkommen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/kom-i-gang/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kom i gang</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/forste-faktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Første faktura</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/fakturering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Fakturering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/purring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Purring og betalingsoppfølging</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/bilag-og-innboks/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilag og innboks</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/hovedbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Hovedbok og kontoplan</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/mva/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>MVA</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/lonn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn og a-melding</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/timer-og-prosjekter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Timer og prosjekter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/utlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utlegg og kjøregodtgjørelse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/anlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Anleggsregister og avskrivninger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/valuta/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Valuta</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/produkter-og-varelager/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Produkter og varelager</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/periodisering-og-budsjett/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodisering og budsjett</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/rapporter-og-arsavslutning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Rapporter og årsavslutning</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/aksjeeierbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og aksjonærregisteroppgaven</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/tilgang-og-roller/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang og roller</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/for-regnskapsforere/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>For regnskapsførere og byråer</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/for-revisorer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>For revisorer</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/migrering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Migrering fra et annet system</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/abonnement-og-priser/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Abonnement og priser</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/ai-agent/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Ta med din egen AI-agent</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/verifiser-regnskapet/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Verifiser regnskapet ditt</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/vanlige-sporsmal/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Vanlige spørsmål</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>For utviklere</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="1"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>api</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="2"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/developers/api/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>API-referanse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/identity/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Identitet og tilgang</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/ledger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Selskap og hovedbok</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/sales/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Salg og reskontro</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/reports/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Regnskap og rapporter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank og betaling</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/payroll/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn, timer og utlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/inbox/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Innboks, import og jobber</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/shares/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og anlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/agents/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Integrasjoner, agenter og meldinger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/verification/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Forankring og verifisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/platform/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Plattform (leverandørens konsoll)</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><a href="/developers/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Introduksjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/getting-started/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kom i gang for integrasjoner</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/authentication/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Autentisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/access-and-roles/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang og roller for integrasjoner</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/conventions/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Konvensjoner</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/examples/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Eksempler</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/mcp-and-agents/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>MCP og agenter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/verify-it-yourself/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Verifiser selv</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/self-hosting/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Selvhosting</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/contributing/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bidra</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>Teknisk dokumentasjon</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="3"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/teknisk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Teknisk dokumentasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/abonnement/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Abonnement: regnmeds egen kasse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/agent/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Ta med din egen agent</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/aksjonaer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og aksjonærregisteroppgave (RF-1086)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/anchoring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>External anchoring of chain heads</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/anlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Anleggsregister og avskrivninger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/api/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>API-referanse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/arsavslutning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Årsavslutning</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/attestering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Attestering: godkjenningsflyt før bokføring og betaling</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/auth/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang: hvem kan gjøre hva</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/balansedokumentasjon/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Balansedokumentasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank reconciliation</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/betaling/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Betalingsliste og remittering (pain.001)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/bilagsinnboks/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilagsinnboks</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/bilagstolkning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilagstolkning: forslag fra dokumentets egen tekst</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/blob-store/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Dokumenter i objektlagring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/budsjett/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Budsjett og avviksrapport</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/deploy/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Deployment</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/dimensjoner/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Dimensjoner: avdeling og prosjekt</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/efaktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>E-faktura ut fra 1. januar 2027 — forslag</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/ehf/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>EHF: elektronisk faktura ut og inn</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/epost-inn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>E-post-inn til bilagsinnboksen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/faktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utgående faktura</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/frugality/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The frugality budget</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/gov/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The government rail: Maskinporten and Skatteetaten&#39;s APIs</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/hovedbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Hovedbok: kontoplan og manuell bilagsføring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/integrations/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Maskin-tilgang til API-et</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/jobs/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bakgrunnsjobber</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/kontantsalg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kontantsalg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/ledger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The ledger: append-only, hash-chained, independently verifiable</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/lonn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn — første del</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/marketplace/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Marketplace: onboarding from the official registries</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/meldinger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Meldinger — samtaler mellom folk som jobber sammen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/migration/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Migration: SAF-T import</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/mva/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Merverdiavgift: codes, rates, spesifikasjon, melding</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/perioder/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodelåsing og bilagsvedlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/periodisering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/portal/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The portal</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/produkter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Produktregister og enkelt varelager</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/purring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Betalingsoppfølging (purring)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/rapporter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lovpålagte spesifikasjoner og rapporter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/regelverk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Regelverk som data</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/reskontro/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Reskontro: kunde- og leverandørspesifikasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/revisjon/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Revisorrollen og verifikasjonsrapporten</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/skattemelding/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Skattemelding og næringsspesifikasjon (#11) — kartlagt, ikke bygget</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/timer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Timeføring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/utlegg/" aria-current="page" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utlegg og kjøregodtgjørelse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/valuta/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Flervaluta</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/vilkar-teknisk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kundevilkårene i koden</span></a></li></ul></details></li></ul><script aria-hidden="true">
+		(() => {
+			const scroller = document.getElementById('starlight__sidebar');
+			if (!window._starlightScrollRestore || !scroller) return;
+			scroller.scrollTop = window._starlightScrollRestore;
+			delete window._starlightScrollRestore;
+		})();
+	</script></sl-sidebar-state-persist><div class="md:sl-hidden"><div class="mobile-preferences sl-flex" data-astro-cid-p4azlveh><div class="social-icons" data-astro-cid-p4azlveh><a href="https://github.com/BogenTech/regnmed" rel="me" class="sl-flex" data-astro-cid-n2mnl6yq><span class="sr-only" data-astro-cid-n2mnl6yq>GitHub</span><svg data-astro-cid-n2mnl6yq="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select data-astro-cid-smhvfpqh="true"><label style="--sl-select-width: 6.25em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg tema</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg class="sl-theme-icon-dark" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg class="sl-theme-icon-light" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg class="sl-theme-icon-auto" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="dark" data-astro-cid-2z5xp7gb>Mørk</option><option value="light" data-astro-cid-2z5xp7gb>Lys</option><option value="auto" selected data-astro-cid-2z5xp7gb>Auto</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>(() => {
+		const theme = (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme'));
+		if (theme) document.querySelectorAll('starlight-theme-select select').forEach((s) => { s.value = theme; });
+	})();</script><starlight-lang-select><label style="--sl-select-width: 7em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg språk</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="/teknisk/utlegg/" data-astro-cid-2z5xp7gb>Norsk</option><option value="/en/teknisk/utlegg/" data-astro-cid-2z5xp7gb>English</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-lang-select></div></div></div></sl-sidebar-pane></nav><div class="main-frame" data-astro-cid-yntsjkba><script type="module">var e=document.getElementById(`starlight__sidebar`),t=e?.querySelector(`sl-sidebar-state-persist`),n=`sl-sidebar-state`,r=()=>{let r=[],i=t?.dataset.hash||``;try{let e=sessionStorage.getItem(n),t=JSON.parse(e||`{}`);Array.isArray(t.open)&&t.hash===i&&(r=t.open)}catch{}return{hash:i,open:r,scroll:e?.scrollTop||0}},i=e=>{try{sessionStorage.setItem(n,JSON.stringify(e))}catch{}},a=()=>i(r()),o=(e,t)=>{let n=r();n.open[t]=e,i(n)};t?.addEventListener(`click`,e=>{if(!(e.target instanceof Element))return;let t=e.target.closest(`summary`)?.closest(`details`);if(!t)return;let n=t.querySelector(`sl-sidebar-restore`),r=parseInt(n?.dataset.index||``);isNaN(r)||o(!t.open,r)}),addEventListener(`visibilitychange`,()=>{document.visibilityState===`hidden`&&a()});</script><div class="lg:sl-flex" data-astro-cid-lrzkfocr><aside class="right-sidebar-container print:hidden" data-astro-cid-lrzkfocr><div class="right-sidebar" data-astro-cid-lrzkfocr><div class="lg:sl-hidden" data-astro-cid-qok35upx><mobile-starlight-toc data-min-h="2" data-max-h="3" data-astro-cid-66cqc7ze="true"><nav aria-labelledby="starlight__on-this-page--mobile" data-astro-cid-66cqc7ze><details id="starlight__mobile-toc" data-astro-cid-66cqc7ze><summary id="starlight__on-this-page--mobile" class="sl-flex" data-astro-cid-66cqc7ze><span class="toggle sl-flex" data-astro-cid-66cqc7ze>På denne siden<svg class="caret" data-astro-cid-66cqc7ze="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></span><span class="display-current" data-astro-cid-66cqc7ze></span></summary><div class="dropdown" data-astro-cid-66cqc7ze><ul class="isMobile" style="--depth: 0;" data-astro-cid-jugkfwgx><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#_top" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Oversikt</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#innboks-disiplinen-på-refusjonskrav" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Innboks-disiplinen på refusjonskrav</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#utkast-lagre-nå-gjør-ferdig-senere" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Utkast: lagre nå, gjør ferdig senere</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#utlegg" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Utlegg</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#kvitteringen-leses" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Kvitteringen leses</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#kjøregodtgjørelse" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Kjøregodtgjørelse</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#turen-strekning-kjøretøy-passasjerer" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Turen: strekning, kjøretøy, passasjerer</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#bompenger-rushtidsavgift-ferje-og-parkering" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Bompenger, rushtidsavgift, ferje og parkering</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#reise-og-diett" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Reise og diett</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#firmakort" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Firmakort</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#agenten" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Agenten</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#utbetaling" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Utbetaling</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#viderefakturering" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Viderefakturering</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#endpoints" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Endpoints</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#where-it-is-tested" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Where it is tested</span></a></li></ul></div></details></nav></mobile-starlight-toc><script type="module" src="/_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.C3fM4Kra.js"></script></div><div class="right-sidebar-panel sl-hidden lg:sl-block" data-astro-cid-qok35upx><div class="sl-container" data-astro-cid-qok35upx><starlight-toc data-min-h="2" data-max-h="3"><nav aria-labelledby="starlight__on-this-page"><h2 id="starlight__on-this-page">På denne siden</h2><ul style="--depth: 0;" data-astro-cid-jugkfwgx><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#_top" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Oversikt</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#innboks-disiplinen-på-refusjonskrav" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Innboks-disiplinen på refusjonskrav</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#utkast-lagre-nå-gjør-ferdig-senere" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Utkast: lagre nå, gjør ferdig senere</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#utlegg" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Utlegg</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#kvitteringen-leses" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Kvitteringen leses</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#kjøregodtgjørelse" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Kjøregodtgjørelse</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#turen-strekning-kjøretøy-passasjerer" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Turen: strekning, kjøretøy, passasjerer</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#bompenger-rushtidsavgift-ferje-og-parkering" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Bompenger, rushtidsavgift, ferje og parkering</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#reise-og-diett" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Reise og diett</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#firmakort" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Firmakort</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#agenten" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Agenten</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#utbetaling" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Utbetaling</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#viderefakturering" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Viderefakturering</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#endpoints" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Endpoints</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#where-it-is-tested" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Where it is tested</span></a></li></ul></nav></starlight-toc><script type="module" src="/_astro/TableOfContents.astro_astro_type_script_index_0_lang.BpJaGz7G.js"></script></div></div></div></aside><div class="main-pane" data-astro-cid-lrzkfocr><main data-pagefind-body lang="nb" dir="ltr" data-astro-cid-g5ptsecz><div class="content-panel" data-astro-cid-a7po4psb><div class="sl-container" data-astro-cid-a7po4psb><h1 id="_top" data-astro-cid-bebwqqxs>Utlegg og kjøregodtgjørelse</h1></div></div><div class="content-panel" data-astro-cid-a7po4psb><div class="sl-container" data-astro-cid-a7po4psb><div class="sl-markdown-content"><p>Issue #42. Ansatte og eiere legger ut privat og skal ha korrekt
+refusjon — med dokumentasjonen på plass og satsene fra regelverket,
+aldri fra hodet.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="innboks-disiplinen-på-refusjonskrav">Innboks-disiplinen på refusjonskrav</h2><a class="sl-anchor-link" href="#innboks-disiplinen-på-refusjonskrav"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Innboks-disiplinen på refusjonskrav”</span></a></div>
+<p><code dir="auto">expense</code> (migration 0026) følger bilagsinnboksens regler:</p>
+<ul>
+<li><strong>Innholdet er uforanderlig fra innsending.</strong> Kvitteringen lagres
+med SHA-256 ved opplasting; trigger + kolonnegrants avviser enhver
+endring. Kjøregodtgjørelse lagrer satsene den ble beregnet med —
+en satsendring rører aldri et innsendt krav (raden er bevis).</li>
+<li><strong>Beslutninger er enveis</strong>: innsendt → godkjent (med
+kostnadsbilaget) eller → avvist (begrunnelse påkrevd);
+godkjent → utbetalt (med utbetalingsbilaget). Ingenting
+om-besluttes, ingenting slettes — et avvist krav med begrunnelsen
+er en del av historien.</li>
+<li>Kvitteringen leses alltid integritetssjekket mot lagret hash.</li>
+<li><strong>Samme kvittering to ganger er ett krav, ikke to.</strong> Innsendingen
+nekter bytes (SHA-256) som allerede står i et krav som ikke er
+avvist, og sier hvilket krav det er. Et AVVIST krav sperrer ikke:
+å sende inn på nytt med bedre forklaring er den normale veien
+tilbake. En rådgivende lås per selskap og hash
+(<code dir="auto">pg_advisory_xact_lock</code>) gjør at to samtidige innsendinger av
+samme kvittering tar tur, så et dobbeltklikk ikke slipper gjennom
+(testet ved å holde låsen utenfra og se at andre innsending venter).</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="utkast-lagre-nå-gjør-ferdig-senere">Utkast: lagre nå, gjør ferdig senere</h2><a class="sl-anchor-link" href="#utkast-lagre-nå-gjør-ferdig-senere"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Utkast: lagre nå, gjør ferdig senere”</span></a></div>
+<p>Et krav begynner som <strong>utkast</strong> (migration 0085). Et bilde av en
+kvittering tatt på vei ut av taxien lagres med én gang — gjerne mange
+på en gang — og detaljene fylles ut senere, på samme eller en annen
+enhet. Et utkast er ennå ikke dokumentasjon: alle felt kan endres, og
+kvitteringen kan byttes (rotert eller beskåret i nettleseren — lerret,
+JPEG, maks 2400 px på lengste kant). Innboks-disiplinen begynner der den
+alltid har begynt: ved <strong>innsending</strong>, og fra da av holder triggeren
+innholdet fast. Et utkast slettes aldri; det <strong>forkastes</strong>, enveis.</p>
+<ul>
+<li>Utkast er bare synlige for den pengene gjelder og den som registrerte
+dem — for alle andre finnes de ikke (404), heller ikke for den som
+godkjenner, og heller ikke kvitteringen deres.</li>
+<li>Et utkast har ingen beslutningsspor: triggeren nekter
+<code dir="auto">decided_by</code>, <code dir="auto">voucher_id</code> og de andre beslutningsfeltene på et
+utkast, også skrevet rett i databasen.</li>
+<li>Samme kvittering i to krav avvises også når det første er et utkast;
+et avvist eller forkastet krav frigjør den.</li>
+<li>Innsending sier hva som mangler («velg dato», «legg ved
+kvitteringen», «oppgi hvor du kjørte fra og til») — portalen viser det
+ved feltet, serveren håndhever det, og databasens check-constraints
+nekter et innsendt krav uten dato, beløp og beskrivelse.</li>
+</ul>
+<p><strong>På vegne av andre.</strong> Den som håndterer utlegg (<code dir="auto">UTLEGG_GODKJENN</code>) kan
+registrere et krav for et aktivt medlem av selskapet
+(<code dir="auto">registered_by_person</code> lagres ved siden av <code dir="auto">person_id</code>). Den ansatte ser
+kravet og hvem som registrerte det. Med attestering slått på kan
+verken den pengene gjelder eller den som registrerte kravet godkjenne
+det — begge er forfattere av det.</p>
+<p><strong>Dimensjoner.</strong> Avdeling og prosjekt (koder — de er permanente) og
+«viderefaktureres» lagres på kravet og føres på kostnadslinjene ved
+godkjenning, ikke på mva-linjen eller gjelden til den ansatte.
+Viderefakturering krever prosjekt; selve faktureringen er neste steg.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="utlegg">Utlegg</h2><a class="sl-anchor-link" href="#utlegg"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Utlegg”</span></a></div>
+<p>Innsending: rå kvittering + dato/beløp/formål. Godkjenning i ÉN
+transaksjon:</p>
+<ol>
+<li>Bilaget: debet kostnadskonto (netto), eventuell inngående mva
+skilt ut med <a href="/teknisk/mva/"><code dir="auto">split_gross</code></a> etter dato-riktig sats
+(debet 2710), kredit mellomregningskonto (2910 gjeld til ansatte
+som standard) for brutto.</li>
+<li><strong>Kvitteringen kopieres inn som vedlegg på bilaget</strong> —
+oppbevaringsplikten dekker originaldokumentasjonen fra det
+øyeblikket kostnaden er bokført (samme mekanikk som innboksen).</li>
+<li>Den enveise statusovergangen, med mellomregningskontoen lagret så
+utbetalingen debiterer samme konto.</li>
+</ol>
+<div class="sl-heading-wrapper level-h3"><h3 id="kvitteringen-leses">Kvitteringen leses</h3><a class="sl-anchor-link" href="#kvitteringen-leses"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Kvitteringen leses”</span></a></div>
+<p>Når et utkast har en kvittering, leser serveren den og fyller ut feltene
+som fortsatt er tomme: dato, beløp og hvem som ble betalt
+(<code dir="auto">GET …/expenses/{eid}/suggestion</code>). En PDF leses fra tekstlaget, et
+foto av tekstleseren (docs/bilagstolkning.md). Hvem som ble betalt
+hentes i denne rekkefølgen: leverandøren med samme orgnr i reskontroen,
+navnet i Enhetsregisteret for orgnr, ellers kvitteringens øverste linje.</p>
+<p>Reglene:</p>
+<ul>
+<li><strong>Et forslag er ikke et faktum.</strong> Ingenting lagres før brukeren
+lagrer utkastet; hvert utfylt felt sier hvorfor («Lest fra
+kvitteringen: etter «totalt»»).</li>
+<li><strong>Det brukeren skrev, overskrives aldri.</strong> Et felt fylles bare når
+det er tomt, eller fortsatt holder forrige forslag — så en ny lesing
+etter rotering kan rette seg selv.</li>
+<li><strong>Leses på nytt hver gang, lagres aldri.</strong> En bedre leser forbedrer
+også gamle utkast.</li>
+<li>Samme tilgang som kvitteringen: et utkast er bare innsenderens og
+den som registrerte det; for alle andre finnes det ikke (404).</li>
+<li>Mva leses, men vises ikke for innsenderen: kravet bærer én mva-kode,
+og den velges av den som godkjenner. Mva fordelt på flere satser per
+kvittering er ennå ikke bygget.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="kjøregodtgjørelse">Kjøregodtgjørelse</h2><a class="sl-anchor-link" href="#kjøregodtgjørelse"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Kjøregodtgjørelse”</span></a></div>
+<p>km × statens sats på <strong>kjøredatoen</strong>, fra satsregisteret
+(<code dir="auto">km_godtgjorelse</code>, <code dir="auto">km_godtgjorelse_trekkfri</code> — øre per km, med
+kilde; docs/regelverk.md). En dato utenfor registerets dekning
+avvises høyt, aldri gjettet. Ren beregning i
+<code dir="auto">regnmed-core::expenses::mileage_allowance</code>:</p>
+<ul>
+<li>beløp = km × sats</li>
+<li>trekkfri del = km × trekkfri sats (aldri over beløpet)</li>
+<li><strong>trekkpliktig del</strong> = differansen (2026: 1,80 kr/km)</li>
+</ul>
+<p>Godkjenning posterer hele beløpet (debet 7100 bilgodtgjørelse som
+standard) mot mellomregning; bilagslinjen bærer km og sats. Utbetalingen
+går med lønnen — se «Utbetaling».</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="turen-strekning-kjøretøy-passasjerer">Turen: strekning, kjøretøy, passasjerer</h3><a class="sl-anchor-link" href="#turen-strekning-kjøretøy-passasjerer"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Turen: strekning, kjøretøy, passasjerer”</span></a></div>
+<p>Det som gjør godtgjørelsen trekkfri er dokumentasjonen, så den er
+felter, ikke fritekst: <strong>fra</strong> og <strong>til</strong>,
+<strong>tur/retur</strong> (kilometer oppgis én vei og dobles), <strong>kjøretøy</strong> og
+<strong>passasjerer</strong> med navn. Alt står på bilagslinjen ved godkjenning.</p>
+<p>Adressefeltene foreslår mens man skriver, og tar både adresse og
+firmanavn: egne adresser fra tidligere turer først (også i et tomt
+felt), så selskapets egne kunder og leverandører (navn → adressen som
+står på parten — bare for den som har <code dir="auto">RESKONTRO_LES</code>; en ansatt som
+fører en tur får ikke kunderegisteret gjennom adressefeltet), så ethvert
+foretak i Enhetsregisteret ved navn (forretningsadressen — reisen trenger
+ikke gå til noen man handler med), så Kartverkets åpne adresseregister
+(<code dir="auto">ws.geonorge.no/adresser</code>, ingen nøkkel). De tre siste spørres
+samtidig via <code dir="auto">GET …/expenses/addresses?q=</code> — portalen spør regnmed,
+regnmed spør Enhetsregisteret og Kartverket (3 s tidsavbrudd hver).
+Et valgt foretak fylles inn som «Navn, gate, postnummer sted», så
+navnet står i dokumentasjonen. CSP-en forblir
+<code dir="auto">connect-src 'self'</code>, og brukerens IP-adresse når aldri tredjeparten.
+Forslagene er en bekvemmelighet: feiler oppslaget, er svaret en tom
+liste og feltet tar fri tekst som før.
+<strong>Kjørerute og avstand.</strong> Når både fra og til er fylt ut, foreslås
+avstanden: Kartverket finner punktene (et «Firma, gate, postnummer
+sted» prøves på nytt uten firmanavnet), OpenRouteService finner
+kjøreruten (<code dir="auto">regnmed-gov::routing</code>, <code dir="auto">GET …/expenses/route?from=&amp;to=</code>).
+Avstanden fylles i kilometerfeltet bare når det er tomt eller fortsatt
+har forrige forslag — aldri over et tall brukeren har skrevet, for
+kilometeren er kravet til den som kjørte, og en omvei kan ha en god
+grunn. Avviker de, står begge tallene på skjermen. Den som godkjenner
+ser beregnet rute ved siden av krevde kilometer, og ruten på kart
+(Leaflet, lastet bare når kartet åpnes; Kartverkets åpne
+topografiske kart — CSP-en slipper <code dir="auto">cache.kartverket.no</code> inn som
+bilder og ingenting annet).</p>
+<p>Nøkkelen er <code dir="auto">ORS_API_KEY</code> (valgfri hemmelighet <code dir="auto">ors-credentials</code> i
+test og prod, docs/secrets.md). Uten den svarer endepunktet
+<code dir="auto">available: false</code>, og skjemaet ber om kilometer som før. Avstanden
+lagres ikke på kravet: den regnes ut på nytt ved visning, og samme par
+adresser besvares fra minnet i et døgn (per replika), så kvoten hos
+OpenRouteService ikke brukes opp av den som blar i krav.</p>
+<table>
+<thead>
+<tr>
+<th>Kjøretøy</th>
+<th>Satsdomene</th>
+<th>2026, øre/km (stat / trekkfri)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bil, også utslippsfri</td>
+<td><code dir="auto">km_godtgjorelse</code></td>
+<td>530 / 350</td>
+</tr>
+<tr>
+<td>Motorsykkel over 125 ccm</td>
+<td><code dir="auto">km_godtgjorelse_motorsykkel</code></td>
+<td>295 / 295</td>
+</tr>
+<tr>
+<td>Moped, motorsykkel til og med 125 ccm</td>
+<td><code dir="auto">km_godtgjorelse_moped</code></td>
+<td>200 / 200</td>
+</tr>
+<tr>
+<td>Snøscooter og ATV</td>
+<td><code dir="auto">km_godtgjorelse_snoscooter</code></td>
+<td>1000 / 1000</td>
+</tr>
+<tr>
+<td>Båt med motor</td>
+<td><code dir="auto">km_godtgjorelse_bat</code></td>
+<td>750 / 750</td>
+</tr>
+<tr>
+<td>Passasjertillegg, per passasjer</td>
+<td><code dir="auto">km_passasjertillegg</code></td>
+<td>100 / 100</td>
+</tr>
+</tbody>
+</table>
+<p>Kilder: særavtale reise i Norge 2026–2027 §§ 2–3 og Skatteetatens
+satser for bilgodtgjørelse 2026 (hentet 2026-11-13; hver rad bærer sin
+kilde i satsregisteret). En bil betales likt uansett drivstoff; at den
+er utslippsfri lagres fordi bompengene ikke er like. Beløp =
+km × (sats + passasjerer × tillegg), trekkfri del tilsvarende — ren
+beregning i <code dir="auto">regnmed-core::expenses::trip_allowance</code>. Tillegg for
+tilhenger og skogs-/anleggsvei er ikke bygget.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="bompenger-rushtidsavgift-ferje-og-parkering">Bompenger, rushtidsavgift, ferje og parkering</h3><a class="sl-anchor-link" href="#bompenger-rushtidsavgift-ferje-og-parkering"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Bompenger, rushtidsavgift, ferje og parkering”</span></a></div>
+<p>Dekkes etter <strong>faktisk kostnad</strong>, ikke per km, og er derfor egne
+utleggskrav knyttet til turen (<code dir="auto">trip_expense_id</code>) — hvert med sin
+kvittering eller AutoPASS-oversikt, sin mva-vurdering og sin konto ved
+godkjenning. Kvitteringen kan komme senere: når turen sendes inn, går
+de ferdige kostnadene med i samme transaksjon, og resten blir liggende
+som utkast med beskjed om hva som mangler. Forkastes turen, forkastes
+utkastene på den.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="reise-og-diett">Reise og diett</h2><a class="sl-anchor-link" href="#reise-og-diett"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Reise og diett”</span></a></div>
+<p>En tjenestereise er én <strong>reiseregning</strong> (<code dir="auto">kind = 'reise'</code>, migrasjon
+0087): avreise og hjemkomst med klokkeslett, reisemål, formål, og døgn
+for døgn hvor den reisende var, hvor hen sov og hvilke måltider andre
+betalte. Det er opplysningene skattebetalingsforskriften § 5-6-12 (3)
+krever for at godtgjørelsen skal være trekkfri. Hotell, billetter og
+taxi er vanlige utlegg med kvittering, og kjøring er vanlige
+kjøringer — begge kan henge under reisen (<code dir="auto">trip_expense_id</code>), og det
+som er ferdig sendes inn sammen med den, i samme transaksjon (også en
+kjørings egne bompenger). Det som mangler kvittering blir liggende som
+utkast, og svaret sier hva som mangler. Forkastes reisen, forkastes
+utkastene under den.</p>
+<p><strong>Døgnene.</strong> Et døgn er 24 timer regnet fra avreise (særavtalene § 2).
+Med overnatting er en rest på 6 timer eller mer etter siste hele døgn
+et eget, påbegynt døgn; under 6 timer gir ingenting. Holder det
+påbegynte døgnet også en natt (ut kl. 18, hjemme kl. 10 to dager
+senere), oppgis overnattingen, og det regnes som et døgn med
+overnatting. En reise uten overnatting er én dagreise, 6 timer eller
+mer og høyst et døgn. En kort reise med overnatting (ut kl. 19, hjemme
+kl. 7) er ett døgn med overnatting; staten betaler da 6–12-timerssatsen,
+siden 1 012 kr gjelder «over 12 timer med overnatting».
+Reiseregningen skrives etter reisen: en hjemkomst fram i tid nektes
+ved innsending, ellers ville lønnen betalt diett for dager som ikke er
+reist. Reiser
+over 28 døgn på samme sted følger egne regler og nektes høyt — de er
+ikke bygget. Regelen står ett sted, <code dir="auto">regnmed-core::travel::day_count</code>,
+og portalen spør den (<code dir="auto">…/reise/days</code>) i stedet for å telle selv.</p>
+<p><strong>To sett satser møtes på hvert døgn:</strong></p>
+<ul>
+<li>
+<p><strong>Trekkfritt</strong> (satsforskriften 2026, FOR-2025-11-07-2216 §§ 2–3) er
+det som kan betales uten skattetrekk og arbeidsgiveravgift — og det er
+det <strong>samme i Norge og i utlandet</strong>:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>2026</th>
+<th>Satsdomene</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Overnatting på hotell, per døgn</td>
+<td>693 kr</td>
+<td><code dir="auto">diett_hotell_trekkfri</code></td>
+</tr>
+<tr>
+<td>Pensjonat, brakke, hybel uten kjøkken</td>
+<td>400 kr</td>
+<td><code dir="auto">diett_pensjonat_trekkfri</code></td>
+</tr>
+<tr>
+<td>Privat, hybel med kjøkken</td>
+<td>107 kr</td>
+<td><code dir="auto">diett_privat_trekkfri</code></td>
+</tr>
+<tr>
+<td>Dagreise 6–12 timer</td>
+<td>200 kr</td>
+<td><code dir="auto">diett_dag_6_12_trekkfri</code></td>
+</tr>
+<tr>
+<td>Dagreise over 12 timer</td>
+<td>400 kr</td>
+<td><code dir="auto">diett_dag_over_12_trekkfri</code></td>
+</tr>
+<tr>
+<td>Ulegitimert nattillegg, bare innenlands</td>
+<td>452 kr</td>
+<td><code dir="auto">nattillegg_trekkfri</code></td>
+</tr>
+</tbody>
+</table>
+<p>Det påbegynte døgnet følger satsen for siste overnattingssted (§ 2).</p>
+</li>
+<li>
+<p><strong>Det selskapet betaler</strong> velges per selskap (Administrasjon →
+Firmaopplysninger, <code dir="auto">reise_satser</code>): enten de samme skattefrie satsene
+(standard — da er ingenting trekkpliktig), eller <strong>statens satser</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Statens særavtale, 2026</th>
+<th>Norge</th>
+<th>Utlandet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Døgn med overnatting</td>
+<td>1 012 kr (<code dir="auto">diett_overnatting</code>)</td>
+<td>landets sats</td>
+</tr>
+<tr>
+<td>Dagreise eller påbegynt døgn, 6 til 12 timer</td>
+<td>397 kr (<code dir="auto">diett_dag_6_12</code>)</td>
+<td>halv landssats (under 12 t)</td>
+</tr>
+<tr>
+<td>Over 12 timer uten overnatting</td>
+<td>736 kr (<code dir="auto">diett_dag_over_12</code>)</td>
+<td>full landssats (fra 12 t)</td>
+</tr>
+<tr>
+<td>Nattillegg, privat overnatting</td>
+<td>452 kr (<code dir="auto">nattillegg</code>)</td>
+<td>finnes ikke</td>
+</tr>
+</tbody>
+</table>
+<p>Særavtale reise innenlands §§ 9–10 og utenfor Norge § 8. At det
+påbegynte døgnet betales etter timebåndene (397/736 i Norge, halv
+eller full landssats ute) er vår lesning av «etter bokstav b eller
+c» — avtalen sier ikke mer.</p>
+<p>Overskuddet over den skattefrie satsen er <strong>trekkpliktig lønn</strong> med
+arbeidsgiveravgift. Et nattillegg over det trekkfrie beløpet er
+trekkpliktig i sin helhet, ikke bare overskuddet (Skatteetaten,
+«Trekkfritt ulegitimert nattillegg»). Valget lagres på kravet ved
+innsending, så en endring rører aldri et innsendt krav.</p>
+</li>
+</ul>
+<p><strong>Måltider andre betalte</strong> trekker fra 20 % (frokost), 30 % (lunsj) og
+50 % (middag) av satsen, hver rundet til hele kroner — begge sett.
+Statens frokosttrekk gjelder ikke når nattillegget betales
+(innenlands § 9 nr. 4); det trekkfrie gjør det.</p>
+<p><strong>Utlandet.</strong> Statens landssatser står i en tabell per land, og for
+noen land per by (<code dir="auto">travel_rate_abroad</code>, 171 rader fra særavtalens
+vedlegg 2026, vendored i <a href="https://github.com/BogenTech/regnmed/blob/main/docs/reise/README.md">docs/reise/</a> — med
+departementets «som for»-land og regionenes «øvrige»). Satsen er i
+landets valuta og regnes om med Norges Banks kurs på døgnets dato
+(«kursen … da reisen fant sted», § 15); en kurs eldre enn en uke nektes
+med beskjed om å hente kurser. Valuta Norges Bank ikke noterer (BYN,
+MMK, …) kan ikke brukes ennå. Velg landet der du var lengst i døgnet,
+også når det er Norge (§ 8 nr. 5).</p>
+<p><strong>Beregningen</strong> er ren kode i <code dir="auto">regnmed-core::travel::allowance</code>.
+Satsene er de som gjelder på <strong>avreisedagen</strong> — en reise over nyttår
+regnes med det gamle årets satser. Ved innsending lagres hvert døgn
+(<code dir="auto">travel_lines</code>): tidsrom, sted, overnatting, måltider, betalt,
+herav trekkfritt, og for utlandet tabellens beløp, valuta, kurs og
+kursdato. Raden er bevis, og triggeren holder den fast. Skjemaet viser
+serverens tall (<code dir="auto">POST …/reise/preview</code> kjører samme kode), aldri sine
+egne.</p>
+<p><strong>Bokføring og utbetaling.</strong> Godkjenning posterer hele beløpet (7150
+diettkostnad som standard) mot mellomregning; bilagslinjen bærer
+reisemål, tidsrom og antall døgn. Dietten utbetales med lønnen, som
+kjøregodtgjørelsen (se «Utbetaling»): den trekkpliktige delen går i
+trekkgrunnlaget og avgiftsgrunnlaget, den trekkfrie bare til netto.</p>
+<p>I a-meldingen (<code dir="auto">IncomeKind::Travel</code>, sjekket mot Skatteetatens
+inntektskombinasjoner R1 2026), alle som <code dir="auto">utgiftsgodtgjoerelse</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Del</th>
+<th>Beskrivelse</th>
+<th><code dir="auto">antall</code></th>
+<th>Aga</th>
+<th>Trekk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>trekkfri kost, hotell</td>
+<td><code dir="auto">reiseKostMedOvernattingPaaHotell</code></td>
+<td>døgn</td>
+<td>nei</td>
+<td>nei</td>
+</tr>
+<tr>
+<td>trekkfri kost, pensjonat/brakke/hybel uten kjøkken</td>
+<td><code dir="auto">reiseKostMedOvernattingPaaHybelUtenKokEllerPensjonatEllerBrakke</code></td>
+<td>døgn</td>
+<td>nei</td>
+<td>nei</td>
+</tr>
+<tr>
+<td>trekkfri kost, privat/hybel med kjøkken</td>
+<td><code dir="auto">reiseKostMedOvernattingPaaHybelMedKokEllerPrivat</code></td>
+<td>døgn</td>
+<td>nei</td>
+<td>nei</td>
+</tr>
+<tr>
+<td>trekkfri kost, dagreise</td>
+<td><code dir="auto">reiseKostUtenOvernatting</code></td>
+<td>dager</td>
+<td>nei</td>
+<td>nei</td>
+</tr>
+<tr>
+<td>trekkfritt nattillegg</td>
+<td><code dir="auto">reiseNattillegg</code></td>
+<td>døgn</td>
+<td>nei</td>
+<td>nei</td>
+</tr>
+<tr>
+<td>kost over trekkfri sats</td>
+<td><code dir="auto">reiseKost</code></td>
+<td>ingen</td>
+<td>ja</td>
+<td>ja</td>
+</tr>
+<tr>
+<td>nattillegg over trekkfritt beløp, helt</td>
+<td><code dir="auto">reiseAnnet</code></td>
+<td>ingen</td>
+<td>ja</td>
+<td>ja</td>
+</tr>
+</tbody>
+</table>
+<p>Det påbegynte døgnet meldes under overnattingsstedet det følger.
+<code dir="auto">payroll_travel</code> (migrasjon 0087) er øyeblikksbildet per krav og
+beskrivelse, så meldingen kan bygges fra kjøringen for alltid.</p>
+<p>Ikke bygget: statens kompensasjonstillegg (§ 12, særskilt for
+statsansatte), reduksjonen fra døgn 29, langtransportsjåfører, kost
+etter regning («særlige grunner»), og reiser som skifter sats ved
+nyttår.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="firmakort">Firmakort</h2><a class="sl-anchor-link" href="#firmakort"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Firmakort”</span></a></div>
+<p>Et kjøp med firmakort er <strong>firmaets penger</strong>: kvitteringen er
+dokumentasjon, ikke et krav om refusjon. Den går gjennom samme
+utkast → innsendt → godkjent-flyt (innboks-disiplinen holder
+kvitteringen fast), men godkjenningen krediterer <strong>kortets konto</strong> i
+stedet for gjelden til den ansatte (2910), og kravet er oppgjort i samme
+transaksjon (<code dir="auto">utbetalt</code> med godkjenningsbilaget som oppgjør) — det er
+ingenting å betale ut, og det havner verken i lønnskjøringen eller
+betalingslisten.</p>
+<p><strong>Kortregisteret</strong> (<code dir="auto">company_card</code>, migrasjon 0088; Bank → Firmakort,
+<code dir="auto">BANK_AVSTEM</code>): navn, de <strong>fire siste sifrene</strong> (aldri kortnummeret),
+kortholder og kontoen kortet bokføres mot. Kontoen er permanent —
+godkjente kjøp står på den — mens navn, kortholder og «i bruk» kan
+endres; et kort slettes aldri. Ett aktivt kort per konto: et debetkort
+kan stå på bankkontoen det trekker fra (1920), et kredittkort trenger en
+egen konto (for eksempel en underkonto i 2390-serien). Et kort uten
+kortholder er <strong>delt</strong>, og bare den som godkjenner utlegg kan føre kjøp
+på det; ellers fører kortholderen sine egne.</p>
+<p><strong>Kontoutskriften</strong> for kortet importeres under Bank → Avstemming på
+kortets konto, med samme camt.053/CSV-import som bankkontoene (kortets
+konto vises der selv om den ligger i klasse 2). Det gir to ting:</p>
+<ul>
+<li><strong>Kortkjøp uten kvittering</strong> (<code dir="auto">GET …/expenses/card-lines</code>, Utlegg →
+«Legg ved kvitteringer»): linjer med penger ut på et korts konto som
+verken er avstemt mot hovedboken eller har en kvittering i arbeid.
+Kortholderen ser sine egne, den som godkjenner utlegg alle. På en
+bankkonto (19xx) deles kontoen med husleie, lønn og leverandører, så
+der regnes bare linjer som nevner kortets fire siste sifre som et
+eget tall (ikke inne i et lengre nummer) som kortkjøp; et kredittkorts
+egen konto har ikke annet. Et kort som tas ut av bruk beholder sine
+udokumenterte kjøp i listen, og kvitteringen kan fortsatt føres fra
+linjen — men ikke noe nytt på kortet.</li>
+<li><strong>Kvittering fra linjen</strong> (<code dir="auto">POST …/expenses/receipts?bank_transaction_id=</code>):
+bildet blir et utkast med linjens dato, beløp, tekst og kort, og
+tilhører kortholderen. En linje dokumenteres av én kvittering (unik
+indeks; et avvist eller forkastet krav frigjør den). Ved godkjenning
+avstemmes linjen mot kortkontoens bilagslinje <strong>i samme transaksjon</strong>
+— beløpene må være like, og er linjen allerede avstemt mot noe annet,
+nektes godkjenningen med beskjed.</li>
+</ul>
+<p>En kvittering ført på kortet uten linjen (kontoutskriften har ikke
+kommet ennå, eller den ble tatt med fra «Nytt utlegg») avstemmes på
+vanlig måte: ved importen, eller — kom kontoutskriften først — rett
+etter godkjenningen, med samme regel som importen (likt beløp, nærmeste
+dato innenfor fem dager, uavgjort overlates til et menneske) — for dette
+kjøpets bilagslinje alene, ingenting annet på kontoen.</p>
+<p>Ikke bygget: flere kort på samme konto (én kontoutskrift kan ikke si
+hvilket kort en linje er), kortkjøp i valuta der kvitteringens beløp
+er i utenlandsk valuta (kravet føres i kroner, med kontoutskriftens
+beløp), og påminnelse til kortholderen utenfor portalen.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="agenten">Agenten</h2><a class="sl-anchor-link" href="#agenten"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Agenten”</span></a></div>
+<p>En agent (docs/agent.md — en integrasjon med en rolle) kan registrere
+og sende inn utleggskrav for de ansatte. <strong>Den avgjør dem aldri.</strong></p>
+<ul>
+<li><strong>Fra innboksen.</strong> Ansatte sender kvitteringer til selskapets
+e-post-inn-adresse, og de lander i bilagsinnboksen ved siden av
+leverandørfakturaene. Den som rydder innboksen — en bokfører eller en
+agent — gjør en kvittering betalt med egne penger til et utkast for
+den ansatte (<code dir="auto">utlegg_fra_innboks</code>, docs/bilagsinnboks.md). Fra disk:
+<code dir="auto">utlegg_registrer</code>.</li>
+<li><strong>Lese og fylle ut.</strong> <code dir="auto">utlegg_kvittering</code> viser modellen selve
+bildet; <code dir="auto">utlegg_forslag</code> gir regnmeds egen lesing (tekstlag eller
+tekstgjenkjenning). Agenten fyller ut dato, beløp med mva og
+beskrivelse (<code dir="auto">utlegg_oppdater</code>) og sender inn (<code dir="auto">utlegg_send_inn</code>).
+Kravet er registrert av agenten på den ansattes vegne, og begge ser
+det.</li>
+<li><strong>Et menneske avgjør.</strong> Godkjenning nektes i transaksjonen
+(<code dir="auto">approve_expense</code>) når den som godkjenner er en maskin, uansett hva
+rollen gir; avvisning og utbetaling nektes med 403, og en
+betalingsliste med utleggskrav kan ikke godkjennes av en agent
+(<code dir="auto">approve_run</code>). En agent med
+<code dir="auto">bokforing</code>-rollen har <code dir="auto">UTLEGG_GODKJENN</code> og blir likevel stoppet —
+regelen ligger på hvem som avgjør, ikke i rollen. Med attestering på
+er dessuten den som registrerte kravet utelukket som godkjenner, slik
+det alltid har vært.</li>
+<li><strong>Kravet er et menneskes.</strong> Et utleggskrav kan ikke tilhøre en
+agent: uten <code dir="auto">person_id</code> ville kravet blitt agentens eget, og det
+nektes (<code dir="auto">create_draft</code>, <code dir="auto">expense_from_inbox</code>).</li>
+<li><strong>Den ansattes egne utkast</strong> forblir den ansattes: en agent ser bare
+utkastene den selv har registrert.</li>
+</ul>
+<p>Rolleprompten <code dir="auto">bokforer</code> har fått en fast arbeidsrekkefølge for dette
+(UTLEGG), og prompten <code dir="auto">ansatt</code> sier ikke lenger at den sender inn
+utlegg: et utlegg tilhører personen som la ut pengene, og agenten er
+ikke den personen.</p>
+<p>Ikke bygget: en knapp i portalen for å gjøre et innboksdokument til et
+utleggskrav (endepunktet finnes), og at agenten foreslår mva-kode eller
+konto — det velger den som godkjenner.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="utbetaling">Utbetaling</h2><a class="sl-anchor-link" href="#utbetaling"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Utbetaling”</span></a></div>
+<p>Tre veier ut, valgt av hva kravet er — aldri av hva som er lettest:</p>
+<p><strong>Kjøregodtgjørelse og diett til en ansatt utbetales med lønnen.</strong> Delen over
+den trekkfrie satsen er trekkpliktig og utløser arbeidsgiveravgift, og
+bare en lønnskjøring kan trekke skatt. Begge delene skal i a-meldingen
+for måneden de utbetales (Skatteetatens veiledning, «Trekkfri
+bilgodtgjørelse» og «Trekkpliktig bilgodtgjørelse»). Lønnskjøringen
+(<code dir="auto">payroll::run_payroll</code>) tar derfor med den ansattes godkjente,
+ubetalte kjøringer datert til og med utbetalingsdatoen:</p>
+<ul>
+<li>den trekkpliktige delen går inn i trekkgrunnlaget og
+avgiftsgrunnlaget, men gir ikke feriepenger;</li>
+<li>den trekkfrie delen og passasjertillegget går bare til netto;</li>
+<li>bilaget debiterer mellomregningen godkjenningen krediterte, så
+gjelden til den ansatte går i null;</li>
+<li>kravene settes <code dir="auto">utbetalt</code> med lønnsbilaget, i samme transaksjon;</li>
+<li><code dir="auto">payroll_expense</code> (migrasjon 0086) lagrer hvordan hvert krav ble
+delt — et øyeblikksbilde, så a-meldingen kan bygges fra kjøringen
+for alltid. Et krav kan bare betales av én kjøring (unik nøkkel).</li>
+</ul>
+<p>I a-meldingen (<code dir="auto">regnmed-core::amelding::IncomeKind</code>, kodene sjekket mot
+Skatteetatens inntektskombinasjoner R1 2026), alle som
+<code dir="auto">utgiftsgodtgjoerelse</code> med kilometerne som <code dir="auto">antall</code>. Tallene er
+regnearkets «gml.kode» — den gamle lønnsoppgavekoden, ikke et
+kombinasjonsnummer, som arket ikke har:</p>
+<table>
+<thead>
+<tr>
+<th>Del</th>
+<th>Beskrivelse</th>
+<th>Gammel kode</th>
+<th>Aga</th>
+<th>Trekk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>trekkfri, bil</td>
+<td><code dir="auto">kilometergodtgjoerelseBil</code></td>
+<td>711</td>
+<td>nei</td>
+<td>nei</td>
+</tr>
+<tr>
+<td>over trekkfri sats, bil</td>
+<td><code dir="auto">kilometergodtgjoerelseBil</code></td>
+<td>153</td>
+<td>ja</td>
+<td>ja</td>
+</tr>
+<tr>
+<td>passasjertillegg</td>
+<td><code dir="auto">kilometergodtgjoerelsePassasjertillegg</code></td>
+<td>714</td>
+<td>nei</td>
+<td>nei</td>
+</tr>
+<tr>
+<td>andre kjøretøy</td>
+<td><code dir="auto">kilometergodtgjoerelseAndreFremkomstmidler</code></td>
+<td>714</td>
+<td>nei</td>
+<td>nei</td>
+</tr>
+</tbody>
+</table>
+<p>Passasjertillegget meldes med passasjerkilometer (km × passasjerer),
+som er det tillegget betales per. Det er vår lesning — veiledningen
+sier bare «antall kilometer». Andre kjøretøy har ingen trekkpliktig
+kombinasjon; 2026-satsene gir heller ingen overskytende del, og skulle
+de gjøre det, nekter a-meldingen med beskjed om å melde det særskilt.</p>
+<p>Lønnsslippen viser den trekkpliktige delen som en lønnslinje og den
+trekkfrie mellom trekket og «Til utbetaling». En kjøring til en ansatt
+i et løpende arbeidsforhold kan ikke betales manuelt (<code dir="auto">pay</code> nekter). En
+person som ikke er ansatt — eller ikke lenger er det, så ingen kjøring
+kan ta med vedkommende — har ikke noe arbeidsforhold regnmed kan melde;
+godkjenningen sier det høyt, og kravet betales da manuelt og meldes
+særskilt.</p>
+<p><strong>Utlegg (kvitteringer) går i betalingslisten</strong> (docs/betaling.md)
+sammen med leverandørene, til kontonummeret i ansattregisteret — det
+eneste stedet regnmed har en persons kontonummer. Et krav betales i sin
+helhet. Mens det ligger i en liste som ikke er betalt, kan det verken
+betales manuelt eller legges i en ny liste, og når listen registreres
+betalt settes kravet <code dir="auto">utbetalt</code> med utbetalingsbilaget.</p>
+<p><strong>Manuelt:</strong> <code dir="auto">POST …/expenses/{id}/pay</code> — debet mellomregningskontoen
+fra godkjenningen, kredit bank (1920 som standard), én transaksjon med
+statusovergangen. Bankavstemmingen matcher utbetalingsbilaget mot
+kontoutskriften som ethvert annet bilag.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="viderefakturering">Viderefakturering</h2><a class="sl-anchor-link" href="#viderefakturering"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Viderefakturering”</span></a></div>
+<p>Et godkjent krav merket «viderefaktureres» (det krever prosjekt) tas med
+på en faktura til kunden — samme skjema som ufakturerte timer, og
+prosjektets kunde (docs/dimensjoner.md) er forslaget, aldri en regel.
+<code dir="auto">POST …/invoices</code> tar <code dir="auto">expenses: [{expense_id, treatment}]</code>, og kravene
+låses av fakturaen i samme transaksjon (<code dir="auto">expense_invoice</code>, migrasjon
+0086; primærnøkkelen gjør en ny viderefakturering umulig). Det krever
+<code dir="auto">UTLEGG_LES_ALLE</code> i tillegg til <code dir="auto">FAKTURA_SKRIV</code>.</p>
+<ul>
+<li><strong><code dir="auto">resale</code> — videresalg.</strong> Kostnaden er selskapets, og å fakturere
+den er et salg: linjen er kostnaden godkjenningen bokførte (etter
+fradrag for inngående mva), på 3000 med kode 3 (25 %) som timene. Et
+selskap som ikke er mva-registrert på fakturadatoen får kode 7 og
+ingen mva (mval. § 15-11; samme regel som andre avledede linjer,
+<code dir="auto">settings</code>). Kjøregodtgjørelse kan bare viderefaktureres slik.</li>
+<li><strong><code dir="auto">disbursement</code> — utlegg.</strong> Kjøp gjort i kundens navn og for kundens
+regning holdes utenfor beregningsgrunnlaget (mval. § 4-1 annet ledd
+bokstav a): ingen påslag, og det føres som utlegg, ikke som kostnad.
+regnmed tillater det derfor bare for et krav som ble godkjent UTEN
+fradrag for inngående mva og på en balansekonto (klasse 1, f.eks.
+1579). Fakturalinjen krediterer den kontoen uten mva-kode, så den
+går i null. Er kravet bokført som kostnad eller med mva-fradrag,
+nekter regnmed og ber om videresalg. Kunden skal ha originalbilaget;
+det sendes ikke med fakturaen automatisk ennå.</li>
+</ul>
+<p><code dir="auto">GET …/expenses/billable</code> lister godkjente krav som venter, med kostnaden
+et videresalg fakturerer og om kravet kan gå som utlegg.</p>
+<p>Kjente begrensninger:</p>
+<ul>
+<li><strong>EHF:</strong> en utleggslinje har ingen mva-kode, og EHF-renderen gjør en
+linje uten kode til kategori Z (nullsats). Riktig PEPPOL-kategori for
+et utlegg utenfor grunnlaget er ikke avklart, så regnmed gjetter
+ikke; PDF-en og posteringen er riktige.</li>
+<li><strong>Kreditnota frigjør ikke kravet.</strong> Krediteres fakturaen, står kravet
+fortsatt som viderefakturert — som timer som er fakturert. En ny
+faktura må da lages med vanlige linjer.</li>
+</ul>
+<p>Selvgodkjenning er tillatt som standard — et enkeltpersonforetak må
+kunne gjøre alt. Slår selskapet på attestering (docs/attestering.md,
+#47), kan innsenderen ikke lenger godkjenne sitt eget krav; regelen
+håndheves i <code dir="auto">approve_expense</code>, ikke i portalen.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="endpoints">Endpoints</h2><a class="sl-anchor-link" href="#endpoints"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Endpoints”</span></a></div>
+<p>Utkast:</p>
+<ul>
+<li><code dir="auto">POST /companies/{id}/expenses/receipts?filename=&amp;person_id=</code> — rå kvittering → utkast</li>
+<li><code dir="auto">POST /companies/{id}/expenses</code> — utkast som JSON (<code dir="auto">kind</code>, <code dir="auto">person_id</code>, <code dir="auto">trip_expense_id</code> og feltene)</li>
+<li><code dir="auto">PUT  /companies/{id}/expenses/{eid}</code> — skriv om et utkast</li>
+<li><code dir="auto">PUT  /companies/{id}/expenses/{eid}/receipt?filename=</code> — bytt kvitteringen på et utkast</li>
+<li><code dir="auto">POST /companies/{id}/expenses/{eid}/submit</code> — send inn (innholdet låses)</li>
+<li><code dir="auto">POST /companies/{id}/expenses/{eid}/discard</code> — forkast</li>
+<li><code dir="auto">GET  /companies/{id}/expenses/claimants</code> — hvem det kan registreres for</li>
+<li><code dir="auto">GET  /companies/{id}/expenses?status=utkast</code> / <code dir="auto">?trip={eid}</code> — egne utkast / kostnadene på en tur</li>
+<li><code dir="auto">GET  /companies/{id}/expenses/kjoring?dato=&amp;vehicle=</code> — satsene, også passasjertillegget</li>
+<li><code dir="auto">GET  /companies/{id}/expenses/{eid}/suggestion</code> — det kvitteringen sier: dato, beløp, hvem, med begrunnelser</li>
+<li><code dir="auto">POST /companies/{id}/inbox/{doc}/expense</code> — en kvittering i innboksen blir et utkast for <code dir="auto">person_id</code></li>
+<li><code dir="auto">GET  /companies/{id}/cards</code> (<code dir="auto">?usable=true</code>), <code dir="auto">POST /companies/{id}/cards</code>, <code dir="auto">PUT /companies/{id}/cards/{card_id}</code> — kortregisteret</li>
+<li><code dir="auto">GET  /companies/{id}/expenses/card-lines</code> — kortkjøp uten kvittering</li>
+<li><code dir="auto">POST /companies/{id}/expenses/receipts?filename=&amp;bank_transaction_id=</code> — kvittering til en kortlinje</li>
+<li><code dir="auto">GET  /companies/{id}/expenses/reise?dato=</code> — selskapets satsvalg, begge settene satser og statens landstabell</li>
+<li><code dir="auto">GET  /companies/{id}/expenses/reise/days?departure_at=&amp;return_at=&amp;overnight=</code> — antall døgn</li>
+<li><code dir="auto">POST /companies/{id}/expenses/reise/preview</code> — dietten reisen ville fått, med døgnlinjene</li>
+</ul>
+<p>Direkte innsending (som før, for integrasjoner):</p>
+<ul>
+<li><code dir="auto">GET  /companies/{id}/expenses?status=&amp;limit=&amp;offset=</code> — kravene
+nyeste først, med <code dir="auto">own</code>-flagg, <code dir="auto">total</code> og <code dir="auto">counts</code> per status.
+<code dir="auto">status</code> er en FANE: <code dir="auto">apne</code> (innsendt + godkjent — pengene er ikke
+ute ennå), eller en av de lagrede statusene; tom = alle. Ukjent
+status gir 400.</li>
+<li><code dir="auto">GET  /companies/{id}/expenses/{eid}</code> — ett krav, med begge
+bilagene (<code dir="auto">voucher</code>, <code dir="auto">utbetalt_voucher</code>) og hvem som besluttet</li>
+<li><code dir="auto">POST /companies/{id}/expenses/utlegg?filename=&amp;dato=&amp;belop_ore=&amp;beskrivelse=</code> — rå kvittering som body</li>
+<li><code dir="auto">GET  /companies/{id}/expenses/kjoring?dato=</code> — statens km-sats og
+den trekkfrie satsen den dagen (400 utenfor satsregisterets dekning)</li>
+<li><code dir="auto">POST /companies/{id}/expenses/kjoring</code></li>
+<li><code dir="auto">GET  /companies/{id}/expenses/{eid}/receipt</code> (hash-sjekket)</li>
+<li><code dir="auto">POST /companies/{id}/expenses/{eid}/approve</code> (konto/mva_kode/motkonto valgfritt)</li>
+<li><code dir="auto">POST /companies/{id}/expenses/{eid}/reject</code> (note påkrevd)</li>
+<li><code dir="auto">POST /companies/{id}/expenses/{eid}/pay</code></li>
+</ul>
+<p>Registrering krever <code dir="auto">UTLEGG_SKRIV_EGNE</code> (egne krav); godkjenning og
+avvisning <code dir="auto">UTLEGG_GODKJENN</code>, utbetaling <code dir="auto">UTLEGG_UTBETAL</code>. Den som
+bare har <code dir="auto">UTLEGG_LES_EGNE</code> ser sine egne krav — et annet krav svarer
+404 både i listen, på kravsiden og for kvitteringen.</p>
+<p>Portal (<strong>Utlegg</strong>, <code dir="auto">#/c/{id}/utlegg/…</code>): kravene først, i fanene
+Åpne / Utbetalt / Avvist med tellere, sidevis fra serveren. Statusen
+står i ord («Venter på godkjenning», «Godkjent, venter på
+utbetaling»). «Nytt utlegg eller kjøring» (<code dir="auto">…/utlegg/ny</code>) er ett
+skjema med merkede felt; kvitteringen velges først (kamera eller fil
+på telefon), og knappen er opptatt til svaret kommer. Hvert krav har
+sin side (<code dir="auto">…/utlegg/{id}</code>) med kvitteringen forhåndsvist ved siden av
+beslutningen (samme bytesjekk som innboksen, <code dir="auto">lib/preview.js</code>),
+kontovelger, mva-valg med varsel for representasjon (mval. § 8-3),
+linjene som vil bokføres, og bekreftelse med dato og bankkonto før
+utbetaling. Knappene vises bare for den som har retten, og med
+attestering på tilbys ikke godkjenning av eget krav; etter godkjenning
+eller avvisning går siden til neste krav som venter (ikke ens egne når
+attestering er på).</p>
+<p>Bevisst utenfor så langt: KI-lesing av kvitteringen (agent-fasen), mva fordelt på flere satser
+per kvittering, utlegg (kvitteringer) utbetalt med lønnen, og
+originalbilaget sendt med fakturaen ved viderefakturering som utlegg.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="where-it-is-tested">Where it is tested</h2><a class="sl-anchor-link" href="#where-it-is-tested"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Where it is tested”</span></a></div>
+<ul>
+<li>
+<p><code dir="auto">crates/regnmed-api/tests/grupper/expenses.rs::expense_drafts_flow</code> —
+utkast uten dato/beløp, usynlig og uskrivbart for andre (404),
+innsending som navngir det som mangler, ukjent prosjekt avvist,
+kvitteringsbytte og duplikatvakt mot utkast, innholdet låst fra
+innsending (API og direkte SQL), prosjektet på kostnadslinjen og ikke
+på gjelden, tur med tur/retur + utslippsfri bil + passasjer
+(63 000 øre, 18 000 trekkpliktig) og strekningen på bilagslinjen,
+bompenger med og uten kvittering ved innsending, registrering på
+vegne (403 for ansatt, 400 for ikke-medlem) og fire øyne mot den som
+registrerte (vakten sett feile), forkasting enveis og med utkastene
+på turen.</p>
+</li>
+<li>
+<p><code dir="auto">crates/regnmed-api/tests/grupper/expenses.rs::a_trip_route_is_found_from_two_addresses</code>
+— uten nøkkel <code dir="auto">available: false</code>; med lokale stand-ins for Kartverket
+og OpenRouteService: firmanavnet droppes til gaten treffer (vakten
+sett feile), [lon, lat] snus til [lat, lon], ukjent adresse navngis.
+Formen på et ekte OpenRouteService-svar er ennå ikke sjekket mot en
+levende nøkkel.</p>
+</li>
+<li>
+<p><code dir="auto">crates/regnmed-api/tests/grupper/expenses.rs::a_receipt_photo_prefills_the_draft</code>
+— uten tekstleser <code dir="auto">source: "ingen"</code>; med en lokal stand-in for
+tekstleseren og Enhetsregisteret: dato, beløp etter «totalt» og
+registerets navn framfor OCR-ens; en kollega får 404; en tekstleser
+som feiler gir en advarsel, ikke en feil.</p>
+</li>
+<li>
+<p><code dir="auto">regnmed-core/src/expenses.rs</code> — passasjertillegg på begge sider,
+kjøretøy → satsdomener.</p>
+</li>
+<li>
+<p><code dir="auto">crates/regnmed-db/tests/payroll.rs::mileage_is_paid_with_pay_and_reported_by_part</code>
+— to kjøringer (én med passasjer) i marslønnen: trekk av 35 % på
+lønn + overskytende del, aga på det samme og ikke på refusjonen (sett
+feile), 2910 i null, kravene <code dir="auto">utbetalt</code>, en kjøring datert etter
+utbetalingsdatoen venter til april, manuell utbetaling nektet, og
+a-meldingens fire inntekter med kilometer; etter at arbeidsforholdet
+er avsluttet betales et nytt krav manuelt.</p>
+</li>
+<li>
+<p><code dir="auto">regnmed-core/src/amelding.rs::mileage_is_reported_by_part_with_its_kilometres</code>
+— kodene, flaggene og <code dir="auto">antall</code> validert mot XSD-en; en refusjon i
+avgiftsgrunnlaget gir F185-avvik (sett feile).</p>
+</li>
+<li>
+<p><code dir="auto">regnmed-core/src/payroll.rs::the_taxable_allowance_is_withheld_and_the_rest_only_paid</code>
+— trekk på den trekkpliktige delen også uten lønn.</p>
+</li>
+<li>
+<p><code dir="auto">crates/regnmed-api/tests/grupper/payments.rs::receipt_claims_are_paid_from_the_payment_list</code>
+— uten ansattkonto nektet, delbeløp nektet, i liste = ikke manuelt og
+ikke i ny liste (sett feile), pain.001 til ansattkontoen, oppgjøret
+setter kravet utbetalt og 2910 i null.</p>
+</li>
+<li>
+<p><code dir="auto">crates/regnmed-api/tests/grupper/expenses.rs::billable_claims_are_rebilled_once</code>
+— videresalg av hotell netto etter mva-fradrag og kjøring, utlegg på
+1579 uten mva (1579 i null), utlegg nektet for et krav med
+mva-fradrag, prosjektets kunde som forslag, bare én gang (sett
+feile), og uten mva (kode 7) etter at selskapet er ute av
+mva-registeret (sett feile).</p>
+</li>
+<li>
+<p><code dir="auto">crates/regnmed-api/tests/grupper/agent.rs::an_agent_files_a_claim_and_a_human_decides_it</code>
+— en <code dir="auto">bokforing</code>-agent finner den ansatte, gjør en kvittering i
+innboksen til et utkast (dokumentet får status <code dir="auto">utlegg</code>, bare én
+gang), ser kvitteringen som bilde byte for byte, fyller ut og sender
+inn; et krav uten <code dir="auto">person_id</code> nektes; en PDF vises ikke som bilde;
+agenten nektes å godkjenne (sett feile) og å avvise, et menneske
+godkjenner; vertsagenten gir bildet videre til leverandøren som
+<code dir="auto">image_url</code> etter verktøysvarene, og bare det nyeste bildet følger
+med videre (sett feile).</p>
+</li>
+<li>
+<p><code dir="auto">crates/regnmed-api/tests/grupper/payments.rs::receipt_claims_are_paid_from_the_payment_list</code>
+— en agent kan ikke godkjenne en betalingsliste med utleggskrav (sett
+feile).</p>
+</li>
+<li>
+<p><code dir="auto">crates/regnmed-api/tests/grupper/expenses.rs::company_card_purchases_are_documented_not_reimbursed</code>
+— kortregisteret (fire sifre, ett kort per konto, bare <code dir="auto">BANK_AVSTEM</code>),
+kortholder ser sitt kort og sine linjer, en kollega verken kortet,
+linjene eller retten til å føre på det; kontoutskrift importert på en
+kredittkortkonto i klasse 2; kvittering fra linjen med linjens dato
+og beløp, lenken beholdt når utkastet lagres, én kvittering per linje;
+godkjenning krediterer kortkontoen, 2910 urørt, kravet oppgjort,
+linjen avstemt i samme transaksjon (sett feile), en kvittering ført
+uten linjen avstemmes rett etter godkjenningen (sett feile); et
+debetkort på 1920 ser bare linjene som nevner sine fire sifre som eget
+tall (sett feile); et kort tatt ut av bruk beholder sin udokumenterte
+linje, som fortsatt kan få kvittering, mens nye kjøp på kortet nektes
+(sett feile).</p>
+</li>
+<li>
+<p><code dir="auto">regnmed-core/src/travel.rs</code> — døgntelling (6-timersgrensen, 28
+døgn), satsforskriftens egne tall (554 kr for hotell med frokost),
+statens overskudd, en natt i det påbegynte døgnet, kort reise med
+overnatting, nattillegg uten frokosttrekk, nattillegg over
+trekkfritt beløp trekkpliktig i sin helhet, timebånd, halv landssats
+ute, alle tre måltider gir null.</p>
+</li>
+<li>
+<p><code dir="auto">regnmed-core/src/amelding.rs::travel_is_reported_by_lodging_with_its_dogn</code>
+— beskrivelsene, <code dir="auto">antall</code> på de trekkfrie og ikke på <code dir="auto">reiseKost</code>,
+XSD-validert, bare overskuddet i avgiftsgrunnlaget.</p>
+</li>
+<li>
+<p><code dir="auto">crates/regnmed-db/tests/payroll.rs::diett_is_paid_with_pay_and_reported_by_lodging</code>
+— statens satser: hotellnatt med frokost + påbegynt døgn og en
+dagreise gjennom ekte utkast/innsending/godkjenning; trekk og aga på
+overskuddet, 2910 i null, a-meldingens linjer med døgn, manuell
+utbetaling nektet, betalt bare én gang.</p>
+</li>
+<li>
+<p><code dir="auto">crates/regnmed-api/tests/grupper/expenses.rs::a_trip_is_one_reiseregning</code>
+— satsene og landstabellen, døgntelling, en reise fram i tid nektet,
+Berlin etter skattefrie
+satser (som hjemme) og etter statens (EUR omregnet per døgn), kjøring
+og hotell under reisen (kjøringen inn, hotellet venter på
+kvittering), døgnlinjene lagret og låst i databasen, posteringen med
+reisemål og tidsrom.</p>
+</li>
+<li>
+<p><code dir="auto">ui/portal/src/sections/utlegg/expenseMath.test.js</code> — hvilke døgn som
+har en natt, også over sommertidsskiftet.</p>
+</li>
+<li>
+<p><code dir="auto">regnmed-core/src/expenses.rs</code> — split trekkfri/trekkpliktig,
+historisk sats-invertering, null-tilfeller.</p>
+</li>
+<li>
+<p><code dir="auto">crates/regnmed-api/tests/grupper/expenses.rs</code> — end to end: kvittering
+rundtur + DB-immutabilitet, samme kvittering avvist som duplikat,
+manglende km sagt i en setning, km-satsen for skjemaet, fanene og
+tellerne, kravsiden med begge bilag, godkjenning med mva-splitt (7790/2710/
+2910-saldoer verifisert) og vedlegget på bilaget, enveis
+beslutninger (også ulovlige overganger direkte i SQL), kjøring med
+trekkpliktig-varsel og høy feil utenfor satsdekning, avvisning
+krever begrunnelse, utbetaling mot bank, kjedeverifikasjon.</p>
+</li>
+<li>
+<p><code dir="auto">crates/regnmed-api/tests/grupper/access.rs</code>
+(<code dir="auto">an_employee_may_do_their_own</code>) — ansatt åpner sitt eget krav,
+får 404 på en kollegas.</p>
+</li>
+<li>
+<p><code dir="auto">ui/portal/src/sections/utlegg/expenseMath.test.js</code> — skjemaets
+kjøregodtgjørelse er kjernens (<code dir="auto">mileage_allowance</code>), km-tolkning;
+<code dir="auto">ui/portal/src/lib/preview.test.js</code> — typen avgjøres av bytene.</p>
+</li>
+</ul>
+</div><footer class="sl-flex" data-astro-cid-ddtxxk7k><div class="meta sl-flex" data-astro-cid-ddtxxk7k><a href="https://github.com/BogenTech/regnmed/edit/main/docs/utlegg.md" class="sl-flex print:hidden" data-astro-cid-qlekgd3o><svg data-astro-cid-qlekgd3o="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.2em;" data-astro-cid-hkc32dio><path d="M22 7.24a1 1 0 0 0-.29-.71l-4.24-4.24a1 1 0 0 0-1.1-.22 1 1 0 0 0-.32.22l-2.83 2.83L2.29 16.05a1 1 0 0 0-.29.71V21a1 1 0 0 0 1 1h4.24a1 1 0 0 0 .76-.29l10.87-10.93L21.71 8c.1-.1.17-.2.22-.33a1 1 0 0 0 0-.24v-.14l.07-.05ZM6.83 20H4v-2.83l9.93-9.93 2.83 2.83L6.83 20ZM18.17 8.66l-2.83-2.83 1.42-1.41 2.82 2.82-1.41 1.42Z"/></svg>Rediger side</a></div><div class="pagination-links print:hidden" dir="ltr" data-astro-cid-b5raizh3><a href="/teknisk/timer/" rel="prev" data-astro-cid-b5raizh3><svg data-astro-cid-b5raizh3="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;" data-astro-cid-hkc32dio><path d="M17 11H9.41l3.3-3.29a1.004 1.004 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33 1 1 0 0 0 0 .76 1 1 0 0 0 .21.33l5 5a1.002 1.002 0 0 0 1.639-.325 1 1 0 0 0-.219-1.095L9.41 13H17a1 1 0 0 0 0-2Z"/></svg><span data-astro-cid-b5raizh3>Forrige<br data-astro-cid-b5raizh3><span class="link-title" data-astro-cid-b5raizh3>Timeføring</span></span></a><a href="/teknisk/valuta/" rel="next" data-astro-cid-b5raizh3><svg data-astro-cid-b5raizh3="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;" data-astro-cid-hkc32dio><path d="M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z"/></svg><span data-astro-cid-b5raizh3>Neste<br data-astro-cid-b5raizh3><span class="link-title" data-astro-cid-b5raizh3>Flervaluta</span></span></a></div></footer></div></div></main></div></div></div></div></body></html>

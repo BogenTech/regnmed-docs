@@ -1,0 +1,827 @@
+<!DOCTYPE html><html lang="nb" dir="ltr" data-theme="dark" data-has-toc data-has-sidebar data-astro-cid-g5ptsecz><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Deployment | regnmed docs</title><link rel="canonical" href="https://docs.regnmed.no/teknisk/deploy/"/><link rel="alternate" hreflang="nb" href="https://docs.regnmed.no/teknisk/deploy/"/><link rel="alternate" hreflang="en" href="https://docs.regnmed.no/en/teknisk/deploy/"/><link rel="alternate" hreflang="x-default" href="https://docs.regnmed.no/teknisk/deploy/"/><link rel="sitemap" href="/sitemap-index.xml"/><link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml"/><meta name="generator" content="Astro v7.4.13"/><meta name="generator" content="Starlight v0.43.1"/><meta property="og:title" content="Deployment"/><meta property="og:type" content="article"/><meta property="og:url" content="https://docs.regnmed.no/teknisk/deploy/"/><meta property="og:locale" content="nb"/><meta property="og:description" content="Brukerveiledning, utviklerdokumentasjon og teknisk dokumentasjon for regnmed, regnskapssystemet du kan etterprøve."/><meta property="og:site_name" content="regnmed docs"/><meta name="twitter:card" content="summary_large_image"/><meta name="description" content="Brukerveiledning, utviklerdokumentasjon og teknisk dokumentasjon for regnmed, regnskapssystemet du kan etterprøve."/><script>
+	(() => {
+		const storedTheme =
+			typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme');
+		const theme =
+			storedTheme ||
+			(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+		document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+	})();
+</script><link rel="stylesheet" href="/_astro/print.C9eyqPGL.css" media="print"><link rel="stylesheet" href="/_astro/common.LP9BDTc3.css"><script type="module" src="/_astro/page.cNngjUgL.js"></script></head><body data-astro-cid-g5ptsecz><a class="sl-skip-link" href="#_top" data-astro-cid-qb7clj6f>Gå til innholdet</a><div class="page sl-flex" data-astro-cid-yntsjkba><header class="header" data-astro-cid-yntsjkba><div class="header" data-astro-cid-by6fddyj><div class="title-wrapper sl-flex" data-astro-cid-by6fddyj><a href="/" class="site-title sl-flex" data-astro-cid-6rvad3va><img alt="regnmed" src="/_astro/logo.BykUI3mu.svg" width="160" height="160" data-astro-cid-6rvad3va><span translate="no" data-astro-cid-6rvad3va>regnmed docs</span></a></div><div class="sl-flex print:hidden" data-astro-cid-by6fddyj><site-search data-translations="{&quot;placeholder&quot;:&quot;Søk&quot;}" data-astro-cid-b5kgnn7o="true"><button data-open-modal disabled aria-label="Søk" aria-keyshortcuts="Control+K" data-astro-cid-b5kgnn7o><svg data-astro-cid-b5kgnn7o="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z"/></svg><span class="sl-hidden md:sl-block" aria-hidden="true" data-astro-cid-b5kgnn7o>Søk</span><kbd class="sl-hidden md:sl-flex" style="display: none" data-astro-cid-b5kgnn7o><kbd data-astro-cid-b5kgnn7o>Ctrl</kbd><kbd data-astro-cid-b5kgnn7o>K</kbd></kbd></button><dialog style="padding: 0" aria-label="Søk" data-astro-cid-b5kgnn7o><div class="dialog-frame sl-flex" data-astro-cid-b5kgnn7o><button data-close-modal class="sl-flex md:sl-hidden" data-astro-cid-b5kgnn7o>Avbryt</button><div class="search-container" data-astro-cid-b5kgnn7o><div id="starlight__search" data-astro-cid-b5kgnn7o></div></div></div></dialog></site-search><script>
+	(() => {
+		const openBtn = document.querySelector('button[data-open-modal]');
+		const shortcut = openBtn?.querySelector('kbd');
+		if (!openBtn || !(shortcut instanceof HTMLElement)) return;
+		const platformKey = shortcut.querySelector('kbd');
+		if (platformKey && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+			platformKey.textContent = '⌘';
+			openBtn.setAttribute('aria-keyshortcuts', 'Meta+K');
+		}
+		shortcut.style.display = '';
+	})();
+</script><script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.CibB10mu.js"></script></div><div class="sl-hidden md:sl-flex print:hidden right-group" data-astro-cid-by6fddyj><div class="sl-flex social-icons" data-astro-cid-by6fddyj><a href="https://github.com/BogenTech/regnmed" rel="me" class="sl-flex" data-astro-cid-n2mnl6yq><span class="sr-only" data-astro-cid-n2mnl6yq>GitHub</span><svg data-astro-cid-n2mnl6yq="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select data-astro-cid-smhvfpqh="true"><label style="--sl-select-width: 6.25em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg tema</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg class="sl-theme-icon-dark" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg class="sl-theme-icon-light" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg class="sl-theme-icon-auto" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="dark" data-astro-cid-2z5xp7gb>Mørk</option><option value="light" data-astro-cid-2z5xp7gb>Lys</option><option value="auto" selected data-astro-cid-2z5xp7gb>Auto</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>(() => {
+		const theme = (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme'));
+		if (theme) document.querySelectorAll('starlight-theme-select select').forEach((s) => { s.value = theme; });
+	})();</script><script type="module">var e=`starlight-theme`,t=e=>e===`auto`||e===`dark`||e===`light`?e:`auto`,n=()=>t(typeof localStorage<`u`&&localStorage.getItem(e));function r(t){typeof localStorage<`u`&&localStorage.setItem(e,t===`light`||t===`dark`?t:``)}var i=()=>matchMedia(`(prefers-color-scheme: light)`).matches?`light`:`dark`;function a(e){document.querySelectorAll(`starlight-theme-select select`).forEach(t=>{t.value=e}),document.documentElement.dataset.theme=e===`auto`?i():e,r(e)}matchMedia(`(prefers-color-scheme: light)`).addEventListener(`change`,()=>{n()===`auto`&&a(`auto`)});var o=class extends HTMLElement{constructor(){super(),a(n()),this.querySelector(`select`)?.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&a(t(e.currentTarget.value))})}};customElements.define(`starlight-theme-select`,o);</script><starlight-lang-select><label style="--sl-select-width: 7em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg språk</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="/teknisk/deploy/" data-astro-cid-2z5xp7gb>Norsk</option><option value="/en/teknisk/deploy/" data-astro-cid-2z5xp7gb>English</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-lang-select><script type="module">var e=class extends HTMLElement{constructor(){super();let e=this.querySelector(`select`);e&&(e.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&(window.location.pathname=e.currentTarget.value)}),window.addEventListener(`pageshow`,t=>{if(!t.persisted)return;let n=e.querySelector(`option[selected]`)?.index;n!==e.selectedIndex&&(e.selectedIndex=n??0)}))}};customElements.define(`starlight-lang-select`,e);</script></div></div></header><nav class="sidebar print:hidden" aria-label="Hovednavigasjon" data-astro-cid-yntsjkba><button popovertarget="starlight__sidebar" class="sl-menu-button sl-flex md:sl-hidden print:hidden" data-astro-cid-r2osgdlg><svg class="open-menu" data-astro-cid-r2osgdlg="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M3 8h18a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2Zm18 8H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Zm0-5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></svg><svg class="close-menu" data-astro-cid-r2osgdlg="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="m13.41 12 6.3-6.29a1.004 1.004 0 1 0-1.42-1.42L12 10.59l-6.29-6.3a1.004 1.004 0 0 0-1.42 1.42l6.3 6.29-6.3 6.29a1 1 0 0 0 0 1.42.998.998 0 0 0 1.42 0l6.29-6.3 6.29 6.3a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.42L13.41 12Z"/></svg><span class="sr-only" data-astro-cid-r2osgdlg>Meny</span></button><script type="module">var e=class extends HTMLElement{constructor(){super();let e=matchMedia(`(min-width: 50em)`),t=()=>{this.popover=e.matches?null:`auto`};t(),e.addEventListener(`change`,()=>t()),this.addEventListener(`toggle`,({newState:e})=>this.trapFocus(e===`open`))}trapFocus(e){document.querySelectorAll(`.main-frame, .sl-skip-link`).forEach(t=>{t.toggleAttribute(`inert`,e)})}};customElements.define(`sl-sidebar-pane`,e);</script><sl-sidebar-pane popover id="starlight__sidebar" class="sidebar-pane" data-astro-cid-yntsjkba="true"><div class="sidebar-content sl-flex" data-astro-cid-yntsjkba><sl-sidebar-state-persist data-hash="0vzjo46" data-astro-cid-ipdry5cl="true"><script aria-hidden="true">
+		(() => {
+			try {
+				if (!matchMedia('(min-width: 50em)').matches) return;
+				/** @type {HTMLElement | null} */
+				const target = document.querySelector('sl-sidebar-state-persist');
+				const state = JSON.parse(sessionStorage.getItem('sl-sidebar-state') || '0');
+				if (!target || !state || target.dataset.hash !== state.hash) return;
+				window._starlightScrollRestore = state.scroll;
+				customElements.define(
+					'sl-sidebar-restore',
+					class SidebarRestore extends HTMLElement {
+						connectedCallback() {
+							try {
+								const idx = parseInt(this.dataset.index || '');
+								const details = this.closest('details');
+								if (details && typeof state.open[idx] === 'boolean') details.open = state.open[idx];
+							} catch {}
+						}
+					}
+				);
+			} catch {}
+		})();
+	</script><ul class="top-level" data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>Brukerveiledning</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="0"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Velkommen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/kom-i-gang/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kom i gang</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/forste-faktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Første faktura</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/fakturering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Fakturering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/purring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Purring og betalingsoppfølging</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/bilag-og-innboks/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilag og innboks</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/hovedbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Hovedbok og kontoplan</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/mva/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>MVA</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/lonn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn og a-melding</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/timer-og-prosjekter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Timer og prosjekter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/utlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utlegg og kjøregodtgjørelse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/anlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Anleggsregister og avskrivninger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/valuta/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Valuta</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/produkter-og-varelager/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Produkter og varelager</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/periodisering-og-budsjett/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodisering og budsjett</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/rapporter-og-arsavslutning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Rapporter og årsavslutning</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/aksjeeierbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og aksjonærregisteroppgaven</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/tilgang-og-roller/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang og roller</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/for-regnskapsforere/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>For regnskapsførere og byråer</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/for-revisorer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>For revisorer</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/migrering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Migrering fra et annet system</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/abonnement-og-priser/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Abonnement og priser</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/ai-agent/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Ta med din egen AI-agent</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/verifiser-regnskapet/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Verifiser regnskapet ditt</span></a></li><li data-astro-cid-rmhv4bp6><a href="/brukerveiledning/vanlige-sporsmal/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Vanlige spørsmål</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>For utviklere</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="1"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>api</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="2"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/developers/api/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>API-referanse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/identity/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Identitet og tilgang</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/ledger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Selskap og hovedbok</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/sales/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Salg og reskontro</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/reports/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Regnskap og rapporter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank og betaling</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/payroll/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn, timer og utlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/inbox/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Innboks, import og jobber</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/shares/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og anlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/agents/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Integrasjoner, agenter og meldinger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/verification/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Forankring og verifisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/api/platform/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Plattform (leverandørens konsoll)</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><a href="/developers/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Introduksjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/getting-started/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kom i gang for integrasjoner</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/authentication/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Autentisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/access-and-roles/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang og roller for integrasjoner</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/conventions/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Konvensjoner</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/examples/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Eksempler</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/mcp-and-agents/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>MCP og agenter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/verify-it-yourself/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Verifiser selv</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/self-hosting/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Selvhosting</span></a></li><li data-astro-cid-rmhv4bp6><a href="/developers/contributing/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bidra</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>Teknisk dokumentasjon</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="3"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/teknisk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Teknisk dokumentasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/abonnement/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Abonnement: regnmeds egen kasse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/agent/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Ta med din egen agent</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/aksjonaer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og aksjonærregisteroppgave (RF-1086)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/anchoring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>External anchoring of chain heads</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/anlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Anleggsregister og avskrivninger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/api/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>API-referanse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/arsavslutning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Årsavslutning</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/attestering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Attestering: godkjenningsflyt før bokføring og betaling</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/auth/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang: hvem kan gjøre hva</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/balansedokumentasjon/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Balansedokumentasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank reconciliation</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/betaling/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Betalingsliste og remittering (pain.001)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/bilagsinnboks/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilagsinnboks</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/bilagstolkning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilagstolkning: forslag fra dokumentets egen tekst</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/blob-store/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Dokumenter i objektlagring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/budsjett/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Budsjett og avviksrapport</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/deploy/" aria-current="page" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Deployment</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/dimensjoner/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Dimensjoner: avdeling og prosjekt</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/efaktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>E-faktura ut fra 1. januar 2027 — forslag</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/ehf/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>EHF: elektronisk faktura ut og inn</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/epost-inn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>E-post-inn til bilagsinnboksen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/faktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utgående faktura</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/frugality/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The frugality budget</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/gov/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The government rail: Maskinporten and Skatteetaten&#39;s APIs</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/hovedbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Hovedbok: kontoplan og manuell bilagsføring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/integrations/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Maskin-tilgang til API-et</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/jobs/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bakgrunnsjobber</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/kontantsalg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kontantsalg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/ledger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The ledger: append-only, hash-chained, independently verifiable</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/lonn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn — første del</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/marketplace/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Marketplace: onboarding from the official registries</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/meldinger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Meldinger — samtaler mellom folk som jobber sammen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/migration/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Migration: SAF-T import</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/mva/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Merverdiavgift: codes, rates, spesifikasjon, melding</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/perioder/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodelåsing og bilagsvedlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/periodisering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/portal/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The portal</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/produkter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Produktregister og enkelt varelager</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/purring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Betalingsoppfølging (purring)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/rapporter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lovpålagte spesifikasjoner og rapporter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/regelverk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Regelverk som data</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/reskontro/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Reskontro: kunde- og leverandørspesifikasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/revisjon/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Revisorrollen og verifikasjonsrapporten</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/skattemelding/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Skattemelding og næringsspesifikasjon (#11) — kartlagt, ikke bygget</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/timer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Timeføring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/utlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utlegg og kjøregodtgjørelse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/valuta/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Flervaluta</span></a></li><li data-astro-cid-rmhv4bp6><a href="/teknisk/vilkar-teknisk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kundevilkårene i koden</span></a></li></ul></details></li></ul><script aria-hidden="true">
+		(() => {
+			const scroller = document.getElementById('starlight__sidebar');
+			if (!window._starlightScrollRestore || !scroller) return;
+			scroller.scrollTop = window._starlightScrollRestore;
+			delete window._starlightScrollRestore;
+		})();
+	</script></sl-sidebar-state-persist><div class="md:sl-hidden"><div class="mobile-preferences sl-flex" data-astro-cid-p4azlveh><div class="social-icons" data-astro-cid-p4azlveh><a href="https://github.com/BogenTech/regnmed" rel="me" class="sl-flex" data-astro-cid-n2mnl6yq><span class="sr-only" data-astro-cid-n2mnl6yq>GitHub</span><svg data-astro-cid-n2mnl6yq="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select data-astro-cid-smhvfpqh="true"><label style="--sl-select-width: 6.25em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg tema</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg class="sl-theme-icon-dark" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg class="sl-theme-icon-light" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg class="sl-theme-icon-auto" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="dark" data-astro-cid-2z5xp7gb>Mørk</option><option value="light" data-astro-cid-2z5xp7gb>Lys</option><option value="auto" selected data-astro-cid-2z5xp7gb>Auto</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>(() => {
+		const theme = (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme'));
+		if (theme) document.querySelectorAll('starlight-theme-select select').forEach((s) => { s.value = theme; });
+	})();</script><starlight-lang-select><label style="--sl-select-width: 7em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Velg språk</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="/teknisk/deploy/" data-astro-cid-2z5xp7gb>Norsk</option><option value="/en/teknisk/deploy/" data-astro-cid-2z5xp7gb>English</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-lang-select></div></div></div></sl-sidebar-pane></nav><div class="main-frame" data-astro-cid-yntsjkba><script type="module">var e=document.getElementById(`starlight__sidebar`),t=e?.querySelector(`sl-sidebar-state-persist`),n=`sl-sidebar-state`,r=()=>{let r=[],i=t?.dataset.hash||``;try{let e=sessionStorage.getItem(n),t=JSON.parse(e||`{}`);Array.isArray(t.open)&&t.hash===i&&(r=t.open)}catch{}return{hash:i,open:r,scroll:e?.scrollTop||0}},i=e=>{try{sessionStorage.setItem(n,JSON.stringify(e))}catch{}},a=()=>i(r()),o=(e,t)=>{let n=r();n.open[t]=e,i(n)};t?.addEventListener(`click`,e=>{if(!(e.target instanceof Element))return;let t=e.target.closest(`summary`)?.closest(`details`);if(!t)return;let n=t.querySelector(`sl-sidebar-restore`),r=parseInt(n?.dataset.index||``);isNaN(r)||o(!t.open,r)}),addEventListener(`visibilitychange`,()=>{document.visibilityState===`hidden`&&a()});</script><div class="lg:sl-flex" data-astro-cid-lrzkfocr><aside class="right-sidebar-container print:hidden" data-astro-cid-lrzkfocr><div class="right-sidebar" data-astro-cid-lrzkfocr><div class="lg:sl-hidden" data-astro-cid-qok35upx><mobile-starlight-toc data-min-h="2" data-max-h="3" data-astro-cid-66cqc7ze="true"><nav aria-labelledby="starlight__on-this-page--mobile" data-astro-cid-66cqc7ze><details id="starlight__mobile-toc" data-astro-cid-66cqc7ze><summary id="starlight__on-this-page--mobile" class="sl-flex" data-astro-cid-66cqc7ze><span class="toggle sl-flex" data-astro-cid-66cqc7ze>På denne siden<svg class="caret" data-astro-cid-66cqc7ze="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></span><span class="display-current" data-astro-cid-66cqc7ze></span></summary><div class="dropdown" data-astro-cid-66cqc7ze><ul class="isMobile" style="--depth: 0;" data-astro-cid-jugkfwgx><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#_top" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Oversikt</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#prod-på-hetzner-2026-11-08" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Prod på Hetzner (2026-11-08)</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#utrulling-clusteret-henter-github-dytter-aldri" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Utrulling: clusteret HENTER, GitHub dytter aldri</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hvor-hemmelighetene-bor" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hvor hemmelighetene bor</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hvordan-en-test-utrulling-faktisk-skjer" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hvordan en test-utrulling faktisk skjer</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#å-slippe-til-produksjon" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Å slippe til produksjon</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#production-checklist-deployprod" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Production checklist (deploy/prod)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#bootstrap-etter-første-apply" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Bootstrap etter første apply</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#1-oidc-klienten-regnmed-portal" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>1. OIDC-klienten regnmed-portal</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#2-den-første-kontoen" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>2. Den første kontoen</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#3-selskapsadministrator-lages-ikke-her" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>3. Selskapsadministrator lages ikke her</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#4-plattformrolle-hvis-miljøet-skal-ha-en" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>4. Plattformrolle, hvis miljøet skal ha en</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hva-finnes-allerede-i-et-miljø" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hva finnes allerede i et miljø?</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#pod-hardening" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Pod hardening</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#dokumentlagring-docsblob-storemd" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Dokumentlagring (docs/blob-store.md)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#backups--restored-weekly-or-they-dont-count" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Backups — restored weekly, or they don’t count</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#hendelse-2026-10-29-apparmor-sluttet-å-slippe-gjennom-signaler" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Hendelse 2026-10-29: AppArmor sluttet å slippe gjennom signaler</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hvem-startet-nodene-på-nytt" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hvem startet nodene på nytt</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#rotårsaken" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Rotårsaken</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#fiksen" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Fiksen</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#det-vi-endret-hos-oss-også" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Det vi endret hos oss også</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#det-som-gjorde-feilsøkingen-vanskelig" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Det som gjorde feilsøkingen vanskelig</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hvorfor-vi-ikke-rullet-kjernen-tilbake" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hvorfor vi ikke rullet kjernen tilbake</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#merk-ved-endring" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Merk ved endring</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#oppetidssjekk-utenfor-clusteret-og-mot-databasen" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Oppetidssjekk: utenfor clusteret, og mot databasen</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#images-flytende-tagger-må-hentes" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Images: flytende tagger må hentes</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#observability-within-the-frugality-budget" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Observability, within the frugality budget</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#deliberately-not-yet" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Deliberately not yet</span></a></li></ul></div></details></nav></mobile-starlight-toc><script type="module" src="/_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.C3fM4Kra.js"></script></div><div class="right-sidebar-panel sl-hidden lg:sl-block" data-astro-cid-qok35upx><div class="sl-container" data-astro-cid-qok35upx><starlight-toc data-min-h="2" data-max-h="3"><nav aria-labelledby="starlight__on-this-page"><h2 id="starlight__on-this-page">På denne siden</h2><ul style="--depth: 0;" data-astro-cid-jugkfwgx><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#_top" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Oversikt</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#prod-på-hetzner-2026-11-08" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Prod på Hetzner (2026-11-08)</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#utrulling-clusteret-henter-github-dytter-aldri" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Utrulling: clusteret HENTER, GitHub dytter aldri</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hvor-hemmelighetene-bor" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hvor hemmelighetene bor</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hvordan-en-test-utrulling-faktisk-skjer" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hvordan en test-utrulling faktisk skjer</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#å-slippe-til-produksjon" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Å slippe til produksjon</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#production-checklist-deployprod" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Production checklist (deploy/prod)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#bootstrap-etter-første-apply" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Bootstrap etter første apply</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#1-oidc-klienten-regnmed-portal" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>1. OIDC-klienten regnmed-portal</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#2-den-første-kontoen" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>2. Den første kontoen</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#3-selskapsadministrator-lages-ikke-her" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>3. Selskapsadministrator lages ikke her</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#4-plattformrolle-hvis-miljøet-skal-ha-en" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>4. Plattformrolle, hvis miljøet skal ha en</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hva-finnes-allerede-i-et-miljø" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hva finnes allerede i et miljø?</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#pod-hardening" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Pod hardening</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#dokumentlagring-docsblob-storemd" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Dokumentlagring (docs/blob-store.md)</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#backups--restored-weekly-or-they-dont-count" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Backups — restored weekly, or they don’t count</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#hendelse-2026-10-29-apparmor-sluttet-å-slippe-gjennom-signaler" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Hendelse 2026-10-29: AppArmor sluttet å slippe gjennom signaler</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hvem-startet-nodene-på-nytt" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hvem startet nodene på nytt</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#rotårsaken" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Rotårsaken</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#fiksen" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Fiksen</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#det-vi-endret-hos-oss-også" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Det vi endret hos oss også</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#det-som-gjorde-feilsøkingen-vanskelig" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Det som gjorde feilsøkingen vanskelig</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hvorfor-vi-ikke-rullet-kjernen-tilbake" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hvorfor vi ikke rullet kjernen tilbake</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#merk-ved-endring" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Merk ved endring</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#oppetidssjekk-utenfor-clusteret-og-mot-databasen" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Oppetidssjekk: utenfor clusteret, og mot databasen</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#images-flytende-tagger-må-hentes" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Images: flytende tagger må hentes</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#observability-within-the-frugality-budget" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Observability, within the frugality budget</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#deliberately-not-yet" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Deliberately not yet</span></a></li></ul></nav></starlight-toc><script type="module" src="/_astro/TableOfContents.astro_astro_type_script_index_0_lang.BpJaGz7G.js"></script></div></div></div></aside><div class="main-pane" data-astro-cid-lrzkfocr><main data-pagefind-body lang="nb" dir="ltr" data-astro-cid-g5ptsecz><div class="content-panel" data-astro-cid-a7po4psb><div class="sl-container" data-astro-cid-a7po4psb><h1 id="_top" data-astro-cid-bebwqqxs>Deployment</h1></div></div><div class="content-panel" data-astro-cid-a7po4psb><div class="sl-container" data-astro-cid-a7po4psb><div class="sl-markdown-content"><p>One topology, described once, deployed as overlays:</p>
+<div class="expressive-code"><link rel="stylesheet" href="/_astro/ec.w36nc.css"><script type="module" src="/_astro/ec.0vx5m.js"></script><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="plaintext"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">deploy/base    the shared manifests: Postgres 18, NATS, regnid (+ mail</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">               </span></span><span style="--0:#d6deeb;--1:#403f53">worker), regnmed-api (migrate init container, nightly</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">               </span></span><span style="--0:#d6deeb;--1:#403f53">anchor CronJob)</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">deploy/shared  what the SERVED environments run and the laptop does not:</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">               </span></span><span style="--0:#d6deeb;--1:#403f53">nightly backups + weekly restore-verification, and</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">               </span></span><span style="--0:#d6deeb;--1:#403f53">abonnement invoicing. Referenced by prod and test, copied</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">               </span></span><span style="--0:#d6deeb;--1:#403f53">into neither.</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">deploy/local   k3d in colima, *.localhost, no TLS, local-path storage —</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">               </span></span><span style="--0:#d6deeb;--1:#403f53">the integration proving ground (scripts/dev-cluster.sh,</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">               </span></span><span style="--0:#d6deeb;--1:#403f53">2 GB VM)</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">deploy/test    prod-shaped: replicated storage, secrets out of git, every</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">               </span></span><span style="--0:#d6deeb;--1:#403f53">scheduled job running, and the card rail against Stripe</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">               </span></span><span style="--0:#d6deeb;--1:#403f53">TEST mode. Runs on homelab</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">deploy/prod    real domains, TLS, secrets out of git, backups with</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">               </span></span><span style="--0:#d6deeb;--1:#403f53">restore-verification, TSA-witnessed anchoring. Runs on</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">               </span></span><span style="--0:#d6deeb;--1:#403f53">the Hetzner cluster since 2026-11-08 — see «Prod på</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">               </span></span><span style="--0:#d6deeb;--1:#403f53">Hetzner» below</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="deploy/base    the shared manifests: Postgres 18, NATS, regnid (+ mail               worker), regnmed-api (migrate init container, nightly               anchor CronJob)deploy/shared  what the SERVED environments run and the laptop does not:               nightly backups + weekly restore-verification, and               abonnement invoicing. Referenced by prod and test, copied               into neither.deploy/local   k3d in colima, *.localhost, no TLS, local-path storage —               the integration proving ground (scripts/dev-cluster.sh,               2 GB VM)deploy/test    prod-shaped: replicated storage, secrets out of git, every               scheduled job running, and the card rail against Stripe               TEST mode. Runs on homelabdeploy/prod    real domains, TLS, secrets out of git, backups with               restore-verification, TSA-witnessed anchoring. Runs on               the Hetzner cluster since 2026-11-08 — see «Prod på               Hetzner» below"><div></div></button></div></figure></div>
+<p><strong>Test is prod-shaped, not local-shaped.</strong> That is the whole point of
+it: replicated storage, the three-host split, the restore drill and the
+card rail all run there, so they are found broken while that is cheap.
+An environment that skips them tests nothing about them. What it does
+<em>not</em> share with production: one API replica instead of two, small
+volumes, and no external TSA witness — a timestamp is a claim about a
+real ledger, and test roots are not that.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="prod-på-hetzner-2026-11-08">Prod på Hetzner (2026-11-08)</h3><a class="sl-anchor-link" href="#prod-på-hetzner-2026-11-08"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Prod på Hetzner (2026-11-08)”</span></a></div>
+<p>Prod flyttet fra homelab til Hetzner-clusteret (bisand/hetzner, PLAN.md
+fase 4); test ble igjen på homelab, så Hetzner bærer prod alene. Test kjørte
+først en generalprøve på Hetzner med samme oppsett, og flyttingen av prod
+fulgte den: frys på homelab, <code dir="auto">pg_dump</code> av begge databasene, restore inn i
+CNPG-primæren, <code dir="auto">verify-ledger</code> før noe startet (67 bilag, 65 vedlegg, 11
+ankere OK), så DNS.</p>
+<p>Plattformen eier clusteret; regnmed er en <em>tenant</em>:
+<code dir="auto">tenants/regnmed/prod.yaml</code> lager navnerommet <code dir="auto">regnmed</code>, en ServiceAccount
+som bare er admin der, en NetworkPolicy som bare slipper inn Traefik,
+monitoring og CNPG-operatoren, og Flux-objektene som henter <code dir="auto">deploy/prod</code>
+fra høyeste release-tagg. Overlayet kan ikke røre noe utenfor navnerommet —
+heller ikke Namespace-objektet, som overlayet sletter fra base.</p>
+<p>Det som skiller prod fra test i rørleggingen:</p>
+<ul>
+<li><strong>Postgres er CloudNativePG</strong> (<code dir="auto">deploy/prod/postgres.yaml</code>): to
+instanser på to bokser, synkron replikering mens standby lever.
+Tjenesten <code dir="auto">postgres</code> er pekt om til primæren, så alle URL-er,
+backupjobben og restore-sjekken er uendret. Innloggingen er
+<code dir="auto">postgres-login</code> (basic-auth, samme passord som i <code dir="auto">db-credentials</code>).</li>
+<li><strong>Lesetilgang for verifisering</strong>: rollen <code dir="auto">regnmed_readonly</code>
+(<code dir="auto">pg_read_all_data</code>, ingen skriverettigheter, intet passord) logger inn
+bare over podens lokale socket, så det er serveren — ikke den som
+skriver — som nekter en skriving:
+<code dir="auto">kubectl -n regnmed exec -i postgres-1 -c postgres -- psql -U regnmed_readonly -d regnmed</code>
+(bytt til den som er primær; standby svarer også, bare et øyeblikk
+på etterskudd).</li>
+<li><strong>To backuper</strong>: CNPG arkiverer hver WAL-fil og tar en nattlig
+basebackup til <code dir="auto">s3://bogenhuset/cnpg/regnmed-prod</code> (30 dager) — det er
+gjenopprettingsveien. <code dir="auto">pg_dump</code> + ukentlig restore-og-<code dir="auto">verify-ledger</code>
+består — det er revisjonsbeviset.</li>
+<li><strong>Ett sted</strong>: alt ligger i Helsinki sammen med databasen
+(<code dir="auto">patches/site.yaml</code>). Clusteret spenner over to datasentre ~25 ms fra
+hverandre, og med API-et i Falkenstein tok <code dir="auto">/anchors</code> ~1 s mot 0,12 s
+samlet.</li>
+<li><strong>postbud nås gjennom en Tailscale-egressproxy</strong> (<code dir="auto">deploy/prod/postbud.yaml</code>,
+<code dir="auto">tag:regnmed</code>), siden podene ikke er på tailnettet selv.</li>
+<li><strong>TLS fra cert-manager</strong> via plattformens <code dir="auto">letsencrypt</code> (HTTP-01 gjennom
+Traefik) på plattformens Floating IP 65.109.248.196; HTTP svarer 301 til
+HTTPS, og <code dir="auto">www.regnmed.no</code> sendes til <code dir="auto">regnmed.no</code>.</li>
+<li><strong>arm64.</strong> Imagene er multi-arch fra samme tagg (images.yml bygger amd64
+og arm64 nativt og slår dem sammen), så homelab-test og Hetzner-prod
+kjører samme tagg.</li>
+<li><strong>DNS</strong> for regnmed.no ligger hos Domeneshop (flyttet fra Cloudflare
+2026-11-08).</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="utrulling-clusteret-henter-github-dytter-aldri">Utrulling: clusteret HENTER, GitHub dytter aldri</h2><a class="sl-anchor-link" href="#utrulling-clusteret-henter-github-dytter-aldri"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Utrulling: clusteret HENTER, GitHub dytter aldri”</span></a></div>
+<table>
+<thead>
+<tr>
+<th>Miljø</th>
+<th>Følger</th>
+<th>Utløses av</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test</td>
+<td>grenen <code dir="auto">main</code>, <code dir="auto">deploy/test</code></td>
+<td>hver push <strong>med grønn CI</strong></td>
+</tr>
+<tr>
+<td>prod</td>
+<td>semver-tagger <code dir="auto">&gt;=0.1.0</code>, <code dir="auto">deploy/prod</code></td>
+<td>at en release publiseres</td>
+</tr>
+</tbody>
+</table>
+<p><strong>CI-porten (2026-08-06):</strong> <code dir="auto">images</code>-workflowen og <code dir="auto">ci</code>-workflowen
+kjører parallelt, og rullesteget i images ventet ikke — test fikk to
+ganger et bygg hvis CI senere feilet. Rullesteget venter nå på at <code dir="auto">ci</code>
+er grønn på samme commit før test-overlayet skrives; feiler CI, feiler
+images-jobben på samme sted, synlig. Selve image-pushen er ikke portet
+(et image i registeret deployer ingenting). Forhåndsutgaver
+(<code dir="auto">vX.Y.Z-rcN</code>) er fortsatt fluktluken for risikofylte endringer: de
+bygger et image utenfor prods semver-område og kan soakes på test før
+den ordentlige taggen kuttes.</p>
+<p>Flux kjører i clusteret og henter fra git. Manifestene for det ligger i
+søsterrepoet <code dir="auto">../homelab</code> (<code dir="auto">cluster/flux-regnmed.yaml</code>) — de hører ikke
+hjemme her, like lite som UniFi-manifester gjør.</p>
+<p><strong>Retningen er ikke en smakssak.</strong> To forhold tvinger den, og begge de
+enklere alternativene er feil:</p>
+<ol>
+<li>k3s-API-et ligger bak NAT, så en GitHub-hostet runner kan ikke nå det
+— og løsningen er <em>ikke</em> å åpne 6443 mot internett, for det er å
+publisere et cluster-admin-endepunkt.</li>
+<li><strong>BogenTech/regnmed er et OFFENTLIG repo.</strong> En self-hosted runner
+ville da la hvem som helst som åpner en pull request kjøre kode på en
+maskin inne i hjemmenettet, ved siden av hovedboken. GitHub anbefaler
+selv mot nettopp dette.</li>
+</ol>
+<div class="sl-heading-wrapper level-h3"><h3 id="hvor-hemmelighetene-bor">Hvor hemmelighetene bor</h3><a class="sl-anchor-link" href="#hvor-hemmelighetene-bor"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Hvor hemmelighetene bor”</span></a></div>
+<p><strong>I clusteret, og ingen andre steder.</strong> <code dir="auto">db-credentials</code> og
+<code dir="auto">stripe-credentials</code> opprettes én gang med <code dir="auto">kubectl create secret</code> og
+lever videre gjennom hver utrulling. CI trenger dem aldri: den bygger et
+image og skriver en tagg til git, og clusteret gjør selve applyen.
+Derfor kan en kompromittert workflow på et offentlig repo ikke nå
+Stripe-nøklene eller databasen.</p>
+<p>Ingenting legges i GitHub repo secrets eller environment secrets. Flux
+trenger heller ingen deploy key, siden repoet er offentlig og lesing er
+anonym. Dette er docs/secrets.md som holder, ikke som omgås.</p>
+<p><code dir="auto">.env</code> er utelukkende for lokal utvikling (se <code dir="auto">.env.example</code>, som
+dokumenterer alle 28 variablene) og har ingen rolle i utrulling.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="hvordan-en-test-utrulling-faktisk-skjer">Hvordan en test-utrulling faktisk skjer</h3><a class="sl-anchor-link" href="#hvordan-en-test-utrulling-faktisk-skjer"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Hvordan en test-utrulling faktisk skjer”</span></a></div>
+<p><code dir="auto">.github/workflows/images.yml</code> bygger og pusher
+<code dir="auto">ghcr.io/bogentech/regnmed:sha-&lt;short&gt;</code>, og <strong>committer så den taggen inn
+i <code dir="auto">deploy/test/kustomization.yaml</code> på main. Den commiten ER utrullingen</strong>
+— Flux rekonsilierer den innen minuttet. Git blir den eneste kilden til
+sannhet, og taggene forblir uforanderlige, som er nettopp det som gjør at
+test alltid kan navngi commiten den kjører.</p>
+<p>Workflowen har <code dir="auto">paths-ignore: deploy/**</code>. Uten den ville dens egen
+tagg-commit utløst et nytt bygg, i det uendelige.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="å-slippe-til-produksjon">Å slippe til produksjon</h3><a class="sl-anchor-link" href="#å-slippe-til-produksjon"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Å slippe til produksjon”</span></a></div>
+<p>Produksjon er <strong>automatisk ved release, uten godkjenningssteg</strong> — releasen
+er den bevisste handlingen. To følger av det:</p>
+<ul>
+<li>Commiten du tagger må ALLEREDE peke på det image-taggen prod skal
+kjøre, i <code dir="auto">deploy/prod/kustomization.yaml</code>. Prod følger ikke nyeste
+image; den følger det releasen sier. Det er dette som gjør at prod kan
+navngi sin egen commit.</li>
+<li>Å slette en feil tagg ruller ikke tilbake. Flux går til den høyeste
+semver-taggen som matcher, så publiser en rettet, høyere release i
+stedet.</li>
+</ul>
+<p><strong>Slippflyten</strong> (revidert 2026-08-06 — versjonen i brukermenyen skal
+være releasen, og hver release skal forklare seg):</p>
+<ol>
+<li>
+<p>Verifiser at <strong>testmiljøet faktisk kjører</strong> shaen du slipper —
+<code dir="auto">test.regnmed.no</code> serverer portalbunten fra det bygget (CI ruller
+test automatisk ved push til main).</p>
+</li>
+<li>
+<p>Sett <code dir="auto">newTag: vX.Y.Z</code> (den KOMMENDE taggen) for regnmed i
+<code dir="auto">deploy/prod/kustomization.yaml</code>, commit («Prod: roll to vX.Y.Z»),
+<strong>tagg samme commit</strong> <code dir="auto">vX.Y.Z</code>, push begge. <strong>Dette steget er nå en
+port</strong>, ikke bare en setning: <code dir="auto">images.yml</code> nekter å bygge et image for
+en tagg hvis <code dir="auto">deploy/prod</code> ikke peker på taggen selv (se nedenfor om
+hvorfor). Tag-pushen bygger imaget
+med <code dir="auto">REGNMED_VERSION=vX.Y.Z</code> bakt inn — Flux kan stå i
+ImagePullBackOff i ~4 minutter til imaget finnes, og henter seg inn
+selv. Kodeekvivalensen sha == tag holder fordi pin-commiten bare
+rører <code dir="auto">deploy/</code>, som aldri går inn i imaget.</p>
+</li>
+<li>
+<p><strong>Opprett GitHub-releasen</strong> — taggen alene er ikke nok:</p>
+<div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">gh</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">release</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">create</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">vX.Y.Z</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">--title</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#ECC48D;--1:#984E4D">vX.Y.Z</span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">--notes</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#ECC48D;--1:#984E4D">$(</span><span style="--0:#82AAFF;--1:#3B61B0">git</span><span style="--0:#ECC48D;--1:#984E4D"> </span><span style="--0:#ECC48D;--1:#3B61B0">log</span><span style="--0:#ECC48D;--1:#984E4D"> </span><span style="--0:#82AAFF;--1:#3B61B0">--format=</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">- %s</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D"> </span><span style="--0:#ECC48D;--1:#3B61B0">vFORRIGE..vX.Y.Z^</span><span style="--0:#ECC48D;--1:#984E4D">)</span><span style="--0:#D9F5DD;--1:#111111">"</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="gh release create vX.Y.Z --title &quot;vX.Y.Z&quot; --notes &quot;$(git log --format=&#x27;- %s&#x27; vFORRIGE..vX.Y.Z^)&quot;"><div></div></button></div></figure></div>
+<p>Notatene skal si hva som slippes siden forrige release, i klartekst —
+det er endringsloggen kunder og drift leser, og <code dir="auto">git log</code>-linjene er
+utgangspunktet, ikke fasiten: rediger til noe et menneske har glede
+av.</p>
+</li>
+<li>
+<p>Verifiser at prod svarer med releasen:
+<code dir="auto">curl -s https://regnmed.no/portal-config</code> skal bære
+<code dir="auto">"versjon": "vX.Y.Z"</code>.</p>
+</li>
+</ol>
+<p><strong>Hvilket nummer</strong> (vedtatt 2026-11-09). Vi blir på 0.x — 1.0 er for
+tidlig. Innenfor 0.x betyr tallene dette:</p>
+<ul>
+<li><strong>Minor (0.7.0, 0.8.0, …):</strong> ny funksjonalitet, en migrasjon, en ny
+miljøvariabel eller hemmelighet, en ny CLI-kommando, et nytt eller
+endret API-endepunkt — alt en driftsperson eller en integrasjon merker.
+Under 1.0 går også brytende endringer her.</li>
+<li><strong>Patch (0.7.1, …):</strong> feilrettinger og interne endringer, ingenting
+annet.</li>
+</ul>
+<p>Grunnen: 0.6.x fikk 25 patch-releaser fra 2026-08-08 til 2026-11-09,
+blant dem en ny innloggingsmodell, innlogging med telefon og dokumenter
+flyttet til objektlager med migrasjon — og seks releaser på én dag uten
+notater. Nummeret sa ingenting om hva som endret seg.</p>
+<p><strong>Slipp samlet, ikke per retting.</strong> Test ruller allerede på hver push til
+main; iterer der, og bruk <code dir="auto">-rcN</code> når noe skal modnes. En release kuttes
+når endringen virker, ikke etter hvert steg underveis — og hver release
+har notater.</p>
+<p><strong>1.0 er en API-avgjørelse, ikke en milepæl i tid.</strong> Den tas når den
+offentlige API-flaten (docs/api.md, JSON-feltnavnene, MCP-verktøyenes
+skjemaer) erklæres stabil. Fra da krever en brytende endring der en
+major, og det er da nummeret begynner å bety noe for kunder med
+integrasjoner (#45).</p>
+<p><strong><code dir="auto">paths-ignore</code> gjelder IKKE tagg-pusher.</strong> <code dir="auto">images.yml</code> ignorerer
+<code dir="auto">deploy/**</code>, <code dir="auto">docs/**</code> og <code dir="auto">*.md</code> på main, så workflowens egen tagg-bump i
+<code dir="auto">deploy/test</code> ikke utløser en ny runde av seg selv. Det er lett å tro at
+filteret også gjelder tagger — og da ville en commit som BARE flytter
+pinnen (nøyaktig det steg 2 ber om) kunne tagges uten at noe image ble
+bygget. <strong>Den frykten er ubegrunnet</strong>, prøvd 2026-10-29: v0.6.8-commiten
+rørte bare <code dir="auto">deploy/</code> og <code dir="auto">docs/</code>, og tagg-pushen bygget imaget. GitHub
+evaluerer ikke sti-filtre for tagger.</p>
+<p>Skulle et bygg likevel utebli (Actions-hendelser kan droppes), er
+fluktluken den workflowen alt dokumenterer:</p>
+<div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">gh</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">workflow</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">run</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">images.yml</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">--ref</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">vX.Y.Z</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="gh workflow run images.yml --ref vX.Y.Z"><div></div></button></div></figure></div>
+<p><strong>Hvorfor steg 2 er en port (funnet 2026-10-29).</strong> Prod kjørte image
+<code dir="auto">v0.6.4</code> mens både <code dir="auto">v0.6.5</code> og <code dir="auto">v0.6.6</code> var sluppet. Begge taggene bar et
+<code dir="auto">deploy/prod</code> som fortsatt sa <code dir="auto">v0.6.4</code>, så Flux gikk pliktskyldig til
+nyeste tagg og applyerte manifestene derfra — og manifestene navnga et
+eldre image. Imagene <code dir="auto">v0.6.5</code> og <code dir="auto">v0.6.6</code> BLE bygget og ligger i
+registeret; de ble bare aldri tatt i bruk. Ingenting var ødelagt,
+ingenting var høylytt, og to releaser leverte ingen applikasjonskode.</p>
+<p>Det er samme felle som nesten-tabben i CLAUDE.md punkt 56, og den kom
+igjen fordi «tagg» og «oppdater pinnen» er to handlinger og ingenting
+sjekket at de var enige. Nå gjør <code dir="auto">images.yml</code> det: på en <code dir="auto">v*</code>-tagg
+sammenlignes taggen med regnmeds <code dir="auto">newTag</code> i <code dir="auto">deploy/prod</code>, og bygget
+feiler hvis de spriker. En feilpinnet tagg bygger da ikke noe image, som
+er riktig retning — prod blir stående på det den alt kjørte, og feilen
+er synlig i Actions i stedet for i et versjonsnummer ingen leser.</p>
+<p>Forhåndsutgaver (<code dir="auto">v1.2.3-rc1</code>) er utenfor semver-området, så en
+release-kandidat kan tagges og inspiseres uten å røre produksjon.</p>
+<p><code dir="auto">prune: true</code> på begge: fjerner du en ressurs fra et overlay, blir den
+faktisk slettet i clusteret. Uten det samler det seg opp levende objekter
+ingen manifest beskriver — det skjedde her én gang alt, med en
+gjenglemt ClusterIssuer.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="production-checklist-deployprod">Production checklist (deploy/prod)</h2><a class="sl-anchor-link" href="#production-checklist-deployprod"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Production checklist (deploy/prod)”</span></a></div>
+<ol>
+<li>
+<p><strong>Pin images.</strong> Build with <code dir="auto">scripts/build-images.sh</code>, push to your
+registry, set the two <code dir="auto">newTag</code> values in
+<code dir="auto">deploy/prod/kustomization.yaml</code>. Never <code dir="auto">:dev</code> in production.</p>
+</li>
+<li>
+<p><strong>Hosts.</strong> Three of them, and they mirror the local cluster:</p>
+<table>
+<thead>
+<tr>
+<th>Host</th>
+<th>Serves</th>
+<th>Ingress</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">regnmed.no</code></td>
+<td>the portal — what a human opens</td>
+<td><code dir="auto">regnmed-portal</code></td>
+</tr>
+<tr>
+<td><code dir="auto">api.regnmed.no</code></td>
+<td>the API — what an integration calls</td>
+<td><code dir="auto">regnmed-api</code></td>
+</tr>
+<tr>
+<td><code dir="auto">id.regnmed.no</code></td>
+<td>the IdP</td>
+<td><code dir="auto">regnid</code></td>
+</tr>
+</tbody>
+</table>
+<p>The first two point at the <strong>same service</strong>: one binary serves both
+the SPA and the API (docs/portal.md). That is deliberate, and it is
+what keeps the portal’s own calls same-origin — the app asks for
+<code dir="auto">/companies/…</code> relative to wherever it was loaded, so a human on
+<code dir="auto">regnmed.no</code> never makes a cross-origin request. No CORS, and
+<code dir="auto">connect-src 'self'</code> in the CSP (docs/auth.md §9) keeps meaning what
+it says. Split them onto different services and both stop holding.</p>
+<p>Edit the hostnames in <code dir="auto">deploy/prod/ingress.yaml</code>, the matching
+<code dir="auto">ISSUER</code>/<code dir="auto">OIDC_ISSUER</code> values in <code dir="auto">deploy/prod/patches/</code> — the issuer
+URL the browser sees must be the one the pods see — and
+<code dir="auto">PORTAL_BASE_URL</code>, which is the <strong>portal</strong> host, since it becomes the
+link in the invitation e-mail (#66). Register <code dir="auto">https://regnmed.no/callback</code>
+as a redirect URI on the portal’s OIDC client; add the API host too if
+the app should be openable there as well.</p>
+</li>
+<li>
+<p><strong>Volumes — replicated storage, and check the arithmetic.</strong>
+Everything about volumes lives in <code dir="auto">deploy/prod/patches/storage.yaml</code>,
+which shows its working.</p>
+<p><strong>Production needs a replicated storage class.</strong> The base manifests
+name none, so the local k3d cluster gets <code dir="auto">local-path</code> — a directory
+on the single node. That is right for a laptop and wrong for
+production, where a node-local volume means the database dies with
+its node. The prod patch names <code dir="auto">longhorn</code>; any distributed
+provisioner does (Rook/Ceph, OpenEBS Mayastor, a cloud class), and it
+is named in that one file so switching is one edit. What the class
+must provide, whatever its name: replication across nodes,
+<code dir="auto">allowVolumeExpansion: true</code>, and snapshots.</p>
+<p><code dir="auto">ReadWriteOnce</code> is correct and stays — Postgres is a single writer,
+and the two CronJobs sharing <code dir="auto">/backup</code> never run at once (01:30
+nightly, 04:00 Sundays), so the volume reattaches cleanly if they
+land on different nodes.</p>
+<p><strong>The local cluster deliberately does not run Longhorn.</strong> It needs
+iSCSI, real block devices and roughly a gigabyte for its own
+components; <code dir="auto">dev-cluster.sh</code> fits in a 2 CPU / 2 GB VM on purpose
+(docs/frugality.md). So this is the one place where local stops
+mirroring production, and it is worth knowing before a storage
+problem is met for the first time in prod. Everything above the
+volume — schema, jobs, restore drill — is identical.</p>
+<p>Sizes: 50Gi for Postgres and 150Gi for backups (the base sizes are
+for the local VM).</p>
+<p><strong>The two are not independent.</strong> The nightly job keeps 14
+<code dir="auto">pg_dump -Fc</code> files, and <code dir="auto">-Fc</code> compression does nothing for content
+that is already JPEG or PDF — so the backup volume needs
+<code dir="auto">retention × database</code>, not some fraction of it. The pair that
+shipped before this was already broken in that direction: 2Gi of
+database against 10Gi of backups, where a full database needs ~28Gi
+of dumps. <strong>The backup volume would have filled first</strong>, and the
+nightly job would have begun failing while the database still looked
+healthy. Failed Jobs are the alerting signal (see Observability), so
+it would have been visible — but the thing that broke would not have
+been the thing that was undersized.</p>
+<p>What fills the database is not the ledger; vouchers and entries are
+small rows. It is four bytea columns — bilagsvedlegg, innboks
+documents, receipt photos, raw e-mail — capped at 20 MB per upload
+and averaging a few hundred KB in practice.</p>
+<p>Full daily dumps do not scale with blob storage: they re-copy every
+unchanged photo, nightly. PITR via CloudNativePG (below) is the
+answer, and the trigger to adopt it is the database passing ~20 GB,
+not a date.</p>
+<p><strong>Replication multiplies all of it.</strong> Those are the sizes Kubernetes
+reports; a replicated class stores each one N times, and Longhorn’s
+default N is 3 — so 50 + 150 + 1 Gi of volumes is about <strong>600Gi of
+raw disk</strong> across the pool. That is the number to provision against.
+It is also the reason to consider <code dir="auto">numberOfReplicas: 2</code> for the
+backup volume specifically: its contents are already a copy, and a
+third replica of a copy is thin value for 150Gi.</p>
+<p><strong>Storage snapshots do not replace the dumps.</strong> A block snapshot of a
+running Postgres is crash-consistent — Postgres recovers from it as
+from a power cut — but it proves nothing about the ledger. The weekly
+restore-verification exists to prove exactly that, and it stays
+whatever the storage layer offers. Treat snapshots as a faster
+recovery tier layered on top.</p>
+<p>Volumes can usually be grown in place later
+(<code dir="auto">allowVolumeExpansion: true</code> on the StorageClass) but never shrunk.
+Confirm that before the first apply; the alternative is
+dump-and-restore.</p>
+</li>
+<li>
+<p><strong>TLS — terminert av Traefik i clusteret (fra 2026-08-01).</strong> Dette er
+den ene plassen som sier hvilket hopp som eier sertifikatene, og den
+må oppdateres i samme endring som manifestene.</p>
+<p>I dag: <strong>Traefik</strong> eier ruterens 80/443, og <strong>cert-manager</strong> utsteder
+Let’s Encrypt-sertifikater per ingress via HTTP-01. Hver regel har
+<code dir="auto">tls:</code> og <code dir="auto">cert-manager.io/cluster-issuer: letsencrypt</code>.
+<code dir="auto">ClusterIssuer</code>-objektet er clusteromfattende og bor derfor i
+hjemmelab-repoet (<code dir="auto">stacks/edge/</code>), ikke her — to repoer som begge
+eier samme objekt ville kjempet om det. <code dir="auto">cert-issuer.yaml</code> blir
+liggende i overlayene som klargjort konfigurasjon for en frittstående
+utrulling som ikke har hjemmelab-repoet.</p>
+<p>HISTORIKK, og grunnen til at overgangen måtte gjøres i to trinn:
+fram til 2026-08-01 terminerte <strong>nginx-proxy-manager</strong> TLS og
+videresendte ren HTTP til Traefik. Ingressene hadde da verken
+<code dir="auto">tls:</code>-blokk eller issuer-annotasjon, og det var ikke latskap: en
+ruter videresender 80/443 til ÉN destinasjon og kan ikke rute på
+vertsnavn — det er L7, og en ruter er L4. Ba man cert-manager om
+sertifikater mens NPM eide porten, kunne det ikke fungere: NPM svarte
+på HTTP-01-utfordringen i stedet for solver-poden. Erfart 2026-07-29,
+tre <code dir="auto">Certificate</code>-objekt sto <code dir="auto">ready=False</code> med «failed to perform
+self check». Sertifikatet var ikke problemet — topologien var det.</p>
+<p>SELVE OVERGANGEN ble derfor delt: <strong>port 80 flyttet til Traefik
+først</strong>, mens 443 fortsatt gikk til NPM. Da kunne cert-manager løse
+HTTP-01 og utstede alle sertifikatene mens HTTPS var uforstyrret, og
+443 ble flyttet først da hvert <code dir="auto">Certificate</code> sto <code dir="auto">Ready</code>. Grunnen til
+å ikke bare flytte begge: Let’s Encrypt tillater <strong>5 mislykkede
+valideringer per vertsnavn per time</strong>, så å rulle ut annotasjonene før
+porten var flyttet ville brent kvoten nøyaktig når man trenger den.</p>
+<p>Prisen, fortsatt verdt å kjenne: produksjons-ACME har grenser <strong>per
+registrert domene</strong>, så <code dir="auto">test.regnmed.no</code> og <code dir="auto">regnmed.no</code> deler
+budsjett. cert-manager fornyer på 2/3 av levetiden og reutsteder ikke
+ved hver ombygging, men et cluster som stadig gjenskapes kan komme
+borti taket.</p>
+</li>
+<li>
+<p><strong>Secrets — before the first apply, never in git:</strong></p>
+<div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">kubectl</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-n</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">regnmed</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">create</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">secret</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">generic</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">db-credentials</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">--from-literal=password=</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">&lt;strong password&gt;</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">--from-literal=regnmed-url=</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">postgres://regnmed:&lt;pw&gt;@postgres:5432/regnmed</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">--from-literal=regnid-url=</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">postgres://regnmed:&lt;pw&gt;@postgres:5432/regnid</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">--from-literal=restore-check-url=</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">postgres://regnmed:&lt;pw&gt;@postgres:5432/regnmed_restore_check</span><span style="--0:#D9F5DD;--1:#111111">'</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="kubectl -n regnmed create secret generic db-credentials \  --from-literal=password=&#x27;<strong password>&#x27; \  --from-literal=regnmed-url=&#x27;postgres://regnmed:<pw>@postgres:5432/regnmed&#x27; \  --from-literal=regnid-url=&#x27;postgres://regnmed:<pw>@postgres:5432/regnid&#x27; \  --from-literal=restore-check-url=&#x27;postgres://regnmed:<pw>@postgres:5432/regnmed_restore_check&#x27;"><div></div></button></div></figure></div>
+<p>Kortskinnen (#74) trenger sin egen, samme regel — aldri i git:</p>
+<div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">kubectl</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-n</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">regnmed</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">create</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">secret</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">generic</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">stripe-credentials</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">--from-literal=secret-key=</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">sk_live_…</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">--from-literal=webhook-secret=</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">whsec_…</span><span style="--0:#D9F5DD;--1:#111111">'</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="kubectl -n regnmed create secret generic stripe-credentials \  --from-literal=secret-key=&#x27;sk_live_…&#x27; \  --from-literal=webhook-secret=&#x27;whsec_…&#x27;"><div></div></button></div></figure></div>
+<p>Webhook-hemmeligheten er den <strong>live</strong>-endepunktets: Stripe utsteder
+én per modus, og en test-hemmelighet her gjør at hver eneste ekte
+hendelse avvises som usignert.</p>
+<p><strong>I PRODUKSJON er kortskinnen foreløpig AV</strong> (besluttet 2026-07-31 ved
+første utrulling): <code dir="auto">STRIPE_*</code> er tatt ut av
+<code dir="auto">deploy/prod/patches/regnmed-api.yaml</code>, så <code dir="auto">stripe-credentials</code>
+trengs ikke der ennå og portalen sier at kortbetaling ikke er
+tilgjengelig. Å slå den på er de to blokkene som står igjen i
+toppkommentaren i patchen, pluss hemmeligheten — og da med
+<strong>live</strong>-verdier. En testnøkkel der ville ikke feilet: den ville tatt
+imot et ekte kort, ikke trukket noe, og likevel lukket
+reskontroposten.</p>
+<p><strong>I TESTMILJØET må BEGGE hemmelighetene finnes FØR første apply</strong>
+(<code dir="auto">-n regnmed-test</code>, med <code dir="auto">sk_test_…</code>/<code dir="auto">whsec_…</code> fra Stripes testmodus).
+Mangler <code dir="auto">stripe-credentials</code> mens patchen krever den, starter ikke
+regnmed-api i det hele tatt: poden blir stående i
+<code dir="auto">CreateContainerConfigError</code> med «secret “stripe-credentials” not
+found», mens Postgres, migrasjonene og alt annet ser friskt ut.
+Feilen står i pod-hendelsene, ikke i loggene — containeren rekker
+aldri å starte. Erfart 2026-07-29 ved første utrulling av
+testmiljøet.</p>
+<p>Every DATABASE_URL/POSTGRES_PASSWORD/STRIPE_* in the prod render
+comes from a secret; the rendered YAML contains no credential
+(usernames and the OIDC audience are the only literals).</p>
+</li>
+<li>
+<p><strong>Abonnementsfakturering og kortskinnen</strong> (docs/abonnement.md):
+onboard driftsselskapet i regnmed (BRREG, som alle andre) og sett
+dets orgnr som <code dir="auto">REGNMED_DRIFT_ORGNR</code> <strong>begge stedene</strong> — på
+<code dir="auto">regnmed-api</code> (patches/regnmed-api.yaml) og på CronJob-en
+(<code dir="auto">deploy/shared/abonnement-faktura.yaml</code>, patchet i overlayet).</p>
+<p><strong>De tre kortinnstillingene er et sett.</strong> <code dir="auto">STRIPE_SECRET_KEY</code> og
+<code dir="auto">STRIPE_WEBHOOK_SECRET</code> er begge-eller-ingen — mangler én er skinnen
+av, og endepunktene sier det. Den tredje, <code dir="auto">REGNMED_DRIFT_ORGNR</code>, er
+den som svir: webhooken er det som gjør et Stripe-trekk om til et
+betalingsbilag og en lukket reskontropost, og uten orgnr vet den ikke
+hvilken hovedbok det hører hjemme i. Stripe har uansett tatt pengene.
+<strong>Å sette de to første uten den tredje er verre enn å la skinnen være
+av</strong>: kunden trekkes, og regnskapet får det aldri med seg. Og de to
+stedene må ha SAMME orgnr — ellers utstedes fakturaen i én hovedbok
+og betalingen bokføres i en annen, og posten lukkes aldri.</p>
+<p>Pek Stripes live-webhook på <code dir="auto">https://&lt;api-host&gt;/webhooks/stripe</code>.</p>
+</li>
+<li>
+<p><strong>E-post inn</strong> (#35, docs/epost-inn.md): <code dir="auto">MAIL_IN_DOMAIN</code> er vanlig
+konfigurasjon, ikke en hemmelighet — domenet innboksadressene vises
+under. Sett det <strong>først når det domenets MX faktisk leverer inn i
+regnids mottak</strong>; ellers viser portalen en adresse som stille tar
+imot ingenting, og det er nettopp det den usatte tilstanden finnes
+for å unngå.</p>
+</li>
+<li>
+<p><code dir="auto">kubectl apply -k deploy/prod</code>.</p>
+</li>
+<li>
+<p><strong>Bootstrap</strong> — OIDC-klienten og det første mennesket, se neste
+avsnitt. Uten steget står et miljø oppe som ingen kan logge inn i.</p>
+</li>
+</ol>
+<div class="sl-heading-wrapper level-h2"><h2 id="bootstrap-etter-første-apply">Bootstrap etter første apply</h2><a class="sl-anchor-link" href="#bootstrap-etter-første-apply"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Bootstrap etter første apply”</span></a></div>
+<p>Manifestene reiser topologien, men de kan ikke reise <strong>staten inne i
+regnid</strong>. OIDC-klienten og den første kontoen er rader i regnids
+database, og et passord kan uansett aldri ligge i dette repoet
+(docs/secrets.md). Da finnes bare én plass framgangsmåten kan bo, og det
+er her.</p>
+<p>Den bodde ingen steder fram til 2026-08-06, og prisen kom som forventet:
+spørsmålet «hvilken administrator lagde vi til testmiljøet?» kunne ikke
+besvares av noen, og repoet kunne ikke svare heller — det eneste
+<code dir="auto">add-user</code>-kallet i git er <code dir="auto">seed()</code> i <code dir="auto">scripts/dev-cluster.sh</code>, som
+sår <strong>det lokale</strong> clusteret og aldri har rørt <code dir="auto">test.regnmed.no</code>.
+Passordet hører hjemme i en passordhåndterer; det som mangler her er
+bare hvilke steg som ble tatt.</p>
+<p>Stegene kjøres én gang per miljø, etter første apply. <code dir="auto">-n regnmed-test</code>
+for test, <code dir="auto">-n regnmed</code> for prod; alt annet er likt. Eksemplene under er
+testverdier — bytt vertsnavnene i prod.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="1-oidc-klienten-regnmed-portal">1. OIDC-klienten <code dir="auto">regnmed-portal</code></h3><a class="sl-anchor-link" href="#1-oidc-klienten-regnmed-portal"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “1. OIDC-klienten regnmed-portal”</span></a></div>
+<div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">kubectl</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-n</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">regnmed-test</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">exec</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">deploy/regnid</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">--</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">/app/regnid</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">add-client</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">    </span><span style="--0:#82AAFF;--1:#3B61B0">--client-id</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">regnmed-portal</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">--name</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#ECC48D;--1:#984E4D">regnmed portal</span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">    </span><span style="--0:#82AAFF;--1:#3B61B0">--redirect-uri</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">https://test.regnmed.no/callback</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">    </span><span style="--0:#82AAFF;--1:#3B61B0">--redirect-uri</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">https://api.test.regnmed.no/callback</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">    </span><span style="--0:#82AAFF;--1:#3B61B0">--post-logout-redirect-uri</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">https://test.regnmed.no/</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">    </span><span style="--0:#82AAFF;--1:#3B61B0">--post-logout-redirect-uri</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">https://api.test.regnmed.no/</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">    </span><span style="--0:#82AAFF;--1:#3B61B0">--audience</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">regnmed</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="kubectl -n regnmed-test exec deploy/regnid -- /app/regnid add-client \    --client-id regnmed-portal --name &quot;regnmed portal&quot; \    --redirect-uri https://test.regnmed.no/callback \    --redirect-uri https://api.test.regnmed.no/callback \    --post-logout-redirect-uri https://test.regnmed.no/ \    --post-logout-redirect-uri https://api.test.regnmed.no/ \    --audience regnmed"><div></div></button></div></figure></div>
+<p><strong><code dir="auto">--audience regnmed</code> er det som svir hvis den glemmes.</strong> Innloggingen
+virker helt fint uten den — brukeren kommer tilbake til portalen med et
+token — og så svarer hvert eneste API-kall 401, uten et spor noe sted
+som peker på klientregistreringen. Erfart i prod 2026-07-31.</p>
+<p>Klient-id-en må være den API-et ber om: <code dir="auto">PORTAL_OIDC_CLIENT_ID</code>, som
+faller tilbake på <code dir="auto">regnmed-portal</code> (<code dir="auto">crates/regnmed-api/src/portal.rs</code>).
+Redirect-URI-ene er <strong>hver origin portalen kan åpnes fra</strong>, ikke bare
+den vanlige: appen bygger sin egen <code dir="auto">redirect_uri</code> av <code dir="auto">location.origin</code>
+(<code dir="auto">ui/portal/src/lib/auth.svelte.js</code>), og de to første vertsnavnene peker
+på samme service — én binær serverer både SPA-en og API-et — så portalen
+svarer også på API-verten. Åpner noen den der, må den origin være
+registrert, ellers avviser regnid redirecten.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="2-den-første-kontoen">2. Den første kontoen</h3><a class="sl-anchor-link" href="#2-den-første-kontoen"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2. Den første kontoen”</span></a></div>
+<div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">kubectl</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-n</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">regnmed-test</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">exec</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">deploy/regnid</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">--</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">/app/regnid</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">add-user</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">    </span><span style="--0:#82AAFF;--1:#3B61B0">--email</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">deg@example.no</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">--password</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">&lt;engangspassord&gt;</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">    </span><span style="--0:#82AAFF;--1:#3B61B0">--name</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">Navn Navnesen</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">--admin</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="kubectl -n regnmed-test exec deploy/regnid -- /app/regnid add-user \    --email deg@example.no --password &#x27;<engangspassord>&#x27; \    --name &#x27;Navn Navnesen&#x27; --admin"><div></div></button></div></figure></div>
+<p><code dir="auto">--admin</code> gjelder <strong>regnids egne administrasjonssider</strong> (brukere og
+klienter i IdP-en) og gir ingen tilgang til noen hovedbok — grensen i
+docs/auth.md §8 går ikke gjennom regnid. Passordet står i klartekst i
+kommandoen, altså i skallhistorikken: bruk et engangspassord og bytt det
+fra kontosiden etter første innlogging. Regnid har også <code dir="auto">/forgot</code>, men
+den veien forutsetter at utgående e-post faktisk leveres i miljøet
+(<code dir="auto">MAIL_BACKEND=nats</code> + en mail-worker med transport-legitimasjon) — er
+den ikke oppe, er <code dir="auto">add-user</code> eneste vei inn.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="3-selskapsadministrator-lages-ikke-her">3. Selskapsadministrator lages ikke her</h3><a class="sl-anchor-link" href="#3-selskapsadministrator-lages-ikke-her"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “3. Selskapsadministrator lages ikke her”</span></a></div>
+<p>Den kommer av seg selv: den som onboarder et selskap fra
+Enhetsregisteret blir dets administrator (docs/marketplace.md).
+Registreringsflyten i portalen er hele framgangsmåten, og det finnes
+ingen CLI-vei — med vilje.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="4-plattformrolle-hvis-miljøet-skal-ha-en">4. Plattformrolle, hvis miljøet skal ha en</h3><a class="sl-anchor-link" href="#4-plattformrolle-hvis-miljøet-skal-ha-en"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “4. Plattformrolle, hvis miljøet skal ha en”</span></a></div>
+<div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">kubectl</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-n</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">regnmed-test</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">exec</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">deploy/regnmed-api</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">--</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">/app/regnmed</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">platform-grant</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">    </span><span style="--0:#82AAFF;--1:#3B61B0">--epost</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">deg@example.no</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">--rolle</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">systemadmin</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">    </span><span style="--0:#82AAFF;--1:#3B61B0">--til</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">2026-12-31</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">--notat</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">Sak 123: drift av testmiljøet</span><span style="--0:#D9F5DD;--1:#111111">'</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="kubectl -n regnmed-test exec deploy/regnmed-api -- /app/regnmed platform-grant \    --epost deg@example.no --rolle systemadmin \    --til 2026-12-31 --notat &#x27;Sak 123: drift av testmiljøet&#x27;"><div></div></button></div></figure></div>
+<p>Personen <strong>må ha logget inn i portalen én gang først</strong> — <code dir="auto">platform-grant</code>
+slår opp en eksisterende <code dir="auto">person</code>, og finner den ingen, sier den det.
+<code dir="auto">--til</code> er obligatorisk og eksklusiv (docs/auth.md §8: en plattformrolle
+uten utløpsdato kan ikke skrives inn). <code dir="auto">platform-list</code> viser
+medlemskapene, <code dir="auto">platform-end --id &lt;id&gt;</code> avslutter et med virkning fra
+neste kall.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="hva-finnes-allerede-i-et-miljø">Hva finnes allerede i et miljø?</h3><a class="sl-anchor-link" href="#hva-finnes-allerede-i-et-miljø"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Hva finnes allerede i et miljø?”</span></a></div>
+<p>Det er dette spørsmålet avsnittet finnes for. Kontoene:</p>
+<div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">kubectl</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-n</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">regnmed-test</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">exec</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">deploy/postgres</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">--</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">psql</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-U</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">regnmed</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-d</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">regnid</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-c</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#ECC48D;--1:#984E4D">select email, name, is_admin, created_at from users order by created_at</span><span style="--0:#D9F5DD;--1:#111111">"</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="kubectl -n regnmed-test exec deploy/postgres -- psql -U regnmed -d regnid -c &quot;select email, name, is_admin, created_at from users order by created_at&quot;"><div></div></button></div></figure></div>
+<p>(<code dir="auto">psql</code> over containerens egen socket trenger ikke passord.) Og
+plattformrollene, aktive som avsluttede:</p>
+<div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">kubectl</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-n</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">regnmed-test</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">exec</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">deploy/regnmed-api</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">--</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">/app/regnmed</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">platform-list</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="kubectl -n regnmed-test exec deploy/regnmed-api -- /app/regnmed platform-list"><div></div></button></div></figure></div>
+<div class="sl-heading-wrapper level-h2"><h2 id="pod-hardening">Pod hardening</h2><a class="sl-anchor-link" href="#pod-hardening"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Pod hardening”</span></a></div>
+<p>Every container runs unprivileged, with no capabilities and a default
+seccomp profile: <code dir="auto">allowPrivilegeEscalation: false</code>,
+<code dir="auto">capabilities: drop [ALL]</code>, <code dir="auto">seccompProfile: RuntimeDefault</code>. Beyond
+that, the containers differ, and the differences are the interesting part.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>runs as</th>
+<th>root fs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>regnmed-api, regnid, mail worker, every CronJob</td>
+<td>65532 (nonroot)</td>
+<td>read-only</td>
+</tr>
+<tr>
+<td>postgres</td>
+<td>70 (<code dir="auto">postgres</code>)</td>
+<td>writable</td>
+</tr>
+<tr>
+<td>nats</td>
+<td>65532</td>
+<td>read-only</td>
+</tr>
+</tbody>
+</table>
+<p>Our own images are distroless <code dir="auto">:nonroot</code>, so they already had a nonroot
+USER — but <strong>an image saying so is not the same as the cluster requiring
+it</strong>, and nothing was requiring it. <code dir="auto">runAsNonRoot</code> is what makes a future
+image change fail loudly instead of quietly running as root.</p>
+<p><code dir="auto">postgres</code> and <code dir="auto">nats</code> were genuinely running as <strong>root</strong> until this was
+set; both images drop privileges themselves, or would have if asked, and
+neither was being asked. Postgres needs <code dir="auto">fsGroup: 70</code> so the data
+directory is owned by the user it now runs as, and keeps a <strong>writable
+root filesystem</strong> on purpose: it writes its socket to
+<code dir="auto">/var/run/postgresql</code> and temp files to <code dir="auto">/tmp</code>, neither a volume.
+Turning those into emptyDirs to win the flag would add moving parts for
+no real gain — the container is already unprivileged and capability-free.</p>
+<p><code dir="auto">nats</code> gained <code dir="auto">-m 8222</code> and a readiness probe on <code dir="auto">/healthz</code>. Without one,
+a client could be routed to a NATS that had not finished opening its
+JetStream store. The mail worker deliberately has <strong>no</strong> probe; the
+manifest explains why.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="dokumentlagring-docsblob-storemd">Dokumentlagring (docs/blob-store.md)</h2><a class="sl-anchor-link" href="#dokumentlagring-docsblob-storemd"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Dokumentlagring (docs/blob-store.md)”</span></a></div>
+<p>Dokumentene ligger i objektlagring, ikke i databasen. Hvert miljø får en
+Secret <code dir="auto">blob-store</code> med de seks <code dir="auto">BLOB_S3_*</code>-variablene, laget for hånd
+(nøkkelen er Hetzner-prosjektets S3-nøkkel, samme som homelab bruker til
+Longhorn-backup):</p>
+<div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">kubectl</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-n</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">regnmed</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">create</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">secret</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">generic</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">blob-store</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">--from-literal=BLOB_S3_ENDPOINT=https://hel1.your-objectstorage.com</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">--from-literal=BLOB_S3_BUCKET=bogenhuset</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">--from-literal=BLOB_S3_REGION=hel1</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">--from-literal=BLOB_S3_PREFIX=regnmed-prod/documents/</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">--from-literal=BLOB_S3_ACCESS_KEY=…</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">--from-literal=BLOB_S3_SECRET_KEY=…</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="kubectl -n regnmed create secret generic blob-store \  --from-literal=BLOB_S3_ENDPOINT=https://hel1.your-objectstorage.com \  --from-literal=BLOB_S3_BUCKET=bogenhuset \  --from-literal=BLOB_S3_REGION=hel1 \  --from-literal=BLOB_S3_PREFIX=regnmed-prod/documents/ \  --from-literal=BLOB_S3_ACCESS_KEY=… --from-literal=BLOB_S3_SECRET_KEY=…"><div></div></button></div></figure></div>
+<p>Alle regnmed-containere leser den med valgfri <code dir="auto">envFrom</code> (deploy/base,
+deploy/shared); uten Secret-en lagres dokumentene i databasen. Etter at
+den finnes og podene er startet på nytt, flyttes eksisterende dokumenter
+med én kjøring av <code dir="auto">regnmed offload-documents</code>.</p>
+<p><strong>For backup betyr det:</strong> <code dir="auto">pg_dump</code> inneholder ikke lenger dokumentene, og
+gjenopprettingsøvelsens <code dir="auto">verify-ledger</code> leser dem fra lagringen — øvelsen
+beviser dermed også at hvert dokument fortsatt finnes og er uendret.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="backups--restored-weekly-or-they-dont-count">Backups — restored weekly, or they don’t count</h2><a class="sl-anchor-link" href="#backups--restored-weekly-or-they-dont-count"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Backups — restored weekly, or they don’t count”</span></a></div>
+<p><code dir="auto">deploy/shared/backup.yaml</code> (prod and test both run it):</p>
+<ul>
+<li><strong>Nightly</strong> <code dir="auto">pg_dump</code> (custom format) of both databases to the
+backup PVC, pruned after 14 days.</li>
+<li><strong>Weekly restore-verification</strong>: the newest dump is restored into a
+scratch database and <code dir="auto">regnmed verify-ledger</code> re-walks every hash
+chain <strong>in the restored copy</strong> — including the anchor checks. This
+proves, unattended, that the backup restores <em>and</em> that the restored
+ledger is untampered. A backup that has never been restored is a
+hope, not a backup.</li>
+</ul>
+<p>The same drill runs anywhere via <code dir="auto">scripts/backup-verify.sh</code>
+(<code dir="auto">DATABASE_URL=… scripts/backup-verify.sh</code>). It has been exercised both
+ways: a clean ledger passes; a database containing forged anchor rows
+fails with the tampering named. Copy the backup PVC off-cluster (object
+storage, another site) — a backup next to its database shares its
+fate.</p>
+<p><strong>Growth path, deliberate:</strong> when RPO of minutes (not a day) is
+required, move Postgres to the CloudNativePG operator with WAL
+archiving to object storage — true PITR. The dump+verify drill stays
+even then; PITR replaces the nightly granularity, not the verification.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="hendelse-2026-10-29-apparmor-sluttet-å-slippe-gjennom-signaler">Hendelse 2026-10-29: AppArmor sluttet å slippe gjennom signaler</h2><a class="sl-anchor-link" href="#hendelse-2026-10-29-apparmor-sluttet-å-slippe-gjennom-signaler"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Hendelse 2026-10-29: AppArmor sluttet å slippe gjennom signaler”</span></a></div>
+<p><strong>Symptom, runde 1:</strong> alt som leser databasen hang; <code dir="auto">/health</code> og et <code dir="auto">401</code>
+svarte på millisekunder. Prod, test OG et tredje, urelatert Postgres på
+samme cluster — alle tre samtidig. Postgres hadde 100 forbindelser som
+sto fast i <code dir="auto">authentication</code> og aldri ble ryddet.</p>
+<p><strong>Symptom, runde 2:</strong> etter omstart fullførte Postgres recovery på under
+ett millisekund og nådde så <strong>aldri</strong> «ready to accept connections».
+<code dir="auto">startup</code> og <code dir="auto">checkpointer</code> sto parkert i <code dir="auto">S</code>, uten CPU, i det uendelige.</p>
+<p>Begge er samme feil.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="hvem-startet-nodene-på-nytt">Hvem startet nodene på nytt</h3><a class="sl-anchor-link" href="#hvem-startet-nodene-på-nytt"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Hvem startet nodene på nytt”</span></a></div>
+<p>Ikke unattended-upgrades: <code dir="auto">apt-config dump</code> på noden viser
+<code dir="auto">Unattended-Upgrade::Automatic-Reboot "false"</code>, og homelab-repoet slår
+fast at den innstillingen er bevisst og må stå — en omstart her krever
+drain først, og unattended-upgrades vet ingenting om Longhorn-replikaer
+eller etcd-quorum.</p>
+<p>Det var <strong>den nattlige vedlikeholdsjobben</strong> i <code dir="auto">bisand/homelab</code>
+(<code dir="auto">daily-homelab-update</code>, kl. 01:20Z): den kjørte <code dir="auto">maintain.sh apt</code>, som
+hentet 7.0.0-42, og deretter sin egen drain-og-omstart-runde node for
+node over Tailscale — joda → obiwan → andor → mando → luke. Sporet på
+mando er entydig: <code dir="auto">Accepted publickey for bisand from 100.117.182.8</code>
+(Mac-en, over tailnettet) kl. 01:43:45–01:45:25, så
+<code dir="auto">systemd-logind: The system will reboot now!</code> kl. 01:45:26. luke hadde
+alt fått kjernen av unattended-upgrade dagen før.</p>
+<p><strong>Prosedyren var altså riktig</strong> — hver node ble drenert først, <code dir="auto">gate</code> var
+OK før runden startet, og hver node kom opp Ready med alle pods Running.
+Det som gikk galt lå i kjernen, ikke i framgangsmåten, og ingenting i
+passet kunne sett det: feilen rammer bare signaler <em>inne i</em> containere.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="rotårsaken">Rotårsaken</h3><a class="sl-anchor-link" href="#rotårsaken"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Rotårsaken”</span></a></div>
+<p>Kl. 01:43–01:45 startet alle fem noder på nytt på kjerne 7.0.0-38 →
+7.0.0-42. Ubuntu setter
+<code dir="auto">kernel.apparmor_restrict_unprivileged_unconfined=1</code>, og kjernen gjør da
+om et uprivilegert <code dir="auto">change_profile</code> til unconfined til en <strong>STABEL</strong>. En
+prosess kubelet exec-er inn i en container — altså en probe — bærer
+derfor etiketten</p>
+<div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="plaintext"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">cri-containerd.apparmor.d//&amp;unconfined</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="cri-containerd.apparmor.d//&amp;unconfined"><div></div></button></div></figure></div>
+<p>mens containerens egne prosesser bærer det bare navnet. containerds
+profilmal tillater signaler bare til det <em>bare</em> navnet:</p>
+<div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="plaintext"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">signal (send,receive) peer={{.Name}},</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="signal (send,receive) peer={{.Name}},"><div></div></button></div></figure></div>
+<p>Så signaler mellom dem ble <strong>nektet</strong>. 425 avslag på to noder: 234
+SIGURG, 147 SIGTERM, 44 SIGKILL.</p>
+<p><strong>Hvorfor det lammer Postgres:</strong> fra PG 16 vekkes latcher med <strong>SIGURG</strong>.
+Nektes den, venter en prosess som venter på en latch for alltid — det er
+runde 2, <code dir="auto">startup</code> som venter på <code dir="auto">checkpointer</code>. Og nektes SIGTERM, kan
+postmasteren ikke rydde backender — det er runde 1, der
+<code dir="auto">authentication_timeout</code> <em>fyrte av</em> men signalet aldri kom fram.</p>
+<p>På 7.0.0-38 ble stablingen logget, men slo sjelden inn. På 7.0.0-42
+rammer den hver uprivilegert container. Det er grunnen til at dette
+traff i det sekundet nodene kom opp igjen.</p>
+<p><strong>Dette er ikke vårt</strong>, men vi må leve med det:
+<a href="https://github.com/containerd/containerd/issues/14485">containerd#14485</a>
+(åpen, ingen release), <a href="https://github.com/k3s-io/k3s/issues/13625">k3s#13625</a>
+(lukket, «nothing actionable on our side»). Rapporten der har nøyaktig
+vår stack: Ubuntu 26.04, 7.0.0-42-generic, k3s v1.36.5+k3s1,
+containerd v2.3.4.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="fiksen">Fiksen</h3><a class="sl-anchor-link" href="#fiksen"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Fiksen”</span></a></div>
+<p>Containerds egen mal, rendret med nodens egne verdier, pluss to regler
+(oppskriften og grensene står i
+<a href="https://github.com/BogenTech/regnmed/blob/main/docs/../deploy/host/README.md">../deploy/host/README.md</a>; den utrullede kopien
+for vår homelab ligger i <code dir="auto">bisand/homelab</code> under
+<code dir="auto">nodes/common/cri-containerd.apparmor.d</code>, siden en rendret profil er
+vertsspesifikk og hører til vertsrepoet):</p>
+<div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="plaintext"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">signal (send,receive) peer=cri-containerd.apparmor.d//&amp;unconfined,</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">ptrace (trace,tracedby,read,readby) peer=cri-containerd.apparmor.d//&amp;unconfined,</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="signal (send,receive) peer=cri-containerd.apparmor.d//&amp;unconfined,ptrace (trace,tracedby,read,readby) peer=cri-containerd.apparmor.d//&amp;unconfined,"><div></div></button></div></figure></div>
+<p><strong>Dette svekker ingenting.</strong> Det lar en containers prosesser signalere
+prosesser i SIN EGEN container som kjernen tilfeldigvis merket som en
+stabel — nøyaktig det containerd alt har tenkt. All annen innestenging
+står. De to alternativene er begge dårligere: <code dir="auto">appArmorProfile: Unconfined</code> fjerner <em>all</em> innestenging fra produksjonsdatabasen, og
+<code dir="auto">sysctl ...=0</code> slår av herdingen på hele verten.</p>
+<p>Verifisert: 0 nye avslag på alle fem noder, <code dir="auto">kill -TERM</code> virker igjen
+(det svarte «Permission denied» før), og avstanden fra <code dir="auto">redo done</code> til
+<code dir="auto">ready to accept connections</code> gikk fra <strong>5 minutter til 29
+millisekunder</strong>.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="det-vi-endret-hos-oss-også">Det vi endret hos oss også</h3><a class="sl-anchor-link" href="#det-vi-endret-hos-oss-også"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Det vi endret hos oss også”</span></a></div>
+<p><code dir="auto">readinessProbe</code> var <code dir="auto">pg_isready</code>, som med vilje <strong>ikke</strong> fullfører
+håndtrykket: den sender oppstartspakken, leser utfordringen og legger på
+uten å autentisere og uten Terminate. Backenden den etterlater kommer
+bare ut via en EOF eller <code dir="auto">authentication_timeout</code> — to utganger som
+begge var stengt her. Proben er nå
+<code dir="auto">psql -U regnmed -d regnmed -qtAXc 'select 1'</code>, som fullfører
+protokollen og sender Terminate, så backenden avslutter fordi den <strong>ble
+bedt om det</strong>. <code dir="auto">authentication_timeout=10s</code> er lagt til ved siden av.</p>
+<p>Vær tydelig på hva dette er: <strong>ikke rotårsaken</strong>, men dybdeforsvar. Med
+AppArmor-feilen på plass hadde begge vært maktesløse. Uten den er de
+likevel verdt å ha, for en probe som er avhengig av at noen oppdager at
+en klient gikk sin vei, er skjør uansett.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="det-som-gjorde-feilsøkingen-vanskelig">Det som gjorde feilsøkingen vanskelig</h3><a class="sl-anchor-link" href="#det-som-gjorde-feilsøkingen-vanskelig"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Det som gjorde feilsøkingen vanskelig”</span></a></div>
+<ul>
+<li><strong>En uferdig autentisert forbindelse står IKKE i <code dir="auto">pg_stat_activity</code>.</strong>
+Den holder en slot og er usynlig for enhver spørring vi kunne skrevet.
+Bare prosesstabellen viste dem, som <code dir="auto">[local] authentication</code>. Ingen
+overvåking vi kunne lagt på ville sett det.</li>
+<li><strong>Nodene kjørte forskjellige images under samme tag.</strong> <code dir="auto">postgres:18-alpine</code>
+flyter og <code dir="auto">imagePullPolicy</code> er ikke satt, så andor kjørte 18.6 mens
+luke og mando kjørte 18.4. Det var ikke årsaken her, men det er en
+ekte feil: samme manifest ga forskjellig programvare per node.
+Oppfølger: <code dir="auto">imagePullPolicy: Always</code>, som holder nodene like UTEN å
+pinne en versjon.</li>
+<li><strong><code dir="auto">ps | grep authentication</code> treffer postmasteren</strong> så snart
+<code dir="auto">authentication_timeout</code> står på kommandolinjen. Et <code dir="auto">kill</code> på det
+treffet tar ned hele databasen. Bruk <code dir="auto">grep "postgres: .* authentication"</code>.</li>
+</ul>
+<div class="sl-heading-wrapper level-h3"><h3 id="hvorfor-vi-ikke-rullet-kjernen-tilbake">Hvorfor vi ikke rullet kjernen tilbake</h3><a class="sl-anchor-link" href="#hvorfor-vi-ikke-rullet-kjernen-tilbake"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Hvorfor vi ikke rullet kjernen tilbake”</span></a></div>
+<p>7.0.0-38 lå fortsatt på alle fem nodene, så det var lett. Men en
+nedgradering gjør sikkerhetsoppdateringer til noe vi skyver foran oss,
+og feilen ville kommet tilbake ved neste oppgradering. Profilen retter
+årsaken og holder nodene oppdatert.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="merk-ved-endring">Merk ved endring</h3><a class="sl-anchor-link" href="#merk-ved-endring"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Merk ved endring”</span></a></div>
+<p>Et strategic-merge-patch <strong>erstatter</strong> <code dir="auto">args</code>-lista.
+<code dir="auto">authentication_timeout</code> står derfor i base OG i begge overlayene — et
+flagg bare i base ville blitt stilletiende borte i prod og test.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="oppetidssjekk-utenfor-clusteret-og-mot-databasen">Oppetidssjekk: utenfor clusteret, og mot databasen</h2><a class="sl-anchor-link" href="#oppetidssjekk-utenfor-clusteret-og-mot-databasen"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Oppetidssjekk: utenfor clusteret, og mot databasen”</span></a></div>
+<p><code dir="auto">.github/workflows/oppetid.yml</code>, hvert tiende minutt.</p>
+<p>Hendelsen 2026-10-29 varte i fire timer og ble oppdaget ved at eieren
+prøvde å bruke systemet. Overvåkingen sviktet ikke — den fantes ikke.
+Og det er verre enn det: det ene endepunktet man instinktivt ville satt
+en vakt på, var det ene som ikke kunne se feilen.</p>
+<table>
+<thead>
+<tr>
+<th>endepunkt</th>
+<th>under nedetiden</th>
+<th>hvorfor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">/health</code></td>
+<td><strong>200 hele veien</strong></td>
+<td>rører ikke databasen</td>
+</tr>
+<tr>
+<td><code dir="auto">/me</code> uten token</td>
+<td><strong>401 på millisekunder</strong></td>
+<td>svarer før tilgangsoppslaget</td>
+</tr>
+<tr>
+<td><code dir="auto">/portal-config</code></td>
+<td>hang for alltid</td>
+<td>leser <code dir="auto">platform_setting</code></td>
+</tr>
+<tr>
+<td><code dir="auto">/anchors</code></td>
+<td>hang for alltid</td>
+<td>leser forankringstabellen</td>
+</tr>
+</tbody>
+</table>
+<p><code dir="auto">/health</code> er en <strong>liveness-løgn</strong>. Jobben sjekker derfor bare endepunkter
+som faktisk går i databasen, og den behandler <strong>treghet som feil</strong> — ti
+sekunders frist, for symptomet var henging, ikke 5xx.</p>
+<p>Den kjører i GitHub Actions og ikke i clusteret med vilje: en vaktpost
+inne i clusteret går ned sammen med det den vokter. Den er gratis, den
+ligger utenfor, og den bor allerede der slippene bor — altså innenfor
+frugalitetsbudsjettet (docs/frugality.md), som er grunnen til at det
+ikke står en Prometheus-stack her.</p>
+<p>Den åpner én issue med merkelappen <code dir="auto">oppetid</code> når prod ikke svarer,
+kommenterer på den hvis det vedvarer, og <strong>lukker den selv</strong> når prod
+svarer igjen — så en natt med nedetid ikke blir tolv like varsler.</p>
+<p><strong>Den dekker ikke test.</strong> Det er et valg: et varsel som går av for
+testmiljøet blir et varsel ingen leser.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="images-flytende-tagger-må-hentes">Images: flytende tagger må hentes</h2><a class="sl-anchor-link" href="#images-flytende-tagger-må-hentes"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Images: flytende tagger må hentes”</span></a></div>
+<p><code dir="auto">postgres:18-alpine</code> og <code dir="auto">nats:alpine</code> flyter, og uten <code dir="auto">imagePullPolicy</code>
+bruker hver node det den tilfeldigvis har hentet. 2026-10-29 kjørte
+andor PostgreSQL <strong>18.6</strong> mens luke og mando kjørte <strong>18.4</strong> — samme
+manifest, samme tag, ulik programvare. Det var ikke årsaken til
+hendelsen, men det kostet en feilaktig diagnose underveis.</p>
+<p>Begge står nå på <code dir="auto">imagePullPolicy: Always</code>. Det er med vilje IKKE en
+pinning: oppdateringer skal fortsatt flyte inn, men likt på alle noder.
+Prisen er at en node ikke kan starte podden hvis registeret er
+utilgjengelig — en avveining vi tar, siden alternativet er at nodene
+stilletiende divergerer.</p>
+<p><code dir="auto">regnmed</code>- og <code dir="auto">regnid</code>-imagene er unntatt: overlayene gir dem
+uforanderlige tagger (<code dir="auto">v0.6.4</code>, <code dir="auto">sha-…</code>), så <code dir="auto">IfNotPresent</code> er riktig
+der.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="observability-within-the-frugality-budget">Observability, within the frugality budget</h2><a class="sl-anchor-link" href="#observability-within-the-frugality-budget"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Observability, within the frugality budget”</span></a></div>
+<p>No metrics stack by default — the budget (docs/frugality.md) is spent
+on the product. What production runs on:</p>
+<ul>
+<li><strong>Probes</strong>: <code dir="auto">/health</code> readiness on the API; pg_isready on Postgres.</li>
+<li><strong>Integrity monitoring is the observability that matters here</strong>: the
+nightly anchor CronJob (every root witnessed via <code dir="auto">ANCHOR_TSA_URL</code>)
+and the weekly backup-verification are both <em>checks that fail loudly
+in <code dir="auto">kubectl get jobs</code> / alerting on failed Jobs</em> — they watch the one
+thing this system promises, the ledger.</li>
+<li><strong>Logs</strong>: <code dir="auto">kubectl logs</code>; ship them with the cluster’s collector if
+one exists. A <code dir="auto">/metrics</code> endpoint is a conscious later addition, and
+the frugality gate will price it.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="deliberately-not-yet">Deliberately not yet</h2><a class="sl-anchor-link" href="#deliberately-not-yet"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Deliberately not yet”</span></a></div>
+<p>Multi-node/HA Postgres, CloudNativePG (above), NetworkPolicies,
+autoscaling — added when a real load or a real requirement asks, each
+priced against the frugality budget.</p>
+<p>Longhorn in the <strong>local</strong> cluster is on this list too, and stays there:
+it needs iSCSI, real block devices and about a gigabyte for itself,
+against a 2 GB VM. The manifests support a replicated class (checklist
+item 3) without the laptop having to run one.</p>
+</div><footer class="sl-flex" data-astro-cid-ddtxxk7k><div class="meta sl-flex" data-astro-cid-ddtxxk7k><a href="https://github.com/BogenTech/regnmed/edit/main/docs/deploy.md" class="sl-flex print:hidden" data-astro-cid-qlekgd3o><svg data-astro-cid-qlekgd3o="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.2em;" data-astro-cid-hkc32dio><path d="M22 7.24a1 1 0 0 0-.29-.71l-4.24-4.24a1 1 0 0 0-1.1-.22 1 1 0 0 0-.32.22l-2.83 2.83L2.29 16.05a1 1 0 0 0-.29.71V21a1 1 0 0 0 1 1h4.24a1 1 0 0 0 .76-.29l10.87-10.93L21.71 8c.1-.1.17-.2.22-.33a1 1 0 0 0 0-.24v-.14l.07-.05ZM6.83 20H4v-2.83l9.93-9.93 2.83 2.83L6.83 20ZM18.17 8.66l-2.83-2.83 1.42-1.41 2.82 2.82-1.41 1.42Z"/></svg>Rediger side</a></div><div class="pagination-links print:hidden" dir="ltr" data-astro-cid-b5raizh3><a href="/teknisk/budsjett/" rel="prev" data-astro-cid-b5raizh3><svg data-astro-cid-b5raizh3="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;" data-astro-cid-hkc32dio><path d="M17 11H9.41l3.3-3.29a1.004 1.004 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33 1 1 0 0 0 0 .76 1 1 0 0 0 .21.33l5 5a1.002 1.002 0 0 0 1.639-.325 1 1 0 0 0-.219-1.095L9.41 13H17a1 1 0 0 0 0-2Z"/></svg><span data-astro-cid-b5raizh3>Forrige<br data-astro-cid-b5raizh3><span class="link-title" data-astro-cid-b5raizh3>Budsjett og avviksrapport</span></span></a><a href="/teknisk/dimensjoner/" rel="next" data-astro-cid-b5raizh3><svg data-astro-cid-b5raizh3="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;" data-astro-cid-hkc32dio><path d="M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z"/></svg><span data-astro-cid-b5raizh3>Neste<br data-astro-cid-b5raizh3><span class="link-title" data-astro-cid-b5raizh3>Dimensjoner: avdeling og prosjekt</span></span></a></div></footer></div></div></main></div></div></div></div></body></html>

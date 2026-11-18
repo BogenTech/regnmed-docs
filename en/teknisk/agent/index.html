@@ -1,0 +1,1271 @@
+<!DOCTYPE html><html lang="en" dir="ltr" data-theme="dark" data-has-toc data-has-sidebar data-astro-cid-g5ptsecz><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Ta med din egen agent | regnmed docs</title><link rel="canonical" href="https://docs.regnmed.no/en/teknisk/agent/"/><link rel="alternate" hreflang="nb" href="https://docs.regnmed.no/teknisk/agent/"/><link rel="alternate" hreflang="en" href="https://docs.regnmed.no/en/teknisk/agent/"/><link rel="alternate" hreflang="x-default" href="https://docs.regnmed.no/teknisk/agent/"/><link rel="sitemap" href="/sitemap-index.xml"/><link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml"/><meta name="generator" content="Astro v7.4.13"/><meta name="generator" content="Starlight v0.43.1"/><meta property="og:title" content="Ta med din egen agent"/><meta property="og:type" content="article"/><meta property="og:url" content="https://docs.regnmed.no/en/teknisk/agent/"/><meta property="og:locale" content="en"/><meta property="og:description" content="Brukerveiledning, utviklerdokumentasjon og teknisk dokumentasjon for regnmed, regnskapssystemet du kan etterprøve."/><meta property="og:site_name" content="regnmed docs"/><meta name="twitter:card" content="summary_large_image"/><meta name="description" content="Brukerveiledning, utviklerdokumentasjon og teknisk dokumentasjon for regnmed, regnskapssystemet du kan etterprøve."/><meta name="robots" content="noindex"/><script>
+	(() => {
+		const storedTheme =
+			typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme');
+		const theme =
+			storedTheme ||
+			(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+		document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+	})();
+</script><link rel="stylesheet" href="/_astro/print.C9eyqPGL.css" media="print"><link rel="stylesheet" href="/_astro/common.LP9BDTc3.css"><script type="module" src="/_astro/page.cNngjUgL.js"></script></head><body data-astro-cid-g5ptsecz><a class="sl-skip-link" href="#_top" data-astro-cid-qb7clj6f>Skip to content</a><div class="page sl-flex" data-astro-cid-yntsjkba><header class="header" data-astro-cid-yntsjkba><div class="header" data-astro-cid-by6fddyj><div class="title-wrapper sl-flex" data-astro-cid-by6fddyj><a href="/en" class="site-title sl-flex" data-astro-cid-6rvad3va><img alt="regnmed" src="/_astro/logo.BykUI3mu.svg" width="160" height="160" data-astro-cid-6rvad3va><span translate="no" data-astro-cid-6rvad3va>regnmed docs</span></a></div><div class="sl-flex print:hidden" data-astro-cid-by6fddyj><site-search data-translations="{&quot;placeholder&quot;:&quot;Search&quot;}" data-astro-cid-b5kgnn7o="true"><button data-open-modal disabled aria-label="Search" aria-keyshortcuts="Control+K" data-astro-cid-b5kgnn7o><svg data-astro-cid-b5kgnn7o="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z"/></svg><span class="sl-hidden md:sl-block" aria-hidden="true" data-astro-cid-b5kgnn7o>Search</span><kbd class="sl-hidden md:sl-flex" style="display: none" data-astro-cid-b5kgnn7o><kbd data-astro-cid-b5kgnn7o>Ctrl</kbd><kbd data-astro-cid-b5kgnn7o>K</kbd></kbd></button><dialog style="padding: 0" aria-label="Search" data-astro-cid-b5kgnn7o><div class="dialog-frame sl-flex" data-astro-cid-b5kgnn7o><button data-close-modal class="sl-flex md:sl-hidden" data-astro-cid-b5kgnn7o>Cancel</button><div class="search-container" data-astro-cid-b5kgnn7o><div id="starlight__search" data-astro-cid-b5kgnn7o></div></div></div></dialog></site-search><script>
+	(() => {
+		const openBtn = document.querySelector('button[data-open-modal]');
+		const shortcut = openBtn?.querySelector('kbd');
+		if (!openBtn || !(shortcut instanceof HTMLElement)) return;
+		const platformKey = shortcut.querySelector('kbd');
+		if (platformKey && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+			platformKey.textContent = '⌘';
+			openBtn.setAttribute('aria-keyshortcuts', 'Meta+K');
+		}
+		shortcut.style.display = '';
+	})();
+</script><script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.CibB10mu.js"></script></div><div class="sl-hidden md:sl-flex print:hidden right-group" data-astro-cid-by6fddyj><div class="sl-flex social-icons" data-astro-cid-by6fddyj><a href="https://github.com/BogenTech/regnmed" rel="me" class="sl-flex" data-astro-cid-n2mnl6yq><span class="sr-only" data-astro-cid-n2mnl6yq>GitHub</span><svg data-astro-cid-n2mnl6yq="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select data-astro-cid-smhvfpqh="true"><label style="--sl-select-width: 6.25em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Select theme</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg class="sl-theme-icon-dark" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg class="sl-theme-icon-light" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg class="sl-theme-icon-auto" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="dark" data-astro-cid-2z5xp7gb>Dark</option><option value="light" data-astro-cid-2z5xp7gb>Light</option><option value="auto" selected data-astro-cid-2z5xp7gb>Auto</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>(() => {
+		const theme = (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme'));
+		if (theme) document.querySelectorAll('starlight-theme-select select').forEach((s) => { s.value = theme; });
+	})();</script><script type="module">var e=`starlight-theme`,t=e=>e===`auto`||e===`dark`||e===`light`?e:`auto`,n=()=>t(typeof localStorage<`u`&&localStorage.getItem(e));function r(t){typeof localStorage<`u`&&localStorage.setItem(e,t===`light`||t===`dark`?t:``)}var i=()=>matchMedia(`(prefers-color-scheme: light)`).matches?`light`:`dark`;function a(e){document.querySelectorAll(`starlight-theme-select select`).forEach(t=>{t.value=e}),document.documentElement.dataset.theme=e===`auto`?i():e,r(e)}matchMedia(`(prefers-color-scheme: light)`).addEventListener(`change`,()=>{n()===`auto`&&a(`auto`)});var o=class extends HTMLElement{constructor(){super(),a(n()),this.querySelector(`select`)?.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&a(t(e.currentTarget.value))})}};customElements.define(`starlight-theme-select`,o);</script><starlight-lang-select><label style="--sl-select-width: 7em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Select language</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="/teknisk/agent/" data-astro-cid-2z5xp7gb>Norsk</option><option value="/en/teknisk/agent/" selected data-astro-cid-2z5xp7gb>English</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-lang-select><script type="module">var e=class extends HTMLElement{constructor(){super();let e=this.querySelector(`select`);e&&(e.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&(window.location.pathname=e.currentTarget.value)}),window.addEventListener(`pageshow`,t=>{if(!t.persisted)return;let n=e.querySelector(`option[selected]`)?.index;n!==e.selectedIndex&&(e.selectedIndex=n??0)}))}};customElements.define(`starlight-lang-select`,e);</script></div></div></header><nav class="sidebar print:hidden" aria-label="Main" data-astro-cid-yntsjkba><button popovertarget="starlight__sidebar" class="sl-menu-button sl-flex md:sl-hidden print:hidden" data-astro-cid-r2osgdlg><svg class="open-menu" data-astro-cid-r2osgdlg="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M3 8h18a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2Zm18 8H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Zm0-5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></svg><svg class="close-menu" data-astro-cid-r2osgdlg="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="m13.41 12 6.3-6.29a1.004 1.004 0 1 0-1.42-1.42L12 10.59l-6.29-6.3a1.004 1.004 0 0 0-1.42 1.42l6.3 6.29-6.3 6.29a1 1 0 0 0 0 1.42.998.998 0 0 0 1.42 0l6.29-6.3 6.29 6.3a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.42L13.41 12Z"/></svg><span class="sr-only" data-astro-cid-r2osgdlg>Menu</span></button><script type="module">var e=class extends HTMLElement{constructor(){super();let e=matchMedia(`(min-width: 50em)`),t=()=>{this.popover=e.matches?null:`auto`};t(),e.addEventListener(`change`,()=>t()),this.addEventListener(`toggle`,({newState:e})=>this.trapFocus(e===`open`))}trapFocus(e){document.querySelectorAll(`.main-frame, .sl-skip-link`).forEach(t=>{t.toggleAttribute(`inert`,e)})}};customElements.define(`sl-sidebar-pane`,e);</script><sl-sidebar-pane popover id="starlight__sidebar" class="sidebar-pane" data-astro-cid-yntsjkba="true"><div class="sidebar-content sl-flex" data-astro-cid-yntsjkba><sl-sidebar-state-persist data-hash="0kff4cj" data-astro-cid-ipdry5cl="true"><script aria-hidden="true">
+		(() => {
+			try {
+				if (!matchMedia('(min-width: 50em)').matches) return;
+				/** @type {HTMLElement | null} */
+				const target = document.querySelector('sl-sidebar-state-persist');
+				const state = JSON.parse(sessionStorage.getItem('sl-sidebar-state') || '0');
+				if (!target || !state || target.dataset.hash !== state.hash) return;
+				window._starlightScrollRestore = state.scroll;
+				customElements.define(
+					'sl-sidebar-restore',
+					class SidebarRestore extends HTMLElement {
+						connectedCallback() {
+							try {
+								const idx = parseInt(this.dataset.index || '');
+								const details = this.closest('details');
+								if (details && typeof state.open[idx] === 'boolean') details.open = state.open[idx];
+							} catch {}
+						}
+					}
+				);
+			} catch {}
+		})();
+	</script><ul class="top-level" data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>User guide (Norwegian)</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="0"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Velkommen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/kom-i-gang/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kom i gang</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/forste-faktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Første faktura</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/fakturering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Fakturering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/purring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Purring og betalingsoppfølging</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/bilag-og-innboks/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilag og innboks</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/hovedbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Hovedbok og kontoplan</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/mva/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>MVA</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/lonn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn og a-melding</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/timer-og-prosjekter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Timer og prosjekter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/utlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utlegg og kjøregodtgjørelse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/anlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Anleggsregister og avskrivninger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/valuta/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Valuta</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/produkter-og-varelager/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Produkter og varelager</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/periodisering-og-budsjett/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodisering og budsjett</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/rapporter-og-arsavslutning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Rapporter og årsavslutning</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/aksjeeierbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og aksjonærregisteroppgaven</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/tilgang-og-roller/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang og roller</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/for-regnskapsforere/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>For regnskapsførere og byråer</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/for-revisorer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>For revisorer</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/migrering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Migrering fra et annet system</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/abonnement-og-priser/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Abonnement og priser</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/ai-agent/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Ta med din egen AI-agent</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/verifiser-regnskapet/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Verifiser regnskapet ditt</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/brukerveiledning/vanlige-sporsmal/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Vanlige spørsmål</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>For developers</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="1"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>api</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="2"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>API reference</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/identity/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Identity and access</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/ledger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Company and general ledger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/sales/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Sales and subledger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/reports/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Accounting and reports</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank and payments</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/payroll/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Payroll, time and expenses</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/inbox/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Inbox, import and jobs</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/shares/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Share register and assets</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/agents/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Integrations, agents and messages</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/verification/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Anchoring and verification</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/api/platform/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Platform (the vendor console)</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Introduction</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/getting-started/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Getting started with integrations</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/authentication/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Authentication</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/access-and-roles/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Access and roles for integrations</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/conventions/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Conventions</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/examples/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Examples</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/mcp-and-agents/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>MCP and agents</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/verify-it-yourself/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Verify it yourself</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/self-hosting/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Self-hosting</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/developers/contributing/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Contributing</span></a></li></ul></details></li><li data-astro-cid-rmhv4bp6><details open data-astro-cid-rmhv4bp6><summary data-astro-cid-rmhv4bp6><span class="group-label" data-astro-cid-rmhv4bp6><span class="large" data-astro-cid-rmhv4bp6>Technical documentation (Norwegian)</span></span><svg class="caret" data-astro-cid-rmhv4bp6="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="3"></sl-sidebar-restore><ul data-astro-cid-rmhv4bp6><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Teknisk dokumentasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/abonnement/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Abonnement: regnmeds egen kasse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/agent/" aria-current="page" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Ta med din egen agent</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/aksjonaer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Aksjeeierbok og aksjonærregisteroppgave (RF-1086)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/anchoring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>External anchoring of chain heads</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/anlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Anleggsregister og avskrivninger</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/api/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>API-referanse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/arsavslutning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Årsavslutning</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/attestering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Attestering: godkjenningsflyt før bokføring og betaling</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/auth/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Tilgang: hvem kan gjøre hva</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/balansedokumentasjon/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Balansedokumentasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/bank/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bank reconciliation</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/betaling/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Betalingsliste og remittering (pain.001)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/bilagsinnboks/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilagsinnboks</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/bilagstolkning/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bilagstolkning: forslag fra dokumentets egen tekst</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/blob-store/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Dokumenter i objektlagring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/budsjett/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Budsjett og avviksrapport</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/deploy/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Deployment</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/dimensjoner/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Dimensjoner: avdeling og prosjekt</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/efaktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>E-faktura ut fra 1. januar 2027 — forslag</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/ehf/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>EHF: elektronisk faktura ut og inn</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/epost-inn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>E-post-inn til bilagsinnboksen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/faktura/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utgående faktura</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/frugality/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The frugality budget</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/gov/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The government rail: Maskinporten and Skatteetaten&#39;s APIs</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/hovedbok/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Hovedbok: kontoplan og manuell bilagsføring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/integrations/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Maskin-tilgang til API-et</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/jobs/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Bakgrunnsjobber</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/kontantsalg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kontantsalg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/ledger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The ledger: append-only, hash-chained, independently verifiable</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/lonn/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lønn — første del</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/marketplace/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Marketplace: onboarding from the official registries</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/meldinger/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Meldinger — samtaler mellom folk som jobber sammen</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/migration/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Migration: SAF-T import</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/mva/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Merverdiavgift: codes, rates, spesifikasjon, melding</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/perioder/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodelåsing og bilagsvedlegg</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/periodisering/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Periodisering</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/portal/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>The portal</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/produkter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Produktregister og enkelt varelager</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/purring/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Betalingsoppfølging (purring)</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/rapporter/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Lovpålagte spesifikasjoner og rapporter</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/regelverk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Regelverk som data</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/reskontro/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Reskontro: kunde- og leverandørspesifikasjon</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/revisjon/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Revisorrollen og verifikasjonsrapporten</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/skattemelding/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Skattemelding og næringsspesifikasjon (#11) — kartlagt, ikke bygget</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/timer/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Timeføring</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/utlegg/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Utlegg og kjøregodtgjørelse</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/valuta/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Flervaluta</span></a></li><li data-astro-cid-rmhv4bp6><a href="/en/teknisk/vilkar-teknisk/" data-astro-cid-rmhv4bp6><span data-astro-cid-rmhv4bp6>Kundevilkårene i koden</span></a></li></ul></details></li></ul><script aria-hidden="true">
+		(() => {
+			const scroller = document.getElementById('starlight__sidebar');
+			if (!window._starlightScrollRestore || !scroller) return;
+			scroller.scrollTop = window._starlightScrollRestore;
+			delete window._starlightScrollRestore;
+		})();
+	</script></sl-sidebar-state-persist><div class="md:sl-hidden"><div class="mobile-preferences sl-flex" data-astro-cid-p4azlveh><div class="social-icons" data-astro-cid-p4azlveh><a href="https://github.com/BogenTech/regnmed" rel="me" class="sl-flex" data-astro-cid-n2mnl6yq><span class="sr-only" data-astro-cid-n2mnl6yq>GitHub</span><svg data-astro-cid-n2mnl6yq="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select data-astro-cid-smhvfpqh="true"><label style="--sl-select-width: 6.25em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Select theme</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg class="sl-theme-icon-dark" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg class="sl-theme-icon-light" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg class="sl-theme-icon-auto" data-astro-cid-smhvfpqh="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="dark" data-astro-cid-2z5xp7gb>Dark</option><option value="light" data-astro-cid-2z5xp7gb>Light</option><option value="auto" selected data-astro-cid-2z5xp7gb>Auto</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>(() => {
+		const theme = (typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme'));
+		if (theme) document.querySelectorAll('starlight-theme-select select').forEach((s) => { s.value = theme; });
+	})();</script><starlight-lang-select><label style="--sl-select-width: 7em" data-astro-cid-2z5xp7gb><span class="sr-only" data-astro-cid-2z5xp7gb>Select language</span><span class="icon label-icon" data-astro-cid-2z5xp7gb><svg data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path fill-rule="evenodd" d="M8.516 3a.94.94 0 0 0-.941.94v1.15H2.94a.94.94 0 1 0 0 1.882h7.362a7.422 7.422 0 0 1-1.787 3.958 7.42 7.42 0 0 1-1.422-2.425.94.94 0 1 0-1.774.627 9.303 9.303 0 0 0 1.785 3.043 7.422 7.422 0 0 1-4.164 1.278.94.94 0 1 0 0 1.881 9.303 9.303 0 0 0 5.575-1.855 9.303 9.303 0 0 0 4.11 1.74l-.763 1.525a.968.968 0 0 0-.016.034l-1.385 2.77a.94.94 0 1 0 1.683.841l1.133-2.267h5.806l1.134 2.267a.94.94 0 0 0 1.683-.841l-1.385-2.769a.95.95 0 0 0-.018-.036l-3.476-6.951a.94.94 0 0 0-1.682 0l-1.82 3.639a7.423 7.423 0 0 1-3.593-1.256 9.303 9.303 0 0 0 2.27-5.203h1.894a.94.94 0 0 0 0-1.881H9.456V3.94A.94.94 0 0 0 8.516 3Zm6.426 11.794a1.068 1.068 0 0 1-.02.039l-.703 1.407h3.924l-1.962-3.924-1.24 2.478Z" clip-rule="evenodd"/></svg></span><select autocomplete="off" data-astro-cid-2z5xp7gb><option value="/teknisk/agent/" data-astro-cid-2z5xp7gb>Norsk</option><option value="/en/teknisk/agent/" selected data-astro-cid-2z5xp7gb>English</option></select><svg class="icon caret" data-astro-cid-2z5xp7gb="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;" data-astro-cid-hkc32dio><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-lang-select></div></div></div></sl-sidebar-pane></nav><div class="main-frame" data-astro-cid-yntsjkba><script type="module">var e=document.getElementById(`starlight__sidebar`),t=e?.querySelector(`sl-sidebar-state-persist`),n=`sl-sidebar-state`,r=()=>{let r=[],i=t?.dataset.hash||``;try{let e=sessionStorage.getItem(n),t=JSON.parse(e||`{}`);Array.isArray(t.open)&&t.hash===i&&(r=t.open)}catch{}return{hash:i,open:r,scroll:e?.scrollTop||0}},i=e=>{try{sessionStorage.setItem(n,JSON.stringify(e))}catch{}},a=()=>i(r()),o=(e,t)=>{let n=r();n.open[t]=e,i(n)};t?.addEventListener(`click`,e=>{if(!(e.target instanceof Element))return;let t=e.target.closest(`summary`)?.closest(`details`);if(!t)return;let n=t.querySelector(`sl-sidebar-restore`),r=parseInt(n?.dataset.index||``);isNaN(r)||o(!t.open,r)}),addEventListener(`visibilitychange`,()=>{document.visibilityState===`hidden`&&a()});</script><div class="lg:sl-flex" data-astro-cid-lrzkfocr><aside class="right-sidebar-container print:hidden" data-astro-cid-lrzkfocr><div class="right-sidebar" data-astro-cid-lrzkfocr><div class="lg:sl-hidden" data-astro-cid-qok35upx><mobile-starlight-toc data-min-h="2" data-max-h="3" data-astro-cid-66cqc7ze="true"><nav aria-labelledby="starlight__on-this-page--mobile" data-astro-cid-66cqc7ze><details id="starlight__mobile-toc" data-astro-cid-66cqc7ze><summary id="starlight__on-this-page--mobile" class="sl-flex" data-astro-cid-66cqc7ze><span class="toggle sl-flex" data-astro-cid-66cqc7ze>On this page<svg class="caret" data-astro-cid-66cqc7ze="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1rem;" data-astro-cid-hkc32dio><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></span><span class="display-current" data-astro-cid-66cqc7ze></span></summary><div class="dropdown" data-astro-cid-66cqc7ze><ul class="isMobile" style="--depth: 0;" data-astro-cid-jugkfwgx><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#_top" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Overview</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#hvor-kjører-agenten" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Hvor kjører agenten?</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#1-prinsippet-en-agent-er-en-bruker" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>1. Prinsippet: en agent er en bruker</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#2-mcp-serveren-er-transport-ikke-autorisasjon" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>2. MCP-serveren er transport, ikke autorisasjon</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#oppsett" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Oppsett</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#distribusjon" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Distribusjon</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#3-verktøyene" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>3. Verktøyene</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#verktøymenyen-per-rolle-2026-11-17" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Verktøymenyen per rolle (2026-11-17)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#timer-og-prosjekter-2026-11-16" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Timer og prosjekter (2026-11-16)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#filer-går-som-sti-ikke-som-base64" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Filer går som sti, ikke som base64</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#et-bilde-går-som-bilde" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Et bilde går som bilde</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#feil-er-prosa-ikke-koder" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Feil er prosa, ikke koder</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#4-rollepromptene" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>4. Rollepromptene</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#5-oppgaver-til-en-agent" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>5. Oppgaver til en agent</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#endepunkter" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Endepunkter</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#6-tester" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>6. Tester</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#7-bevisst-utenfor" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>7. Bevisst utenfor</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#8-vertsagent--den-andre-skinnen-besluttet-2026-10-29" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>8. Vertsagent — den andre skinnen (besluttet 2026-10-29)</span></a><ul class="isMobile" style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hvorfor-dette-er-mindre-enn-det-ser-ut" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hvorfor dette er mindre enn det ser ut</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#det-som-faktisk-er-nytt" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Det som faktisk er nytt</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#tre-avgjørelser-tatt-nå" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Tre avgjørelser tatt nå</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#rekkefølge" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Rekkefølge</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#kjente-hull-ikke-skjult" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Kjente hull, ikke skjult</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#81-agentidentitet-levert" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>8.1 Agentidentitet (levert)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#82-leverandørkonfigurasjon-levert" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>8.2 Leverandørkonfigurasjon (levert)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#83-workeren-levert" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>8.3 Workeren (levert)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#84-hva-den-ekte-leverandøren-fant" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>8.4 Hva den ekte leverandøren fant</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#85-samtalen-levert--steg-4" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>8.5 Samtalen (levert) — steg 4</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#86-agenten-opprettes-i-portalen-levert-2026-10-29" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>8.6 Agenten opprettes i portalen (levert 2026-10-29)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#87-arbeidskø-i-stedet-for-cronjob-levert-2026-10-29" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>8.7 Arbeidskø i stedet for CronJob (levert 2026-10-29)</span></a></li></ul></li></ul></div></details></nav></mobile-starlight-toc><script type="module" src="/_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.C3fM4Kra.js"></script></div><div class="right-sidebar-panel sl-hidden lg:sl-block" data-astro-cid-qok35upx><div class="sl-container" data-astro-cid-qok35upx><starlight-toc data-min-h="2" data-max-h="3"><nav aria-labelledby="starlight__on-this-page"><h2 id="starlight__on-this-page">On this page</h2><ul style="--depth: 0;" data-astro-cid-jugkfwgx><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#_top" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Overview</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#hvor-kjører-agenten" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>Hvor kjører agenten?</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#1-prinsippet-en-agent-er-en-bruker" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>1. Prinsippet: en agent er en bruker</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#2-mcp-serveren-er-transport-ikke-autorisasjon" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>2. MCP-serveren er transport, ikke autorisasjon</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#oppsett" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Oppsett</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#distribusjon" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Distribusjon</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#3-verktøyene" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>3. Verktøyene</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#verktøymenyen-per-rolle-2026-11-17" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Verktøymenyen per rolle (2026-11-17)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#timer-og-prosjekter-2026-11-16" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Timer og prosjekter (2026-11-16)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#filer-går-som-sti-ikke-som-base64" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Filer går som sti, ikke som base64</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#et-bilde-går-som-bilde" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Et bilde går som bilde</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#feil-er-prosa-ikke-koder" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Feil er prosa, ikke koder</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#4-rollepromptene" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>4. Rollepromptene</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#5-oppgaver-til-en-agent" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>5. Oppgaver til en agent</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#endepunkter" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Endepunkter</span></a></li></ul></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#6-tester" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>6. Tester</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#7-bevisst-utenfor" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>7. Bevisst utenfor</span></a></li><li style="--depth: 0;" data-astro-cid-jugkfwgx><a href="#8-vertsagent--den-andre-skinnen-besluttet-2026-10-29" style="--depth: 0;" data-astro-cid-jugkfwgx><span style="--depth: 0;" data-astro-cid-jugkfwgx>8. Vertsagent — den andre skinnen (besluttet 2026-10-29)</span></a><ul style="--depth: 1;" data-astro-cid-jugkfwgx><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#hvorfor-dette-er-mindre-enn-det-ser-ut" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Hvorfor dette er mindre enn det ser ut</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#det-som-faktisk-er-nytt" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Det som faktisk er nytt</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#tre-avgjørelser-tatt-nå" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Tre avgjørelser tatt nå</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#rekkefølge" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Rekkefølge</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#kjente-hull-ikke-skjult" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>Kjente hull, ikke skjult</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#81-agentidentitet-levert" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>8.1 Agentidentitet (levert)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#82-leverandørkonfigurasjon-levert" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>8.2 Leverandørkonfigurasjon (levert)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#83-workeren-levert" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>8.3 Workeren (levert)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#84-hva-den-ekte-leverandøren-fant" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>8.4 Hva den ekte leverandøren fant</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#85-samtalen-levert--steg-4" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>8.5 Samtalen (levert) — steg 4</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#86-agenten-opprettes-i-portalen-levert-2026-10-29" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>8.6 Agenten opprettes i portalen (levert 2026-10-29)</span></a></li><li style="--depth: 1;" data-astro-cid-jugkfwgx><a href="#87-arbeidskø-i-stedet-for-cronjob-levert-2026-10-29" style="--depth: 1;" data-astro-cid-jugkfwgx><span style="--depth: 1;" data-astro-cid-jugkfwgx>8.7 Arbeidskø i stedet for CronJob (levert 2026-10-29)</span></a></li></ul></li></ul></nav></starlight-toc><script type="module" src="/_astro/TableOfContents.astro_astro_type_script_index_0_lang.BpJaGz7G.js"></script></div></div></div></aside><div class="main-pane" data-astro-cid-lrzkfocr><main lang="nb" dir="ltr" data-astro-cid-g5ptsecz><div class="content-panel" data-astro-cid-a7po4psb><div class="sl-container" data-astro-cid-a7po4psb><h1 id="_top" data-astro-cid-bebwqqxs>Ta med din egen agent</h1><p class="sl-flex" data-astro-cid-gsljcgkv><svg data-astro-cid-gsljcgkv="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-color: var(--sl-color-orange-high);--sl-icon-size: 1.5em;" data-astro-cid-hkc32dio><path d="M12 16a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm10.67 1.47-8.05-14a3 3 0 0 0-5.24 0l-8 14A3 3 0 0 0 3.94 22h16.12a3 3 0 0 0 2.61-4.53Zm-1.73 2a1 1 0 0 1-.88.51H3.94a1 1 0 0 1-.88-.51 1 1 0 0 1 0-1l8-14a1 1 0 0 1 1.78 0l8.05 14a1 1 0 0 1 .05 1.02v-.02ZM12 8a1 1 0 0 0-1 1v4a1 1 0 0 0 2 0V9a1 1 0 0 0-1-1Z"/></svg><span data-astro-cid-gsljcgkv>This content is not available in your language yet.</span></p></div></div><div class="content-panel" data-astro-cid-a7po4psb><div class="sl-container" data-astro-cid-a7po4psb><div class="sl-markdown-content"><p>Kundens eget LLM, med kundens egne nøkler, som en ansatt eller en
+regnskapsfører i selskapet. Vi hoster ingen modell og selger ingen
+tokens — kunden bringer agenten, vi stiller skinnen. Det holder
+personvernet, regningen og ansvaret der de hører.</p>
+<p>Tre saker, én leveranse: <strong>#101</strong> gir agenten en rolle, <strong>#102</strong> gir den
+verktøy, <strong>#103</strong> gir den en jobb å gjøre og en instruks for å gjøre den
+godt.</p>
+<p>Tilgangsmodellen står i <a href="/teknisk/integrations/">integrations.md</a> og
+<a href="/teknisk/auth/">auth.md</a>; dette dokumentet er agentlaget oppå den.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="hvor-kjører-agenten">Hvor kjører agenten?</h2><a class="sl-anchor-link" href="#hvor-kjører-agenten"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Hvor kjører agenten?”</span></a></div>
+<p><em>Kort forklart, for den som møter spørsmålet i portalen.</em></p>
+<p>En agent er en bruker: den har en rolle, den slipper bare til det rollen
+gir, og alt den gjør står i dens navn. Men et menneske leser meldingene
+sine selv — en agent trenger et program som kjører den. Det finnes to
+måter:</p>
+<ul>
+<li><strong>regnmed kjører agenten.</strong> Den har en språkmodell og en innlogging
+lagret hos oss, og svarer på oppgaver og meldinger av seg selv. Slik
+blir en agent du lager med «Ny agent» under Administrasjon → Brukere
+og roller.</li>
+<li><strong>Dere kjører agenten selv</strong>, for eksempel på egen maskin gjennom
+MCP-serveren (§2). Da henter den oppgavene sine selv når den kjører, og
+regnmed kan ikke se om den gjør det. Står den ikke på, venter meldinger
+og oppgaver til noen starter den.</li>
+</ul>
+<p>Portalen sier fra i samtalen når en agent er av den andre sorten, så en
+melding ikke venter i det stille. Vil du at regnmed skal kjøre den, gi
+den en modell under «Bytt modell», eller lag en ny med «Ny agent».</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="1-prinsippet-en-agent-er-en-bruker">1. Prinsippet: en agent er en bruker</h2><a class="sl-anchor-link" href="#1-prinsippet-en-agent-er-en-bruker"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “1. Prinsippet: en agent er en bruker”</span></a></div>
+<p>Vi fant aldri opp en agent-tilgangsmodell, og det er grunnen til at
+dette ble lite. Setningen fra #45 holder uendret:</p>
+<blockquote>
+<p>Tokenet beviser identitet. Regnmed avgjør hva den identiteten får
+gjøre.</p>
+</blockquote>
+<p>En agent er en <code dir="auto">person</code> med <code dir="auto">kind='integrasjon'</code> og et
+<code dir="auto">integration_grant</code> som bærer et <strong>rollenavn</strong> — innebygd eller
+selskapets eget. Tilgangsoppslaget, attribusjonen og revisjonssporet er
+de samme som for et menneske. Tilbakekalling er én <code dir="auto">valid_to</code> unna og
+virker i samme øyeblikk.</p>
+<p>Det ene en maskin aldri får, uansett rolle, er en rettighet som styrer
+<strong>hvem som har tilgang</strong> (<code dir="auto">Right::can_be_delegated</code>). Den gjør jobben, men
+utvider ikke tilgang — heller ikke sin egen.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="2-mcp-serveren-er-transport-ikke-autorisasjon">2. MCP-serveren er transport, ikke autorisasjon</h2><a class="sl-anchor-link" href="#2-mcp-serveren-er-transport-ikke-autorisasjon"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2. MCP-serveren er transport, ikke autorisasjon”</span></a></div>
+<p><code dir="auto">crates/regnmed-mcp</code> er en tynn adapter foran API-et som alt finnes:</p>
+<ul>
+<li><strong>Ingen databasetilgang.</strong> Med vilje — en MCP-server med DB-tilgang
+ville vært en ny vei inn i hovedboken, med egne regler å få galt.
+Crate-en avhenger ikke av <code dir="auto">regnmed-db</code>, og det er håndhevet av
+manifestet.</li>
+<li><strong>Ingen nøkler av sitt eget.</strong> Agenten bærer kundens
+<code dir="auto">client_credentials</code>-klient fra regnid. Serveren henter token og
+glemmer det.</li>
+<li><strong>Ingen tilgangsmodell.</strong> <code dir="auto">integration_grant</code> avgjør alt.</li>
+</ul>
+<p>Protokollen er JSON-RPC 2.0 over stdio, én linje per melding,
+håndrullet. Samme valg som for PDF, pain.001, EHF og SAF-T: formatet er
+lite, det er en spesifikasjon vi må treffe presist, og en avhengighet
+ville ikke gjort det riktigere — bare vanskeligere å se hva vi sender.</p>
+<p>Implementert: <code dir="auto">initialize</code>, <code dir="auto">ping</code>, <code dir="auto">tools/list</code>, <code dir="auto">tools/call</code>,
+<code dir="auto">prompts/list</code>, <code dir="auto">prompts/get</code>. Protokollversjon <code dir="auto">2025-06-18</code>.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="oppsett">Oppsett</h3><a class="sl-anchor-link" href="#oppsett"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Oppsett”</span></a></div>
+<p>Serveren konfigureres med miljøvariabler, som alle MCP-servere:</p>
+<table>
+<thead>
+<tr>
+<th>Variabel</th>
+<th>Betydning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">REGNMED_API</code></td>
+<td>API-ets basisadresse. Standard <code dir="auto">https://api.regnmed.no</code></td>
+</tr>
+<tr>
+<td><code dir="auto">REGNMED_CLIENT_ID</code></td>
+<td>Klienten kunden registrerte i regnid</td>
+</tr>
+<tr>
+<td><code dir="auto">REGNMED_CLIENT_SECRET</code></td>
+<td>Hemmeligheten til samme klient</td>
+</tr>
+<tr>
+<td><code dir="auto">REGNMED_ISSUER</code></td>
+<td>IdP-en. Standard <code dir="auto">https://id.regnmed.no</code>; token-endepunktet oppdages</td>
+</tr>
+<tr>
+<td><code dir="auto">REGNMED_TOKEN_URL</code></td>
+<td>Overstyrer oppdagelsen</td>
+</tr>
+<tr>
+<td><code dir="auto">REGNMED_SCOPE</code></td>
+<td>Valgfritt scope på token-forespørselen</td>
+</tr>
+<tr>
+<td><code dir="auto">REGNMED_TOKEN</code></td>
+<td>Et ferdig token i stedet for klientlegitimasjon (test)</td>
+</tr>
+<tr>
+<td><code dir="auto">REGNMED_COMPANY</code></td>
+<td>Selskapet verktøyene arbeider for når et kall ikke navngir ett</td>
+</tr>
+</tbody>
+</table>
+<p>Mangler legitimasjonen, <strong>starter ikke serveren</strong>. Det er valgt: en
+server som starter uten nøkler feiler først inne i et verktøykall, der
+agenten ikke kan skille en konfigurasjonsfeil fra en tilgangsfeil.</p>
+<p>Hemmeligheten står i agentens egen konfigurasjon, ikke i dette repoet
+(<a href="https://github.com/BogenTech/regnmed/blob/main/docs/secrets.md">secrets.md</a> er absolutt).</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="distribusjon">Distribusjon</h3><a class="sl-anchor-link" href="#distribusjon"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Distribusjon”</span></a></div>
+<p>Serveren kjører på kundens egen maskin, ved siden av agenten — ikke i
+clusteret. Den bygges med <code dir="auto">cargo build -p regnmed-mcp</code> fra dette repoet.
+Et ferdig bygget binær per plattform i GitHub-releasene er neste steg,
+ikke lovet her. Av samme grunn står den ikke i
+<a href="/teknisk/frugality/">frugality.md</a>s budsjetter: de gjelder det som skal leve
+innenfor containergrensen på 64 MB, og dette gjør ikke det.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="3-verktøyene">3. Verktøyene</h2><a class="sl-anchor-link" href="#3-verktøyene"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “3. Verktøyene”</span></a></div>
+<p><code dir="auto">crates/regnmed-mcp/src/tool.rs</code> er en <strong>kuratert</strong> liste på ~55
+verktøy, ikke en generert en.</p>
+<p>#102 foreslo å generere verktøylisten fra samme rutetabell som
+<a href="/teknisk/api/">api.md</a>, så den ikke kan råtne. Det ble vurdert og forkastet,
+av én grunn: <strong>en verktøyliste er en prompt.</strong> To hundre verktøy er den
+sikreste måten å få en liten modell til å velge galt, og oppdraget er at
+agenten skal gjøre en god jobb på en liten modell.</p>
+<p>Den ærlige kostnaden: tabellen <em>kan</em> skli fra API-et.
+<code dir="auto">crates/regnmed-api/tests/grupper/agent.rs</code> er vakten — den serverer den
+ekte ruteren på en ekte socket, peker en ekte MCP-klient mot den, og
+kaller <strong>hvert</strong> verktøy i tabellen med et ekte maskintoken. Et verktøy
+som ikke er dekket av testen får testen til å feile, og en sti som ikke
+finnes gir <code dir="auto">404</code>/<code dir="auto">405</code> der testen krever <code dir="auto">400</code>. (Den fant én med én
+gang: <code dir="auto">/settings/registrering</code> er POST-only, og registreringsstatus
+leses fra <code dir="auto">/settings</code>.)</p>
+<p>Grupper: orientering, lesing av hovedboken, bilagsflyten
+(innboks → forslag → bokfør), salg, utlegg, prosjekter og timer,
+migrering, og oppgaver.
+Utleggsverktøyene og hva en agent får gjøre med et utleggskrav står i
+<a href="/teknisk/utlegg/">utlegg.md «Agenten»</a>.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="verktøymenyen-per-rolle-2026-11-17">Verktøymenyen per rolle (2026-11-17)</h3><a class="sl-anchor-link" href="#verktøymenyen-per-rolle-2026-11-17"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Verktøymenyen per rolle (2026-11-17)”</span></a></div>
+<p>En agent <strong>tilbys</strong> bare verktøyene rollen dens dekker. Hvert verktøy i
+tabellen navngir rettigheten endepunktet sjekker (<code dir="auto">Tool::right</code>, sluggen
+slik <code dir="auto">/me</code> lister den; <code dir="auto">None</code> = alle får det), og
+<code dir="auto">Server::offered_tools</code> slår opp agentens rettigheter i <code dir="auto">/me</code> og filtrerer.
+Begge skinnene går gjennom samme funksjon: MCP-ens <code dir="auto">tools/list</code> og
+workerens katalog viser samme meny for samme rolle.</p>
+<table>
+<thead>
+<tr>
+<th>Rolle på grantet</th>
+<th>Verktøy tilbudt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">ansatt</code></td>
+<td>16 — egne timer og utlegg, prosjektlisten, bilagsopplasting, egne oppgaver</td>
+</tr>
+<tr>
+<td><code dir="auto">les</code></td>
+<td>31 — all lesing, ingen skriving utover <code dir="auto">oppgave_svar</code></td>
+</tr>
+<tr>
+<td><code dir="auto">bokforing</code></td>
+<td>49 — alt unntatt migrering og timelås</td>
+</tr>
+<tr>
+<td><code dir="auto">admin</code></td>
+<td>54 — hele tabellen</td>
+</tr>
+</tbody>
+</table>
+<p>Grunnen er den samme som for at tabellen er kuratert: <strong>en verktøyliste
+er en prompt</strong>. En ansatt-agent som får 54 verktøy der 41 blir nektet,
+bruker turer og kundens penger på å oppdage det, og en liten modell
+slutter ikke nødvendigvis å prøve.</p>
+<p>Et verktøy utenfor menyen som likevel kalles ved navn, nektes <strong>av
+menyen</strong> (<code dir="auto">Server::offered_tool</code>) med en setning modellen kan handle på
+— «hører ikke til rollen din» — framfor å koste en tur og en plass i
+ratebegrensningen for å få samme svar fra API-et. Begge skinnene.</p>
+<p>Menyen er likevel <strong>ikke</strong> en vakt. API-et avgjør fortsatt hvert kall
+(<code dir="auto">access::require</code>). Det er derfor filteret faller tilbake til hele
+tabellen når <code dir="auto">/me</code> ikke kan leses: et ødelagt token feiler på første kall
+uansett, og en tom meny ville gjemt hvorfor. Menyen leses <strong>én gang per
+server</strong> (én <code dir="auto">/me</code> per oppgave i workeren, én per MCP-økt) og huskes ikke
+når lesingen feilet. En agent som får ny rolle midt i en MCP-økt ser den
+nye menyen etter omstart; API-et bruker den nye rollen med én gang.</p>
+<p>Rettigheten er den endepunktet sjekker <strong>først</strong>. Noen endepunkter krever
+mer for deler av jobben (<code dir="auto">faktura_opprett</code> med timer krever også
+<code dir="auto">TIMER_FAKTURER</code>); de tilbys på den første og nektes høylytt på resten.
+Egendefinerte roller (#60) får sin meny av sine egne rettigheter uten noe
+ekstra, siden filteret leser rettighetene og ikke rollenavnet.</p>
+<p>Vakten er <code dir="auto">each_role_is_offered_exactly_the_tools_its_guard_lets_through</code>:
+for hver innebygde rolle kaller den <strong>hvert</strong> verktøy som deklarerer en
+rettighet, skriveverktøyene med, rett forbi menyen (<code dir="auto">execute_tool</code>). Et
+skjult verktøy skal nektes med en 403 som navngir nøyaktig den
+deklarerte rettigheten; et tilbudt skal ikke nektes på den. Argumentene
+er bare velformede — tilfeldige id-er, et ukjent prosjekt — fordi axum
+kjører kropp- og query-uttrekk FØR vakten (docs/auth.md): en kropp som
+ikke lar seg lese gir 400 for alle og måler ingenting. Hva et tilbudt
+skriveverktøy så gjør (404 på id-en, 400 på prosjektet, eller ekte
+arbeid i et kasteselskap) er ved siden av. En ANDRE, argumentavhengig
+sjekk (et utlegg for en annen person krever <code dir="auto">UTLEGG_GODKJENN</code>) er
+endepunktets egen og måles ikke her. Testen er sett feile på feil
+deklarasjon både for lesing (<code dir="auto">prosjekter</code> med <code dir="auto">TIMER_LAAS</code>) og skriving
+(<code dir="auto">timer_registrer</code> med <code dir="auto">TIMER_SKRIV_ALLE</code>).</p>
+<p>Oppgaveverktøyene (<code dir="auto">oppgaver</code>, <code dir="auto">oppgave</code>, <code dir="auto">oppgave_svar</code>) tilbys <strong>alle</strong>
+agenter: en agent når sin egen kø på tilgang til selskapet alene (§5).</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="timer-og-prosjekter-2026-11-16">Timer og prosjekter (2026-11-16)</h3><a class="sl-anchor-link" href="#timer-og-prosjekter-2026-11-16"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Timer og prosjekter (2026-11-16)”</span></a></div>
+<p>Ansatt-prompten lovet «fører timer på prosjekt», og tabellen hadde
+ingen vei til det — en agent bedt om «før 8 timer på utvikling man–fre»
+spurte to ganger etter en prosjektkode den ikke kunne bruke. Nå dekker
+tabellen hele <a href="/teknisk/timer/">timer.md</a> og prosjektdelen av
+<a href="/teknisk/dimensjoner/">dimensjoner.md</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Verktøy</th>
+<th>Endepunkt</th>
+<th>Rettighet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">prosjekter</code></td>
+<td><code dir="auto">GET …/dimensions</code></td>
+<td><code dir="auto">DIMENSJON_LES</code></td>
+</tr>
+<tr>
+<td><code dir="auto">prosjekt_opprett</code>, <code dir="auto">prosjekt_endre</code></td>
+<td><code dir="auto">POST …/dimensions</code>, <code dir="auto">PUT …/dimensions/{kind}/{code}</code></td>
+<td><code dir="auto">DIMENSJON_SKRIV</code></td>
+</tr>
+<tr>
+<td><code dir="auto">prosjekt_satser</code>, <code dir="auto">prosjekt_sats_sett</code></td>
+<td><code dir="auto">GET/POST …/dimensions/prosjekt/{code}/satser</code></td>
+<td><code dir="auto">TIMER_SATS_SKRIV</code></td>
+</tr>
+<tr>
+<td><code dir="auto">timer_liste</code></td>
+<td><code dir="auto">GET …/timesheet</code> (bærer også <code dir="auto">locked_through</code>)</td>
+<td><code dir="auto">TIMER_LES_EGNE</code></td>
+</tr>
+<tr>
+<td><code dir="auto">timer_registrer</code></td>
+<td><code dir="auto">POST …/timesheet</code></td>
+<td><code dir="auto">TIMER_SKRIV_EGNE</code></td>
+</tr>
+<tr>
+<td><code dir="auto">timer_endre</code>, <code dir="auto">timer_slett</code></td>
+<td><code dir="auto">PUT/DELETE …/timesheet/{eid}</code></td>
+<td><code dir="auto">TIMER_SKRIV_EGNE</code> (andres: <code dir="auto">_ALLE</code>)</td>
+</tr>
+<tr>
+<td><code dir="auto">timer_sammendrag</code>, <code dir="auto">timer_ufakturert</code></td>
+<td><code dir="auto">GET …/timesheet/summary</code>, <code dir="auto">…/unbilled</code></td>
+<td><code dir="auto">TIMER_RAPPORT_LES</code></td>
+</tr>
+<tr>
+<td><code dir="auto">timer_fakturer</code></td>
+<td><code dir="auto">POST …/timesheet/invoice</code></td>
+<td><code dir="auto">TIMER_FAKTURER</code></td>
+</tr>
+<tr>
+<td><code dir="auto">timer_las</code></td>
+<td><code dir="auto">PUT …/timesheet/lock</code></td>
+<td><code dir="auto">TIMER_LAAS</code></td>
+</tr>
+</tbody>
+</table>
+<p><code dir="auto">GET …/timesheet/lock</code> har ikke eget verktøy: <code dir="auto">timer_liste</code> svarer med
+samme dato, og et verktøy som bare gjentar et annet er et valg en liten
+modell kan ta feil.</p>
+<p><strong>Hvem timene tilhører — avgjort: agenten selv.</strong> En agent er sin egen
+<code dir="auto">person</code> (§1), og <code dir="auto">POST …/timesheet</code> fører for den personen tokenet
+beviser. Timer en agent registrerer står derfor med AGENTENS navn i
+timelisten, ikke med navnet til mennesket som ba om dem — og
+integrasjonstesten fester det (<code dir="auto">person.kind = 'integrasjon'</code>). Det
+finnes ingen vei for å føre timer for en annen person, verken for
+mennesker eller maskiner, og tabellen finner ingen opp: en slik vei
+ville vært en ny autorisasjonsbeslutning (hvem får føre for hvem, og
+hvordan ser den ansatte det?), ikke et verktøy. Å <em>rette</em> andres
+føringer med <code dir="auto">TIMER_SKRIV_ALLE</code> finnes allerede og gjelder agenten
+akkurat som et menneske. Skal en agent føre timer for en navngitt
+ansatt, er det en egen sak — modellen å låne er utleggets «på vegne av
+andre» (<a href="/teknisk/utlegg/">utlegg.md</a>).</p>
+<p><code dir="auto">timer_registrer</code> er <strong>ikke idempotent</strong> (en føring har ingen naturlig
+nøkkel — to like føringer samme dag kan være riktig). Beskrivelsen og
+ansatt-prompten sier derfor: kall <code dir="auto">timer_liste</code> før et nytt forsøk.</p>
+<p>To konvensjoner er gjentatt i hvert skjema der de gjelder, fordi en
+liten modell ikke skal måtte utlede dem: <strong>beløp er heltall øre</strong>
+(positivt = debet), og <strong>datoer er <code dir="auto">YYYY-MM-DD</code></strong>.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="filer-går-som-sti-ikke-som-base64">Filer går som sti, ikke som base64</h3><a class="sl-anchor-link" href="#filer-går-som-sti-ikke-som-base64"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Filer går som sti, ikke som base64”</span></a></div>
+<p><code dir="auto">bilag_last_opp</code>, <code dir="auto">saft_analyser</code>, <code dir="auto">saft_importer</code> og de to
+CSV-importene tar en <strong>sti til en fil på agentens maskin</strong>. Serveren
+leser filen selv. Det er valgt: serveren kjører der agenten kjører, og
+en base64-kodet PDF gjennom en modells kontekst er både dyrt og
+formålsløst.</p>
+<p>Binære opplastinger bærer <code dir="auto">?sha256=</code> regnet ut av serveren. API-et
+avviser innhold det alt har, så et nytt forsøk etter et tapt svar blir
+en no-op i stedet for et andre bilag — #102s idempotenskrav, oppfylt med
+mekanismen #48 alt hadde.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="et-bilde-går-som-bilde">Et bilde går som bilde</h3><a class="sl-anchor-link" href="#et-bilde-går-som-bilde"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Et bilde går som bilde”</span></a></div>
+<p><code dir="auto">utlegg_kvittering</code> er det ene verktøyet modellen skal SE svaret fra:
+kvitteringsbildet kommer tilbake som MCP-bildeinnhold (<code dir="auto">type: image</code>,
+base64 og <code dir="auto">mimeType</code>), ikke som tekst modellen måtte dekode. En PDF
+vises ikke som bilde — svaret viser til <code dir="auto">utlegg_forslag</code>, som leser
+tekstlaget — og et bilde over 5 MB sendes ikke. Vertsagenten (§8.3)
+gir det samme bildet videre: en verktøymelding bærer bare tekst på den
+OpenAI-kompatible tråden, så bildene følger etter verktøysvarene som én
+brukermelding med <code dir="auto">image_url</code>-deler (data-URL). Begge skinnene går
+gjennom samme <code dir="auto">Server::execute_tool</code>, som nå svarer med tekst, feilflagg
+og eventuelt bilde. Hele samtalen sendes på nytt hver tur, så bare de
+nyeste bildene følger med; et eldre bilde byttes ut med en merknad om å
+kalle verktøyet igjen — ellers ville en oppgave som leser ti
+kvitteringer vokst forbi leverandørens grense.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="feil-er-prosa-ikke-koder">Feil er prosa, ikke koder</h3><a class="sl-anchor-link" href="#feil-er-prosa-ikke-koder"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Feil er prosa, ikke koder”</span></a></div>
+<p>Et verktøykall som feiler kommer tilbake som verktøyinnhold med
+<code dir="auto">isError: true</code>, med regnmeds egen melding og HTTP-statusen. Det er med
+vilje: API-ets feilmeldinger sier hva man skal gjøre («hovedboken
+inneholder N bilag utenfor importjournalen …», «selskapet var ikke
+mva-registrert … fjern mva-koden, eller oppdater registreringsstatusen»),
+og å gjøre dem til en JSON-RPC-feilkode ville kastet bort den eneste
+delen en agent kan bruke.</p>
+<p>En <strong>protokollfeil</strong> (ukjent metode, ukjent verktøy) er noe annet og
+svares som JSON-RPC-feil: det er klientens feil, ikke modellens.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="4-rollepromptene">4. Rollepromptene</h2><a class="sl-anchor-link" href="#4-rollepromptene"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “4. Rollepromptene”</span></a></div>
+<p><code dir="auto">crates/regnmed-mcp/src/rolle.rs</code> serverer fire prompter over
+<code dir="auto">prompts/get</code>: <code dir="auto">regnskapsforer</code>, <code dir="auto">bokforer</code>, <code dir="auto">ansatt</code> og <code dir="auto">migrering</code>
+(den siste er en oppgaveprompt, ikke en rolle). Hver består av felles
+grunnregler pluss rollen sin.</p>
+<p>De er skrevet for en <strong>liten modell</strong>, og det avgjør formen:</p>
+<ul>
+<li><strong>Imperativt og konkret.</strong> Ingen «du bør vurdere»; en regel modellen
+må veie er en regel den slipper under press.</li>
+<li><strong>NEVER-ene først, og uten forbehold.</strong> En liten modell følger et
+flatt forbud pålitelig og et betinget upålitelig.</li>
+<li><strong>Fast arbeidsrekkefølge.</strong> «Gjør A, så B» overlever en kort kontekst;
+«bruk skjønn» gjør det ikke.</li>
+<li><strong>Verktøy navngitt presist, enheter gjentatt ved hvert bruk.</strong> Øre og
+kroner er ett sifferskift unna hverandre, og modellen får ingen
+tilbakemelding når den gjetter galt.</li>
+<li><strong>«Jeg vet ikke» har en konkret handling</strong>: <code dir="auto">oppgave_svar</code> med status
+<code dir="auto">sporsmal</code>. En modell uten et sted å legge usikkerhet dikter opp
+sikkerhet i stedet.</li>
+</ul>
+<p>Innholdet er de to doktrinene produktet alt har bygget to ganger:</p>
+<ul>
+<li><strong>Bilagstolkning (#34): foreslår, bokfører aldri.</strong> Hvert felt bærer
+sin begrunnelse, og «ingen forslag» er et gyldig svar.</li>
+<li><strong>Attestering (#47): et menneske godkjenner.</strong></li>
+</ul>
+<p>Derfor er <strong>standarden forslagsrett, ikke bokføringsrett</strong>. Agenten kan
+få skrivetilgang når eieren vil det — #101 gjør det mulig — men
+<code dir="auto">krev_for_maskin</code> finnes for at eieren skal kunne si «alt roboten fører
+skal jeg ha sett» uten å måtte velge mellom hjelp og kontroll.</p>
+<p><strong>En regel må stå der modellen handler</strong> (2026-11-17). To grunnregler kom
+fra en ekte økt: en sats uten oppgitt dato skal ikke dateres i dag (timene
+som alt lå på prosjektet fikk den aldri), og timer bokfører ingenting (en
+bestilling om å «utgiftsføre» utviklingstimer ble ført uten et ord om
+det). Som grunnregler alene endret de <strong>ingenting</strong> hos en liten modell —
+<code dir="auto">ekte_leverandor.rs</code> viste det. Satsverktøyet sa selv at <code dir="auto">valid_from</code>
+«utelates = i dag», og verktøyet vant over regelen; ansatt-prosedyren
+sluttet før svaret, så regelen om timer kom aldri i spill. Først da
+regelen sto i verktøybeskrivelsen og i prosedyrens siste steg (og
+<code dir="auto">valid_from</code> ble påkrevd i skjemaet), fulgte modellen den, tre kjøringer
+av tre. Lærdommen: en verktøybeskrivelse som motsier en grunnregel
+vinner, og en regel som ikke står i et steg, blir ikke fulgt.
+<code dir="auto">every_role_knows_dated_values_and_that_hours_post_nothing</code> fester
+alle tre stedene; de to <code dir="auto">ekte_leverandor</code>-scenariene
+(<code dir="auto">a_real_model_does_not_date_a_rate_today_by_default</code>,
+<code dir="auto">a_real_model_says_hours_are_not_bookkeeping</code>) prøver dem mot en ekte
+modell, for hånd.</p>
+<p>En vakt i kode: <code dir="auto">each_role_names_the_tools_its_procedure_depends_on</code>
+krever at hvert verktøy en rolleprosedyre bygger på både <strong>finnes</strong> i
+tabellen og er <strong>navngitt</strong> i promptteksten. Å døpe om et verktøy uten
+den testen ville stilletiende sendt hver agent etter noe som ikke finnes
+— og en liten modell fortsetter å prøve framfor å slutte at instruksen
+er gal.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="5-oppgaver-til-en-agent">5. Oppgaver til en agent</h2><a class="sl-anchor-link" href="#5-oppgaver-til-en-agent"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “5. Oppgaver til en agent”</span></a></div>
+<p>Migrasjon 0064. En agent med rolle og verktøy manglet det enkleste: en
+måte å bli <strong>fortalt hva den skal gjøre</strong> på, som ikke er en melding i
+en chat eieren mister.</p>
+<table>
+<thead>
+<tr>
+<th>Tabell</th>
+<th>Hva</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">agent_oppgave</code></td>
+<td>Bestillingen. Uforanderlig når den er gitt.</td>
+</tr>
+<tr>
+<td><code dir="auto">agent_oppgave_hendelse</code></td>
+<td>Innsettings-bart spor. Nyeste hendelse gjelder.</td>
+</tr>
+</tbody>
+</table>
+<p>Statusen <strong>beregnes</strong>, lagres aldri — samme regel som
+abonnementsstatus og hver saldo i systemet. Ingen hendelse betyr <code dir="auto">ny</code>.</p>
+<ul>
+<li>En endret oppgave er en <strong>ny</strong> oppgave. Ellers kan ingen etterpå se hva
+agenten faktisk ble bedt om.</li>
+<li><code dir="auto">utfort</code> og <code dir="auto">avvist</code> er <strong>endelige</strong>: en trigger nekter en hendelse på
+en avsluttet oppgave, så et svar kan ikke trekkes tilbake i stillhet.</li>
+<li><code dir="auto">sporsmal</code> er med vilje <strong>ikke</strong> endelig. En agent som er usikker skal
+kunne spørre og fortsette — alternativet er at den gjetter.</li>
+<li><code dir="auto">avvist</code> og <code dir="auto">sporsmal</code> krever begrunnelse (DB-sjekk). Et avvist svar
+uten tekst er ikke et svar.</li>
+</ul>
+<p>Autorisasjonen er mer presis enn en enkelt rettighet kan uttrykke, og er
+derfor skrevet ut framfor å finne opp en ny rettighet:</p>
+<ul>
+<li><strong>Å GI</strong> en oppgave krever <code dir="auto">INTEGRASJON_ADMIN</code>, som
+<code dir="auto">kan_delegeres</code> nekter en maskin. En agent kan altså ikke skrive sine
+egne ordrer — den ene egenskapen som gjør sporet verdt å lese.</li>
+<li><strong>En agent når sin EGEN kø</strong> — leser den og svarer på den — på
+tilgang til selskapet alene, uansett rolle. Oppgaven er stilt til
+den; å kreve en rettighet til for å lese egne ordrer strandet bare de
+smale rollene. Fram til 2026-11-17 krevde det <code dir="auto">INTEGRASJON_LES</code>, som
+<code dir="auto">ansatt</code>-bunten ikke har, så en ansatt-agent over MCP kunne ikke se
+hva den var bedt om. Den ser og svarer fortsatt bare på oppgaver stilt
+til den eller til ingen; en annen agents ordrer gir 404 — den ville
+handlet på dem.</li>
+<li><strong>Et menneske</strong> leser køen med <code dir="auto">INTEGRASJON_LES</code> og svarer (lukker,
+trekker tilbake) med <code dir="auto">INTEGRASJON_ADMIN</code>. Et menneske med samme smale
+rolle som agenten får fortsatt 403: det er ikke agenten ordren er
+stilt til.</li>
+</ul>
+<p><strong>Den andre døren inn i køen er Meldinger</strong> (docs/meldinger.md, 2026-11-16):
+en melding til en agent oppretter en oppgave stilt til den, og agentens
+svar legges tilbake i samme samtale. Der kan alle som når agenten gi
+ordren — selskapets folk og byråets — ikke bare <code dir="auto">INTEGRASJON_ADMIN</code>,
+fordi agenten fortsatt bare gjør det rollen dens tillater, og den som
+spurte står i <code dir="auto">opprettet_av</code>. En agent starter ikke samtaler selv.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="endepunkter">Endepunkter</h3><a class="sl-anchor-link" href="#endepunkter"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Endepunkter”</span></a></div>
+<ul>
+<li><code dir="auto">GET  /companies/{id}/agent/oppgaver?apne=</code> — køen</li>
+<li><code dir="auto">POST /companies/{id}/agent/oppgaver</code> — <code dir="auto">{melding, integration_id?, frist?}</code></li>
+<li><code dir="auto">GET  /companies/{id}/agent/oppgaver/{oid}</code> — oppgaven + hele sporet</li>
+<li><code dir="auto">POST /companies/{id}/agent/oppgaver/{oid}/svar</code> — <code dir="auto">{status, notat?}</code></li>
+</ul>
+<p>I portalen: Administrasjon → Oppdrag og integrasjoner, kortet «Oppgaver
+til en agent». Å gi, trekke tilbake og svare krever <code dir="auto">INTEGRASJON_ADMIN</code>;
+uten den er kortet bare lesbart. Uten en aktiv agent sier kortet det og
+peker til Brukere og roller i stedet for å ta imot en oppgave ingen kan
+hente. «Trekk tilbake» spør først, siden <code dir="auto">avvist</code> er endelig. Enter gir
+oppgaven og sender et svar i samtalen (Shift+Enter er ny linje), og
+samtalen hentes på nytt når fanen blir synlig igjen, så svaret agenten
+ga mens du var borte står der. Tidene vises i brukerens egen tidssone.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="6-tester">6. Tester</h2><a class="sl-anchor-link" href="#6-tester"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “6. Tester”</span></a></div>
+<table>
+<thead>
+<tr>
+<th>Hva</th>
+<th>Hvor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agent med <code dir="auto">admin</code> kan migrere, men aldri utvide tilgang</td>
+<td><code dir="auto">tests/grupper/integrasjon.rs</code></td>
+</tr>
+<tr>
+<td>Et menneske må attestere det en maskin bokfører</td>
+<td><code dir="auto">tests/grupper/attestering.rs</code></td>
+</tr>
+<tr>
+<td>Hvert verktøy i tabellen treffer API-et som finnes</td>
+<td><code dir="auto">tests/grupper/agent.rs</code></td>
+</tr>
+<tr>
+<td>Hver rolle tilbys nøyaktig verktøyene vakten slipper gjennom</td>
+<td><code dir="auto">tests/grupper/agent.rs</code></td>
+</tr>
+<tr>
+<td>En agent når egen kø uansett rolle, aldri en annen agents</td>
+<td><code dir="auto">tests/grupper/agent.rs</code></td>
+</tr>
+<tr>
+<td>Bilaget navngir agenten, ikke et subject</td>
+<td><code dir="auto">tests/grupper/agent.rs</code></td>
+</tr>
+<tr>
+<td>Timer agenten fører, føres på agenten; låst dag nektes</td>
+<td><code dir="auto">tests/grupper/agent.rs</code></td>
+</tr>
+<tr>
+<td>En avsluttet oppgave kan ikke gjenåpnes</td>
+<td><code dir="auto">tests/grupper/agent.rs</code></td>
+</tr>
+<tr>
+<td>Hvert skjema er gyldig JSON, hver sti-plassholder er deklarert</td>
+<td><code dir="auto">regnmed-mcp</code> (enhetstester)</td>
+</tr>
+<tr>
+<td>Hver rolle bærer grunnreglene og navngir verktøyene sine</td>
+<td><code dir="auto">regnmed-mcp</code> (enhetstester)</td>
+</tr>
+<tr>
+<td><code dir="auto">null</code> i et argument droppes framfor å bli sendt</td>
+<td><code dir="auto">regnmed-mcp</code> (enhetstester)</td>
+</tr>
+</tbody>
+</table>
+<p>De to tilgangsvaktene er <strong>sett feile</strong>: med <code dir="auto">machine</code>-filteret fjernet
+fra <code dir="auto">Access::has</code> inviterer roboten medlemmer inn i selskapet, og med
+<code dir="auto">maskinkrav</code> fjernet fra bokføringstransaksjonen bokfører agenten et
+49-kroners bilag uten at noen har sett det.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="7-bevisst-utenfor">7. Bevisst utenfor</h2><a class="sl-anchor-link" href="#7-bevisst-utenfor"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “7. Bevisst utenfor”</span></a></div>
+<ul>
+<li><strong>Vi selger ingen tokens.</strong> Kunden bringer modellen og regningen.
+Setningen «vi hoster ingen modell» sto her til 2026-10-29; den er nå
+avgrenset til én av to skinner, se §8. Vi blir en prompt-proxy for
+vertsagenten — vi blir ikke en modellselger.</li>
+<li><strong>Ingen lagret agentbegrunnelse ennå.</strong> #103 pekte på at et
+agentforslag er en PÅSTAND fra en identifiserbar aktør på et
+tidspunkt, og derfor hører i sporet framfor i en gjenutledning. I dag
+legger agenten begrunnelsen i <code dir="auto">agent_oppgave_hendelse</code> eller i
+bilagsteksten; en egen forslagsflate i innboksen (<code dir="auto">POST …/inbox/{doc}/forslag</code>) er ikke bygget.</li>
+<li><strong>Verktøylisten er ikke generert.</strong> Se §3 for hvorfor, og for vakten
+som betaler for valget.</li>
+<li><strong>Ratebegrensningen er ikke hevet for agenter.</strong> Standarden er 120
+kall per minutt per integrasjon, per replika. En migrering på 36
+dokumenter treffer den; grensen kan heves per integrasjon
+(<code dir="auto">integration.rate_limit_min</code>), men et uttrykkelig bulk-endepunkt
+finnes ikke.</li>
+<li><strong>Ingen paginering lagt til.</strong> Flere listeendepunkter henter alt. Det
+er et åpent punkt fra #102, ikke en avgjørelse.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="8-vertsagent--den-andre-skinnen-besluttet-2026-10-29">8. Vertsagent — den andre skinnen (besluttet 2026-10-29)</h2><a class="sl-anchor-link" href="#8-vertsagent--den-andre-skinnen-besluttet-2026-10-29"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “8. Vertsagent — den andre skinnen (besluttet 2026-10-29)”</span></a></div>
+<p>Kunden skal kunne opprette en agent <strong>i portalen</strong>, gi den navn og
+ansikt, legge inn legitimasjonen til sin egen LLM-leverandør
+(OpenAI-kompatibelt endepunkt eller OpenRouter), og snakke med den der —
+og agenten skal arbeide med den tilgangen rollen gir den, som en ansatt
+eller en regnskapsfører. Målet er at en leder kan sette sammen sin egen
+arbeidsstokk.</p>
+<p><strong>Dette er et TILLEGG, ikke en erstatning.</strong> Vi har nå to skinner, og
+begge består:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Egen agent (§2–§4)</th>
+<th>Vertsagent (§8)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hvor løkken kjører</td>
+<td>kundens maskin</td>
+<td>vår worker</td>
+</tr>
+<tr>
+<td>Hvem ser prompten</td>
+<td>bare kunden</td>
+<td>vi, i transitt</td>
+</tr>
+<tr>
+<td>LLM-nøkkel</td>
+<td>kundens konfigurasjon</td>
+<td>lagret hos oss, kryptert</td>
+</tr>
+<tr>
+<td>Transport</td>
+<td>MCP over stdio</td>
+<td>HTTP i portalen</td>
+</tr>
+<tr>
+<td>Personvern</td>
+<td>maksimalt</td>
+<td>avhenger av leverandøravtale</td>
+</tr>
+</tbody>
+</table>
+<p>Egen agent blir <strong>ikke</strong> avviklet: den er den personvernmaksimale veien,
+og for en kunde som ikke vil at bokføringsdata skal passere oss i det
+hele tatt, er den det eneste riktige svaret.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="hvorfor-dette-er-mindre-enn-det-ser-ut">Hvorfor dette er mindre enn det ser ut</h3><a class="sl-anchor-link" href="#hvorfor-dette-er-mindre-enn-det-ser-ut"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Hvorfor dette er mindre enn det ser ut”</span></a></div>
+<p>Den dyre halvdelen av «agent som ansatt» var aldri praten — den var å
+gjøre en robot trygg å gi ekte tilgang. Den er bygget og i drift:
+rollen på <code dir="auto">integration_grant</code> (#101), maskintaket
+(<code dir="auto">Right::can_be_delegated</code>), <code dir="auto">krev_for_maskin</code> i attesteringen, 33 kuraterte
+verktøy med JSON Schema (<code dir="auto">VERKTOY</code>) og fire rolleprompter skrevet for
+små modeller (<code dir="auto">rolle.rs</code>). En vertsagent arver alt dette uendret, fordi
+håndhevingen ligger i transaksjonene og i tilgangsoppslaget — ikke i
+klienten.</p>
+<p>To ting gjenbrukes mer direkte enn ventet:</p>
+<ul>
+<li><strong><code dir="auto">VERKTOY</code> ER funksjonskatalogen.</strong> <code dir="auto">skjema()</code> leverer allerede JSON
+Schema per verktøy, som er nøyaktig formatet
+OpenAI/OpenRouter-funksjonskall vil ha. Ingen ny verktøydefinisjon.</li>
+<li><strong><code dir="auto">agent_oppgave_hendelse</code> ER meldingstråden.</strong> <code dir="auto">sporsmal</code> er med
+vilje ikke terminal — vakten låser bare etter <code dir="auto">utfort</code>/<code dir="auto">avvist</code> — og
+check-constrainten krever <code dir="auto">notat</code> på den. Agenten spør, mennesket
+svarer, arbeidet fortsetter. Et chat-vindu er en presentasjon av en
+tabell som finnes, ikke en ny datamodell.</li>
+</ul>
+<div class="sl-heading-wrapper level-h3"><h3 id="det-som-faktisk-er-nytt">Det som faktisk er nytt</h3><a class="sl-anchor-link" href="#det-som-faktisk-er-nytt"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Det som faktisk er nytt”</span></a></div>
+<ol>
+<li><strong>Agentidentitet</strong> — navn (finnes: <code dir="auto">integration.navn</code>) og et ansikt.</li>
+<li><strong>Leverandørkonfigurasjon per agent</strong> — endepunkt, modell, nøkkel.</li>
+<li><strong>Løkken</strong>, som en worker: hent oppgave → bygg meldinger → kall
+modellen → utfør verktøykall mot vårt eget API med agentens egen
+identitet → skriv <code dir="auto">agent_oppgave_hendelse</code>.</li>
+<li><strong>Chat-flaten</strong> over tråden som finnes.</li>
+</ol>
+<div class="sl-heading-wrapper level-h3"><h3 id="tre-avgjørelser-tatt-nå">Tre avgjørelser tatt nå</h3><a class="sl-anchor-link" href="#tre-avgjørelser-tatt-nå"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Tre avgjørelser tatt nå”</span></a></div>
+<p><strong>Nøkkelen lagres kryptert, og det er et bevisst nytt ansvar.</strong> Det
+finnes ingen krypteringsprimitiv i repoet i dag — Stripe-nøkkelen er en
+miljøvariabel, ikke en rad. En kundenøkkel per selskap er en ny
+ressursklasse og et nytt bruddmål. Alternativene er dårligere: å ikke
+lagre den betyr at ingen worker kan arbeide når kunden ikke ser på,
+som er hele poenget med en arbeidsstokk; og å bruke vår egen nøkkel og
+måle forbruk er tokensalg, som §7 avviser. Valget er derfor kryptert
+lagring, med nøkkelen utenfor databasen.</p>
+<p><strong>Leverandøren velges av kunden, og det skal stå i UI-et.</strong> Å sende
+hovedbokslinjer til en LLM-leverandør gjør leverandøren til
+underdatabehandler for kundens regnskapsdata. OpenRouter er her
+<em>dårligere</em> enn å gå rett til en leverandør, fordi den kan fordele
+videre til mange. Kunden må velge leverandør og se hvor dataene går, på
+det tidspunktet agenten opprettes — ikke i en avtaletekst.</p>
+<p><strong>Vertsagent krever attestering som standard.</strong> Et hallusinert bilag i
+en append-only kjede ligger der for alltid; det kan bare rettes med et
+motbilag, som er riktig men støyende. <code dir="auto">krev_for_maskin</code> ble bygget for
+akkurat dette (#47, §5), og for en vertsagent står det PÅ med mindre
+eieren uttrykkelig slår det av. En agent bør også ha et tak på kall og
+tokens: <code dir="auto">integration.rate_limit_min</code> er den ene spaken som finnes i dag.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="rekkefølge">Rekkefølge</h3><a class="sl-anchor-link" href="#rekkefølge"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Rekkefølge”</span></a></div>
+<ol>
+<li><strong>Agentidentitet</strong> — navn og ansikt. <em>Levert 2026-10-29.</em></li>
+<li><strong>Leverandørkonfigurasjon</strong> med kryptering og dataflyt-opplysning.
+<em>Levert 2026-10-29, se §8.2.</em></li>
+<li><strong>Workeren</strong> — gjenbruker <code dir="auto">VERKTOY</code> og <code dir="auto">rolle.rs</code>, skriver hendelser.
+Egen deployment, ikke inne i API-ets 64 MB (frugality.md); NATS
+JetStream finnes alt for denne formen for arbeid (mail-skinnen, og
+<code dir="auto">regnid-mail-worker</code> er mønsteret).</li>
+<li><strong>Chat-flaten</strong>.</li>
+</ol>
+<div class="sl-heading-wrapper level-h3"><h3 id="kjente-hull-ikke-skjult">Kjente hull, ikke skjult</h3><a class="sl-anchor-link" href="#kjente-hull-ikke-skjult"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Kjente hull, ikke skjult”</span></a></div>
+<ul>
+<li><del><strong>Selvbetjent klientregistrering mangler fortsatt.</strong></del> <strong>LUKKET
+2026-10-29, se §8.6.</strong> Avgjørelsen som sto åpen er tatt: identiteten
+blir fortsatt per agent, og regnmed utsteder fortsatt ingenting selv —
+men PROVISJONERINGEN flyttet bak et nytt, smalt endepunkt i regnid,
+slik at kunden aldri ser en client_id.</li>
+<li><strong>Meldingstråden har ingen egen «svar»-status.</strong> Et menneskes svar på
+et <code dir="auto">sporsmal</code> legges inn som <code dir="auto">pagar</code> med notat. Det virker, men tråden
+leses som statusoverganger framfor meldinger. En <code dir="auto">svar</code>-status eller en
+egen meldingstabell retter det når chat-flaten bygges.</li>
+<li><strong>Ingen bildeopplasting.</strong> Ansiktet er initialer, farge og et ikon fra
+<code dir="auto">ikoner.js</code> — ikke et opplastet bilde. Grunnen står i §8.1.</li>
+<li><strong>Ingen nøkkelrotasjon.</strong> Byttes <code dir="auto">AGENT_SEALING_KEY</code>, lar ingen lagret
+leverandørnøkkel seg åpne mer, og hver agent må få nøkkelen sin på nytt.
+Se §8.2 — det er en kjent begrensning, ikke en forglemmelse.</li>
+</ul>
+<div class="sl-heading-wrapper level-h3"><h3 id="81-agentidentitet-levert">8.1 Agentidentitet (levert)</h3><a class="sl-anchor-link" href="#81-agentidentitet-levert"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “8.1 Agentidentitet (levert)”</span></a></div>
+<p>Et ansikt er <strong>initialer + en farge + et ikon</strong>, ikke et opplastet
+bilde. Tre grunner, i vekt:</p>
+<ol>
+<li><strong>Mennesker i regnmed har ikke profilbilde.</strong> <code dir="auto">UserMenu.svelte</code>
+tegner initialer, fordi identitetsdata eies av regnid og speiles ved
+innlogging (#68). En agent med opplastet bilde der et menneske har
+initialer er inkonsekvent i den retningen som er vanskeligst å
+forsvare.</li>
+<li><strong>Opplastede bilder er en ny flate å tjene brukerinnhold fra</strong> —
+størrelse, innholdstype, sniffing, hasj-sjekk ved nedlasting. Vi har
+mønsteret (vedlegg, innboks, kvitteringer), men det er en egen
+kostnad for et ansikt.</li>
+<li><strong>Gjenkjennelighet er det faktiske kravet</strong>, og farge + ikon +
+initialer gir fem agenter fem tydelig ulike ansikter uten en byte
+bildedata.</li>
+</ol>
+<p>Fargen er daisyUI-ens egne semantiske farger, så ansiktet følger temaet
+som alt annet (temakontrakten). Den <strong>valideres mot en kjent liste i
+Rust</strong> — ikke fordi et fritekstfelt ville vært utrygt i databasen, men
+fordi verdien ender som et CSS-klassenavn i portalen, og Tailwind v4
+genererer bare klasser den finner i kilden: en dynamisk <code dir="auto">bg-{farge}</code>
+ville ikke eksistert i CSS-en. Portalen har derfor en statisk tabell
+farge → klassestreng, og serveren slipper ingenting gjennom som ikke
+står i den.</p>
+<p>Navnet er integrasjonens eget og deles av alle dens oppdrag — akkurat
+som <code dir="auto">person.name</code> er personens, ikke per selskap. Redigeres det fra
+selskap A, endres det også for selskap B. Det er modellen fra §1 (en
+agent er en bruker), ikke en forglemmelse.</p>
+<p>Endepunkt: <code dir="auto">PUT /companies/{id}/integrations/{iid}</code> (<code dir="auto">IntegrasjonAdmin</code>)
+— navn, kontakt, farge og ikon. Tilgangsnivået endres ikke her: en
+rolle byttes ved å trekke tilbake og gi en ny, fordi
+<code dir="auto">integration_grant</code> er uforanderlig med vilje (0033-vakten).</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="82-leverandørkonfigurasjon-levert">8.2 Leverandørkonfigurasjon (levert)</h3><a class="sl-anchor-link" href="#82-leverandørkonfigurasjon-levert"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “8.2 Leverandørkonfigurasjon (levert)”</span></a></div>
+<p>Migrasjon 0066 gir <code dir="auto">agent_llm</code>: leverandør, adresse, modell og den
+forseglede nøkkelen, per <strong>(integrasjon, selskap)</strong>.</p>
+<p>Ikke per integrasjon alene. En integrasjon er ÉN identitet som kan ha
+oppdrag i flere selskaper, og navnet deles mellom dem (§8.1) — men en
+leverandørnøkkel er noens REGNING og noens valg av databehandler.
+Selskap A skal ikke kunne bestemme hvilken modell selskap B-s arbeid
+kjører på, og enda mindre sende B sin egen faktura.</p>
+<p>Tabellen er <strong>innsettings-bar, nyeste rad gjelder</strong> — samme daterte
+mønster som <code dir="auto">attestation_policy</code>, <code dir="auto">abonnement_pris</code> og <code dir="auto">sats</code>. Det
+koster ingen ekstra tabell og svarer på spørsmålet som betyr noe
+etterpå: hvilken leverandør ble hovedboken vår sendt til, når, og hvem
+bestemte det. Å slå av modellen er en ny rad (<code dir="auto">aktiv = false</code>), ikke en
+sletting, så sporet fortsetter å si hva som var sant før.</p>
+<p><strong>Nøkkelen har ingen vei ut.</strong> <code dir="auto">GET …/integrations/{iid}/llm</code> svarer med
+leverandør, modell og <code dir="auto">nokkel_lagret: true</code> — aldri verdien.
+<code dir="auto">fetch_llm_key</code> er en egen funksjon fra <code dir="auto">hent_llm</code> nettopp slik at det
+å lese oppsettet for visning ikke kan bli kallet som dekrypterer. Testen
+sjekker mot HELE svarkroppen, ikke mot et felt: en lekkasje kommer som
+et felt ingen tenkte på. Begge vaktene er <strong>sett feile</strong> — med
+klartekstlagring svarer databasesjekken, og med nøkkelen lagt i svaret
+svarer lekkasjesjekken.</p>
+<p>Forseglingen er <code dir="auto">regnmed-core::secret</code>: XChaCha20-Poly1305, tilfeldig
+nonce per forsegling lagret foran chifferteksten. Autentisert, så en rad
+noen har endret i databasen FEILER framfor å dekryptere til noe annet —
+en forfalsket rad blir en feilmelding, ikke en tulle-API-nøkkel sendt
+til en leverandør. Dette er det ene stedet i arbeidsområdet som ikke
+håndruller formatet sitt; begrunnelsen står i modulens egen toppkommentar.</p>
+<p><code dir="auto">https</code> kreves på adressen: kundens nøkkel og hovedbokslinjer går over
+den. <code dir="auto">annet</code> finnes så en kunde kan peke på sin egen gateway uten at vi
+slipper en ny versjon.</p>
+<p><strong>Nøkkelen vår er konfigurasjon, aldri en rad.</strong> <code dir="auto">AGENT_SEALING_KEY</code>, 64
+hex-tegn. Navnet er valgt med vilje: den er ikke agentens nøkkel, den er
+nøkkelen som FORSEGLER agentens — både leverandørnøkkelen her og
+klienthemmeligheten i §8.3. Den het <code dir="auto">AGENT_NOKKEL</code> fram til 2026-10-29,
+og det navnet leste som «agentens nøkkel», altså som den ene tingen den
+ikke er.</p>
+<p>Mangler den, er skinnen AV og portalen sier det framfor å tilby et
+skjema som ville lagret en nøkkel vi ikke kan beskytte; er den ugyldig,
+STARTER IKKE prosessen — en nesten-riktig nøkkel er en
+konfigurasjonsfeil noen ellers finner uker senere, når en agent stille
+står uten modell.</p>
+<p>Lag den og legg den inn utenfor git (docs/secrets.md er absolutt):</p>
+<div class="expressive-code"><link rel="stylesheet" href="/_astro/ec.w36nc.css"><script type="module" src="/_astro/ec.0vx5m.js"></script><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">openssl</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">rand</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-hex</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">32</span></div></div><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">kubectl</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-n</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">regnmed</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">create</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">secret</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">generic</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">agent-credentials</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">--from-literal=sealing-key=&lt;verdien&gt;</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="openssl rand -hex 32kubectl -n regnmed create secret generic agent-credentials \  --from-literal=sealing-key=<verdien>"><div></div></button></div></figure></div>
+<p>Secretet må finnes <strong>FØR</strong> første apply: en <code dir="auto">secretKeyRef</code> til et secret
+som ikke finnes gir CreateContainerConfigError, synlig bare i
+pod-hendelsene (samme felle som <code dir="auto">stripe-credentials</code>, se <code dir="auto">.env.example</code>).
+Prod og test har <strong>hver sin</strong> nøkkel — et brudd i test skal ikke åpne
+prods rader. Opprettet i begge 2026-10-29.</p>
+<p><strong>Ta vare på den.</strong> Verdien ble generert rett inn i clusteret og finnes
+ingen andre steder. Les den ut og legg den i passordhvelvet:</p>
+<div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">kubectl</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-n</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">regnmed</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">get</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">secret</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">agent-credentials</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#F78C6C;--1:#AA0982">\</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">-o</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">jsonpath=</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#ECC48D;--1:#984E4D">{.data.sealing-key}</span><span style="--0:#D9F5DD;--1:#111111">'</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#7FDBCA;--1:#096E72">|</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">base64</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-d</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="kubectl -n regnmed get secret agent-credentials \  -o jsonpath=&#x27;{.data.sealing-key}&#x27; | base64 -d"><div></div></button></div></figure></div>
+<p><strong>ROTASJON FINNES IKKE.</strong> Byttes nøkkelen, er hver lagret
+leverandørnøkkel uåpnelig, og hver agent må få sin på nytt gjennom
+portalen. Det er levelig nå — ingen agenter er i drift — og det blir
+dyrere jo lenger vi venter. Den riktige veien er en nøkkel-id per rad og
+en omforsegling som leser med den gamle og skriver med den nye; det er
+ikke bygget, og det hører sammen med steg 3.</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="83-workeren-levert">8.3 Workeren (levert)</h3><a class="sl-anchor-link" href="#83-workeren-levert"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “8.3 Workeren (levert)”</span></a></div>
+<p><code dir="auto">crates/regnmed-agent</code> — eget binær, <code dir="auto">regnmed-agent run</code>. Den tar åpne
+agentoppgaver som er stilet til en agent med aktiv modell, kjører dem, og
+skriver utfallet i <code dir="auto">agent_oppgave_hendelse</code>.</p>
+<p><strong>Avgjørelsen §8 lot stå åpen er tatt: ingen ny autentiseringsvei.</strong>
+Vertsagenten henter token med <code dir="auto">client_credentials</code> som seg selv, nøyaktig
+som en agent på kundens egen maskin. <code dir="auto">integration_grant</code>, maskintaket og
+attesteringsreglene gjelder uendret, håndhevet der de alltid var. Workeren
+kjører sløyfen og holder modellnøkkelen; den holder ingen myndighet.
+Alternativet — å la workeren handle «på vegne av» en agent fordi den er
+innenfor tillitsgrensen vår — ville lagt en andre dør inn i hovedboken, og
+hele §1 finnes for å slippe det.</p>
+<p>Prisen er at agenten trenger en klienthemmelighet. Migrasjon 0067 legger den
+på <code dir="auto">integration</code>, forseglet med samme nøkkel som modellnøkkelen.
+Oppdaterbar, ikke innsettings-bar som <code dir="auto">agent_llm</code>: et spor over forkastede
+leverandørVALG er bevis verdt å ha, et spor over forkastede HEMMELIGHETER er
+en forpliktelse.</p>
+<p><strong>Ingen blir spurt om den</strong> (2026-11-18). Systemet har ÉN hemmelighet mot
+regnid — provisjoneringshemmeligheten (§8.6) — og med den lager regnmed en
+egen identitet til hver agent i bakgrunnen. En agent registrert for hånd med
+egen client_id har aldri gitt oss sin, og regnid lagrer bare en hash, så den
+kan ikke hentes. Før spurte «Gi modell»-dialogen eieren om
+«Klienthemmelighet fra regnid» — noe ingen kunde vet hva er, og i prod ble
+feltet lagret tomt fem ganger på rad mens agenten så ferdig satt opp ut.</p>
+<p>Nå finnes ikke feltet. Får en agent uten lagret hemmelighet en modell,
+provisjonerer <code dir="auto">PUT …/llm</code> en ny identitet og flytter agenten dit: samme navn,
+ansikt, rolle, kontakt og instrukser, nytt grant, og det gamle grantet
+avsluttes SIST — feiler noe underveis, avsluttes det nye i stedet og den
+gamle agenten står urørt. Svaret bærer den nye <code dir="auto">integration_id</code>. Prisen:
+den håndlagde klienten mister tilgangen (den lokale kopien av hemmeligheten
+slutter å virke), historikken deles på to identiteter med samme navn, og
+oppgaver adressert til den gamle identiteten må gis på nytt. Vakten er
+<code dir="auto">a_model_for_an_agent_without_a_secret_moves_it_to_a_fresh_identity</code>
+(<code dir="auto">integrasjon.rs</code>, mot en falsk regnid), sett feile med provisjoneringen
+slått av.</p>
+<p><strong>Begge skinnene kjører samme kode.</strong> Verktøykatalogen bygges av <code dir="auto">VERKTOY</code>,
+systemprompten av <code dir="auto">role::prompt</code> (via <code dir="auto">prompt_for_role</code>), og kallet går gjennom
+<code dir="auto">Server::execute_tool</code> — samme dispatcher som MCP-serveren. Transporten
+skiller; oppførselen skal ikke, og den sikreste måten å få to skinner til å
+oppføre seg likt er å gi dem samme kode. Begge filtrerer tabellen med
+<code dir="auto">Server::offered_tools</code>, så samme rolle får samme meny (§3).</p>
+<p><strong>Rollen velger prompten — gjennom en tabell, ikke gjennom navnet</strong>
+(rettet 2026-11-16). Tilgangen sier <code dir="auto">bokforing</code>, prompten heter <code dir="auto">bokforer</code>:
+to vokabularer. Workeren slo opp rollenavnet som promptnavn, fant ingenting
+og falt stille tilbake til <code dir="auto">ansatt</code>, så HVER vertsagent med rollen Bokføring
+eller Administrator fikk beskjed om at den var ansatt og avviste arbeidet sitt
+(«Min rolle er avgrenset til å føre timer»). <code dir="auto">prompt_for_role</code> i
+<code dir="auto">regnmed-agent</code> er nå tabellen: <code dir="auto">admin</code> → <code dir="auto">regnskapsforer</code>, <code dir="auto">bokforing</code> →
+<code dir="auto">bokforer</code>, alt annet (<code dir="auto">ansatt</code>, <code dir="auto">les</code>, selskapets egne roller) → <code dir="auto">ansatt</code>,
+den smaleste — prompten gir aldri myndighet, det gjør tilgangsvakten, så en
+for smal prompt gjør bare agenten forsiktig. Testen
+<code dir="auto">every_role_gets_the_prompt_for_its_job</code> fester at hver rolle når en ekte
+prompt; den gamle testen sendte PROMPTnavnet der rollenavnet hører hjemme,
+og det var nettopp det som skjulte feilen.</p>
+<p><strong>Kan den ikke starte, sier den det i oppgaven.</strong> Mangler en agent
+regnmed kjører aktiv modell, klienthemmelighet eller tilgang, skriver
+workeren et <code dir="auto">sporsmal</code> med hva som mangler og hvor det ordnes — i
+oppgavens spor, der den som spurte leser, og ikke bare i prosessens logg.
+Spørsmål, ikke avvisning: når en administrator har ordnet det, kjører et
+svar oppgaven på nytt. «Regnmed kjører den» betyr at en modell er satt opp
+her eller hemmeligheten er lagret (<code dir="auto">agentllm::runs_here</code>); uten noen av
+delene er agenten kundens egen (eller ingens ennå), køen ringer likevel på,
+og workeren lar oppgaven ligge for agenten som henter sin egen kø.</p>
+<p>Sløyfen stopper etter <code dir="auto">MAX_TURNS</code> (12) og SIER at den stoppet. En sløyfe
+som ikke stopper bruker kundens penger; en agent som stille gir opp er verre
+enn en som melder fra om en vegg.</p>
+<p>Modellen avslutter med en markør — <code dir="auto">FERDIG:</code>, <code dir="auto">SPØRSMÅL:</code> eller <code dir="auto">AVVIST:</code> —
+som blir statusen køen alt kjenner (#103). Workeren finner ikke opp egne.
+Tekst uten markør GJETTES IKKE: workeren sender svaret tilbake én gang med
+beskjed om å gjenta det med riktig markør, og modellen — som ser sitt eget
+svar rett over — klassifiserer det selv. Forblir svaret umerket, blir det
+<code dir="auto">sporsmal</code>, aldri <code dir="auto">utfort</code>. Bare en uttrykkelig <code dir="auto">FERDIG:</code> lukker en oppgave.
+<code dir="auto">sporsmal</code> er ikke terminal i 0064-vakten, nettopp fordi agenten skal kunne
+fortsette når noen har svart — og et menneske som ser at jobben faktisk er
+gjort, lukker den selv. Påminnelsen koster én ekstra tur, og bare når
+modellen glemte markøren. Vakten er <code dir="auto">an_unmarked_reply_is_sent_back_to_be_marked</code> (<code dir="auto">agent.rs</code>),
+sett feile med påminnelsen slått av.</p>
+<p>Leverandøren er OpenAI-kompatibel <code dir="auto">/chat/completions</code> med <code dir="auto">tools</code> —
+grunnen til at dette ble lite. OpenAI, OpenRouter og de fleste
+selvhostede gatewayer snakker samme protokoll, så én klient dekker det
+kunden sannsynligvis tar med, og <code dir="auto">annet</code> dekker resten uten en ny versjon
+fra oss. Felter vi ikke modellerer ignoreres framfor å avvises: dette er en
+wire vi ikke eier.</p>
+<p><strong>Verifisert end-to-end mot en falsk leverandør</strong> (<code dir="auto">agent.rs</code>): modellen ber
+om <code dir="auto">saldobalanse</code>, workeren kjører det mot det EKTE routeren med agentens
+eget token, mater svaret tilbake og rapporterer <code dir="auto">utfort</code>. Testen sjekker at
+verktøysvaret bærer data fra API-et — og den er <strong>sett feile</strong>: med
+dispatcheren kortsluttet til å svare «ok» uten å kalle noe, sier den fra.</p>
+<div class="sl-heading-wrapper level-h4"><h4 id="ærlige-begrensninger">Ærlige begrensninger</h4><a class="sl-anchor-link" href="#ærlige-begrensninger"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Ærlige begrensninger”</span></a></div>
+<ul>
+<li>
+<p><strong>Kjørt mot ekte leverandør 2026-10-29</strong>, og det fant to feil den falske
+ikke kunne finne (se §8.4). Lærdommen fra Stripe-integrasjonen (punkt 56 i
+CLAUDE.md) holdt: payloads skrevet ut fra hva koden LESER bekrefter bare
+kodens egen antakelse.</p>
+</li>
+<li>
+<p><strong>Utrullet 2026-10-29</strong> som CronJob hvert femte minutt
+(<code dir="auto">deploy/shared/agent-worker.yaml</code>), <code dir="auto">concurrencyPolicy: Forbid</code> fordi
+oppgavene ikke låses mens de kjøres — to samtidige kjøringer kunne
+plukket samme oppgave og kjørt modellen to ganger på kundens regning.
+<code dir="auto">regnmed-agent</code> har eget budsjett i <a href="/teknisk/frugality/">frugality.md</a>
+(8 MB, målt 5,4). Uten åpne oppgaver spør kjøringen databasen og
+avslutter; den rører ikke leverandøren.</p>
+<p>To ting å vite fra selve utrullingen. (a) <code dir="auto">.dockerignore</code> ekskluderer
+alt og slipper inn navngitte stier, så en ny <code dir="auto">COPY</code> i Dockerfile uten
+en tilsvarende linje der feiler bygget på en fil som nettopp ble
+kompilert — fila gjør jobben sin, men feilmeldingen peker på Docker
+framfor på <code dir="auto">.dockerignore</code>. (b) <strong>Manifestet nådde test før imaget som
+inneholdt binæret</strong>: Flux applyer <code dir="auto">deploy/test</code> fra main med den
+image-pinnen som står der NÅ, så tre planlagte kjøringer feilet på et
+image uten <code dir="auto">/app/regnmed-agent</code> før neste pin kom. Vinduet lukker seg
+selv, men en ny CronJob for et nytt binær bør ikke landes før imaget
+som bærer det.</p>
+</li>
+<li>
+<p><strong>Ingen strømming.</strong> Oppgaven kjøres ferdig før noe skrives. Chat-flaten
+(steg 4) vil ville ha delsvar.</p>
+</li>
+<li>
+<p><strong>Ingen kostnadsgrense.</strong> <code dir="auto">MAX_TURNS</code> begrenser antall turer, ikke antall
+tokens. <code dir="auto">integration.rate_limit_min</code> begrenser kall mot VÅRT API, ikke mot
+leverandøren.</p>
+</li>
+<li>
+<p><strong>Selvbetjent klientregistrering mangler fortsatt.</strong> Klienthemmeligheten
+må komme fra en operatør som kjørte <code dir="auto">regnid add-client</code>. Det er samme hull
+§8 åpnet med, og det er nå i veien for den vanlige kunden.</p>
+</li>
+</ul>
+<div class="sl-heading-wrapper level-h3"><h3 id="84-hva-den-ekte-leverandøren-fant">8.4 Hva den ekte leverandøren fant</h3><a class="sl-anchor-link" href="#84-hva-den-ekte-leverandøren-fant"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “8.4 Hva den ekte leverandøren fant”</span></a></div>
+<p><code dir="auto">crates/regnmed-api/tests/ekte_leverandor.rs</code> er en håndkjørt prøvebenk mot
+OpenRouter. Den koster penger, så testene er <code dir="auto">#[ignore]</code> og kjører bare når
+de bes om ved navn (<code dir="auto">-- --ignored</code>), aldri bare fordi <code dir="auto">OPEN_ROUTER_KEY</code> står i
+<code dir="auto">.env</code> — det gjorde de en tid, og hver fulle testkjøring på en utviklermaskin
+sendte da en runde kall til leverandøren (endret 2026-11-16). Uten nøkkelen
+gjør de fortsatt ingenting. Modellen er en GRATISMODELL som standard
+(<code dir="auto">nvidia/nemotron-3.5-lightning:free</code>); en modell uten <code dir="auto">:free</code> nektes med mindre
+<code dir="auto">REGNMED_TESTMODELL_PAID=1</code> er satt. Den fant
+to feil som den falske leverandøren ikke kunne finne, og det er grunnen til
+at den finnes.</p>
+<p><strong>(a) Et ubesvart spørsmål lukket oppgaven.</strong> <code dir="auto">gemini-2.5-flash-lite</code> spurte
+hvilken dato i 2026 som var ment, uten <code dir="auto">SPØRSMÅL:</code>-prefikset. Fallbacken
+leste umerket tekst som utført — og <code dir="auto">utfort</code> er TERMINAL i 0064-vakten, så
+oppgaven ble lukket og spørsmålet forsvant med den. Første retting leste
+umerket tekst med spørsmålstegn som <code dir="auto">sporsmal</code>; det holdt til
+<code dir="auto">nemotron-3.5-lightning:free</code> (2026-11-17) spurte i fet skrift med en
+parentes etter, og et spørsmål i ren prosa uten «?» ville sluppet gjennom
+uansett. Hver heuristikk over modellens fritekst taper mot neste modell, så
+workeren slutter å gjette: umerket tekst sendes tilbake for å merkes, og det som
+forblir umerket blir <code dir="auto">sporsmal</code> (§8.3). Asymmetrien avgjør regelen: å være
+feilaktig IKKE-terminal er gjenopprettelig (et menneske leser notatet og
+lukker), å være feilaktig terminal er det ikke.</p>
+<p><strong>(b) En bokfører kunne ikke føre et bilag.</strong> Bedt om å bokføre en kontant
+utgift svarte <code dir="auto">gpt-4o-mini</code>: «Jeg kan ikke bokføre bilaget fordi jeg ikke
+har et vedlegg tilgjengelig for opplasting.» Den hadde rett — tabellens
+eneste posteringsverktøy var <code dir="auto">bilag_bokfor</code>, som bokfører et
+INNBOKSDOKUMENT. Ruten for manuell føring (#70, <code dir="auto">POST …/vouchers</code>) fantes i
+API-et og manglet i tabellen. Det er kostnaden ved en KURATERT liste (§3),
+og <code dir="auto">agent.rs</code> kunne ikke se den: den sjekker at verktøyene i tabellen
+treffer API-et, ikke at API-ets viktige ruter er i tabellen. Nytt verktøy
+<code dir="auto">bilag_for</code>, og det UTØVES i <code dir="auto">agent.rs</code> framfor å stå på unntakslisten —
+det skriver til hovedboken, det ene stedet et sklidd verktøy gjør skade i
+stedet for bare å feile.</p>
+<p>Verifisert etterpå, mot ekte modell: bilag 2026-1 bokført, 50 000 øre debet,
+lest tilbake FRA HOVEDBOKEN og ikke fra modellens egen påstand.</p>
+<p>Observert underveis, ikke feil: to 8B-modeller er borte fra OpenRouter
+(<code dir="auto">qwen/qwen3-8b</code> avviklet 9. okt 2026, <code dir="auto">mistralai/ministral-8b</code> uten
+leverandør). Leverandørens egen feilmelding gikk uendret ut i oppgavens
+notat, som er oppførselen §8.3 lover — kunden leser «was deprecated», ikke
+«noe gikk galt».</p>
+<p>Kjente modeller som gjorde jobben: <code dir="auto">openai/gpt-4o-mini</code>,
+<code dir="auto">qwen/qwen3.7-flash</code>, <code dir="auto">meta-llama/llama-3.1-8b-instruct</code>,
+<code dir="auto">google/gemini-2.5-flash-lite</code> (som spør oftere enn den gjør).</p>
+<div class="sl-heading-wrapper level-h3"><h3 id="85-samtalen-levert--steg-4">8.5 Samtalen (levert) — steg 4</h3><a class="sl-anchor-link" href="#85-samtalen-levert--steg-4"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “8.5 Samtalen (levert) — steg 4”</span></a></div>
+<p>Chat-flaten er en VISNING av <code dir="auto">agent_oppgave_hendelse</code>, ikke en ny
+datamodell. Tråden fantes fra #103, fordi <code dir="auto">sporsmal</code> med vilje ikke er
+terminal i 0064-vakten. Derfor finnes det ingen «slett melding» her:
+sporet er innsettings-bart, og et svar kan ikke trekkes tilbake.</p>
+<p><strong>Ingen ny status.</strong> §8 noterte at tråden mangler en egen «svar»-status, og
+at et menneskes svar lander som <code dir="auto">pagar</code> med notat. Det viste seg å være
+RIKTIG framfor et hull: <code dir="auto">pagar</code> sier at arbeidet fortsetter, notatet er det
+som ble sagt, og <code dir="auto">av</code> sier hvem som sa det — alt vi trenger for å tegne to
+sider. Og det gjør oppgaven plukkbar igjen for workeren, som hopper over
+<code dir="auto">sporsmal</code>. En ny status ville kostet en migrasjon og et nytt tilfelle i
+hver match, for ingenting.</p>
+<p><strong>Tråden mates tilbake til modellen.</strong> Dette var det virkelige hullet, og
+det var ikke i UI-et: <code dir="auto">run_loop</code> fikk bare bestillingen, så en agent som
+hadde spurt og ble plukket opp igjen ville spurt om det samme for alltid —
+og da hadde det ikke hjulpet at <code dir="auto">sporsmal</code> er ikke-terminal.
+<code dir="auto">run_task</code> bygger nå replikkene av historikken: hendelser skrevet av
+agentens eget navn blir <code dir="auto">assistant</code>, resten <code dir="auto">user</code>, og en bar <code dir="auto">pagar</code> uten
+notat («begynte å arbeide») er ingen replikk. Testfestet i <code dir="auto">agent.rs</code>:
+systemprompt, bestilling, agentens eget spørsmål som <code dir="auto">assistant</code>, og
+menneskets svar som <code dir="auto">user</code> — i den rekkefølgen.</p>
+<p><strong>Boblene er håndrullet.</strong> daisyUIs <code dir="auto">chat</code>-komponent kostet ~2,3 KB i dist
+for ren utsmykking, og budsjettet (frugality.md) hadde 7 KB igjen; flex og
+<code dir="auto">rounded-box</code> gjør samme jobb med klasser bundelen alt har. Samme avveining
+som ikonene (#67): vi skriver markupen, temaet eier fargene. Fargene er
+<code dir="auto">bg-primary</code> for mennesket, <code dir="auto">bg-base-200</code> for agenten, <code dir="auto">bg-warning</code> for et
+spørsmål og <code dir="auto">bg-error</code> for en avvisning — statusen bærer fargen, så en
+oppgave som venter på deg er synlig uten å leses.</p>
+<p>Verifisert i nettleseren hele veien: agenten spør, svaret sendes fra
+kortet, nyeste status blir <code dir="auto">pagar</code>, og oppgaven er plukkbar av workeren
+igjen (sjekket i databasen, ikke i UI-et).</p>
+<div class="sl-heading-wrapper level-h4"><h4 id="kjørt-ende-til-ende-i-prod-2026-11-18-v0150v0151">Kjørt ende til ende i prod (2026-11-18, v0.15.0–v0.15.1)</h4><a class="sl-anchor-link" href="#kjørt-ende-til-ende-i-prod-2026-11-18-v0150v0151"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Kjørt ende til ende i prod (2026-11-18, v0.15.0–v0.15.1)”</span></a></div>
+<p>Første gang en agent har ARBEIDET i et cluster: RegnmedAgent i BOGENTECH AS
+(rolle <code dir="auto">bokforing</code>, <code dir="auto">anthropic/claude-haiku-5.5</code> via OpenRouter), med token
+hentet av workeren i prod fra agentens egen identitet. Hele veien gikk
+gjennom portalen, køen og workeren — ingenting ble kjørt for hånd.</p>
+<ul>
+<li><strong>Spørsmål i stedet for gjetning.</strong> «La oss sette en timesats til
+1650 kr på prosjekt 10001.», uten dato. Workeren plukket oppgaven 0,1 s
+etter at den ble gitt; seks sekunder senere var den <code dir="auto">sporsmal</code>: hvilken
+dato satsen skal gjelde fra, hva gjeldende sats er, at førte timer
+beholder sin, og at ingenting var satt ennå. Ingen rad i <code dir="auto">prosjekt_sats</code>.</li>
+<li><strong>Svaret fullførte jobben.</strong> Svaret «2026-12-01» fra samtalen gjorde
+oppgaven plukkbar igjen; ni sekunder senere sto satsen 165 000 øre fra
+2026-12-01, bokført av RegnmedAgent, med den gamle satsen urørt, og
+oppgaven var <code dir="auto">utfort</code> med et notat om hva som ble gjort.</li>
+<li><strong>Bare lesing.</strong> «Hvor mange prosjekter har selskapet, og hva heter de?
+Bare les, ikke endre noe.» ble <code dir="auto">utfort</code> på fem sekunder med riktig svar,
+og ingenting ble skrevet.</li>
+</ul>
+<p>Tre feil kom fram på veien dit, og ingen av dem kunne testene finne:
+(a) agenten var registrert for hånd og regnmed hadde ikke hemmeligheten
+dens — dialogen spurte eieren om den, og feltet ble lagret tomt fem ganger
+(nå provisjonerer regnmed en ny identitet i bakgrunnen, §8.3, #269);
+(b) oppgavelisten fulgte ikke agenten — den viste «ny» mens agenten spurte
+og «pågår» etter at den var ferdig, fordi en oppgave gitt fra kortet ikke
+har noen samtaletråd som melder fra (nå spør listen igjen mens en oppgave
+er <code dir="auto">ny</code>/<code dir="auto">pagar</code>, #270); og (c) en umerket avslutning kunne lukke en
+oppgave som utført (nå sendes den tilbake for å merkes, §8.4, #268).</p>
+<div class="sl-heading-wrapper level-h4"><h4 id="et-spørsmål-varsles-på-e-post-2026-11-18">Et spørsmål varsles på e-post (2026-11-18)</h4><a class="sl-anchor-link" href="#et-spørsmål-varsles-på-e-post-2026-11-18"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Et spørsmål varsles på e-post (2026-11-18)”</span></a></div>
+<p>Når en agent svarer <code dir="auto">sporsmal</code>, får den som GA oppgaven en e-post med
+oppgaven, spørsmålet og en lenke til samtalen. Før ventet spørsmålet til
+noen tilfeldigvis åpnet kortet — i prod sto det der uten at noen visste det.</p>
+<ul>
+<li><strong>Til hvem:</strong> personen som ga oppgaven. <code dir="auto">opprettet_av</code> er bare et
+visningsnavn og når ingen, så migrasjon 0092 legger til
+<code dir="auto">created_by_person</code>; den settes ved opprettelse, og tabellen er fortsatt
+innsettings-bar. Adressen er den personen har NÅ (speilet fra IdP-en ved
+innlogging). Har personen mistet tilgangen til selskapet siden, sendes
+ingenting — e-posten bærer selskapets data. Enhver tilgang teller, ikke
+<code dir="auto">INTEGRASJON_LES</code> spesielt; tabellen fra rolle til rettighet bor i
+<code dir="auto">regnmed-api</code>, og workeren når den ikke.</li>
+<li><strong>Ikke for oppgaver fra samtalen.</strong> Kom oppgaven fra Meldinger, lander
+spørsmålet der med ulest-merket sitt; en e-post per spørsmål ville vært
+støy. Oppgaver gitt før 0092 har ingen person og varsles ikke.</li>
+<li><strong>Begge skinnene:</strong> den vertede workeren og API-et (en agent på kundens
+egen maskin som svarer over MCP) kaller samme <code dir="auto">regnmed_mail::notify_question</code>,
+så regelen for hvem som varsles står ett sted
+(<code dir="auto">regnmed_db::agent_task::question_email</code>). Svaret er alt lagret når
+e-posten sendes, så en kø som er nede feiler aldri agentens svar.</li>
+<li><strong>Spørsmålet skrives for et menneske.</strong> Den første e-posten i prod spurte
+«Hvilken dato skal timesatsen … gjelde fra (<code dir="auto">valid_from</code>)?» — et feltnavn
+i en e-post til en eier. Regel 6 i grunnreglene, avslutningsreglene i
+workeren og <code dir="auto">notat</code>-feltet på <code dir="auto">oppgave_svar</code> sier nå: vanlige ord, ingen
+feltnavn eller verktøynavn, beløp i kroner. Med en gratismodell ble alle
+tre spørsmålene i prøvebenken rene etterpå (før: «for å kalle
+<code dir="auto">prosjekt_sats_sett</code>», beløpet i øre). Samme runde fant «reply med vanlig
+text» i workerens egne avslutningsregler — #134-skaden, i en fil
+språkvakten ikke leste. Vakten er nå en delt funksjon
+(<code dir="auto">role::english_in_prose</code>) som også leser workerens tekst.</li>
+<li><strong>Lenken</strong> bygges av <code dir="auto">PORTAL_BASE_URL</code>, som workeren nå også har (prod og
+test); uten den sier e-posten hvor i portalen samtalen står.</li>
+</ul>
+<p>Vakten er <code dir="auto">an_agents_question_is_mailed_to_whoever_gave_the_task</code>
+(<code dir="auto">utsendelse.rs</code>, mot en ekte nats-server): e-posten kommer fram med
+spørsmål, oppgave og lenke, <code dir="auto">utfort</code> sender ingen ny, en oppgave uten
+person varsler ingen, og en person uten tilgang varsles ikke. Sett feile med varslingen koblet fra.</p>
+<div class="sl-heading-wrapper level-h4"><h4 id="varslingssenteret-og-markøren-2026-11-18">Varslingssenteret og markøren (2026-11-18)</h4><a class="sl-anchor-link" href="#varslingssenteret-og-markøren-2026-11-18"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Varslingssenteret og markøren (2026-11-18)”</span></a></div>
+<p>Ved siden av profilen står en bjelle med antallet spørsmål fra agenter som
+venter på DEG, på tvers av selskapene du når; listen lenker rett til
+samtalen. Ved innlogging sier en melding én gang hva som venter.
+Administrasjon i menyen og fanen «Oppdrag og integrasjoner» bærer det samme
+tallet for selskapet du står i.</p>
+<ul>
+<li><strong>Utledet, aldri lagret.</strong> <code dir="auto">GET /notifications</code> lister oppgaver med
+nyeste status <code dir="auto">sporsmal</code>; når noen svarer, forsvinner varselet. Derfor
+finnes ingen lest/ulest-tilstand å holde i takt, og bjella, markøren og
+oppgavelisten kan ikke være uenige.</li>
+<li><strong>Samme vakt som køen.</strong> Hvert selskap sjekkes med <code dir="auto">INTEGRASJON_LES</code>, så
+senteret viser aldri noe personen ikke kan åpne. En maskin får en tom
+liste.</li>
+<li><strong>Hentes</strong> ved innlogging, ved hver hendelse i meldingsstrømmen, hvert
+minutt mens fanen er synlig, og med en gang oppgavelisten endrer seg.</li>
+</ul>
+<p>Vakten er <code dir="auto">the_notification_centre_lists_waiting_agent_questions</code>
+(<code dir="auto">integrasjon.rs</code>): spørsmålet listes for admin, ikke for en ansatt uten
+retten (sett feile med vakten fjernet), ikke for maskinen, og er borte
+når det er besvart. Verifisert i nettleseren mot en lokal API: bjella,
+menymarkøren, fanemarkøren og velkomstmeldingen, og alle tre tømmes når
+spørsmålet besvares.</p>
+<div class="sl-heading-wrapper level-h4"><h4 id="fortsatt-ikke-gjort">Fortsatt ikke gjort</h4><a class="sl-anchor-link" href="#fortsatt-ikke-gjort"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Fortsatt ikke gjort”</span></a></div>
+<ul>
+<li><strong>Ingen strømming.</strong> Oppgaven kjøres ferdig før noe skrives, så et svar
+dukker opp i ett stykke. Det merkes mest på en lang oppgave.</li>
+</ul>
+<div class="sl-heading-wrapper level-h3"><h3 id="86-agenten-opprettes-i-portalen-levert-2026-10-29">8.6 Agenten opprettes i portalen (levert 2026-10-29)</h3><a class="sl-anchor-link" href="#86-agenten-opprettes-i-portalen-levert-2026-10-29"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “8.6 Agenten opprettes i portalen (levert 2026-10-29)”</span></a></div>
+<p>Fram til nå endte hver agent med det samme: «kjør denne kommandoen på
+serveren vår». Det er ikke en liten friksjon, det er en sperre — en
+regnskapsfører som vil ha en robot kan ikke bes om å skrive
+<code dir="auto">regnid add-client --grant-type client_credentials --confidential</code>, og
+en funksjon ingen tar i bruk er ikke levert.</p>
+<p><strong>Innsigelsen mot å fjerne CLI-en var feil på ett punkt.</strong> Den var at
+klientregistrering er «en egen, mer overveid handling». Det stemmer
+fortsatt. Men handlingen er overveid fordi NOEN HAR BESTEMT at den skal
+kunne skje — ikke fordi et menneske skriver den inn hver gang. Så
+overveielsen flyttet opp ett nivå: regnid stoler på nøyaktig de
+klientene som står i <code dir="auto">PROVISION_CLIENTS</code>, og ingen andre. Det er
+driftskonfigurasjon, ikke data; en angriper som kommer inn i databasen
+når den ikke.</p>
+<p>Dette er samme form som LLM-nøkkelen alt hadde. Den er også en
+systemlegitimasjon brukeren limer inn i et skjema og aldri tenker på
+igjen. Klient-id-en var det samme slaget ting, og ble behandlet som noe
+kunden måtte forstå.</p>
+<div class="sl-heading-wrapper level-h4"><h4 id="det-som-ikke-endret-seg">Det som IKKE endret seg</h4><a class="sl-anchor-link" href="#det-som-ikke-endret-seg"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Det som IKKE endret seg”</span></a></div>
+<p>Mest av alt dette: <strong>agenten har fortsatt sin egen identitet.</strong> Den
+henter token som seg selv, med <code dir="auto">client_credentials</code>, og går gjennom
+<code dir="auto">integration_grant</code>, maskintaket (<code dir="auto">Right::can_be_delegated</code>) og
+attesteringsreglene som før. Snarveien vi vurderte og forkastet —
+ÉN privilegert legitimasjon som workeren bruker til å opptre som hvilken
+som helst agent — ville gjort én lekkasje til alle agenter i alle
+selskaper. Den står fortsatt forkastet.</p>
+<div class="sl-heading-wrapper level-h4"><h4 id="regnid-post-provisionmachine-client">regnid: <code dir="auto">POST /provision/machine-client</code></h4><a class="sl-anchor-link" href="#regnid-post-provisionmachine-client"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “regnid: POST /provision/machine-client”</span></a></div>
+<p>Autentisert med HTTP Basic (klient-id + hemmelighet), og kalleren må stå
+i <code dir="auto">PROVISION_CLIENTS</code>. Listen sjekkes FØR hemmeligheten, så en klient som
+ikke får provisjonere lærer ikke om den gjettet riktig.</p>
+<p>Det den kan lage er smalt ved konstruksjon: <code dir="auto">client_credentials</code> bare,
+konfidensiell bare, ingen redirect-URI-er. En stjålet
+provisjoneringshemmelighet kan altså ikke bli et innloggingsendepunkt —
+den kan bare lage roboter, som relying party-en så må gi tilgang før de
+kan noe som helst. <code dir="auto">tests/provision.rs</code> i regnid fester alle fire
+avslagene, og allowlist-vakten er SETT FEILE.</p>
+<p><code dir="auto">audience</code> følger med fra regnmeds egen <code dir="auto">OIDC_AUDIENCE</code>, lest gjennom
+<code dir="auto">Verifier::audience()</code> i stedet for en konstant: en klient uten riktig
+<code dir="auto">aud</code> logger seg pent inn og får så 401 på hvert eneste kall, uten spor
+noe sted (CLAUDE.md punkt 56).</p>
+<div class="sl-heading-wrapper level-h4"><h4 id="regnmed-post-companiesidagents">regnmed: <code dir="auto">POST /companies/{id}/agents</code></h4><a class="sl-anchor-link" href="#regnmed-post-companiesidagents"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “regnmed: POST /companies/{id}/agents”</span></a></div>
+<p>Ett kall lager hele agenten — identitet, tilgang, ansikt, instrukser og
+modell. <code dir="auto">client_id</code> er valgfri: oppgis den, brukes den (agenten kunden
+kjører selv, skinne 1), ellers lages den.</p>
+<p>Rekkefølgen er valgt etter hva et halvferdig kjør etterlater seg.
+IdP-klienten lages FØRST, fordi en maskinklient uten grant kan hente
+token og ikke gjøre noe som helst — den er inert. Motsatt rekkefølge
+ville etterlatt kunden med en agent i sin egen liste som aldri kan
+autentisere.</p>
+<p>Konfigurasjon: <code dir="auto">REGNID_PROVISION_CLIENT_ID</code> + <code dir="auto">REGNID_PROVISION_SECRET</code>
+(begge eller ingen, kortskinne-regelen), og <code dir="auto">REGNID_BASE_URL</code> når IdP-en
+ikke nås på issuer-adressen. Uten dem spør portalen om en client_id som
+før — den gamle veien er fortsatt der, bare ikke lenger normalen.</p>
+<div class="sl-heading-wrapper level-h4"><h4 id="egne-instrukser-per-agent-migrasjon-0068">Egne instrukser per agent (migrasjon 0068)</h4><a class="sl-anchor-link" href="#egne-instrukser-per-agent-migrasjon-0068"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Egne instrukser per agent (migrasjon 0068)”</span></a></div>
+<p><code dir="auto">integration.systemprompt</code>: tekst som legges til ETTER rolleprompten og
+FØR avslutningsreglene. Rekkefølgen betyr én ting og bare én — den lar
+instruksene spesialisere («strøm bokføres på 6340», «spør Aud ved tvil»)
+uten å fortrenge hverken rollens regler eller markørene <code dir="auto">tolk()</code> leser.</p>
+<p>Den betyr IKKE noe for tilgang. Hva en eier enn skriver her, er rollen
+på grantet det <code dir="auto">access::require</code> håndhever på hvert kall agenten gjør: det
+verste en dårlig instruks får til er en agent som prøver ting den blir
+nektet. Grensen ligger i oppslaget, aldri i prompten.</p>
+<p>Taket er 4000 tegn, og det er en kostnadsgrense, ikke en smaksdom: hele
+prompten sendes med HVER modelltur, så en roman her er kundens egen
+regning, tur etter tur.</p>
+<div class="sl-heading-wrapper level-h4"><h4 id="agentene-står-i-brukere-og-roller">Agentene står i Brukere og roller</h4><a class="sl-anchor-link" href="#agentene-står-i-brukere-og-roller"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Agentene står i Brukere og roller”</span></a></div>
+<p>Kortet flyttet fra Oppdrag til Administrasjon → Brukere og roller.
+Begrunnelsen er §1s egen setning: en agent ER en bruker. Da er «hvem har
+tilgang her, og som hva?» det samme spørsmålet for en robot som for en
+ansatt, og det skal stilles på én side.</p>
+<p>Rollen kan endres der den vises (<code dir="auto">PUT …/integrations/{iid}/rolle</code>).
+Under panseret er det fortsatt tilbakekalling pluss et nytt grant, i ÉN
+transaksjon — et grant er uforanderlig (0033), så den gamle rollen blir
+stående sann for dagene den gjaldt. Samme rolle to ganger avvises: ellers
+ville hver lagring lagt på en rad og sporet sluttet å bety noe.</p>
+<p><strong>Funnet i nettleseren, ikke i testene:</strong> etter et rollebytte står samme
+agent med to rader, og tabellen var nøklet på <code dir="auto">integration_id</code>. To like
+nøkler kaster i en Svelte-mal, og et ukastet unntak der FRYSER
+komponentens reaktivitet — kortet ble dødt, ikke feil (CLAUDE.md punkt
+68, andre gang). Listen bærer nå <code dir="auto">grant_id</code>, og testen fester at hver
+rad har sin egen nøkkel mens <code dir="auto">integration_id</code> er felles.</p>
+<div class="sl-heading-wrapper level-h4"><h4 id="fortsatt-ikke-gjort-1">Fortsatt ikke gjort</h4><a class="sl-anchor-link" href="#fortsatt-ikke-gjort-1"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Fortsatt ikke gjort”</span></a></div>
+<ul>
+<li><strong>Ingen nøkkelrotasjon for provisjoneringshemmeligheten.</strong> Byttes den,
+må <code dir="auto">PROVISION_CLIENTS</code> og regnmeds config endres sammen.</li>
+<li><strong>En mislykket provisjonering etterlater ingenting hos kunden, men kan
+etterlate en ubrukt klient i regnid.</strong> Den er inert (ingen grant),
+og <code dir="auto">[provision]</code>-loggen navngir den, men ingen rydder den bort.</li>
+</ul>
+<div class="sl-heading-wrapper level-h3"><h3 id="87-arbeidskø-i-stedet-for-cronjob-levert-2026-10-29">8.7 Arbeidskø i stedet for CronJob (levert 2026-10-29)</h3><a class="sl-anchor-link" href="#87-arbeidskø-i-stedet-for-cronjob-levert-2026-10-29"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “8.7 Arbeidskø i stedet for CronJob (levert 2026-10-29)”</span></a></div>
+<p>CronJobben kjørte hvert femte minutt med <code dir="auto">concurrencyPolicy: Forbid</code>.
+Det betydde ÉN agentoppgave om gangen for HELE plattformen — ikke én per
+selskap. En bokfører som malte seg gjennom tolv turer blokkerte alle
+andres agenter til den var ferdig eller traff 900-sekundersgrensen.</p>
+<p>Det er ikke en forsinkelse man justerer bort. Det er et tak på én, og
+«hvert femte minutt» var aldri den egentlige kostnaden.</p>
+<p>NATS JetStream stod alt i begge clusterne og var alt en avhengighet
+(<code dir="auto">regnmed-mail</code>), så dette krevde ingen ny infrastruktur.</p>
+<div class="sl-heading-wrapper level-h4"><h4 id="køen-er-en-dørklokke-ikke-fasiten">Køen er en DØRKLOKKE, ikke fasiten</h4><a class="sl-anchor-link" href="#køen-er-en-dørklokke-ikke-fasiten"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Køen er en DØRKLOKKE, ikke fasiten”</span></a></div>
+<p><code dir="auto">agent_oppgave</code> i databasen er fortsatt autoritativ: den vet hvilke
+oppgaver som står åpne og hva som skjedde med dem. En melding på
+<code dir="auto">regnmed.agent.oppgave</code> sier bare «se nå» i stedet for «se innen fem
+minutter». To konsekvenser, begge med vilje:</p>
+<ol>
+<li><strong>En tapt melding koster VENTETID, ikke arbeid.</strong> Feiebrettet —
+<code dir="auto">regnmed-agent run</code>, timelig CronJob — finner oppgaven uansett. En
+NATS-nedetid setter altså agentene tilbake til oppførselen de hadde
+før køen fantes, framfor å stoppe dem.</li>
+<li><strong>En duplisert melding koster INGENTING</strong>, fordi workeren tar en lås
+i databasen før den gjør noe. At-least-once er greit når det som
+leveres er et puff.</li>
+</ol>
+<p><strong>Hva som teller som duplikat</strong> (endret 2026-11-16): meldings-id-en er
+<code dir="auto">{oppgave}:{årsak}</code>, der årsaken er oppgaven selv når den opprettes og
+meldingen eller svaret som fortsetter den. Samme årsak sendt to ganger
+innenfor strømmens duplikatvindu (120 s) blir ett puff; et NYTT svar blir
+det aldri. Før var id-en oppgaven alene, og et andre «Prøv igjen» 110
+sekunder etter det første ble kastet som duplikat av et puff som alt var
+arbeidet av — oppgaven sto som «jobber med det» uten at noen gjorde det,
+til feiebrettet kom. Testen (<code dir="auto">taskqueue::a_new_reply_is_never_a_duplicate</code>)
+er sett feile med den gamle id-en.</p>
+<p>Meldingen bærer bare id-er. Hva agenten leser og skriver blir mellom
+workeren og API-et; å legge regnskapsdata på en delt strøm ville utvidet
+hvor de dataene ligger lagret uten å gi noe — workeren må slå opp i
+databasen uansett.</p>
+<div class="sl-heading-wrapper level-h4"><h4 id="låsen-migrasjon-0069">Låsen (migrasjon 0069)</h4><a class="sl-anchor-link" href="#låsen-migrasjon-0069"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Låsen (migrasjon 0069)”</span></a></div>
+<p>Hvorfor en lås når en work queue alt leverer til én konsument? Fordi
+<code dir="auto">ack_wait</code> må være lang — en modelltur tar minutter — og en
+re-levering etter at den utløper ville satt worker nummer to på en
+oppgave worker nummer én fortsatt kjører. <strong>Den oppgaven bokfører
+bilag.</strong> At-least-once pluss en ubeskyttet hovedbokskriving er nøyaktig
+kombinasjonen dette systemet finnes for å hindre.</p>
+<p><code dir="auto">agent_task_claim</code> er derfor et LEIEFORHOLD, ikke et spor: raden
+slettes når oppgaven er ferdig. Hva agenten gjorde står i
+<code dir="auto">agent_oppgave_hendelse</code>, som er innsettings-bar og forblir det.</p>
+<p>Å ta låsen er ÉN setning (<code dir="auto">insert … on conflict do update … where claimed_at &lt; now() - interval</code>), altså atomisk: enten holder du raden
+eller så gjør noen andre det, og ingen rekkefølge av lesere kan få to
+til å tro de vant. Testen kjører ti samtidige forsøk og krever nøyaktig
+én vinner — <strong>sett feile</strong> med den åpenbare lese-så-skrive-varianten.
+En lås eldre enn <code dir="auto">CLAIM_TTL_MINUTES</code> (15) kan overtas, ellers ville en
+worker som ble drept parkert oppgaven for alltid.</p>
+<p>Feiebrettet tar samme lås. Uten det ville nettopp det stedet vært det
+ene som kunne kjøre en oppgave to ganger — og helst når et etterslep
+gjør det mest sannsynlig.</p>
+<div class="sl-heading-wrapper level-h4"><h4 id="samtidige-verktøykall-i-én-tur">Samtidige verktøykall i én tur</h4><a class="sl-anchor-link" href="#samtidige-verktøykall-i-én-tur"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Samtidige verktøykall i én tur”</span></a></div>
+<p>Verktøykall fra ÉN tur er uavhengige av hverandre: modellen ba om alle
+før den så noe svar. De kjører nå fire om gangen (<code dir="auto">CONCURRENT_TOOLS</code>),
+bundet fordi API-et ratebegrenser per integrasjon — et ubundet byks
+ville gitt agenten en 429 og brukt en tur på å bli irettesatt.</p>
+<p>Dette er den ENESTE parallelliteten én oppgave kan ha. Turer kan ikke
+overlappe, for en turs inndata ER forrige turs utdata; å sende turer på
+en kø ville bare vært stafett mellom workere, med samme klokketid og
+regnskapsdata på kjøpet. Samtidighet PÅ TVERS av oppgaver er det køen
+gir: ti agenter for ti selskaper kjører faktisk samtidig.</p>
+<p>Stafetten finnes forresten alt, der den lønner seg: når agenten stiller
+et spørsmål, slippes workeren, og hvilken som helst worker kan ta
+oppgaven igjen når et menneske svarer — tråden bygges opp fra
+<code dir="auto">agent_oppgave_hendelse</code>, ikke fra minnet. Overleveringen skjer altså
+når man venter på et MENNESKE, som tar timer, ikke på en modell, som
+tar sekunder.</p>
+<div class="sl-heading-wrapper level-h4"><h4 id="drift">Drift</h4><a class="sl-anchor-link" href="#drift"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Drift”</span></a></div>
+<p><code dir="auto">regnmed-agent listen</code> er en Deployment; replikatallet er taket på
+samtidige agentoppgaver (test 1, prod 3). <code dir="auto">regnmed-agent run</code> er
+feiebrettet, timelig. Workeren krever <code dir="auto">NATS_URL</code> og nekter å starte uten
+— en lytter uten kø ser frisk ut og gjør ingenting.</p>
+</div><footer class="sl-flex" data-astro-cid-ddtxxk7k><div class="meta sl-flex" data-astro-cid-ddtxxk7k><a href="https://github.com/BogenTech/regnmed/edit/main/docs/agent.md" class="sl-flex print:hidden" data-astro-cid-qlekgd3o><svg data-astro-cid-qlekgd3o="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.2em;" data-astro-cid-hkc32dio><path d="M22 7.24a1 1 0 0 0-.29-.71l-4.24-4.24a1 1 0 0 0-1.1-.22 1 1 0 0 0-.32.22l-2.83 2.83L2.29 16.05a1 1 0 0 0-.29.71V21a1 1 0 0 0 1 1h4.24a1 1 0 0 0 .76-.29l10.87-10.93L21.71 8c.1-.1.17-.2.22-.33a1 1 0 0 0 0-.24v-.14l.07-.05ZM6.83 20H4v-2.83l9.93-9.93 2.83 2.83L6.83 20ZM18.17 8.66l-2.83-2.83 1.42-1.41 2.82 2.82-1.41 1.42Z"/></svg>Edit page</a></div><div class="pagination-links print:hidden" dir="ltr" data-astro-cid-b5raizh3><a href="/en/teknisk/abonnement/" rel="prev" data-astro-cid-b5raizh3><svg data-astro-cid-b5raizh3="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;" data-astro-cid-hkc32dio><path d="M17 11H9.41l3.3-3.29a1.004 1.004 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33 1 1 0 0 0 0 .76 1 1 0 0 0 .21.33l5 5a1.002 1.002 0 0 0 1.639-.325 1 1 0 0 0-.219-1.095L9.41 13H17a1 1 0 0 0 0-2Z"/></svg><span data-astro-cid-b5raizh3>Previous<br data-astro-cid-b5raizh3><span class="link-title" data-astro-cid-b5raizh3>Abonnement: regnmeds egen kasse</span></span></a><a href="/en/teknisk/aksjonaer/" rel="next" data-astro-cid-b5raizh3><svg data-astro-cid-b5raizh3="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;" data-astro-cid-hkc32dio><path d="M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z"/></svg><span data-astro-cid-b5raizh3>Next<br data-astro-cid-b5raizh3><span class="link-title" data-astro-cid-b5raizh3>Aksjeeierbok og aksjonærregisteroppgave (RF-1086)</span></span></a></div></footer></div></div></main></div></div></div></div></body></html>
