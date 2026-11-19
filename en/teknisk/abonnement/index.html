@@ -440,10 +440,34 @@ fakturering slår opp pris etter dato. Konsollen viser derfor hvor mange selskap
 som er på pakken, og API-et krever <code dir="auto">confirm_existing</code> når det er noen. Grandfathering
 er gratis bare for en ny <code dir="auto">slug</code>. Typen (pakke eller tillegg) til en <code dir="auto">slug</code> kan ikke
 endres etter første versjon.</li>
-<li><strong>Grensene er beskrivende.</strong> Ingenting måler eller håndhever dem ennå. De
-finnes slik at prissiden og konsollen sier det samme, og slik at den dagen
-håndhevingen bygges leser den tallet kunden ble vist. Det samme gjelder at
-kjøp av en tilleggstjeneste ennå ikke er bygget som dekningsrad.</li>
+<li><strong>Grensene håndheves slik (brukerbeslutning 2026-11-18):</strong> bokføringen stoppes
+aldri. Over bilaggrensen (bilag i inneværende regnskapsår, importjournalen IMP
+ikke medregnet) er bare en opplysning: <code dir="auto">GET …/subscription</code> svarer <code dir="auto">over_bilag</code>,
+og portalen foreslår den minste pakken som passer. <strong>Ansatte i lønn og
+integrasjoner/agenter har en hard grense</strong>: en ny ansatt eller et nytt
+integrasjonsgrant over grensen avvises med en melding som navngir pakken
+(<code dir="auto">plans::ensure_room</code>, kjørt i samme transaksjon som innsettingen, etter en lås på
+selskapsraden, så to samtidige forespørsler ikke begge tar siste plass). Grensene
+leses fra pakken selskapet har dekning på i dag. <strong>Prøveperioden og selskaper uten
+dekning har ingen grenser</strong>, og de gamle pakkene <code dir="auto">basis</code> og <code dir="auto">standard</code> har heller
+ingen, så eksisterende kunder merker ingenting (grandfathering).</li>
+<li><strong>Pakkebytte</strong>: <code dir="auto">POST …/subscription/change</code> (selskapsadmin). En <strong>oppgradering</strong>
+(høyere månedspris) gjelder fra i dag, og er måneden allerede fakturert, faktureres
+prisforskjellen nå. En <strong>nedgradering</strong> gjelder fra den 1. i neste måned. Begge regler
+hindrer at en måned betales til den lille prisen mens den store pakken var i bruk.
+Byttet, forskjellsfakturaen og raden i <code dir="auto">subscription_upgrade_run</code> (migrasjon 0095,
+unik per selskap, måned og ny plan) er én transaksjon, så et nytt forsøk verken
+dobbeltfakturerer eller lar et bytte stå ufakturert. Den gamle dekningsraden beholder
+sin plan. Et kortabonnement (Stripe) byttes foreløpig av oss.</li>
+<li><strong>Passform</strong>: oppstart og bytte nektes til en pakke selskapet ikke får plass i (flere
+aktive ansatte eller integrasjoner enn grensen), med en melding om hva som må fjernes.
+Bilag avgjør aldri passform.</li>
+<li><strong>Hva som telles som bilag</strong>: bilag i regnskapsåret fra et menneske eller en
+integrasjon. Importjournalen IMP og bilagene regnmed fører selv (avskrivninger,
+periodiseringer, lønnskjøringer, purregebyr, årsavslutning) telles ikke.</li>
+<li><strong>Bare det som er til salgs kan velges</strong>: oppstart og bytte godtar bare en listet
+pakke (ikke et tillegg) med en månedspris som gjelder i dag, pluss planen fra selskapets
+siste dekning: en kunde på en gammel pakke kan starte igjen på den etter et opphold.</li>
 <li><strong>Offentlig</strong>: <code dir="auto">GET /pricing</code> (åpent) gir listede pakker og tillegg med dagens
 pris og neste daterte endring. Svaret mellomlagres 30 sekunder per prosess og nullstilles ved hver endring.
 Nettsiden leser det ved bygg og bygges på nytt hver sjette time (faller tilbake til
