@@ -423,6 +423,17 @@ den leser. <code dir="auto">bank_kontoer</code> sier enheten med et eksempel, og
 kroner, som søkefeltet i portalen) — det eneste stedet en agent skal
 skrive kroner til systemet. Integrasjonstesten fester at «200» finner en
 linje på −20000 øre, og at «-20000» ikke gjør det.</p>
+<p>Det holdt ikke. Prøvd på nytt i prod etter v0.23.1 svarte agenten fortsatt
+111 775 kr — men hver ny melding gikk i SAMME samtale, så historikken bar
+det første svaret med seg, og agenten bekreftet sitt eget tall
+(«Forrige oppsummering stemmer»). Om regelen virket, lot seg derfor ikke
+måle. Svaret ble å fjerne regnestykket: MCP-serveren
+(<code dir="auto">regnmed-mcp::with_kroner</code>) legger til et <code dir="auto">&lt;x&gt;_kr</code>-felt ved siden av
+hvert heltalls <code dir="auto">&lt;x&gt;_ore</code>-felt i et svar, med beløpet skrevet som en
+nordmann skriver det («1 117,75»). Øre-feltet står urørt — det er det en
+skriving tar — og et eksisterende felt overskrives aldri. Det gjelder
+alle verktøy, for både den hostede agenten og eksterne MCP-klienter, uten
+endring i API-et.</p>
 <div class="sl-heading-wrapper level-h3"><h3 id="filer-går-som-sti-ikke-som-base64">Filer går som sti, ikke som base64</h3><a class="sl-anchor-link" href="#filer-går-som-sti-ikke-som-base64"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Filer går som sti, ikke som base64”</span></a></div>
 <p><code dir="auto">bilag_last_opp</code>, <code dir="auto">saft_analyser</code>, <code dir="auto">saft_importer</code> og de to
 CSV-importene tar en <strong>sti til en fil på agentens maskin</strong>. Serveren
