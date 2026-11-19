@@ -176,8 +176,8 @@ sertifikat — da uten mellomledd og uten pris per konto.</p>
 <p><strong>Tre regler, alle testet og sett feile:</strong></p>
 <ol>
 <li><em>Uten konfigurert leverandør finnes ikke funksjonen.</em> <code dir="auto">ENABLEBANKING_APP_ID</code>
-og <code dir="auto">ENABLEBANKING_KEY_FILE</code> (begge eller ingen; nøkkelen er en fil utenfor
-repo og image, docs/secrets.md). Uten dem svarer status <code dir="auto">konfigurert: false</code>,
+sammen med <code dir="auto">ENABLEBANKING_KEY</code> (PEM-tekst) eller <code dir="auto">ENABLEBANKING_KEY_FILE</code> (alt
+eller ingenting; nøkkelen ligger utenfor repo og image, docs/secrets.md). Uten dem svarer status <code dir="auto">konfigurert: false</code>,
 portalen viser ikke kortet, og hvert kall nekter.</li>
 <li><em>Uten tillegget kan selskapet verken koble til eller hente.</em> <code dir="auto">company_addon</code>
 er dekningsrader per tillegg (som <code dir="auto">abonnement</code>): tildeling er en innsetting,
@@ -223,10 +223,27 @@ egne ord går til loggen, aldri til portalen) og neste henting prøver igjen.</p
 <p><strong>Vi holder ikke samtykker vi ikke bruker.</strong> En økt som ikke blir koblet (feil
 konto, feil valuta, tapt kappløp), økten en fornyelse erstatter, og økten bak
 «Koble fra» lukkes hos leverandøren.</p>
-<p><strong>Ikke bygget:</strong> nattlig henting (bare «Hent nå» i portalen; en planlagt jobb
-kommer når en applikasjon er registrert og nøkkelen ligger i clusteret), varsel
-før samtykket utløper, kjøp og fakturering av tillegget, og saldo fra banken
-(utdraget har ingen inn-/utgående saldo, som CSV). <strong>Kjente begrensninger:</strong>
+<p><strong>Automatisk henting.</strong> Når en kobling fullføres, får selskapet en tidsplan
+(<code dir="auto">bank_sync</code>, docs/jobs.md «Tidsplaner») til et nattlig standardtidspunkt spredt
+per selskap, så ikke alle spør leverandøren i samme minutt. Den som har
+<code dir="auto">BANK_AVSTEM</code> kan endre klokkeslettene (høyst fire i døgnet: bankene begrenser
+henting uten at brukeren er til stede) eller sette den på pause. Jobben kjører
+NØYAKTIG samme funksjon som «Hent nå» (<code dir="auto">regnmed-db::bank_feed::sync</code>) for hver
+kobling. En kobling som feiler, feiler ikke jobben — nye forsøk ville bare brukt
+opp bankens dagskvote — den står i resultatets <code dir="auto">feil</code>, på norsk. Arbeideren
+trenger de samme leverandørinnstillingene som API-et: begge leser dem fra den
+valgfrie hemmeligheten <code dir="auto">bank-feed</code> (<code dir="auto">ENABLEBANKING_APP_ID</code>, <code dir="auto">ENABLEBANKING_KEY</code>).</p>
+<p>Planen skriver ingen jobb når det ikke er noe å hente fra: uten en levende
+kobling, uten tillegget, eller mens abonnementet er sperret, flyttes den bare
+videre — og begynner igjen av seg selv når vilkåret holder. Et samtykke som er
+gått ut på dato spørres det ikke banken om: koblingen avsluttes
+(<code dir="auto">samtykke utlopt</code>), akkurat som når banken selv sier at samtykket er borte, og
+brukeren må koble til på nytt. To hentinger som kappløper om de samme linjene
+(«Hent nå» mens nattjobben kjører) gir ikke en feil: den som taper, melder null
+nye, og linjene står der én gang.</p>
+<p><strong>Ikke bygget:</strong> varsel før samtykket utløper, kjøp og fakturering av tillegget,
+og saldo fra banken (utdraget har ingen inn-/utgående saldo, som CSV).
+<strong>Kjente begrensninger:</strong>
 laster noen opp en fil for dager koblingen ALT har hentet, kommer de linjene to
 ganger (filimporten kjenner ikke strømmen); og sidestørrelsen hos leverandøren er
 ikke dokumentert — klienten stopper først etter 1000 sider, og nekter da heller
