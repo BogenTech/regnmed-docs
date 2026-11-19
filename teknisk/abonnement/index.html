@@ -430,6 +430,9 @@ hvem. <code dir="auto">basis</code> og <code dir="auto">standard</code> er sådd
 <code dir="auto">bank</code> (direkte bankkobling, #70), som er listet som «kommer»
 (<code dir="auto">available = false</code>) uten pris, og kan ikke bestilles før den virker. Flere
 legges til i konsollen etter hvert.</li>
+<li><strong>Hvem som har et tillegg</strong> står i <code dir="auto">company_addon</code> (migrasjon 0096): daterte
+dekningsrader per selskap og tillegg, tildelt av systemadmin med referanse inntil
+kjøp i portalen og fakturering av tillegg er bygget (docs/bank.md «Bankkobling»).</li>
 <li><strong>Pris</strong> er fortsatt <code dir="auto">abonnement_pris</code> (§4): daterte, innsettings-bare rader.
 Konsollen kan bare legge til en rad som gjelder fra i dag eller senere, med en
 kilde, så fakturering som slår opp pris etter dato aldri får en gammel måned
