@@ -964,6 +964,17 @@ må komme fra en operatør som kjørte <code dir="auto">regnid add-client</code>
 §8 åpnet med, og det er nå i veien for den vanlige kunden.</p>
 </li>
 </ul>
+<p><strong>Én rapport per tur (2026-11-19).</strong> Workeren skriver rapporten fra
+sluttmerket (<code dir="auto">SPØRSMÅL:</code>/<code dir="auto">FERDIG:</code>/<code dir="auto">AVVIST:</code>). Rollepromptene deles med
+eksterne agenter og ber dem kalle <code dir="auto">oppgave_svar</code>, så en vertsagent gjorde
+begge deler: i testmiljøet sto annenhver tur med to <code dir="auto">sporsmal</code> ett sekund
+fra hverandre, og agenten så seg selv si alt to ganger i historikken og
+gjentok det neste gang også. Workeren tilbyr derfor ikke <code dir="auto">oppgave_svar</code>
+til modellen, avviser et kall til det med beskjed om å bruke merket, og
+avslutningsreglene (som står sist) sier at merket ER rapporten. Et kall
+med <code dir="auto">utfort</code> ville dessuten lukket oppgaven før workerens egen rapport,
+som da ble nektet. Testet i
+<code dir="auto">the_hosted_worker_reports_once_even_when_the_model_calls_the_report_tool</code>.</p>
 <div class="sl-heading-wrapper level-h3"><h3 id="84-hva-den-ekte-leverandøren-fant">8.4 Hva den ekte leverandøren fant</h3><a class="sl-anchor-link" href="#84-hva-den-ekte-leverandøren-fant"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “8.4 Hva den ekte leverandøren fant”</span></a></div>
 <p><code dir="auto">crates/regnmed-api/tests/ekte_leverandor.rs</code> er en håndkjørt prøvebenk mot
 OpenRouter. Den koster penger, så testene er <code dir="auto">#[ignore]</code> og kjører bare når
