@@ -270,7 +270,18 @@ enn å importere halvt.</p>
 <li><code dir="auto">bank_statement</code> — one imported statement per ledger bank account.
 Statements are dokumentasjon: insert-only for the app role, and
 re-import of the same bank statement id (<code dir="auto">Stmt/Id</code>) is rejected —
-imports are idempotent.</li>
+imports are idempotent.
+A DIFFERENT file covering days already on the account (an overlapping
+export, or days the bank connection fetched) is not a second copy
+either: each line already there — same day, same amount, from any
+file or the bank connection — is skipped one for one, and the answer
+says how many (<code dir="auto">skipped</code>). The bank connection applies the same rule
+the other way. Counting one for one keeps a file exported at noon and a
+later full-day export right: the afternoon’s second payment of the same
+amount still comes in. What day-and-amount cannot see is two files that
+each hold a DIFFERENT payment of the same amount on the same day —
+bank exports of a day are supersets of each other, so this needs a
+hand-edited file.</li>
 <li><code dir="auto">bank_transaction</code> — statement lines. Amounts are stored in <strong>ledger
 sign for the bank account</strong>: money in (CRDT) = debit = positive, so a
 bank transaction equals its ledger entry exactly.</li>
