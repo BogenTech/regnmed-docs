@@ -168,6 +168,17 @@ forsøket på nytt. En agent uten noen av delene kjøres ikke av regnmed:
 en kundes egen MCP-agent ser nøyaktig slik ut, og den skal aldri få
 beskjed om at den er ødelagt. Der sier samtalen fra i stedet
 (<code dir="auto">runs_here: false</code>): agenten svarer bare der den kjøres.</li>
+<li><strong>«Ny samtale» (migration 0098, 2026-11-19).</strong> Siden hver bestilling
+bærer de siste meldingene, og en agent stoler på det den selv svarte
+før, kom et galt svar tilbake i hver ny bestilling — i prod rapporterte
+agenten samme gale saldo tre ganger og bekreftet sitt eget tall. Knappen
+«Ny samtale» i en agentsamtale (<code dir="auto">POST …/restart</code>) skriver en rad i
+<code dir="auto">chat_restart</code> (innsettings-bar): fra da av sendes ingenting fra før
+merket med neste bestilling, og et åpent spørsmål fra før blir ikke
+fortsatt — neste melding er en ny oppgave. INGENTING slettes: meldingene
+står i tråden som før, med en strek der samtalen startet på nytt
+(<code dir="auto">ny_start</code> i svaret). Gjelder bare samtaler med en agent; mellom to
+mennesker er det ingenting å glemme.</li>
 <li><strong>En agent starter ikke samtaler og skriver ikke til andre agenter</strong>:
 den svarer gjennom oppgavene sine. #103s egenskap («en agent skriver
 ikke sine egne ordrer») består.</li>
@@ -255,6 +266,10 @@ tidsstempel. Klienten fjerner duplikater på id.</p>
 <tr>
 <td><code dir="auto">POST /chat/conversations/{id}/read</code></td>
 <td><code dir="auto">{until}</code> — merket flyttes bare framover</td>
+</tr>
+<tr>
+<td><code dir="auto">POST /chat/conversations/{id}/restart</code></td>
+<td>«Ny samtale» med en agent: ingenting før dette sendes med neste bestilling; svaret bærer <code dir="auto">ny_start</code> (400 mellom mennesker)</td>
 </tr>
 <tr>
 <td><code dir="auto">GET /chat/unread</code></td>
@@ -394,7 +409,10 @@ kontakt (bare admin velger, bare egne medlemmer), kvittering til agenten
 sortering etter nyeste melding, uleste, bjella (agentens spørsmål er
 Evas varsel og ingen andres, borte når hun svarer, og tømt av
 «Marker alle som lest»), utenforstående = 404, og
-samtalen som forsvinner når oppdraget avsluttes.
+samtalen som forsvinner når oppdraget avsluttes. «Ny samtale»: et
+åpent spørsmål fra før blir ikke fortsatt, bestillingen bærer ingenting
+fra før merket men det som er sagt etter, tråden beholder alle meldingene
+og viser merket, og 400 mellom to mennesker — sett feile uten filteret.
 <code dir="auto">an_agents_task_history_is_its_conversation_and_long_threads_page</code>: en
 oppgave gitt fra kortet blir samtalen (bestilling, spørsmål, svar,
 resultat i rekkefølge, siste linje i listen), og siden + markøren henter
