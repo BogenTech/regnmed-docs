@@ -130,7 +130,15 @@ både <code dir="auto">EndpointID</code>, <code dir="auto">PartyIdentification</
 (samme daterte oppslag som posteringen brukte), så dokumentet kan
 ikke drive fra hovedboken.</li>
 <li>Ett <code dir="auto">TaxSubtotal</code> per sats; en linje uten mva-kode blir nullsats (Z),
-ikke utelatt.</li>
+ikke utelatt. <strong>En selger utenfor Merverdiavgiftsregisteret bruker
+kategori O</strong> («ikke mva-pliktig») med begrunnelse og uten sats, og
+dokumentet bærer da verken selgerens eller kjøperens mva-nummer
+(BR-O-02, BR-O-05, BR-O-10).</li>
+<li>Selgeren oppgir «Foretaksregisteret» når den er registrert der på
+fakturadatoen (Peppol-regel NO-R-002), fra samme daterte registrering
+som PDF-en.</li>
+<li>Et leveringssted bærer landkode (BR-57). Stedet er fritekst, så landet
+er kjøperens.</li>
 <li>Kreditnota bruker <code dir="auto">CreditNote</code>-elementene, koden 381, og navngir
 fakturaen den krediterer i <code dir="auto">BillingReference</code>. Ingen forfallsdato,
 ingen betalingsinformasjon.</li>

@@ -88,6 +88,24 @@ men ble det bokført?» — uten å gjøre noe raskere.</p>
 <td><code dir="auto">RAPPORT_LES</code></td>
 <td>20 000 bilag + 2 000 vedlegg på 1,1 s</td>
 </tr>
+<tr>
+<td>Kanaloppslag for en faktura</td>
+<td><code dir="auto">POST /companies/{id}/invoices/{iid}/delivery-check</code></td>
+<td><code dir="auto">FAKTURA_SEND</code></td>
+<td>ikke målt mot leverandøren</td>
+</tr>
+<tr>
+<td>Utsendelse av en faktura</td>
+<td><code dir="auto">POST /companies/{id}/invoices/{iid}/send</code></td>
+<td><code dir="auto">FAKTURA_SEND</code></td>
+<td>ikke målt mot leverandøren</td>
+</tr>
+<tr>
+<td>EHF-avsender</td>
+<td><code dir="auto">POST /companies/{id}/peppol/sender</code></td>
+<td><code dir="auto">SELSKAP_ADMIN</code></td>
+<td>ikke målt mot leverandøren</td>
+</tr>
 </tbody>
 </table>
 <p><code dir="auto">GET /companies/{id}/jobs/{job_id}</code> gir status (<code dir="auto">queued</code>, <code dir="auto">running</code>,

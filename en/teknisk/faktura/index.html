@@ -278,7 +278,8 @@ serde-defaulted <code dir="auto">reply_to</code> + base64 <code dir="auto">attac
 stay configured in exactly one place, the worker.</li>
 <li><strong>Sending is an explicit human action</strong> (portal Send buttons, or
 <code dir="auto">POST …/invoices/{iid}/send</code> / <code dir="auto">POST …/reminders/{rid}/send</code>, both
-bokforing+). Recipient defaults to the party’s stored e-mail,
+bokforing+). An invoice send answers <code dir="auto">202</code> with a <code dir="auto">job_id</code>: <code dir="auto">regnmed work</code> chooses EHF or e-mail and sends it (docs/efaktura.md §3.1), and
+the outcome is in <code dir="auto">GET …/jobs/{job_id}</code>. Recipient defaults to the party’s stored e-mail,
 overridable per send; <strong>reply-to is the company’s own address</strong>
 (settings), never regnmed’s.</li>
 <li><strong>Insert-only utsendelseslogg</strong> (migration 0020): who sent what to

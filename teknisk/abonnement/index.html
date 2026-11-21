@@ -331,10 +331,12 @@ driftsselskapets egen fakturering er nettopp maskinell. Den daglige
 CronJobben <code dir="auto">regnmed abonnement-oppfolging</code> lukker livssyklusen:</p>
 <ol>
 <li>
-<p><strong>Send</strong>: abonnementsfakturaer uten utsendelsesrad e-postes til
-kundeselskapets egen adresse (Firmaopplysninger) med PDF-en vedlagt.
-Utsendelses-id-en er Nats-Msg-Id, så en omsending kan aldri
-dobbeltlevere. <strong>Også et oppgjort salgsdokument sendes</strong> (#223):
+<p><strong>Send</strong>: abonnementsfakturaer uten utsendelsesrad legges som
+<code dir="auto">invoice_dispatch</code>-jobber. Arbeideren velger EHF eller e-post
+(docs/efaktura.md §3.1); e-post går til kundeselskapets egen adresse
+(Firmaopplysninger) med PDF-en vedlagt. En Peppol-sending som beviselig
+aldri gikk (<code dir="auto">ikke_sendt</code>), får en ny jobb. <code dir="auto">uavklart</code>, <code dir="auto">leveringsfeil</code>
+og <code dir="auto">avvist</code> sendes ikke automatisk på nytt, men rapporteres av jobben. <strong>Også et oppgjort salgsdokument sendes</strong> (#223):
 kjøperen er bokføringspliktig, og fra 1.1.2028 skal salgsdokumentet
 alltid sendes til en bokføringspliktig kjøper
 (bokføringsforskriften § 5-2-1 fjerde ledd). Det gjelder en faktura
@@ -363,7 +365,9 @@ senere, inkassovarsel med rente 14 dager etter det — og så stopper
 maskinen: inkasso hører til bevillingshavere (docs/purring.md).
 Hvert skritt går gjennom samme <code dir="auto">create_reminder</code> som menneskene
 bruker — stegreglene og satsregisteret håndhever lovligheten, kravet
-bokføres i samme transaksjon, dokumentet lagres. En purring må nå
+bokføres i samme transaksjon, dokumentet lagres. <strong>Purretrappen starter
+først når fakturaen har nådd kjøperen:</strong> en e-post er sendt, eller
+Peppol har meldt <code dir="auto">levert</code>. En purring må nå
 noen: selskap uten e-postadresse purres ikke, men rapporteres
 høylytt til noen retter adressen.</p>
 </li>
