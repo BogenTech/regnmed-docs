@@ -806,9 +806,16 @@ slettes hos Altinn før en ny sendes, fordi Altinn ellers svarer med den gamle
 og <code dir="auto">externalRef</code> må forbli standardverdien for at Maskinporten skal finne
 systembrukeren. En forespørsel Altinn ikke lenger har, regnes som utløpt.
 Svarer Altinn <code dir="auto">AUTH-00004</code> eller <code dir="auto">AUTH-00006</code>, har selskapet alt godkjent
-systemet. «Sjekk status» spør Altinn også etter en godkjenning, så en
-systembruker kunden har fjernet, gir en ny forespørsel. Bare lenker til
-<code dir="auto">altinn.no</code> vises.
+systemet. <code dir="auto">POST …/altinn/system-user/check</code> spør Altinn om en åpen
+forespørsel eller en godkjenning og lager aldri en ny, så portalen kan kjøre
+den hver gang kortet åpnes. Har Altinn ikke lenger en godkjent forespørsel,
+har kunden fjernet systembrukeren: status blir <code dir="auto">Revoked</code>, og en ny
+forespørsel sendes først når noen velger «Koble til Altinn». <code dir="auto">Revoked</code>
+sjekkes også på nytt, så en tilfeldig 404 fra Altinn ikke blir stående.
+En godkjenning
+Altinn meldte uten forespørsel (<code dir="auto">AUTH-00004</code>/<code dir="auto">AUTH-00006</code>) har ingenting å
+slå opp, så for den spør «Sjekk status» Altinn ved å be om tilgang på nytt.
+Bare lenker til <code dir="auto">altinn.no</code> vises.
 Klient-systembrukere for regnskapsførere er ikke bygget ennå.</p>
 <div class="sl-heading-wrapper level-h3"><h3 id="første-a-melding-2026-11-11-mottatt-uten-avvik">Første a-melding, 2026-11-11: mottatt uten avvik</h3><a class="sl-anchor-link" href="#første-a-melding-2026-11-11-mottatt-uten-avvik"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Første a-melding, 2026-11-11: mottatt uten avvik”</span></a></div>
 <p>Første ekte kall mot Skatteetatens a-melding-API, med
