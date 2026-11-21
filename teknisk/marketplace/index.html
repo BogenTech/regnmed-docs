@@ -164,14 +164,46 @@ a lookup happened to break.</li>
 (<code dir="auto">autorisasjon_verified_at</code>, <code dir="auto">autorisasjon_ref</code>) — audit trail for the
 directory (#23) and for revisjon.</li>
 </ul>
-<p><strong>Adapter status</strong>: Finanstilsynets virksomhetsregister is public, but
-its API endpoint is not stably documented, so
-<code dir="auto">regnmed-gov::finanstilsynet</code> is a thin adapter behind
-<code dir="auto">FINANSTILSYNET_API_URL</code> expecting
-<code dir="auto">GET {base}/virksomheter/{orgnr}</code> → <code dir="auto">{"autorisasjoner":[{"kode","aktiv"}]}</code>.
-The URL and field mapping get pinned against the live register during
-pilot onboarding; the enforcement point, flow and tests are real today
-and only the adapter may move. Re-verification cadence (licenses can be revoked) is a pilot decision.</p>
+<p><strong>Registeret</strong>: <code dir="auto">regnmed-gov::finanstilsynet</code> bruker Finanstilsynets åpne
+API, <code dir="auto">FINANSTILSYNET_API_URL=https://api.finanstilsynet.no/registry/v2</code>
+(OpenAPI: <code dir="auto">/registry/swagger/v2/swagger.json</code>, ingen nøkkel, 1 000 kall per
+minutt per IP, svar kan være opptil én time gamle). Oppslaget er
+<code dir="auto">GET /legal-entities/search?query={orgnr}</code>, der bare treff med nøyaktig samme
+orgnr teller, og deretter <code dir="auto">GET /legal-entities?ids=…</code> for lisensene.</p>
+<table>
+<thead>
+<tr>
+<th><code dir="auto">kind</code></th>
+<th>Teller for foretak</th>
+<th>Teller for enkeltpersonforetak</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code dir="auto">regnskap</code></td>
+<td><code dir="auto">REGS</code>, <code dir="auto">REGNSN</code></td>
+<td><code dir="auto">REGP</code></td>
+</tr>
+<tr>
+<td><code dir="auto">revisjon</code></td>
+<td><code dir="auto">REVS</code></td>
+<td><code dir="auto">REVP</code></td>
+</tr>
+</tbody>
+</table>
+<p>Et foretak må selv stå som lisenshaver (<code dir="auto">serviceProviderType = Licensed</code>). Et
+enkeltpersonforetak står oppført med innehaverens personlige lisens
+(<code dir="auto">SoleProprietorship</code>). Agenter og filialer av en lisenshaver teller ikke,
+heller ikke <code dir="auto">REVTHIRD</code>. Registeret viser gjeldende lisenser og har ikke noe
+aktiv-felt. Hvor ofte en lisens skal kontrolleres på nytt etter at byrået er
+registrert, er ikke avgjort.</p>
+<p><strong>Testmiljøet</strong> bruker det ekte registeret, fordi Finanstilsynet ikke har noe
+testregister. Tenors syntetiske selskaper står ikke der, så de får alltid
+«ikke autorisert», og ekte byråer finnes ikke i Brønnøysunds testregister. Et
+vellykket byråoppslag gjennom hele flyten kan derfor ikke kjøres i test.
+Tilkoblingen bevises med
+<code dir="auto">cargo nextest run -p regnmed-gov --run-ignored only finanstilsynet</code>, som går
+mot det ekte registeret, og flyten dekkes av integrasjonstesten.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="firm-membership-byråmedlemmer-78">Firm membership (byråmedlemmer, #78)</h2><a class="sl-anchor-link" href="#firm-membership-byråmedlemmer-78"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Firm membership (byråmedlemmer, #78)”</span></a></div>
 <p>A firm member reaches <strong>every client of the firm</strong> through the
 engagements (the access model resolves <code dir="auto">firm_member → engagement → company</code> live), so letting someone into the byrå is letting them into
