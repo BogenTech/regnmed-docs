@@ -314,8 +314,14 @@ tjenesteleverandører. Kravene leverandøren må måles mot:</p>
 <div class="sl-heading-wrapper level-h3"><h3 id="23-recommand-målt-mot-kravene">2.3 Recommand målt mot kravene</h3><a class="sl-anchor-link" href="#23-recommand-målt-mot-kravene"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2.3 Recommand målt mot kravene”</span></a></div>
 <p>Lest 2026-11-21 i Recommands egen dokumentasjon, vilkår og kildekode
 (<code dir="auto">recommand/recommand-peppol</code>, commit <code dir="auto">31110814</code>). Det som er merket
-<strong>prøvd</strong>, er kjørt mot deres playground 2026-11-21 med en syntetisk
-faktura. Der simuleres leveransen, så ekte Peppol-levering er ikke prøvd.</p>
+<strong>prøvd</strong> uten annen dato, er kjørt mot deres playground 2026-11-21 med en
+syntetisk faktura, der leveransen simuleres.</p>
+<p><strong>Levering på Peppol-testnettet er prøvd 2026-11-22.</strong> Arbeideren i
+testklyngen sendte en faktura fra et eget verifisert selskap til BOGENTECH AS
+gjennom Recommands test-aksesspunkt. XML-en hos Recommand hadde samme SHA-256 som
+vedlegget vårt, og mottakerens kopi hadde de samme 46 feltene. Statusen ble
+<code dir="auto">levert</code>. Begge selskapene ligger hos Recommand, så levering til et <strong>annet</strong>
+aksesspunkt er ikke prøvd.</p>
 <table>
 <thead>
 <tr>
@@ -780,10 +786,11 @@ stien er leverandøravtalen og kundenes verifisering, ikke koden.</p>
 <li>Leverandør valgt: Recommand. Kontrollere oppføringen i OpenPeppols
 liste, avgjøre om kontraktsverifisering er verdt å spørre om (§2.3), lese
 og signere avtale +
-databehandleravtale. Playground er opprettet og prøvd (§2.3). Ekte
-levering, ELMA-oppslaget for <code dir="auto">0192</code> og at en avsender med
-<code dir="auto">isSmpRecipient: false</code> ikke blir mottaker, må bekreftes med BogenTech
-i produksjon eller mot en ekte testmotpart.</li>
+databehandleravtale. Playground og Peppol-testnettet er prøvd (§2.3). På
+testnettet virker oppslaget for <code dir="auto">0192</code>, og en avsender med
+<code dir="auto">isSmpRecipient: false</code> står ikke i SML-en. Levering til et annet
+aksesspunkt må bekreftes mot en ekte testmotpart. Oppslaget og
+avsenderregelen må også bekreftes med BogenTech i produksjon.</li>
 <li>Bekrefte datalagring i EØS og legge leverandøren til som
 underdatabehandler i docs/kundevilkar.md §8 — <strong>30 dagers varsel</strong> til
 eksisterende kunder står i vilkårene. Varselet må ut i god tid før
