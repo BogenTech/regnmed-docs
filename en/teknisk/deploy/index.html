@@ -620,7 +620,12 @@ proves, unattended, that the backup restores <em>and</em> that the restored
 ledger is untampered. A backup that has never been restored is a
 hope, not a backup. Øvelsen hopper over nøyaktig én post i dumpen:
 kommentaren på <code dir="auto">pg_stat_statements</code>. Utvidelsen eies av superbrukeren,
-så restore-rollen får ikke sette den. Alle andre feil stopper øvelsen.</li>
+så restore-rollen får ikke sette den. Alle andre feil stopper øvelsen.
+Øvelsen nekter en dump som er eldre enn 25 timer, så en stoppet
+nattbackup ikke kan se grønn ut. Etter kontrollen, bestått eller ikke,
+sletter <code dir="auto">verify-ledger --drop-restore-copy</code> den gjenopprettede kopien.
+Flagget nekter alle andre databaser enn <code dir="auto">regnmed_restore_check</code>. Blir
+podden drept midt i kontrollen, står kopien til neste kjøring.</li>
 </ul>
 <p>The same drill runs anywhere via <code dir="auto">scripts/backup-verify.sh</code>
 (<code dir="auto">DATABASE_URL=… scripts/backup-verify.sh</code>). It has been exercised both
