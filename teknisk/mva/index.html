@@ -324,18 +324,28 @@ forsøket (60 sekunders klokkeslingring). Under periodelåsen avgjøres det
 på nytt om innsendingen kan godkjennes, siden den kan ha blitt erstattet
 mens personen var hos ID-porten. Godkjenningen, det forseglede tokenet og
 jobben <code dir="auto">vat_filing_submit</code> lagres i samme transaksjon.</li>
-<li><strong>Arbeideren</strong> gjør alle utgående kall: veksler til Altinn-token, kaller
-Skatteetatens validering (avvik stopper innsendingen og vises), oppretter
-instansen, laster opp konvolutt og melding, og tar <code dir="auto">process/next</code> to
-ganger. Regnskapet sjekkes på nytt rett før instansen opprettes og rett
-før det bekreftende steget.</li>
+<li><strong>Arbeideren</strong> gjør alle utgående kall: veksler til Altinn-token, spør
+Altinn hvem personen er, kaller Skatteetatens validering (avvik stopper
+innsendingen og vises), oppretter instansen, laster opp konvolutt og
+melding, og tar <code dir="auto">process/next</code> to ganger. Regnskapet sjekkes på nytt rett
+før instansen opprettes og rett før det bekreftende steget.</li>
 <li>Betalingsinformasjon, kvittering og valideringsresultat hentes uten at
-personen er til stede. Arbeideren spør hvert minutt så lenge
-Altinn-tokenet lever.</li>
+personen er til stede. Arbeideren spør hvert tiende sekund så lenge
+Altinn-tokenet lever. I TT02 levde tokenet to minutter. Kommer svaret
+senere, står innsendingen som <code dir="auto">sendt</code>, og portalen tilbyr «Logg inn og
+hent svar».</li>
 </ol>
 <p><strong>Hva som lagres om personen:</strong> regnmed-personen, ID-portens <code dir="auto">sub</code>
-(parvis, ikke fødselsnummer), <code dir="auto">acr</code> og <code dir="auto">auth_time</code>. <strong>Fødselsnummeret
-(<code dir="auto">pid</code>) leses aldri ut av tokenet.</strong> Tokenet ligger forseglet med
+(parvis, ikke fødselsnummer), <code dir="auto">acr</code>, <code dir="auto">auth_time</code> og navnet Altinn har på
+personen. <strong>Fødselsnummeret tas aldri vare på.</strong> <code dir="auto">pid</code> leses ikke ut av
+tokenet. Altinn-profilen inneholder <code dir="auto">ssn</code>, men parseren henter bare navnet, og
+en feil fra profilen logges bare med statuskoden. Navnet hentes fra Altinn
+fordi ID-porten bare oppgir navn for noen eID-er. Det er dette navnet som står
+i konvolutten og i <code dir="auto">godkjent_av</code>, ikke navnet på regnmed-kontoen. Kan ikke
+Altinn oppgi navnet, stopper innsendingen før noe er sendt inn. En gjenopptatt
+innsending kan da ha et utkast i Altinn. Bekrefter en annen person enn den
+konvolutten navngir, slettes utkastet og ingenting sendes. Tokenet ligger
+forseglet med
 <code dir="auto">IDPORTEN_SEALING_KEY</code> i <code dir="auto">vat_filing_grant</code>, og raden slettes når arbeidet
 er ferdig eller tokenet er utløpt.</p>
 <p><strong>En regnmed-bruker er bundet til én ID-porten-identitet.</strong> Første
@@ -471,30 +481,36 @@ klientadministrator gir den videre til den ansatte. Pakken
 </ul>
 <p>Mangler Altinn-retten, stopper innsendingen med <code dir="auto">feilet</code> og en forklaring
 på nettopp dette.</p>
-<p><strong>Ikke prøvd mot TT02 ennå:</strong> hele flyten er testet mot en mock av
-ID-porten og Altinn, med formatene fra Skatteetatens dokumentasjon og
-eksempler. Den krever en ID-porten-klient i Samarbeidsportalen. Disse
-antakelsene må bekreftes av en ekte kjøring:</p>
+<p><strong>Prøvd mot TT02 2026-11-22:</strong> en ren melding for september–oktober 2026 gikk
+fra regnmed gjennom ID-porten med TestID, Skatteetatens validering og Altinn.
+Skatteetaten svarte med kvittering og <code dir="auto">ingen avvik</code> etter om lag 55 sekunder.
+Dette er dermed bekreftet:</p>
 <ul>
-<li>scopene <code dir="auto">openid skatteetaten:mvameldingvalidering altinn:instances.read altinn:instances.write</code> er nok. Skatteetatens eldre guide nevner også
-<code dir="auto">skatteetaten:mvameldinginnsending</code>.</li>
-<li>TestID gir <code dir="auto">acr=idporten-loa-high</code>.</li>
-<li><code dir="auto">Task_1</code> er utfylling, <code dir="auto">Task_2</code> bekreftelse, og <code dir="auto">process.currentTask.name</code>
-er <code dir="auto">Tilbakemelding</code> etter innsending i testappen.</li>
-<li><code dir="auto">prompt=login</code> virker sammen med TestID, og <code dir="auto">auth_time</code> og <code dir="auto">sub</code> er med
-i id_token. <code dir="auto">sub</code> er stabil per klient.</li>
-<li><code dir="auto">DELETE</code> på en instans i bekreftelse er tillatt for personen som godkjente.</li>
-<li>valideringstjenesten svarer <code dir="auto">valideringsresultat</code> med
-<code dir="auto">avvikVedMeldingslevering</code> = <code dir="auto">ingen avvik</code> for en ren melding, slik XSD-en og
-Skatteetatens publiserte eksempel viser. Repoet har ikke et fanget svar fra
-tjenesten. Svarer den annerledes, stopper innsendingen trygt til parseren er
-rettet.</li>
-<li>konvolutten godtas uten navnerom, slik eksemplene viser, og med én
-<code dir="auto">vedlegg</code>-rad for meldingen.</li>
-<li>Altinn-tokenet varer lenge nok til at svaret rekker å komme.</li>
-<li>meldingskategorien er alltid <code dir="auto">alminnelig</code>, også for primærnæring. Det
-er slik <code dir="auto">regnmed-core::vat_return</code> skriver den i dag.</li>
+<li>scopene <code dir="auto">openid skatteetaten:mvameldingvalidering altinn:instances.read altinn:instances.write</code> er nok.</li>
+<li>TestID gir <code dir="auto">acr=idporten-loa-high</code>, og <code dir="auto">prompt=login</code>, <code dir="auto">auth_time</code> og <code dir="auto">sub</code>
+virker som antatt.</li>
+<li><code dir="auto">Task_1</code> er utfylling, <code dir="auto">Task_2</code> bekreftelse, og
+<code dir="auto">process.currentTask.name</code> er <code dir="auto">Tilbakemelding</code> etter innsending.</li>
+<li>valideringen svarer <code dir="auto">valideringsresultat</code> med <code dir="auto">avvikVedMeldingslevering</code> =
+<code dir="auto">ingen avvik</code> for en ren melding.</li>
+<li>konvolutten godtas uten navnerom og med én <code dir="auto">vedlegg</code>-rad.</li>
 </ul>
+<p>Ikke bekreftet ennå:</p>
+<ul>
+<li>at Altinn-profilen gir navnet slik appens OpenAPI-beskrivelse viser.
+Kjøringen over brukte fortsatt regnmed-kontoens navn i konvolutten.</li>
+<li>at <code dir="auto">DELETE</code> på en instans i bekreftelse er tillatt for personen som
+godkjente.</li>
+<li>at svaret normalt kommer innen tokenets levetid.</li>
+<li>at meldingskategorien alltid skal være <code dir="auto">alminnelig</code>, også for primærnæring.
+Det er slik <code dir="auto">regnmed-core::vat_return</code> skriver den i dag.</li>
+</ul>
+<p><strong>Et testselskap må ha egen mva-plikt hos Skatteetaten.</strong> Flagget i BRREG og
+Tenor er ikke nok: valideringen svarer da at virksomheten ikke er registrert.
+Daglig leder fra Tenor logger inn med TestID i <code dir="auto">tt02.altinn.no</code> og søker i
+<code dir="auto">skatt-test.sits.no/web/mva/</code>. <strong>Startdatoen skal være første dag i terminen
+som testes.</strong> Skatteetatens veiledning foreslår 01.01.2022, men da svarer
+valideringen at det mangler meldinger for alle terminene siden.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="web-api-the-product-surface">Web API (the product surface)</h2><a class="sl-anchor-link" href="#web-api-the-product-surface"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Web API (the product surface)”</span></a></div>
 <p>The web is the product; the CLI wraps the same crate functions for
 ops/admin. Authenticated, engagement-guarded endpoints (see

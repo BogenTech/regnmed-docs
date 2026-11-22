@@ -144,7 +144,10 @@ Merverdiavgiftsregisteret i 1989 — så onboarding skriver ÉN RAD PER
 ENDRING (<code dir="auto">BrregEnhet::registreringstidslinje</code>), ikke én rad datert i dag.
 Et dokument datert mellom dem bærer da nøyaktig de påtegningene som
 gjaldt. Uten dette ville et selskap som registrerte seg for mva i 2019
-og onboardes nå, mangle «MVA» på all importert historikk.</p>
+og onboardes nå, mangle «MVA» på all importert historikk. Mva-datoen leses
+fra <code dir="auto">registreringsdatoMerverdiavgiftsregisteret</code>, og ellers fra
+<code dir="auto">registreringsdatoMerverdiavgiftsregisteretEnhetsregisteret</code>, som er den
+eneste BRREGs testregister har.</p>
 <p>Aksjekapitalen kommer som et JSON-<strong>tall</strong> og parses desimalt til øre
 (samme parser som valutakursene) — ingen float rører penger. Kapital i
 annen valuta enn NOK lagres ikke i stedet for å regnes om.</p>
