@@ -320,8 +320,15 @@ syntetisk faktura, der leveransen simuleres.</p>
 testklyngen sendte en faktura fra et eget verifisert selskap til BOGENTECH AS
 gjennom Recommands test-aksesspunkt. XML-en hos Recommand hadde samme SHA-256 som
 vedlegget vårt, og mottakerens kopi hadde de samme 46 feltene. Statusen ble
-<code dir="auto">levert</code>. Begge selskapene ligger hos Recommand, så levering til et <strong>annet</strong>
-aksesspunkt er ikke prøvd.</p>
+<code dir="auto">levert</code>. Begge selskapene ligger hos Recommand.</p>
+<p><strong>Levering til et annet aksesspunkt er prøvd samme dag.</strong> En faktura på 1 kr,
+merket som test, gikk fra BOGENTECH AS til en offentlig oppført testmottaker
+hos en annen leverandør. Recommand fikk en AS4-kvittering fra mottakerens
+aksesspunkt med referanse til vår meldings-id, og XML-en hadde samme SHA-256
+som vedlegget vårt. Kvitteringen viser at aksesspunktet tok imot meldingen,
+ikke at mottakerens system har behandlet fakturaen. Avsenderkoblingen for
+BOGENTECH AS ble lagt inn for hånd i testdatabasen, fordi oppsettet nekter et
+selskap som er publisert som mottaker.</p>
 <table>
 <thead>
 <tr>
@@ -379,7 +386,7 @@ aksesspunkt er ikke prøvd.</p>
 <tr>
 <td>Testmiljø</td>
 <td>Oppfylt med en grense. <strong>Prøvd 2026-11-22:</strong> et verifisert selskap med <code dir="auto">isSmpRecipient: true</code> på Peppol-testnettet publiseres i test-SMP-en og kan motta. En vanlig playground simulerer leveransen mellom egne selskaper</td>
-<td>Integrasjonstesten bruker vanlig playground. Testklyngen bruker testnettet, med <code dir="auto">PEPPOL_SML_ZONE</code> i samme secret som nøkkelen. Levering til et annet aksesspunkt krever en ekte testmotpart</td>
+<td>Integrasjonstesten bruker vanlig playground. Testklyngen bruker testnettet, med <code dir="auto">PEPPOL_SML_ZONE</code> i samme secret som nøkkelen. Levering til et annet aksesspunkt er prøvd mot en offentlig oppført testmottaker</td>
 </tr>
 <tr>
 <td>EØS og databehandleravtale</td>
@@ -789,8 +796,8 @@ og signere avtale +
 databehandleravtale. Playground og Peppol-testnettet er prøvd (§2.3). På
 testnettet virker oppslaget for <code dir="auto">0192</code>, og en avsender med
 <code dir="auto">isSmpRecipient: false</code> står ikke i SML-en. Levering til et annet
-aksesspunkt må bekreftes mot en ekte testmotpart. Oppslaget og
-avsenderregelen må også bekreftes med BogenTech i produksjon.</li>
+aksesspunkt er prøvd (§2.3). Oppslaget og avsenderregelen må også
+bekreftes med BogenTech i produksjon.</li>
 <li>Bekrefte datalagring i EØS og legge leverandøren til som
 underdatabehandler i docs/kundevilkar.md §8 — <strong>30 dagers varsel</strong> til
 eksisterende kunder står i vilkårene. Varselet må ut i god tid før
