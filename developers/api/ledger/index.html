@@ -248,6 +248,46 @@
 </tr>
 <tr>
 <td>GET</td>
+<td><code dir="auto">/companies/{company_id}/vat-filings</code></td>
+<td><code dir="auto">RAPPORT_LES</code></td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code dir="auto">/companies/{company_id}/vat-filings</code></td>
+<td><code dir="auto">MVA_SEND</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code dir="auto">/companies/{company_id}/vat-filings/{filing_id}</code></td>
+<td><code dir="auto">RAPPORT_LES</code></td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code dir="auto">/companies/{company_id}/vat-filings/{filing_id}/abandon</code></td>
+<td><code dir="auto">MVA_SEND</code></td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code dir="auto">/companies/{company_id}/vat-filings/{filing_id}/approve</code></td>
+<td><code dir="auto">MVA_SEND</code></td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code dir="auto">/companies/{company_id}/vat-filings/{filing_id}/authorize</code></td>
+<td><code dir="auto">MVA_SEND</code></td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code dir="auto">/companies/{company_id}/vat-filings/{filing_id}/close-unresolved</code></td>
+<td><code dir="auto">MVA_SEND</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code dir="auto">/companies/{company_id}/vat-filings/{filing_id}/documents/{data_type}</code></td>
+<td><code dir="auto">RAPPORT_LES</code></td>
+</tr>
+<tr>
+<td>GET</td>
 <td><code dir="auto">/companies/{company_id}/vouchers</code></td>
 <td><code dir="auto">BILAG_LES</code></td>
 </tr>
@@ -275,6 +315,11 @@
 <td>POST</td>
 <td><code dir="auto">/companies/{company_id}/vouchers/{voucher_id}/reverse</code></td>
 <td><code dir="auto">BILAG_BOKFOR</code></td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code dir="auto">/mva-godkjenning</code></td>
+<td>—</td>
 </tr>
 <tr>
 <td>GET</td>

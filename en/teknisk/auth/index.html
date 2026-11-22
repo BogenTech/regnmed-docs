@@ -373,6 +373,15 @@ sitert i en revisjon, og ingen leser koden for å kontrollere den.</p>
 <td>✅</td>
 </tr>
 <tr>
+<td><code dir="auto">MVA_SEND</code></td>
+<td>Godkjenne og sende inn mva-melding</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
 <td><code dir="auto">BUDSJETT_LES</code></td>
 <td>Se budsjett og avviksrapport</td>
 <td>—</td>
@@ -1090,7 +1099,9 @@ ekte.</p>
 er utenfor rekkevidde for en egendefinert rolle
 ([<code dir="auto">Right::can_be_delegated</code>]) — en rolle som kan endre tilganger kan gi seg
 selv alt annet, og da er resten av avgrensningen bare pynt. Avvist når
-rollen lages, ikke bare ignorert ved oppslag.</p>
+rollen lages, ikke bare ignorert ved oppslag. <code dir="auto">MVA_SEND</code> står på samme
+liste av en annen grunn: en mva-melding må kunne tilskrives en person, så
+ingen maskin kan ha den (docs/mva.md).</p>
 <p><strong>Ukjente rettighetsnavn oppfører seg forskjellig i de to retningene</strong>,
 og det er med vilje: når et <em>menneske</em> skriver en rolle, avvises et
 ukjent navn høylytt (en rolle som stilltiende mangler halve innholdet er
@@ -1435,10 +1446,9 @@ knapper som kommer til å feile.</p>
 <code dir="auto">integration_grant</code> (<code dir="auto">via = 'integrasjon'</code> fra
 <code dir="auto">company_access_for_person</code> — samme spørring, ingen ekstra kostnad på
 forespørselsveien).</p>
-<p>De fire rettighetene <code dir="auto">kan_delegeres</code> nekter er uendret: <code dir="auto">MEDLEM_ADMIN</code>,
-<code dir="auto">OPPDRAG_ADMIN</code>, <code dir="auto">INTEGRASJON_ADMIN</code>, <code dir="auto">SELSKAP_ADMIN</code>. Matrisen under §5
-er derfor også uendret — dette er ingen ny rettighet, det er et tak oppå
-de som finnes.</p>
+<p><code dir="auto">kan_delegeres</code> nekter <code dir="auto">MEDLEM_ADMIN</code>, <code dir="auto">OPPDRAG_ADMIN</code>,
+<code dir="auto">INTEGRASJON_ADMIN</code>, <code dir="auto">SELSKAP_ADMIN</code> og <code dir="auto">MVA_SEND</code>. Taket er ingen egen
+rettighet, det ligger oppå dem som finnes.</p>
 <p>Festet i <code dir="auto">tests/grupper/integrasjon.rs</code>
 (<code dir="auto">an_agent_with_admin_may_migrate_but_never_widen_access</code>), <strong>sett
 feile</strong>: uten filteret inviterer roboten medlemmer inn i selskapet.</p>
