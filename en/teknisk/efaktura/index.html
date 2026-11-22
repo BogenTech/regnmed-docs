@@ -372,8 +372,8 @@ faktura. Der simuleres leveransen, så ekte Peppol-levering er ikke prøvd.</p>
 </tr>
 <tr>
 <td>Testmiljø</td>
-<td>Oppfylt med en grense. <strong>Prøvd:</strong> en playground på Peppol-testnettet registrerer aldri egne selskaper som mottakere, så sending til seg selv gir <code dir="auto">recipient_not_found</code>. En vanlig playground simulerer leveransen mellom egne selskaper</td>
-<td>Integrasjonstesten bruker vanlig playground. Testnettet krever en ekte testmotpart</td>
+<td>Oppfylt med en grense. <strong>Prøvd 2026-11-22:</strong> et verifisert selskap med <code dir="auto">isSmpRecipient: true</code> på Peppol-testnettet publiseres i test-SMP-en og kan motta. En vanlig playground simulerer leveransen mellom egne selskaper</td>
+<td>Integrasjonstesten bruker vanlig playground. Testklyngen bruker testnettet, med <code dir="auto">PEPPOL_SML_ZONE</code> i samme secret som nøkkelen. Levering til et annet aksesspunkt krever en ekte testmotpart</td>
 </tr>
 <tr>
 <td>EØS og databehandleravtale</td>
@@ -484,6 +484,11 @@ et slikt svar gjør regnmed derfor et eget offentlig SML/SMP-oppslag:</p>
 </tr>
 </tbody>
 </table>
+</li>
+<li>
+<p><code dir="auto">verify-document-support</code> skal ha dokumenttypen <strong>uten</strong> skjemaprefikset.
+Recommand legger det til selv, så med prefiks svarer den <code dir="auto">isValid: false</code>
+for alle mottakere (funnet på testnettet 2026-11-22).</p>
 </li>
 <li>
 <p>Recommands e-postreserve (<code dir="auto">when: "on_peppol_failure"</code>) brukes <strong>ikke</strong>:
@@ -718,7 +723,7 @@ det kan bryte plikten.</p>
 uttrykkelig: standardverdien er <code dir="auto">true</code> (prøvd), og da kan selskapet bli
 publisert som mottaker i ELMA. Kildekoden stopper publisering med <code dir="auto">false</code>
 på alle veier for Norge, og å endre fra <code dir="auto">true</code> til <code dir="auto">false</code> avregistrerer
-selskapet. Playground gjør aldri SMP-registreringer, så dette kontrolleres
+selskapet. En vanlig playground gjør aldri SMP-registreringer, så dette kontrolleres
 også med BogenTech i produksjon ved å lese SMP-en før noen kunde kobles
 på. Et slikt selskap får ingen innkommende MLR gjennom Recommand (§2.3).</p>
 <p><strong>Mottak er en egen beslutning.</strong> Å registrere et selskap som mottaker av
