@@ -383,6 +383,13 @@ eksempel skriver dem med store bokstaver. Bestillingen er et kall til
 Skatteetaten på selskapets vegne, så <strong>kundevilkårene må være godtatt</strong>
 først, og den står i registeret over kall til myndighetene
 (<code dir="auto">/authority-calls</code>, docs/vilkar-teknisk.md).</p>
+<p><strong>Prøvd fra deployet test 2026-11-23:</strong> portalen bestilte skattekortet til en
+av Skatteetatens publiserte testpersoner for et syntetisk selskap (<code dir="auto">BR29541</code>,
+skattekort-id 340079). Kortet på 38 % over 10,5 måneder ble lagret og satt på
+den ansatte. Forhåndsvisningen av en lønn på 40 000 kr trakk 15 200 kr i
+november og 7 600 kr (halv skatt) i desember. Ingen lønnskjøring ble bokført,
+så dette kortet er ikke prøvd gjennom en bokført kjøring og en a-melding. Andre
+korttyper er ikke satt på en ansatt fra deployet test.</p>
 <p>Ikke bygget ennå: endringsbestillinger (<code dir="auto">HENT_KUN_ENDRING</code>) og varsel
 ved endring — i dag hentes kortet på nytt med knappen — og bestillinger
 over 1000 ansatte, som API-et ikke tar i ett kall.</p>
