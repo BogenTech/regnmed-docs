@@ -194,9 +194,17 @@ måneder nettopp for at de skal gå opp, så det er <em>riktig</em> å anvende d
 — ikke dobbelttelling.</p>
 <ul>
 <li><strong>Feriepenger er trekkfrie</strong> i utbetalingsåret.</li>
-<li><strong>Halv skatt i desember</strong> (skattebetalingsloven). Siden 2016 kan
+<li><strong>Halv skatt i desember</strong> (skattebetalingsloven,
+skattebetalingsforskriften § 5-7-2). Siden 2016 kan
 arbeidsgiver i stedet ta det i annen halvdel av november; regnmed
-gjør desember, det vanlige valget, og sier det her.</li>
+gjør desember, det vanlige valget, og sier det her. Fritaket følger
+<strong>lønnsperioden</strong>, ikke utbetalingsdatoen: for månedslønn gjelder det
+«for» første halvdel av desember (§ 5-7-2 første ledd), mens bare
+14-dagerslønn er knyttet til selve utbetalingen (tredje ledd).
+Desemberlønn utbetalt i januar får derfor halvt trekk, og novemberlønn
+utbetalt i desember fullt. Forskriften nevner ikke lønn utbetalt i en
+annen måned enn den gjelder, så dette er vår lesing av ordlyden og bør
+bekreftes med Skatteetaten.</li>
 </ul>
 <div class="sl-heading-wrapper level-h2"><h2 id="satsene-er-data-ikke-kode">Satsene er data, ikke kode</h2><a class="sl-anchor-link" href="#satsene-er-data-ikke-kode"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Satsene er data, ikke kode”</span></a></div>
 <p>Alt ligger i satsregisteret (docs/regelverk.md) med kilde per rad.</p>
@@ -1067,15 +1075,24 @@ PDF-skriveren som fakturaen — samme begrunnelse: et dokument vi står
 ansvarlig for, uten en motor med skjult oppførsel.</p>
 <p><strong>Slippen lagres ikke.</strong> Til forskjell fra fakturaen, der PDF-en <em>er</em>
 salgsdokumentet og derfor bokføres som vedlegg, er lønnsslippen utledet
-av lønnslinjen — og linjene er innsettings-bare. Samme linje gir samme
-bytes for alltid, så den rendres på forespørsel i stedet for å lagre
-enda en kopi av personopplysninger.</p>
+av lønnslinjen — og linjene er innsettings-bare. Slippens egne tall står
+derfor fast, så den rendres på forespørsel i stedet for å lagre enda en
+kopi av personopplysninger. Hittil-i-år-tallene summeres fra kjøringene
+hver gang, så de endrer seg hvis en kjøring bokføres senere med en
+tidligere utbetalingsdato.</p>
 <p>Slippen <strong>forklarer</strong> trekket i stedet for bare å oppgi det: grunnlaget
 står i parentes («Forskuddstrekk (35 % av 55 000,00)»), og både
 feriepengenes trekkfrihet og desembers halve trekk får sin egen linje
 når de gjelder. Feriepenger opptjent denne måneden står under en egen
 overskrift, tydelig utenfor «Til utbetaling», og hittil-i-år-tallene
 står nederst.</p>
+<p><strong>Hittil i år følger utbetalingsåret</strong>, for brutto, forskuddstrekk og
+opptjente feriepenger. Feriepengegrunnlaget teller lønn det året den
+utbetales (ferieloven § 10 nr. 1), og trekktabellene hentes fra
+utbetalingsdatoen. Desemberlønn utbetalt i januar står derfor under
+«Hittil i 2027», selv om lønnsperioden er desember 2026. Kjøringene
+telles i rekkefølge etter utbetalingsdato og deretter lønnsperiode, så
+desember kommer foran januar også når begge utbetales samme dag.</p>
 <p><code dir="auto">GET /companies/{id}/payroll/{run}/slip/{employee}</code> → <code dir="auto">application/pdf</code>.
 Fødselsdato, ikke fødselsnummer — også på et dokument som sendes til
 den ansatte selv.</p>
@@ -1251,6 +1268,7 @@ uten metode ikke gjetter en, og at
 fødselsnummeret ikke er i dokumentet.</li>
 <li>Lønnsslippen bygget fra en ekte kjøring, med hittil-i-år summert over
 flere måneder — og hentet som <code dir="auto">application/pdf</code> fra en kjørende
-server (2,8 kB, uten fødselsnummer).</li>
+server (2,8 kB, uten fødselsnummer). Desemberlønn utbetalt i januar
+teller i det nye året og foran januarlønnen.</li>
 </ul>
 </div><footer class="sl-flex" data-astro-cid-ddtxxk7k><div class="meta sl-flex" data-astro-cid-ddtxxk7k><a href="https://github.com/BogenTech/regnmed/edit/main/docs/lonn.md" class="sl-flex print:hidden" data-astro-cid-qlekgd3o><svg data-astro-cid-qlekgd3o="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.2em;" data-astro-cid-hkc32dio><path d="M22 7.24a1 1 0 0 0-.29-.71l-4.24-4.24a1 1 0 0 0-1.1-.22 1 1 0 0 0-.32.22l-2.83 2.83L2.29 16.05a1 1 0 0 0-.29.71V21a1 1 0 0 0 1 1h4.24a1 1 0 0 0 .76-.29l10.87-10.93L21.71 8c.1-.1.17-.2.22-.33a1 1 0 0 0 0-.24v-.14l.07-.05ZM6.83 20H4v-2.83l9.93-9.93 2.83 2.83L6.83 20ZM18.17 8.66l-2.83-2.83 1.42-1.41 2.82 2.82-1.41 1.42Z"/></svg>Rediger side</a></div><div class="pagination-links print:hidden" dir="ltr" data-astro-cid-b5raizh3><a href="/teknisk/ledger/" rel="prev" data-astro-cid-b5raizh3><svg data-astro-cid-b5raizh3="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;" data-astro-cid-hkc32dio><path d="M17 11H9.41l3.3-3.29a1.004 1.004 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33 1 1 0 0 0 0 .76 1 1 0 0 0 .21.33l5 5a1.002 1.002 0 0 0 1.639-.325 1 1 0 0 0-.219-1.095L9.41 13H17a1 1 0 0 0 0-2Z"/></svg><span data-astro-cid-b5raizh3>Forrige<br data-astro-cid-b5raizh3><span class="link-title" data-astro-cid-b5raizh3>The ledger: append-only, hash-chained, independently verifiable</span></span></a><a href="/teknisk/marketplace/" rel="next" data-astro-cid-b5raizh3><svg data-astro-cid-b5raizh3="true" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;" data-astro-cid-hkc32dio><path d="M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z"/></svg><span data-astro-cid-b5raizh3>Neste<br data-astro-cid-b5raizh3><span class="link-title" data-astro-cid-b5raizh3>Marketplace: onboarding from the official registries</span></span></a></div></footer></div></div></main></div></div></div></div></body></html>
