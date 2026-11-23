@@ -340,7 +340,10 @@ hent svar».</li>
 personen. <strong>Fødselsnummeret tas aldri vare på.</strong> <code dir="auto">pid</code> leses ikke ut av
 tokenet. Altinn-profilen inneholder <code dir="auto">ssn</code>, men parseren henter bare navnet, og
 en feil fra profilen logges bare med statuskoden. Navnet hentes fra Altinn
-fordi ID-porten bare oppgir navn for noen eID-er. Det er dette navnet som står
+fordi ID-porten bare oppgir navn for noen eID-er. Altinns <code dir="auto">party.name</code> har
+etternavnet først, så regnmed setter sammen fornavn, mellomnavn og etternavn fra
+<code dir="auto">party.person</code>, slik Skatteetatens kvittering skriver navnet. Mangler fornavn
+eller etternavn, brukes <code dir="auto">party.name</code>. Det er dette navnet som står
 i konvolutten og i <code dir="auto">godkjent_av</code>, ikke navnet på regnmed-kontoen. Kan ikke
 Altinn oppgi navnet, stopper innsendingen før noe er sendt inn. En gjenopptatt
 innsending kan da ha et utkast i Altinn. Bekrefter en annen person enn den
@@ -495,10 +498,16 @@ virker som antatt.</li>
 <code dir="auto">ingen avvik</code> for en ren melding.</li>
 <li>konvolutten godtas uten navnerom og med én <code dir="auto">vedlegg</code>-rad.</li>
 </ul>
+<p><strong>Prøvd mot TT02 2026-11-23:</strong> en ny innsending med en annen TestID-person hentet
+navnet fra Altinn-profilen og fikk kvittering uten avvik. Kvitteringen oppgir
+personen som godkjente. Profilen har <code dir="auto">party.person.firstName</code>, <code dir="auto">middleName</code> og
+<code dir="auto">lastName</code>, mens <code dir="auto">party.name</code> har etternavnet først.</p>
 <p>Ikke bekreftet ennå:</p>
 <ul>
-<li>at Altinn-profilen gir navnet slik appens OpenAPI-beskrivelse viser.
-Kjøringen over brukte fortsatt regnmed-kontoens navn i konvolutten.</li>
+<li>hva som står i konvolutten slik Altinn har lagret den. Den leses ikke tilbake,
+så navnet i den bygger på regnmeds egen hendelseslogg.</li>
+<li>en innsending med navnet satt sammen med fornavnet først. Innsendingen
+2026-11-23 brukte <code dir="auto">party.name</code>.</li>
 <li>at <code dir="auto">DELETE</code> på en instans i bekreftelse er tillatt for personen som
 godkjente.</li>
 <li>at svaret normalt kommer innen tokenets levetid.</li>
