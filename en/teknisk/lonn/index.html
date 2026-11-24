@@ -1265,6 +1265,19 @@ viser DENNE meldingens <code dir="auto">mottakstatus</code> og <code dir="auto">
 på når API-et har Maskinporten-klienten (<code dir="auto">MASKINPORTEN_*</code>, scopene settes
 av skinnen selv); uten den sier endepunktet det, og portalen tilbyr bare
 filen.</p>
+<p><strong>En melding kan være <code dir="auto">mottatt</code> mens måneden har avvik.</strong> Skatteetatens
+svar dekker hele måneder, og ett svar kan dekke flere. Da oktober ble
+levert etter november i testmiljøet 2026-11-23, sto oktober uten avvik,
+mens samme svar la <code dir="auto">MAGNET_EDAG-108</code> på november fordi et arbeidsforhold
+oktober rapporterte manglet der. Novembers egen leveranse sa fortsatt
+<code dir="auto">mottatt</code> uten avvik. <code dir="auto">GET …/payroll</code> og <code dir="auto">GET …/submissions</code> bærer derfor
+<code dir="auto">amelding_maaneder</code>: alle avvik i <code dir="auto">mottattPeriode</code> per kalendermåned, fra
+svaret på den NYESTE innsendingen som dekker måneden. Et gammelt svar som
+hentes sent, overstyrer altså ikke et nyere. Portalen varsler øverst i
+lønnskjøringene og viser avvikene i måneden til en erstatning har fjernet
+dem. Testen
+<code dir="auto">an_avvik_on_another_month_is_shown_until_a_replacement_clears_it</code> fester
+dette.</p>
 <p><strong>Prøvd ende til ende mot Skatteetatens testmiljø 2026-11-11</strong> fra
 portalen: «Send til Skatteetaten» → <code dir="auto">levert</code> → «Hent tilbakemelding» →
 <code dir="auto">mottatt, 0 avvik</code>, for det syntetiske Tenor-selskapet 311032240.</p>
