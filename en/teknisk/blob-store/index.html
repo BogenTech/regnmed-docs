@@ -133,14 +133,25 @@ nytt: da er objektet borte, og det meldes som det.</p>
 <p>Hetzner holder også en og annen GET i mange sekunder før den svarer:
 av 65 vedlegg i prods revisjonsrapport kom 62 straks, mens tre små
 (15–54 KB) ventet 2,6, 5,5 og 17 s på svarhodene (2026-11-09, målt
-etter at nett og DNS var utelukket). Stoppet hører til OBJEKTET, ikke
-forsøket: v0.8.3 forlot en GET uten svarhoder etter 3 s og sendte den på
-nytt, og møtte samme stopp fem ganger på rad — revisjonsrapporten meldte
-da et vedlegg som feilet som ikke var endret, bare tregt. Rullet tilbake
-i v0.8.4: hvert forsøk venter klientens 30 s. Hvert feilet forsøk, og
-hvert vellykket som tok over 2 s, logges med tidene sine, og
-revisjonsrapporten viser hele feilkjeden, så «utilgjengelig» og «endret»
-aldri leses likt.</p>
+etter at nett og DNS var utelukket). v0.8.3 forlot en GET uten svarhoder
+etter 3 s og sendte den på nytt, og møtte samme stopp fem ganger på rad —
+revisjonsrapporten meldte da et vedlegg som feilet som ikke var endret,
+bare tregt. Rullet tilbake i v0.8.4: hvert forsøk venter klientens 30 s.</p>
+<p>Konklusjonen den gang — at stoppet hører til OBJEKTET — holdt ikke.
+Målt 2026-11-25 (75 GET-er, alle 25 testobjekter tre ganger): tre ventet
+3,5–7 s på første byte, tilkoblingen tok 18 ms hver gang, og et objekt
+som stoppet i tredje runde svarte straks i de to første. I prod stoppet
+hver backup-sjekk på andre objekter enn forrige, og en GET som nådde
+30 s svarte på 3 s ved neste forsøk. Stoppet hører altså til
+FORESPØRSELEN. Derfor sikres GET-er nå med en parallell forespørsel: har
+en GET ikke fått svar etter 1,5 s, sendes en identisk GET ved siden av,
+og den første som lykkes vinner. Den første forlates aldri (det var
+v0.8.3s feil), så en sikret GET er aldri tregere enn en usikret. PUT
+sikres ikke — den ville lastet opp hele innholdet to ganger.</p>
+<p>Hvert feilet forsøk, hver parallell forespørsel («sending a second
+request») og hvert vellykket kall som tok over 2 s logges med tidene
+sine, og revisjonsrapporten viser hele feilkjeden, så «utilgjengelig» og
+«endret» aldri leses likt.</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="versjonering">Versjonering</h2><a class="sl-anchor-link" href="#versjonering"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Versjonering”</span></a></div>
 <p>Hashen avslører et endret eller slettet objekt, men gjenoppretter det
 ikke. Derfor har <code dir="auto">bogenhuset</code> versjonering slått på (2026-11-09): et
