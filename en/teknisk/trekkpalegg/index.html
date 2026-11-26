@@ -79,10 +79,12 @@ dokumentasjonen ikke gjør, står det under med «spesifikasjonen».</p>
 for en kunde. Systembrukerforespørselen må da også ha ressursen
 <code dir="auto">ske-informasjon-om-trekkpaalegg</code> (tilgangsressursen «Informasjon om
 trekkpålegg»).</li>
-<li>Test-scopet bestilles med e-post til <a href="mailto:fremtidensinnkreving@skatteetaten.no">fremtidensinnkreving@skatteetaten.no</a>
-med virksomhetens ekte organisasjonsnummer. Samme adresse lager
-testdata (trekkpålegg på syntetiske personer i et syntetisk selskap)
-når integrasjonen når tjenesten.</li>
+<li>Dokumentasjonen sier at test-scopet bestilles med e-post til
+<a href="mailto:fremtidensinnkreving@skatteetaten.no">fremtidensinnkreving@skatteetaten.no</a>, men brukerstøttedesken har et
+eget skjema for det (Hente data → Søknad om tilgang, docs/gov.md), og
+det er der det er bestilt (SSV-6690). Testdata (trekkpålegg på
+syntetiske personer i et syntetisk selskap) bes om når integrasjonen
+når tjenesten — på samme sak, eller på adressen over.</li>
 <li>Produksjon: Skatteetaten ber om en oppsummering av testen, og
 produksjonstilgang gis ikke før den er levert. Avtalen («vilkår for
 bruk») signeres da.</li>
@@ -410,9 +412,10 @@ og en fratrådt meldes i a-meldingen.</li>
 </ul>
 <div class="sl-heading-wrapper level-h2"><h2 id="4-før-noe-kan-prøves-mot-skatteetaten">4. Før noe kan prøves mot Skatteetaten</h2><a class="sl-anchor-link" href="#4-før-noe-kan-prøves-mot-skatteetaten"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “4. Før noe kan prøves mot Skatteetaten”</span></a></div>
 <ol>
-<li>Test-scopet <code dir="auto">skatteetaten:trekkpaalegg</code> er bestilt for BogenTech
-(e-post til <a href="mailto:fremtidensinnkreving@skatteetaten.no">fremtidensinnkreving@skatteetaten.no</a>) og lagt på
-testklienten i Samarbeidsportalen.</li>
+<li>Test-scopet <code dir="auto">skatteetaten:trekkpaalegg</code> er tildelt BogenTech og lagt
+på testklienten i Samarbeidsportalen. <strong>Bestilt 2026-11-26, sak
+SSV-6690</strong>, på brukerstøttedesken under Hente data → Søknad om
+tilgang (docs/gov.md), ikke med e-posten dokumentasjonen nevner.</li>
 <li>regnmeds system i Altinns systemregister (TT02) har fått ressursen
 <code dir="auto">ske-informasjon-om-trekkpaalegg</code>, og testselskapets systembruker er
 godkjent på nytt med den.</li>

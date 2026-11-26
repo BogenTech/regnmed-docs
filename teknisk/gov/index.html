@@ -138,11 +138,19 @@ scopene), registrer denne maskinens nye nøkkel (se nøkkelnotatet
 under), og kjør valideringsrundturen (steg 4 under) — empirisk
 sjekk: <code dir="auto">scripts/maskinporten-scope-test.py &lt;scope&gt;</code> skal svare
 GRANTED for alle fire.</li>
-<li><code dir="auto">skatteetaten:mvaregisteravgiftssubjekt</code> og <code dir="auto">skatteetaten:frister</code>
-var <strong>ikke</strong> valgbare i Innrapportering-skjemaet — de hører til
-Deling-siden (eget behandlingsgrunnlagskrav) og bestilles separat
-der når de trengs. Lav prioritet: begge er kryssjekker, ikke
-forutsetninger.</li>
+<li><code dir="auto">skatteetaten:frister</code> og <code dir="auto">skatteetaten:trekkpaalegg</code> er <strong>BESTILT
+2026-11-26, sak SSV-6690</strong> (test). De står ikke i
+Innrapportering-skjemaet, men under desken sin kategori <strong>Hente data
+→ Søknad om tilgang</strong>, som har avkrysning for Frister, Krav og
+betalinger og Trekkpålegg (utleggstrekk), test/produksjon og aksept
+av tjenestebeskrivelsen. Trekkpålegg-dokumentasjonen ber om e-post
+til <a href="mailto:fremtidensinnkreving@skatteetaten.no">fremtidensinnkreving@skatteetaten.no</a>, men skjemaet er den
+sporbare veien og gir en sak som SSV-5760.
+<code dir="auto">skatteetaten:mvaregisteravgiftssubjekt</code> får vi <strong>ikke</strong>: API-siden
+sier «Tjenesten er ikke tilrettelagt for systembrukerløsningen og
+visning i sluttbrukersystem», og tilgang krever et lovregulert
+behandlingsgrunnlag. Mva-registreringen forblir et manuelt flagg i
+firmaopplysningene (docs/faktura.md).</li>
 <li><del>Altinn 3-tilgangen for mva-melding-INNSENDING</del> <strong>BESVART
 2026-08-11</strong>: <code dir="auto">altinn:instances.read</code>/<code dir="auto">write</code> bestilles i Digdirs
 registreringsskjema for sluttbrukersystem, ikke hos Skatteetaten.
@@ -267,17 +275,19 @@ dyreste måten å gjøre dette på: hver tildeling har ukers ledetid.</p>
 <td>rendringen finnes</td>
 </tr>
 <tr>
-<td><code dir="auto">skatteetaten:mvaregisteravgiftssubjekt</code></td>
-<td>er selskapet mva-registrert?</td>
-<td>i dag et manuelt flagg i firmaopplysningene (docs/faktura.md) — dette er den autoritative kilden</td>
-</tr>
-<tr>
 <td><code dir="auto">skatteetaten:frister</code></td>
 <td>offisielle frister</td>
-<td>vi <em>beregner</em> mva-frister selv (<code dir="auto">Terminordning</code>); en autoritativ kilde er en kryssjekk, ikke en erstatning</td>
+<td>vi <em>beregner</em> mva-frister selv (<code dir="auto">Terminordning</code>); en autoritativ kilde er en kryssjekk, ikke en erstatning. Bestilt i test, SSV-6690</td>
+</tr>
+<tr>
+<td><code dir="auto">skatteetaten:trekkpaalegg</code></td>
+<td>trekkpålegg i lønnskjøringen (#334, docs/trekkpalegg.md)</td>
+<td>bestilt i test, SSV-6690</td>
 </tr>
 </tbody>
 </table>
+<p><code dir="auto">skatteetaten:mvaregisteravgiftssubjekt</code> sto her til 2026-11-26, men
+tilbys ikke sluttbrukersystemer (punkt 2 under «Gjenstår»).</p>
 <p><strong>Vent til saken er planlagt</strong> — ikke bestill tilgang til opplysninger
 uten et sted å bruke dem; det er både dataminimering og noe
 Skatteetaten spør om:</p>
