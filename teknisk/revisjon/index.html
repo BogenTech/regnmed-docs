@@ -121,6 +121,10 @@ it is never an error that hides the document.</p>
 <td>how many bilag lack an attachment in regnmed, oldest first (<a href="https://lovdata.no/lov/2004-11-19-73/%C2%A710">bokføringsloven §10</a>). <strong>Informational, never an avvik</strong>: a missing attachment is not proof of a missing document — it may live in another oppbevaringsmedium, and documentation legitimately arrives after the posting. Bilag that carry documentation BY CONSTRUCTION are not counted (faktura and innboks copy the document onto the voucher when it is posted, so they simply have one), and the import journal is left out because kontroll «Importert historikk» hashes its source files instead. The same set backs <code dir="auto">GET …/vouchers?uten_vedlegg=true</code>, so whoever tidies up works from exactly the numbers the revisor read</td>
 </tr>
 <tr>
+<td>Mva-meldinger</td>
+<td>every mva-melding filed from regnmed (<a href="/teknisk/mva/">mva.md</a>): term, outcome, who approved it, and the SHA-256 of the melding sent and of the receipt Skatteetaten returned, so the receipt can be downloaded and compared byte for byte. The stored melding is re-hashed against the hash taken before it was sent. <strong>An avvik</strong> when a filing is <code dir="auto">uavklart</code> — nobody knows whether the term was delivered — or a melding no longer matches its hash</td>
+</tr>
+<tr>
 <td>Importert historikk</td>
 <td>which external SAF-T files the ledger was built from (<a href="/teknisk/migration/">migration.md</a>): full content hashes from the insert-only import log, so the source system’s export can be compared byte for byte; history imported before the log existed is stated, never hidden (informational)</td>
 </tr>
@@ -203,6 +207,9 @@ through the flag (set, cleared, set again — the åpningsbalanse path)
 and asserts the konto, the amount and the øre difference by name,
 that only kontroll 4 fails, and that a healthy company reports the
 total it reconciled.</li>
+<li><code dir="auto">crates/regnmed-api/tests/grupper/vat_filing.rs</code> — a filed melding
+shows the receipt’s sha256 in kontroll «Mva-meldinger»; an <code dir="auto">uavklart</code>
+filing makes it an avvik until a person closes it with a finding.</li>
 <li><code dir="auto">crates/regnmed-api/tests/grupper/saft_migration.rs</code> — a ledger built
 from four import files carries kontroll «Importert historikk» with
 the full sha256 of each file in the report.</li>
