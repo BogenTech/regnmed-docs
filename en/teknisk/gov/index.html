@@ -783,8 +783,10 @@ per kundeform vi allerede har i produktet (#77s to ruter):</p>
 </table>
 <p>Ressursene til den første (fra API-dokumentasjonen, ikke gjettet):
 <code dir="auto">ske-innrapportering-amelding</code>, <code dir="auto">ske-skattekort-til-arbeidsgiver</code>,
-<code dir="auto">ske-innrapportering-aksjonaerregisteroppgave</code>. Den ruten berøres ikke
-av regel 1 i det hele tatt.</p>
+<code dir="auto">ske-innrapportering-aksjonaerregisteroppgave</code>, og senere
+<code dir="auto">ske-informasjon-om-trekkpaalegg</code> (2026-11-26), <code dir="auto">ske-kontroll</code> og
+<code dir="auto">app_skd_formueinntekt-skattemelding-v2</code> (begge 2026-11-27). Den ruten
+berøres ikke av regel 1 i det hele tatt.</p>
 <p>Til den andre gir ER-rollen «Regnskapsfører» disse tre pakkene, og
 API-ene godtar dem slik:</p>
 <table>
@@ -844,7 +846,8 @@ derfor et problem som ikke oppstår når forespørselen alltid ber om
 én.</li>
 </ol>
 <p>Derfor er regnmed registrert som <strong>ett system, <code dir="auto">935115086_regnmed</code></strong>,
-med begge kundeformene: <code dir="auto">rights</code> med de tre Skatteetaten-ressursene
+med begge kundeformene: <code dir="auto">rights</code> med Skatteetatens ressurser (tre ved
+registreringen, seks fra 2026-11-27)
 (egen virksomhet) og <code dir="auto">accessPackages</code> med de tre REGN-pakkene
 (regnskapsfører). Hver forespørsel ber om sin del: en standard
 systembruker om rettighetene, en klient-systembruker om ÉN pakke.
@@ -890,6 +893,25 @@ innloggingen er ikke godkjenningen: siden venter på «Godkjenn
 oppdatert systemtilgang». Klient-systembrukere (regnskapsfører)
 kan ikke endres slik — Altinn krever at de slettes og opprettes på
 nytt.</p>
+<p><strong><code dir="auto">ske-kontroll</code> lagt til 2026-11-27</strong> (kontrollopplysninger, #183,
+docs/saft/README.md) på samme måte: <code dir="auto">rights</code> + beskrivelse i
+<code dir="auto">scripts/altinn-system.py</code>, <code dir="auto">update</code> mot TT02 (bekreftet med <code dir="auto">show</code>),
+og en endringsforespørsel for 311032240 som ber om alle fem
+ressursene (id <code dir="auto">6a10e8d6-a8cd-4e02-aaf7-df2c927a7651</code>), <strong>godkjent</strong>
+samme dag av selskapets daglige leder med TestID (<code dir="auto">change-status</code> →
+<code dir="auto">Accepted</code>, alle fem ressursene). TestID ber om den syntetiske
+personens fødselsnummer, ikke selskapets organisasjonsnummer. Scopet
+<code dir="auto">skatteetaten:innleveringkontroll</code> er bestilt i SSV-6691.</p>
+<p><strong><code dir="auto">app_skd_formueinntekt-skattemelding-v2</code> lagt til 2026-11-27</strong>
+(skattemelding, #11): Skatteetatens Altinn 3-app for skattemeldingen,
+som ifølge onboardingsguiden kreves både for Skatteetatens API og for
+Altinns, og som en standard systembruker kan få direkte uten
+tilgangspakker. For regnskapsførerruten gir
+<code dir="auto">regnskapsforer-med-signeringsrettighet</code> og <code dir="auto">-uten-signeringsrettighet</code>
+tilgang (ikke <code dir="auto">regnskapsforer-lonn</code>), men bare den med
+signeringsrettighet kan bekrefte i signeringssteget. <code dir="auto">update</code> mot TT02 og ny endringsforespørsel for
+311032240 (id <code dir="auto">b33296a4-83e8-436a-ae1c-af8f1d58102d</code>, alle seks
+ressursene), <strong>godkjent</strong> samme dag med TestID (<code dir="auto">Accepted</code>).</p>
 <p>Tre ting å vite til neste gang:</p>
 <ul>
 <li><strong>Tenor-listen blander hovedenheter og underenheter.</strong> En
