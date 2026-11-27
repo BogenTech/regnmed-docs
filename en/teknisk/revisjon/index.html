@@ -122,7 +122,7 @@ it is never an error that hides the document.</p>
 </tr>
 <tr>
 <td>Mva-meldinger</td>
-<td>every mva-melding filed from regnmed (<a href="/teknisk/mva/">mva.md</a>): term, outcome, who approved it, and the SHA-256 of the melding sent and of the receipt Skatteetaten returned, so the receipt can be downloaded and compared byte for byte. The stored melding is re-hashed against the hash taken before it was sent. <strong>An avvik</strong> when a filing is <code dir="auto">uavklart</code> — nobody knows whether the term was delivered — or a melding no longer matches its hash</td>
+<td>every mva-melding filed from regnmed (<a href="/teknisk/mva/">mva.md</a>): term, outcome, who approved it, and the SHA-256 of the melding sent and of the receipt Skatteetaten returned, so the receipt can be downloaded and compared byte for byte. A corrected melding (a new complete melding for a term already delivered) is marked, and the last one filed is the one that counts. The stored melding is re-hashed against the hash taken before it was sent. <strong>An avvik</strong> when a filing is <code dir="auto">uavklart</code> — nobody knows whether the term was delivered — or a melding no longer matches its hash</td>
 </tr>
 <tr>
 <td>Importert historikk</td>
