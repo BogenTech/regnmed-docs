@@ -383,7 +383,7 @@ aksjonær (XML).</li>
 </ol>
 <p>Hvert kall bærer <strong>systembrukertokenet for selskapet</strong>
 (<code dir="auto">TokenProvider::token_for_systemuser</code>, scope
-<code dir="auto">skatteetaten:innrapporteringaksjonaerregisteroppgave digdir:dialogporten</code>).
+<code dir="auto">skatteetaten:innrapporteringaksjonaerregisteroppgave digdir:dialogporten altinn:events.subscribe</code> — det siste for svarabonnementet).
 Klienten er
 <code dir="auto">regnmed-gov::shareholder_return</code>; base-URL-en er testmiljøet
 (<code dir="auto">https://api-test.sits.no/api/aksjonaerregister/v1</code>) med mindre
@@ -409,6 +409,17 @@ XML. <code dir="auto">POST …/submissions/{id}/outcome</code> henter og lagrer 
 (hendelse <code dir="auto">outcome</code>, én per innsending); statusen blir <code dir="auto">godkjent</code>,
 <code dir="auto">avvist</code> eller <code dir="auto">behandlet</code>. Portalen har en knapp for det, og lenker til
 tilbakemeldingsdokumentene (de åpnes med innlogging hos Skatteetaten).</p>
+<p><strong>Svaret kommer av seg selv</strong> når <code dir="auto">ALTINN_EVENTS_ENDPOINT</code> er satt, på
+samme skinne som a-meldingen (docs/lonn.md, «Tilbakemelding som
+hendelse»). Første leverte oppgave abonnerer selskapet på nye overføringer
+i dialogene for ressursen
+<code dir="auto">urn:altinn:resource:ske-innrapportering-aksjonaerregisteroppgave</code> (lest
+av en ekte RF-1086-dialog i TT02). Altinn poster hendelsen til
+<code dir="auto">/webhooks/altinn</code>, og regnmed henter svaret med sin egen klient, bare
+for innsendinger levert i den dialogen som ennå venter. Hendelsen er
+usignert og brukes bare som et hint om hvilken dialog vi skal se i.
+Knappen består som reserve. Abonnementet står i registeret over
+myndighetskall som de andre (docs/vilkar-teknisk.md).</p>
 <p>Alle innsendinger for samme selskap og år havner i <strong>samme dialog</strong>, hver
 med sin egen <code dir="auto">forsendelseId</code>; en ny oppgave for et år som alt er levert
 ble godkjent i test uten innvendinger. Hvordan den forholder seg til den
@@ -439,8 +450,6 @@ levering og står på innsendingen for alltid.</p>
 godtatt dem (docs/vilkar-teknisk.md, «Aksept»), men teksten er fortsatt et
 utkast som venter på advokat.</li>
 <li><strong>Korrigering</strong> av en levert oppgave.</li>
-<li><strong>Svaret automatisk</strong> (Altinn Events, slik a-meldingen har det) — i dag
-hentes det med knappen.</li>
 </ul>
 <div class="sl-heading-wrapper level-h2"><h2 id="endepunkter">Endepunkter</h2><a class="sl-anchor-link" href="#endepunkter"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Endepunkter”</span></a></div>
 <table>
