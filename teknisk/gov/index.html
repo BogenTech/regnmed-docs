@@ -151,9 +151,20 @@ sier «Tjenesten er ikke tilrettelagt for systembrukerløsningen og
 visning i sluttbrukersystem», og tilgang krever et lovregulert
 behandlingsgrunnlag. Mva-registreringen forblir et manuelt flagg i
 firmaopplysningene (docs/faktura.md).
-<code dir="auto">Krav og betalinger</code> står i samme skjema, men ble ikke krysset av:
-ingenting i regnmed bruker det ennå (#36). Skal det med, legges det
-til som kommentar på SSV-6690, ikke som ny sak.</li>
+<code dir="auto">Krav og betalinger</code> (<code dir="auto">skatteetaten:kravogbetalinger</code>, rettighetspakken
+«regnskapssystem» med systembruker) ble ikke krysset av i skjemaet,
+men er <strong>bedt om som kommentar på SSV-6690 2026-11-27</strong>, ikke som ny
+sak: likviditetsoversikten (#36) kan vise kundens egne krav og
+innbetalinger. Tjenesten er i pilot; kommentaren spør om vi heller
+skal gå via <a href="mailto:fremtidensinnkreving@skatteetaten.no">fremtidensinnkreving@skatteetaten.no</a>. Vilkår fra
+API-dokumentasjonen (lest 2026-11-27): leverandøren må være integrert
+mot minst ett innrapporterings-API, og kunden må ha rapportert gjennom
+oss minst én gang. Tilgangspakkene er <code dir="auto">ansvarlig-revisor</code>,
+<code dir="auto">krav-og-utlegg</code>, <code dir="auto">regnskapsforer-med-signeringsrettighet</code>,
+<code dir="auto">-uten-signeringsrettighet</code> og <code dir="auto">revisormedarbeider</code>: regnskapsfører-
+ruten virker med pakkene systemet alt har, mens egen-virksomhet-ruten
+trenger en ressurs-id i systemets <code dir="auto">rights</code> som dokumentasjonen ikke
+oppgir — spør om den når scopet tildeles.</li>
 <li><strong>Innrapportering, bestilt 2026-11-27, sak SSV-6691</strong> (test): <code dir="auto">skatteetaten:innleveringkontroll</code> (#183),
 <code dir="auto">skatteetaten:formueinntekt/skattemelding</code> (#11),
 <code dir="auto">skatteetaten:skattdialogdokument</code> og
@@ -306,6 +317,11 @@ dyreste måten å gjøre dette på: hver tildeling har ukers ledetid.</p>
 <td><code dir="auto">skatteetaten:trekkpaalegg</code></td>
 <td>trekkpålegg i lønnskjøringen (#334, docs/trekkpalegg.md)</td>
 <td>bestilt i test, SSV-6690</td>
+</tr>
+<tr>
+<td><code dir="auto">skatteetaten:kravogbetalinger</code></td>
+<td>kundens egne krav og innbetalinger i likviditetsoversikten (#36)</td>
+<td>bedt om som kommentar på SSV-6690 2026-11-27; tjenesten er i pilot</td>
 </tr>
 <tr>
 <td><code dir="auto">skatteetaten:innleveringkontroll</code></td>
