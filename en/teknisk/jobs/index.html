@@ -213,6 +213,13 @@ den samme som det krever å gjøre det planen gjør for hånd.</li>
 <td><code dir="auto">BANK_AVSTEM</code></td>
 <td>når en bankkobling fullføres, til et nattlig standardtidspunkt spredt per selskap (02:00–04:59)</td>
 </tr>
+<tr>
+<td><code dir="auto">garnishment_fetch</code></td>
+<td>henter hele listen over trekkpålegg fra Skatteetaten (docs/trekkpalegg.md §2); kjøres bare når selskapet har godkjent systembruker og en kvittert a-melding</td>
+<td>1</td>
+<td><code dir="auto">LONN_SKRIV</code></td>
+<td>første gang noen henter trekkpålegg fra portalen og Skatteetaten svarer, til samme nattlige standardtid</td>
+</tr>
 </tbody>
 </table>
 <p><code dir="auto">GET /companies/{id}/schedules</code> viser selskapets planer med neste kjøring og

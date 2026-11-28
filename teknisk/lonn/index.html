@@ -858,7 +858,11 @@ listingen.</p>
 </tr>
 <tr>
 <td>GET/POST</td>
-<td><code dir="auto">/companies/{id}/payroll/garnishments</code> (trekkpålegg, docs/trekkpalegg.md §6)</td>
+<td><code dir="auto">/companies/{id}/payroll/garnishments</code> (trekkpålegg, docs/trekkpalegg.md §2 og §6)</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code dir="auto">/companies/{id}/payroll/garnishments/fetch</code> (hent fra Skatteetaten)</td>
 </tr>
 <tr>
 <td>POST</td>
@@ -1362,13 +1366,10 @@ produksjon på Altinn-systembrukeren (#180, docs/gov.md). Inntil
 den er på plass er dette internt regnskap, ikke rapportering —
 <strong>selskapet må fortsatt levere a-melding på annet vis.</strong> Dette er
 den viktigste mangelen.</li>
-<li><strong>Trekkpålegg hentet fra Skatteetaten</strong> (#334). Pålegg registrert
-for hånd fra brevet trekkes, bokføres, betales og rapporteres (se
-«Trekkpålegg» under, #339), men regnmed henter ingen pålegg selv.
-<strong>Et pålegg som ikke er registrert, trekkes ikke.</strong> Portalen sier
-det i forhåndsvisningen av hver kjøring. Skatteetatens API går på
-samme systembrukerskinne som a-meldingen og venter på scopet
-(SSV-6690); planen står i docs/trekkpalegg.md §2.</li>
+<li><strong>Trekkpålegg hentet fra Skatteetaten</strong> (#334) er bygget
+(docs/trekkpalegg.md §2), men ikke prøvd mot testmiljøet: scopet
+venter (SSV-6690). Til det er tildelt, trekkes bare pålegg
+registrert for hånd (#339).</li>
 <li><strong>Inntektsmelding til Nav</strong> (#184). Når Nav ber om inntektsmelding
 for en sykmeldt, må selskapet sende den selv, på nav.no eller i et
 annet system. regnmed registrerer ikke fravær. Navs API tar bare
